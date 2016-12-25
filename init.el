@@ -68,6 +68,12 @@
 (add-to-list 'default-frame-alist '(width . 120))
 
 ;;
+;; Set Emacs startup position
+;;
+;; TODO: to be improved centering it on the screen
+(setq initial-frame-alist '((left . 400) (top . 200)))
+
+;;
 ;; Backup files settings
 ;;
 ;; Backup directory
