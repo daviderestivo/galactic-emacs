@@ -5,7 +5,7 @@
 (package-initialize)
 
 ;;
-;; Add MELPA package archive
+;; Add melpa, melpa-stable and marmalade package archives
 ;;
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
