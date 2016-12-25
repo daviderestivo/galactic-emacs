@@ -13,6 +13,11 @@
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 ;;
+;; Sort apropos results by relevancy
+;;
+(setq apropos-sort-by-scores t)
+
+;;
 ;; exec-path-from-shell
 ;;
 (when (memq window-system '(mac ns))
