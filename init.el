@@ -29,6 +29,16 @@
 (setq inhibit-startup-screen t)
 
 ;;
+;; Disable the Toolbar
+;;
+(tool-bar-mode -1)
+
+;;
+;; Disable the Scrollbar
+;;
+(toggle-scroll-bar -1)
+
+;;
 ;; Change default dir to ~
 ;;
 (cd "~")
@@ -62,16 +72,24 @@
  )
 
 ;;
-;; Set Emacs window frame size
+;; Set Emacs frame size and center it on the screen
 ;;
-(add-to-list 'default-frame-alist '(height . 50))
-(add-to-list 'default-frame-alist '(width . 120))
+(defvar frame_height 50)
+(defvar frame_width 120)
+(add-to-list 'default-frame-alist `(height . ,frame_height))
+(add-to-list 'default-frame-alist `(width . ,frame_width))
+
+(defvar frame_pixel_height (* frame_height (frame-char-height)))
+(defvar frame_pixel_width  (* frame_width (frame-char-width)))
+
+(setq initial-frame-alist
+      `((left . ,(/ (- (display-pixel-width)  frame_pixel_width) 2))
+	(top . ,(/ (- (display-pixel-height)  frame_pixel_height) 2))))
 
 ;;
 ;; Set Emacs startup position
 ;;
-;; TODO: to be improved centering it on the screen
-(setq initial-frame-alist '((left . 400) (top . 200)))
+;; (setq initial-frame-alist '((left . 400) (top . 200)))
 
 ;;
 ;; Backup files settings
@@ -162,9 +180,9 @@
 (setq ediff-split-window-function 'split-window-horizontally)
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;
-;; ansi-term settings ;;
-;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; BEGIN ansi-term settings ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;; This tells term (which is used by ansi-term) to kill the buffer after the terminal is exited. 
 ;;
@@ -203,3 +221,6 @@
   (balance-windows)
   (other-window 1)
   (ansi-term "/bin/bash"))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; END ansi-term settings ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;
