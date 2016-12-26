@@ -83,8 +83,9 @@
 (defvar frame-pixel-width  (* frame-width (frame-char-width)))
 
 (setq initial-frame-alist
-      `((left . ,(/ (- (display-pixel-width)  frame-pixel-width) 2))
-	(top . ,(/ (- (display-pixel-height)  frame-pixel-height) 2))))
+;; Avoid the issue of having emacs on the middle of two displays. 
+      `((left . ,(/ (- (round (* (display-pixel-height) 1.777))  frame-pixel-width) 2))
+	(top .  ,(/ (- (display-pixel-height)  frame-pixel-height) 2))))
 
 ;;
 ;; Set Emacs startup position
