@@ -74,17 +74,17 @@
 ;;
 ;; Set Emacs frame size and center it on the screen
 ;;
-(defvar frame_height 50)
-(defvar frame_width 120)
-(add-to-list 'default-frame-alist `(height . ,frame_height))
-(add-to-list 'default-frame-alist `(width . ,frame_width))
+(defvar frame-height 50)
+(defvar frame-width 120)
+(add-to-list 'default-frame-alist `(height . ,frame-height))
+(add-to-list 'default-frame-alist `(width . ,frame-width))
 
-(defvar frame_pixel_height (* frame_height (frame-char-height)))
-(defvar frame_pixel_width  (* frame_width (frame-char-width)))
+(defvar frame-pixel-height (* frame-height (frame-char-height)))
+(defvar frame-pixel-width  (* frame-width (frame-char-width)))
 
 (setq initial-frame-alist
-      `((left . ,(/ (- (display-pixel-width)  frame_pixel_width) 2))
-	(top . ,(/ (- (display-pixel-height)  frame_pixel_height) 2))))
+      `((left . ,(/ (- (display-pixel-width)  frame-pixel-width) 2))
+	(top . ,(/ (- (display-pixel-height)  frame-pixel-height) 2))))
 
 ;;
 ;; Set Emacs startup position
