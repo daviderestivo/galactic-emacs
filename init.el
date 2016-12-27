@@ -8,9 +8,12 @@
 ;; Add melpa, melpa-stable and marmalade package archives
 ;;
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives
+	     '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives
+	     '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives
+	     '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 ;;
 ;; Sort apropos results by relevancy
@@ -27,6 +30,16 @@
 ;; Inhibit welcome buffer
 ;;
 (setq inhibit-startup-screen t)
+
+;;
+;; Set the initial major mode to text-mode
+;;
+(setq initial-major-mode (quote text-mode))
+
+;;
+;; Make *scratch* buffer blank.
+;;
+(setq initial-scratch-message nil)
 
 ;;
 ;; Disable the Toolbar
@@ -100,10 +113,12 @@
 ;; Backup the file by copying it
 (setq backup-by-copying t)
 (setq delete-old-versions t ; delete excess backup files silently
-  kept-new-versions 6       ; oldest versions to keep when a new numbered backup is made (default: 2)
-  kept-old-versions 2       ; newest versions to keep when a new numbered backup is made (default: 2)
-  version-control t         ; version numbers for backup files
-)
+      kept-new-versions 6   ; oldest versions to keep when a new numbered backup
+			    ; is made (default: 2)
+      kept-old-versions 2   ; newest versions to keep when a new numbered backup
+			    ; is made (default: 2)
+      version-control t     ; version numbers for backup files
+      )
 
 ;;
 ;; Enable line and column numbering
@@ -185,7 +200,8 @@
 ;; BEGIN ansi-term settings ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
-;; This tells term (which is used by ansi-term) to kill the buffer after the terminal is exited. 
+;; This tells term (which is used by ansi-term) to kill the buffer after the
+;; terminal is exited. 
 ;;
 (defadvice term-sentinel (around my-advice-term-sentinel (proc msg))
   (if (memq (process-status proc) '(signal exit))
@@ -208,7 +224,8 @@
   (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))
 (add-hook 'term-exec-hook 'my-term-use-utf8)
 ;;
-;;  URLs that show up in my terminal (via man pages, help, info, errors, etc) to be clickable.
+;; URLs that show up in my terminal (via man pages, help, info, errors, etc)
+;; to be clickable.
 ;;
 (defun my-term-hook () (goto-address-mode))
 (add-hook 'term-mode-hook 'my-term-hook)
@@ -229,9 +246,9 @@
 ;;
 ;; Code completion key bindings in Emacs
 ;;
-(global-set-key (kbd "TAB") 'hippie-expand)
+(global-set-key (kbd "C-<tab>") 'hippie-expand)
 ;;
-;;settings for hippie-expand
+;; Settings for hippie-expand
 ;;
 (setq hippie-expand-try-functions-list
        '(try-complete-lisp-symbol
@@ -242,3 +259,21 @@
          try-expand-line
          try-complete-file-name-partially
          try-complete-file-name))
+
+;;
+;; Create a new buffer without prompting for the name. Bound to F7
+;;
+(defun new-empty-buffer ()
+  "Create a new empty buffer. New buffer will be named “untitled” or 
+“untitled<2>”, “untitled<3>”, ..."
+  (interactive)
+  (let ((new-buf (generate-new-buffer "untitled")))
+    (switch-to-buffer new-buf)
+    (funcall initial-major-mode)
+    (setq buffer-offer-save t)))
+(global-set-key (kbd "<f7>") 'new-empty-buffer)
+
+;;
+;; Add magit-status key binding 
+;;
+(global-set-key (kbd "<f2>") 'magit-status)
