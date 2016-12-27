@@ -150,7 +150,7 @@
 ;;
 ;; Spell checking config
 ;;
-(setq ispell-program-name "/usr/local/bin/aspell")
+(setq ispell-program-name "aspell")
 ;;
 ;; Enable flyspell for text files 
 ;;
