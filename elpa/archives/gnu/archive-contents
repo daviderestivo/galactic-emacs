@@ -521,7 +521,7 @@
 	       ((:url . "http://github.com/rocky/emacs-loc-changes")
 		(:keywords))])
  (loccur .
-	 [(1 2 2)
+	 [(1 2 3)
 	  ((cl-lib
 	    (0)))
 	  "Perform an occur-like folding in current buffer" single

@@ -3374,7 +3374,7 @@
        (2 2 0)))
      "Modern API for working with files and directories" single])
  (eyebrowse .
-	    [(0 7 3)
+	    [(0 7 4)
 	     ((dash
 	       (2 7 0))
 	      (emacs
