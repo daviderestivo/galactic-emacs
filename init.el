@@ -327,3 +327,9 @@
 ;; '(rainbow-delimiters-unmatched-face ((t (:background "cyan" :height 0.7))))
 ;; )
 ;;
+
+;;
+;; Jedi - Python auto-completion package for Emacs -
+;;
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)
