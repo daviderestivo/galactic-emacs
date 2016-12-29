@@ -78,13 +78,28 @@
  '(package-selected-packages
    (quote
     (rainbow-delimiters org magit ## exec-path-from-shell)))
- '(show-paren-mode t))
+ '(show-paren-mode t)
+ ;;
+ ;; Remember window changes and permit to return back to a previous
+ ;; windows layout
+ ;;
+ ;; C-c <left>, C-c <right>
+ '(winner-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "red"))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "orange"))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "yellow"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "green"))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "blue"))))
+ '(rainbow-delimiters-depth-6-face ((t (:foreground "violet"))))
+ '(rainbow-delimiters-depth-7-face ((t (:foreground "purple"))))
+ '(rainbow-delimiters-depth-8-face ((t (:foreground "black"))))
+ '(rainbow-delimiters-depth-9-face ((t (:foreground "white"))))
+ '(rainbow-delimiters-unmatched-face ((t (:background "cyan")))))
 
 ;;
 ;; Set Emacs frame size and center it on the screen
@@ -299,18 +314,7 @@
 ;;
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-(custom-set-faces
- '(rainbow-delimiters-depth-1-face ((t (:foreground "red"))))
- '(rainbow-delimiters-depth-2-face ((t (:foreground "orange"))))
- '(rainbow-delimiters-depth-3-face ((t (:foreground "yellow"))))
- '(rainbow-delimiters-depth-4-face ((t (:foreground "green"))))
- '(rainbow-delimiters-depth-5-face ((t (:foreground "blue"))))
- '(rainbow-delimiters-depth-6-face ((t (:foreground "violet"))))
- '(rainbow-delimiters-depth-7-face ((t (:foreground "purple"))))
- '(rainbow-delimiters-depth-8-face ((t (:foreground "black"))))
- '(rainbow-delimiters-depth-9-face ((t (:foreground "white"))))
- '(rainbow-delimiters-unmatched-face ((t (:background "cyan"))))
- )
+
 ;;
 ;; rainbow-delimiters-mode setup, with decreasing bracket size
 ;;
