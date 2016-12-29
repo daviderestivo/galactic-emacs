@@ -77,13 +77,8 @@
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(package-selected-packages
    (quote
-    (rainbow-delimiters org magit ## exec-path-from-shell)))
+    (auto-package-update rainbow-delimiters org magit ## exec-path-from-shell)))
  '(show-paren-mode t)
- ;;
- ;; Remember window changes and permit to return back to a previous
- ;; windows layout
- ;;
- ;; C-c <left>, C-c <right>
  '(winner-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
