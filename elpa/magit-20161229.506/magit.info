@@ -1,0 +1,172 @@
+This is magit.info, produced by makeinfo version 5.2 from magit.texi.
+
+Magit is an interface to the version control system Git, implemented as
+an Emacs package.  Magit aspires to be a complete Git porcelain.  While
+we cannot (yet) claim that Magit wraps and improves upon each and every
+Git command, it is complete enough to allow even experienced Git users
+to perform almost all of their daily version control tasks directly from
+within Emacs.  While many fine Git clients exist, only Magit and Git
+itself deserve to be called porcelains.
+
+     Copyright (C) 2015-2016 Jonas Bernoulli <jonas@bernoul.li>
+
+     You can redistribute this document and/or modify it under the terms
+     of the GNU General Public License as published by the Free Software
+     Foundation, either version 3 of the License, or (at your option)
+     any later version.
+
+     This document is distributed in the hope that it will be useful,
+     but WITHOUT ANY WARRANTY; without even the implied warranty of
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+     General Public License for more details.
+INFO-DIR-SECTION Emacs
+START-INFO-DIR-ENTRY
+* Magit: (magit).       Using Git from Emacs with Magit.
+END-INFO-DIR-ENTRY
+
+
+Indirect:
+magit.info-1: 1222
+magit.info-2: 322424
+
+Tag Table:
+(Indirect)
+Node: Top1222
+Node: Introduction6078
+Node: Installation10801
+Node: Installing from an Elpa Archive11141
+Node: Installing from the Git Repository12267
+Node: Post-Installation Tasks14933
+Node: Getting Started16187
+Node: Interface Concepts21572
+Node: Modes and Buffers21846
+Node: Switching Buffers23591
+Node: Naming Buffers28132
+Node: Quitting Windows30967
+Node: Automatic Refreshing of Magit Buffers32599
+Node: Automatic Saving of File-Visiting Buffers35367
+Node: Automatic Reverting of File-Visiting Buffers36552
+Node: Risk of Reverting Automatically41548
+Node: Sections43931
+Node: Section Movement44872
+Node: Section Visibility48799
+Node: Section Hooks52274
+Node: Section Types and Values54555
+Node: Section Options55825
+Node: Popup Buffers and Prefix Commands56297
+Node: Completion and Confirmation57611
+Node: Running Git60517
+Node: Viewing Git Output60753
+Node: Running Git Manually61753
+Node: Git Executable63879
+Node: Global Git Arguments65886
+Node: Inspecting66692
+Node: Status Buffer67839
+Node: Status Sections70725
+Node: Status Header Sections76604
+Node: Status Options79161
+Node: Repository List80915
+Node: Logging83073
+Node: Refreshing Logs85612
+Node: Log Buffer86997
+Node: Log Margin89857
+Node: Select from Log92497
+Node: Reflog94601
+Node: Cherries96125
+Node: Diffing97870
+Node: Refreshing Diffs100889
+Node: Diff Buffer103870
+Node: Diff Options106464
+Node: Revision Buffer109830
+Node: Ediffing110785
+Node: References Buffer114375
+Node: References Sections121675
+Node: Bisecting122550
+Node: Visiting Blobs124288
+Node: Blaming124797
+Node: Manipulating128226
+Node: Repository Setup128542
+Node: Staging and Unstaging129582
+Node: Staging from File-Visiting Buffers133671
+Node: Applying134839
+Node: Committing136732
+Node: Initiating a Commit137315
+Node: Editing Commit Messages140626
+Node: Branching151022
+Node: The Two Remotes151222
+Node: The Branch Popup153766
+Node: The Branch Config Popup162994
+Node: Merging168897
+Node: Resolving Conflicts171064
+Node: Rebasing176069
+Node: Editing Rebase Sequences179709
+Node: Information About In-Progress Rebase182739
+Ref: Information About In-Progress Rebase-Footnote-1189575
+Node: Cherry Picking190161
+Node: Reverting191766
+Node: Resetting193129
+Node: Stashing194640
+Node: Transferring198834
+Node: Remotes199072
+Node: Fetching200357
+Node: Pulling201722
+Node: Pushing202567
+Node: Creating and Sending Patches207310
+Node: Applying Patches208005
+Node: Miscellaneous209002
+Node: Tagging209305
+Node: Notes210089
+Node: Submodules212613
+Node: Listing Submodules212827
+Node: Submodule Popup214646
+Node: Subtree215929
+Node: Common Commands217176
+Node: Wip Modes218921
+Node: Minor Mode for Buffers Visiting Files225657
+Node: Minor Mode for Buffers Visiting Blobs229131
+Node: Customizing229944
+Node: Per-Repository Configuration231616
+Node: Essential Settings233263
+Node: Safety233587
+Node: Performance235420
+Node: Plumbing243382
+Node: Calling Git244206
+Node: Getting a Value from Git245729
+Node: Calling Git for Effect248833
+Node: Section Plumbing255337
+Node: Creating Sections255565
+Node: Section Selection259464
+Node: Matching Sections261144
+Node: Refreshing Buffers266576
+Node: Conventions269711
+Node: Confirmation and Completion269888
+Node: Theming Faces270786
+Node: FAQ278937
+Node: FAQ - How to …?279330
+Node: How to show git's output?279694
+Node: How to install the gitman info manual?280448
+Node: How to show diffs for gpg-encrypted files?281418
+Node: How does branching and pushing work?282014
+Node: Can Magit be used as ‘ediff-version-control-package’?282393
+Node: FAQ - Issues and Errors284389
+Node: Magit is slow285133
+Node: I changed several thousand files at once and now Magit is unusable285358
+Node: I am having problems committing286098
+Node: I am using MS Windows and cannot push with Magit286579
+Node: I am using OS X and SOMETHING works in shell but not in Magit287196
+Node: Diffs contain control sequences288002
+Node: Expanding a file to show the diff causes it to disappear289076
+Node: Point is wrong in the ‘COMMIT_EDITMSG’ buffer289633
+Node: The mode-line information isn't always up-to-date290685
+Node: Emacs 245 hangs when loading Magit291752
+Node: Keystroke Index292302
+Node: Command Index322424
+Node: Function Index352652
+Node: Variable Index365962
+
+End Tag Table
+
+
+Local Variables:
+coding: utf-8
+End:
