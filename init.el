@@ -277,3 +277,17 @@
 ;; Add magit-status key binding 
 ;;
 (global-set-key (kbd "<f2>") 'magit-status)
+
+;;
+;; ORG config section
+;;
+(require 'org)
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+
+(setq org-agenda-files (list "~/org/home-various.org"
+                             "~/org/work-project-BNS.org"
+                             "~/org/work-project-HE.org"
+                             "~/org/work-project-ME.org"
+                             "~/org/work-various.org"))
