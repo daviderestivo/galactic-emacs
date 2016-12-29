@@ -75,7 +75,9 @@
    [default default default italic underline success warning error])
  '(custom-enabled-themes (quote (tango-dark)))
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
- '(package-selected-packages (quote (org magit ## exec-path-from-shell)))
+ '(package-selected-packages
+   (quote
+    (rainbow-delimiters org magit ## exec-path-from-shell)))
  '(show-paren-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
