@@ -328,8 +328,70 @@
 ;; )
 ;;
 
-;;
-;; Jedi - Python auto-completion package for Emacs -
-;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; BEGIN Jedi - Python auto-completion package for Emacs - ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'jedi)
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)
+;;
+;; Set Jedi to use python3 instead of the default python2
+;;
+(setq jedi:environment-root "python3")
+(setq jedi:server-command
+      '("~/.emacs.d/.python-environments/python3/bin/jediepcserver"))
+;;
+;; In order to install a python3 venv for Jedi do the following:
+;;
+;; 1. Create a new buffer and enter python-mode
+;;
+;; 2. Evaluate the following: 
+;;
+;;    (setq jedi:environment-virtualenv
+;;          (append python-environment-virtualenv
+;;                  '("--python" "/usr/local/bin/python3")))
+;;
+;; 3. Install the jedi server using:
+;;
+;;    M-x jedi:install-server
+;; 
+;; IMPORTANT: running jedi:install-server on an already installed venv will
+;; update all of the additional packages (pip install --upgrade).
+;;
+
+;;
+;; The default Jedy python venv is python3 based. See above.
+;; The below two functions permit to switch a buffer between
+;; python2 and python3 if needed.
+;;
+(defun jedi:use-python2 ()
+  (interactive)
+  ;; Switch a buffer to python2
+  (jedi:stop-server)
+  (make-local-variable 'jedi:server-command)
+  (setq jedi:server-command
+	'("~/.emacs.d/.python-environments/default/bin/jediepcserver"))
+  (make-local-variable 'jedi:environment-root)
+  (setq  jedi:environment-root "default")
+  )
+
+(defun jedi:use-python3 ()
+  (interactive)
+  (jedi:stop-server)
+  ;; Switch a buffer to python3
+  (make-local-variable 'jedi:server-command)
+  (setq jedi:server-command
+	'("~/.emacs.d/.python-environments/python3/bin/jediepcserver"))
+  (make-local-variable 'jedi:environment-root)
+  (setq  jedi:environment-root "python3")  
+  )
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; END Jedi - Python auto-completion package for Emacs - ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
+
+;;
+;; Emacs IPython Notebook config section
+;; 
+(require 'ein)
+;; Enable autocomplete
+(setq ein:use-auto-complete t)
