@@ -4,3 +4,4 @@ bookmarks
 *.pyc
 ac-comphist.dat
 .python-environments
+.last-package-update-day
