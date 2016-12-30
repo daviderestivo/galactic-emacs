@@ -341,17 +341,18 @@
 (setq jedi:server-command
       '("~/.emacs.d/.python-environments/python3/bin/jediepcserver"))
 ;;
-;; In order to install a python3 venv for Jedi do the following:
+;; In order to install a python2 venv for Jedi do the following:
 ;;
 ;; 1. Create a new buffer and enter python-mode
 ;;
 ;; 2. Evaluate the following: 
 ;;
+;;    (setq jedi:environment-root "default")
 ;;    (setq jedi:environment-virtualenv
 ;;          (append python-environment-virtualenv
-;;                  '("--python" "/usr/local/bin/python3")))
+;;                  '("--python" "/usr/local/bin/python")))
 ;;
-;; 3. Install the jedi server using:
+;; 3. Install the Jedi server using:
 ;;
 ;;    M-x jedi:install-server
 ;; 
