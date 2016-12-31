@@ -76,7 +76,7 @@
  '(custom-enabled-themes (quote (zenburn)))
  '(custom-safe-themes
    (quote
-    ("fbe73c1b252972fc59564998879a8686d5e796c27294c2c8433c7c134c3a0de8" default)))
+    ("3d47d88c86c30150c9a993cc14c808c769dad2d4e9d0388a24fee1fbf61f0971" default)))
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(package-selected-packages
    (quote
