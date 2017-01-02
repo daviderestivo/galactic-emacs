@@ -1,4 +1,13 @@
 (1
+ (emacs-profiles .
+		 [(20170101 1530)
+		  ((emacs
+		    (24))
+		   (cl-lib
+		    (0 5))
+		   (prompt-you
+		    (20160925 1115)))
+		  "Configuration profiles for Emacs" single])
  (zone-nyan .
 	    [(0 2 2)
 	     ((esxml
