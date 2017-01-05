@@ -136,8 +136,10 @@
 	      ((:url . "http://elpa.gnu.org/packages/cl-generic.html")
 	       (:keywords))])
  (cl-lib .
-	 [(0 5)
-	  nil "Properly prefixed CL functions and macros" single
+	 [(0 6)
+	  ((emacs
+	    (21)))
+	  "Properly prefixed CL functions and macros" single
 	  ((:url . "http://elpa.gnu.org/packages/cl-lib.html")
 	   (:keywords))])
  (coffee-mode .
@@ -291,7 +293,7 @@
 	     ((:url . "http://elpa.gnu.org/packages/ediprolog.html")
 	      (:keywords "languages" "processes"))])
  (el-search .
-	    [(1 2 2)
+	    [(1 2 3)
 	     ((emacs
 	       (25))
 	      (stream
