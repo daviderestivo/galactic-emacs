@@ -399,3 +399,8 @@
 (require 'ein)
 ;; Enable autocomplete
 (setq ein:use-auto-complete t)
+
+;;
+;; auto-package-update - Automatically delete old packages
+;;
+(setq auto-package-update-delete-old-versions t)
