@@ -1,4 +1,7 @@
 (1
+ (passmm .
+	 [(0 1 0)
+	  nil "A minor mode for pass (Password Store). " tar])
  (zone-nyan .
 	    [(0 2 2)
 	     ((esxml
