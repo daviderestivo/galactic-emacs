@@ -1,9 +1,9 @@
 # emacs-config
 
-This is my emacs config file. Feel free to use it if you find anything 
-interesting in it. Below you can find the list of the packages that are
+This is my emacs config file. Feel free to use it, if you find anything 
+interesting for you in it. Below you can find the list of the packages that are
 installed. You might decide to clone the whole repo and use the already
-available packages or to use only part of the init.el file and then 
+installed packages or to use only part of the init.el file and then 
 install the needed packages by yourself.
 
 ## Required packages
