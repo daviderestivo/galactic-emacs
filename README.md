@@ -4,27 +4,19 @@ This is my emacs config file. Feel free to use it if you find anything
 interesting in it. Below you can find the list of the packages that are
 installed. You might decide to clone the whole repo and use the already
 available packages or to use only part of the init.el file and then 
+install the needed packages by yourself.
 
 ## Required packages
 
+* auto-package-update [[link](https://github.com/rranelli/auto-package-update.el)]
+* cisco-router-mode.el [[link](https://www.emacswiki.org/emacs/download/cisco-router-mode.el)]
+* exec-path-from-shell [link](https://github.com/purcell/exec-path-from-shell)]
+* EIN [[link](https://github.com/millejoh/emacs-ipython-notebook)]
+* ORG [[link](http://orgmode.org)]
+* rainbow-delimiters [[link](https://www.emacswiki.org/emacs/RainbowDelimiters)]
+* Jedi [[link](https://github.com/tkf/emacs-jedi)]
+* magit [[link](https://magit.vc)]
+* markdown-preview-mode [[link](https://github.com/ancane/markdown-preview-mode)]
+* zenburn-theme [[link](https://github.com/bbatsov/zenburn-emacs)]
 
-## Base Config Section
-Ref URL:
-
-
-## MAGIT Config Section
-
-## Jedi Config Section
-Ref URL:
-
-## ENI Config Section
-Ref URL:
-
-## Auto-package-update Config Section
-Ref URL:
-
-## Rainbow Delitmiters Config SRef URL:
-Ref URL:
-
-Feel free to contact me in case of questions.
-Davide
+The above list does not specify the package dependencies.
