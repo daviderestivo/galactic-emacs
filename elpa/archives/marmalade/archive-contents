@@ -1,7 +1,4 @@
 (1
- (passmm .
-	 [(0 1 0)
-	  nil "A minor mode for pass (Password Store). " tar])
  (zone-nyan .
 	    [(0 2 2)
 	     ((esxml
@@ -1504,6 +1501,9 @@
 	     ((web
 	       (0 3 6)))
 	     "paste text to KDE's pastebin service" single])
+ (passmm .
+	 [(0 2 0)
+	  nil "A minor mode for pass (Password Store). " tar])
  (parscope .
 	   [(0 1 0)
 	    nil "Minor mode for showing the current scope in Lisp-like languages." single])
