@@ -19,4 +19,5 @@ install the needed packages by yourself.
 * markdown-preview-mode [[link](https://github.com/ancane/markdown-preview-mode)]
 * zenburn-theme [[link](https://github.com/bbatsov/zenburn-emacs)]
 
-The above list does not specify the package dependencies.
+The above list does include the packages' dependencies. Feel free to drop me 
+an email in case of questions.
