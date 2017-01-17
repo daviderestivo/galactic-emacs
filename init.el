@@ -80,7 +80,7 @@
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(package-selected-packages
    (quote
-    (zenburn-theme markdown-preview-mode ein jedi auto-package-update rainbow-delimiters org magit ## exec-path-from-shell)))
+    (sublimity zenburn-theme markdown-preview-mode ein jedi auto-package-update rainbow-delimiters org magit ## exec-path-from-shell)))
  '(show-paren-mode t)
  '(winner-mode t))
 (custom-set-faces
@@ -404,3 +404,13 @@
 ;; auto-package-update - Automatically delete old packages
 ;;
 (setq auto-package-update-delete-old-versions t)
+
+;;
+;; Sublimity - Enable Sublimity smooth-scrolling:
+;;
+(require 'sublimity)
+(require 'sublimity-scroll)
+;; (require 'sublimity-map)
+;; (require 'sublimity-attractive)
+;;(sublimity-mode 1)
+(setq sublimity-scroll-weight 1 sublimity-scroll-drift-length 5)

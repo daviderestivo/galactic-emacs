@@ -140,6 +140,11 @@
 	  nil "Properly prefixed CL functions and macros" single
 	  ((:url . "http://elpa.gnu.org/packages/cl-lib.html")
 	   (:keywords))])
+ (cobol-mode .
+	     [(1 0 0)
+	      nil "Mode for editing COBOL code" single
+	      ((:url . "http://elpa.gnu.org/packages/cobol-mode.html")
+	       (:keywords "languages"))])
  (coffee-mode .
 	      [(0 4 1 1)
 	       nil "Major mode for CoffeeScript files" single
@@ -393,7 +398,7 @@
 	 ((:keywords "mail" "org" "gnus" "bbdb" "todo" "task")
 	  (:url . "https://github.com/girzel/gnorb"))])
  (gnugo .
-	[(3 0 0)
+	[(3 0 1)
 	 ((ascii-art-to-unicode
 	   (1 5))
 	  (xpm
