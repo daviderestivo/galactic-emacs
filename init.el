@@ -412,5 +412,5 @@
 (require 'sublimity-scroll)
 ;; (require 'sublimity-map)
 ;; (require 'sublimity-attractive)
-;;(sublimity-mode 1)
-(setq sublimity-scroll-weight 1 sublimity-scroll-drift-length 5)
+(sublimity-mode 1)
+(setq sublimity-scroll-weight 1 sublimity-scroll-drift-length 10)
