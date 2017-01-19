@@ -66,18 +66,23 @@
    (case key
      ((svg image/svg)
       (progn
+        (when (null file)
+          (error "Please specify an :image header argument when generating images."))
         (ein:write-base64-decoded-image value file)
-        (format "[[%s]]" file)))
+        (format "[[file:%s]]" file)))
      ((png image/png jpeg image/jpeg)
       (progn
+        (when (null file)
+          (error "Please specify an :image header argument when generating images."))
         (ein:write-base64-image value file)
-        (format "[[%s]]" file)))
+        (format "[[file:%s]]" file)))
      (t (plist-get json type)))))
 
 (defun org-babel-ein-process-outputs (outputs params)
-  (let ((file (cdr (assoc :file params))))
-    (loop for o in outputs
-          collecting (ein:return-mime-type o file))))
+  (let ((file (cdr (assoc :images params))))
+    (ein:join-str "\n"
+                  (loop for o in outputs
+                        collecting (ein:return-mime-type o file)))))
 
 ;; This is the main function which is called to evaluate a code
 ;; block.
