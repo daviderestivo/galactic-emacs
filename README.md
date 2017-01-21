@@ -10,13 +10,15 @@ install the needed packages by yourself.
 
 * auto-package-update [[link](https://github.com/rranelli/auto-package-update.el)]
 * cisco-router-mode.el [[link](https://www.emacswiki.org/emacs/download/cisco-router-mode.el)]
+* ein [[link](https://github.com/millejoh/emacs-ipython-notebook)]
 * exec-path-from-shell [link](https://github.com/purcell/exec-path-from-shell)]
-* EIN [[link](https://github.com/millejoh/emacs-ipython-notebook)]
-* ORG [[link](http://orgmode.org)]
-* rainbow-delimiters [[link](https://www.emacswiki.org/emacs/RainbowDelimiters)]
-* Jedi [[link](https://github.com/tkf/emacs-jedi)]
+* jedi [[link](https://github.com/tkf/emacs-jedi)]
 * magit [[link](https://magit.vc)]
 * markdown-preview-mode [[link](https://github.com/ancane/markdown-preview-mode)]
+* org [[link](http://orgmode.org)]
+* rainbow-delimiters [[link](https://www.emacswiki.org/emacs/RainbowDelimiters)]
+* smart-mode-line [[link](https://github.com/Malabarba/smart-mode-line)]
+* smart-mode-line-powerline-theme  [[link](https://github.com/Malabarba/smart-mode-line)]
 * zenburn-theme [[link](https://github.com/bbatsov/zenburn-emacs)]
 
 The above list does include the packages' dependencies. Feel free to drop me 

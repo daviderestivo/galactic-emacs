@@ -76,11 +76,11 @@
  '(custom-enabled-themes (quote (zenburn)))
  '(custom-safe-themes
    (quote
-    ("9d91458c4ad7c74cf946bd97ad085c0f6a40c370ac0a1cbeb2e3879f15b40553" "3d47d88c86c30150c9a993cc14c808c769dad2d4e9d0388a24fee1fbf61f0971" default)))
+    ("c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "9d91458c4ad7c74cf946bd97ad085c0f6a40c370ac0a1cbeb2e3879f15b40553" "3d47d88c86c30150c9a993cc14c808c769dad2d4e9d0388a24fee1fbf61f0971" default)))
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(package-selected-packages
    (quote
-    (zenburn-theme markdown-preview-mode ein jedi auto-package-update rainbow-delimiters org magit ## exec-path-from-shell)))
+    (smart-mode-line-powerline-theme smart-mode-line zenburn-theme markdown-preview-mode ein jedi auto-package-update rainbow-delimiters org magit ## exec-path-from-shell)))
  '(show-paren-mode t)
  '(winner-mode t))
 (custom-set-faces
@@ -413,9 +413,15 @@
 ;; and 5 lines at a time when 'Shift' key is held.
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 5)))
 ;; Don't accelerate scrolling
-(setq mouse-wheel-progressive-speed nil)
-;; Scroll window under mouse. No need to set this in Emacs >24.5 because it
-;; is enabled by default.
+(setq mouse-wheel-progressive-speed 'nil)
+;; No need to set 'mouse-wheel-follow-mouse' in Emacs 24.5
+;; because it is enabled by default.
 ;; (setq mouse-wheel-follow-mouse 't)
 ;; Keyboard scroll one line at a time
 (setq scroll-step 1)
+
+;;
+;; Enable smart-mode-line
+;;
+(setq sml/theme 'powerline)
+(sml/setup)
