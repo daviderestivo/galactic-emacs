@@ -97,7 +97,17 @@
  '(rainbow-delimiters-depth-7-face ((t (:foreground "purple"))))
  '(rainbow-delimiters-depth-8-face ((t (:foreground "black"))))
  '(rainbow-delimiters-depth-9-face ((t (:foreground "white"))))
- '(rainbow-delimiters-unmatched-face ((t (:background "cyan")))))
+ '(rainbow-delimiters-unmatched-face ((t (:background "cyan"))))
+ '(sml/col-number ((t (:inherit sml/global :background "black" :foreground "gray70" :weight bold))))
+ '(sml/filename ((t (:inherit sml/global :background "#383838" :foreground "dark gray" :weight light))))
+ '(sml/line-number ((t (:inherit sml/global :background "black" :foreground "gray70" :weight bold))))
+ '(sml/modes ((t (:inherit sml/global :background "#5F5F5F" :foreground "Black" :weight ultra-light))))
+ '(sml/modified ((t (:foreground "dark gray"))))
+ '(sml/position-percentage ((t (:inherit sml/prefix :background "#5F5F5F" :foreground "gray70" :weight normal))))
+ '(sml/prefix ((t (:inherit sml/global :background "#383838" :foreground "dark gray"))))
+ '(sml/read-only ((t (:inherit sml/not-modified :foreground "dark gray"))))
+ '(sml/vc ((t (:inherit sml/git :background "#5F5F5F" :foreground "dark gray"))))
+ '(sml/vc-edited ((t (:inherit sml/prefix :background "#5F5F5F" :foreground "burlywood1")))))
 
 ;;
 ;; Set Emacs frame size and center it on the screen
@@ -423,5 +433,7 @@
 ;;
 ;; Enable smart-mode-line
 ;;
+(display-time-mode)
+(display-battery-mode)
 (setq sml/theme 'powerline)
 (sml/setup)
