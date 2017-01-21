@@ -406,11 +406,14 @@
 (setq auto-package-update-delete-old-versions t)
 
 ;;
-;; Sublimity - Enable Sublimity smooth-scrolling:
+;; Enable smooth scrolling:
 ;;
-(require 'sublimity)
-(require 'sublimity-scroll)
-;; (require 'sublimity-map)
-;; (require 'sublimity-attractive)
-(sublimity-mode 1)
-(setq sublimity-scroll-weight 1 sublimity-scroll-drift-length 10)
+;; Scroll one line at a time (less "jumpy" than defaults)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 5)))
+;; Don't accelerate scrolling
+(setq mouse-wheel-progressive-speed nil)
+;; Scroll window under mouse. No need to set this in Emacs >24.5 because it
+;; is enabled by default.
+;; (setq mouse-wheel-follow-mouse 't)
+;; Keyboard scroll one line at a time
+(setq scroll-step 1)
