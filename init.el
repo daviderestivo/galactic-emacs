@@ -80,7 +80,7 @@
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(package-selected-packages
    (quote
-    (sublimity zenburn-theme markdown-preview-mode ein jedi auto-package-update rainbow-delimiters org magit ## exec-path-from-shell)))
+    (zenburn-theme markdown-preview-mode ein jedi auto-package-update rainbow-delimiters org magit ## exec-path-from-shell)))
  '(show-paren-mode t)
  '(winner-mode t))
 (custom-set-faces
