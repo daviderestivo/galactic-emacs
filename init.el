@@ -406,9 +406,11 @@
 (setq auto-package-update-delete-old-versions t)
 
 ;;
-;; Enable smooth scrolling:
+;; Enable smooth scrolling
 ;;
 ;; Scroll one line at a time (less "jumpy" than defaults)
+;; (1 ((shift) . 5)) makes scroll by 1 line at a time by default
+;; and 5 lines at a time when 'Shift' key is held.
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 5)))
 ;; Don't accelerate scrolling
 (setq mouse-wheel-progressive-speed nil)
