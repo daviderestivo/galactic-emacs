@@ -23,6 +23,8 @@
 ;;
 ;; exec-path-from-shell
 ;;
+;; http://stackoverflow.com/questions/35286203/exec-path-from-shell-message-when-starting-emacs
+(setq exec-path-from-shell-check-startup-files nil)
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
