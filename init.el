@@ -439,3 +439,8 @@
 (display-battery-mode)
 (setq sml/theme 'powerline)
 (sml/setup)
+
+;;
+;; Setup transpose-frame
+;;
+(require 'transpose-frame)
