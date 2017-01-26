@@ -650,7 +650,7 @@
 	     ((:url . "https://github.com/michael-heerdegen/on-screen.el")
 	      (:keywords "convenience"))])
  (org .
-      [(20161224)
+      [(20170124)
        nil "Outline-based notes management and organizer" tar nil])
  (osc .
       [(0 1)
@@ -688,6 +688,11 @@
 	 nil "Texas hold 'em poker" single
 	 ((:url . "http://elpa.gnu.org/packages/poker.html")
 	  (:keywords "games"))])
+ (psgml .
+	[(1 3 4)
+	 nil "SGML-editing mode with parsing support" tar
+	 ((:keywords "languages")
+	  (:url . "http://elpa.gnu.org/packages/psgml.html"))])
  (python .
 	 [(0 25 2)
 	  ((emacs
