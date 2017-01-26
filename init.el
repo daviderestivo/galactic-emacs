@@ -64,6 +64,11 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 ;;
+;; Set default font
+;;
+(set-default-font "Menlo 13")
+
+;;
 ;; Add Major modes
 ;; 
 (load-library "cisco-router-mode")
