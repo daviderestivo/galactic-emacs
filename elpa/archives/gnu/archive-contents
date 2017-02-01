@@ -495,7 +495,7 @@
 	    ((:url . "http://elpa.gnu.org/packages/landmark.html")
 	     (:keywords "games" "neural network" "adaptive search" "chemotaxis"))])
  (let-alist .
-	    [(1 0 4)
+	    [(1 0 5)
 	     ((emacs
 	       (24 1)))
 	     "Easily let-bind values of an assoc-list by their names" single
