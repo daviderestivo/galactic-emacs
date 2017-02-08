@@ -5161,7 +5161,7 @@ Also see *note (gitman)git-reset::.
      Reset the ‘HEAD’, index, and working tree to some commit read from
      the user and defaulting to the commit at point.
 
-‘M-x magit-checkout-file’     (‘magit-checkout-file’)
+‘M-x magit-file-checkout’     (‘magit-file-checkout’)
 
      Update file in the working tree and index to the contents from a
      revision.
@@ -7841,11 +7841,11 @@ Appendix B Keystroke Index
 * M-w <1>:                               Common Commands.     (line  10)
 * M-x magit-blame:                       Blaming.             (line   8)
 * M-x magit-blame-popup:                 Blaming.             (line  24)
-* M-x magit-checkout-file:               Resetting.           (line  37)
 * M-x magit-clone:                       Repository Setup.    (line  16)
 * M-x magit-describe-section:            Section Types and Values.
                                                               (line  13)
 * M-x magit-describe-section <1>:        Matching Sections.   (line   6)
+* M-x magit-file-checkout:               Resetting.           (line  37)
 * M-x magit-find-file:                   Visiting Blobs.      (line   6)
 * M-x magit-find-file-other-window:      Visiting Blobs.      (line  11)
 * M-x magit-init:                        Repository Setup.    (line   6)

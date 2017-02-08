@@ -27,6 +27,9 @@
 
 ;;; Code:
 
+(eval-when-compile
+  '(require 'pcase)) ; `pcase-dolist' isn't autoloaded by v24.4
+
 (require 'magit)
 
 ;;; Commands
