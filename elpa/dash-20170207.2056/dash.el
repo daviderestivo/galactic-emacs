@@ -4,7 +4,7 @@
 
 ;; Author: Magnar Sveen <magnars@gmail.com>
 ;; Version: 2.13.0
-;; Package-Version: 20161121.55
+;; Package-Version: 20170207.2056
 ;; Keywords: lists
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -578,6 +578,11 @@ Alias: `-any'"
   "Return the first item of LIST, or nil on an empty list.
 
 \(fn LIST)")
+
+;; Ensure that calls to `-first-item' are compiled to a single opcode,
+;; just like `car'.
+(put '-first-item 'byte-opcode 'byte-car)
+(put '-first-item 'byte-compile 'byte-compile-one-arg)
 
 ;; TODO: emacs23 support, when dropped remove the condition
 (eval-when-compile
