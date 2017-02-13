@@ -1160,7 +1160,7 @@ or `HEAD'."
         rev
       (setq rev (if (consp rev)
                     (cdr rev)
-                  (car (magit-split-range rev))))
+                  (cdr (magit-split-range rev))))
       (if (magit-rev-head-p rev)
           'unstaged
         rev))))
@@ -1170,7 +1170,7 @@ or `HEAD'."
     (cond ((consp rev)
            (concat (cdr rev) "^"))
           ((stringp rev)
-           (cdr (magit-split-range rev)))
+           (car (magit-split-range rev)))
           (t
            rev))))
 
@@ -1393,7 +1393,8 @@ is set in `magit-mode-setup'."
          (if (member "--no-index" const)
              (apply #'format " Differences between %s and %s" files)
            (concat (if rev-or-range
-                       (if (string-match-p "\\.\\." rev-or-range)
+                       (if (string-match-p "\\(\\.\\.\\|\\^-\\)"
+                                           rev-or-range)
                            (format " Changes in %s" rev-or-range)
                          (format " Changes from %s to working tree" rev-or-range))
                      (if (member "--cached" const)

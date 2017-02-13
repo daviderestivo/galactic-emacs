@@ -347,7 +347,7 @@
 	       ((:keywords "calendar")
 		(:url . "http://elpa.gnu.org/packages/excorporate.html"))])
  (exwm .
-       [(0 12)
+       [(0 13)
 	((xelb
 	  (0 12)))
 	"Emacs X Window Manager" tar
