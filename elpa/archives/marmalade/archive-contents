@@ -1408,7 +1408,7 @@
 	   [(0 0 1)
 	    nil "get stuff from pinboard" single])
  (picpocket .
-	    [(28)
+	    [(29)
 	     ((emacs
 	       (24 4)))
 	     "Image viewer" single])
@@ -2834,7 +2834,7 @@
 	   [(1 6)
 	    nil "goto last change" single])
  (gotham-theme .
-	       [(1 1 6)
+	       [(1 1 7)
 		nil "A very dark Emacs color theme." single])
  (gotests .
 	  [(0 0 2)
