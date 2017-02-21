@@ -66,7 +66,7 @@
 ;;
 ;; Set default font
 ;;
-(set-default-font "Menlo 13")
+(set-default-font "Menlo 14")
 
 ;;
 ;; Add Major modes
