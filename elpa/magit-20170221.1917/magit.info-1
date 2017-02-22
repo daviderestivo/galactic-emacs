@@ -2895,9 +2895,10 @@ File: magit.info,  Node: Diff Options,  Next: Revision Buffer,  Prev: Diff Buffe
 
      Specify where to highlight whitespace errors.
 
-     See ‘magit-highlight-trailing-whitespace’,
-     ‘magit-highlight-indentation’.  The symbol ‘t’ means in all diffs,
-     ‘status’ means only in the status buffer, and nil means nowhere.
+     See ‘magit-diff-highlight-trailing’,
+     ‘magit-diff-highlight-indentation’.  The symbol ‘t’ means in all
+     diffs, ‘status’ means only in the status buffer, and nil means
+     nowhere.
 
  -- User Option: magit-diff-highlight-trailing
 
