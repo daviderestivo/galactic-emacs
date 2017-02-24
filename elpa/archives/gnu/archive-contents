@@ -23,7 +23,7 @@
 	    ((:keywords "languages" "ada")
 	     (:url . "http://www.nongnu.org/ada-mode/"))])
  (ada-ref-man .
-	      [(2012 0)
+	      [(2012 3)
 	       nil "Ada Reference Manual 2012" tar
 	       ((:keywords "languages" "ada")
 		(:url . "http://stephe-leake.org/ada/arm.html"))])
@@ -174,7 +174,7 @@
 		((:keywords "unicode" "symbols" "completion")
 		 (:url . "https://github.com/vspinu/company-math"))])
  (company-statistics .
-		     [(0 2 2)
+		     [(0 2 3)
 		      ((emacs
 			(24 3))
 		       (company
@@ -946,7 +946,7 @@
 	       ((:url . "https://github.com/tlikonen/wcheck-mode")
 		(:keywords "text" "spell" "check" "languages" "ispell"))])
  (wconf .
-	[(0 2 0)
+	[(0 2 1)
 	 ((emacs
 	   (24 4)))
 	 "Minimal window layout manager" single
