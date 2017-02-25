@@ -140,6 +140,13 @@
 	  nil "Properly prefixed CL functions and macros" single
 	  ((:url . "http://elpa.gnu.org/packages/cl-lib.html")
 	   (:keywords))])
+ (cl-print .
+	   [(1 0)
+	    ((emacs
+	      (25)))
+	    "CL-style generic printer facilies" single
+	    ((:url . "http://elpa.gnu.org/packages/cl-print.html")
+	     (:keywords))])
  (cobol-mode .
 	     [(1 0 0)
 	      nil "Mode for editing COBOL code" single
@@ -315,9 +322,11 @@
 		    ((:url . "http://elpa.gnu.org/packages/electric-spacing.html")
 		     (:keywords))])
  (enwc .
-       [(1 0)
-	nil "The Emacs Network Client" tar
-	((:keywords "enwc" "network" "wicd" "manager" "nm")
+       [(2 0 -2 1)
+	((emacs
+	  (25 1)))
+	"The Emacs Network Client" tar
+	((:keywords "external" "network" "wicd" "manager" "nm")
 	 (:url . "http://elpa.gnu.org/packages/enwc.html"))])
  (epoch-view .
 	     [(0 0 1)
