@@ -1623,7 +1623,7 @@
 	      (1 6 8)))
 	    "Blog from Org mode to wordpress" tar])
  (org-trello .
-	     [(0 7 9)
+	     [(0 8 0)
 	      ((request-deferred
 		(0 2 0))
 	       (deferred
@@ -1633,9 +1633,7 @@
 	       (dash-functional
 		(2 12 1))
 	       (dash
-		(2 12 1))
-	       (emacs
-		(24)))
+		(2 12 1)))
 	      "Minor mode to synchronize org-mode buffer and trello board" tar])
  (org-table-comment .
 		    [(0 2)
