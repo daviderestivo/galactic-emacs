@@ -4024,6 +4024,9 @@
 		 ((company
 		   (0 6 8)))
 		 "company-mode completion back-end for CMake" single])
+ (common-header-mode-line .
+			  [(0 5)
+			   nil "Manage per-frame and per-window header- and mode- lines." tar])
  (command-t .
 	    [(0 0 1)
 	     ((find-file-in-project
