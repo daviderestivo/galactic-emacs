@@ -4218,10 +4218,12 @@ features are available from separate popups.
      new branch, instead of the starting-point itself.
 
      If optional FROM is non-nil, then the source branch is reset to
-     that commit, instead of to the last commit it shares with its
-     upstream.  Interactively, FROM is non-nil, when the region selects
-     some commits, and among those commits, FROM it is the commit that
-     is the fewest commits ahead of the source branch.
+     ‘FROM~’, instead of to the last commit it shares with its upstream.
+     Interactively, FROM is only ever non-nil, if the region selects
+     some commits, and among those commits, FROM is the commit that is
+     the fewest commits ahead of the source branch.  (It not yet
+     possible to spin off a single commit, unless it is the only
+     unpushed commit.  See #2920.)
 
      The commit at the other end of the selection actually does not
      matter, all commits between FROM and ‘HEAD’ are moved to the new
@@ -7651,13 +7653,13 @@ Appendix B Keystroke Index
 * b c:                                   The Branch Popup.    (line  47)
 * B g:                                   Bisecting.           (line  36)
 * B k:                                   Bisecting.           (line  41)
-* b k:                                   The Branch Popup.    (line  98)
+* b k:                                   The Branch Popup.    (line 100)
 * b n:                                   The Branch Popup.    (line  37)
 * B r:                                   Bisecting.           (line  47)
-* b r:                                   The Branch Popup.    (line 104)
+* b r:                                   The Branch Popup.    (line 106)
 * B s:                                   Bisecting.           (line  24)
 * b s:                                   The Branch Popup.    (line  54)
-* b x:                                   The Branch Popup.    (line  82)
+* b x:                                   The Branch Popup.    (line  84)
 * c:                                     Initiating a Commit. (line   8)
 * c <1>:                                 Editing Rebase Sequences.
                                                               (line  72)
