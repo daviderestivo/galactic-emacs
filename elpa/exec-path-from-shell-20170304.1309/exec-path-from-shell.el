@@ -5,7 +5,7 @@
 ;; Author: Steve Purcell <steve@sanityinc.com>
 ;; Keywords: environment
 ;; URL: https://github.com/purcell/exec-path-from-shell
-;; Package-Version: 20170212.2116
+;; Package-Version: 20170304.1309
 ;; Package-X-Original-Version: 0
 
 ;; This file is not part of GNU Emacs.
@@ -95,7 +95,9 @@ Environment variables should be set in .profile or .zshenv rather than
   "If non-nil, use this shell executable.
 Otherwise, use either `shell-file-name' (if set), or the value of
 the SHELL environment variable."
-  :type 'file
+  :type '(choice
+          (file :tag "Shell executable")
+          (const :tag "Use `shell-file-name' or $SHELL" nil))
   :group 'exec-path-from-shell)
 
 (defvar exec-path-from-shell-debug nil

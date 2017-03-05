@@ -322,7 +322,7 @@
 		    ((:url . "http://elpa.gnu.org/packages/electric-spacing.html")
 		     (:keywords))])
  (enwc .
-       [(2 0 -2 1)
+       [(2 0 -2 2)
 	((emacs
 	  (25 1)))
 	"The Emacs Network Client" tar

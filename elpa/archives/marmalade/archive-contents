@@ -1408,7 +1408,7 @@
 	   [(0 0 1)
 	    nil "get stuff from pinboard" single])
  (picpocket .
-	    [(29)
+	    [(30)
 	     ((emacs
 	       (24 4)))
 	     "Image viewer" single])
@@ -4025,7 +4025,7 @@
 		   (0 6 8)))
 		 "company-mode completion back-end for CMake" single])
  (common-header-mode-line .
-			  [(0 5 2)
+			  [(0 5 4)
 			   nil "Manage per-frame and per-window header- and mode- lines." tar])
  (command-t .
 	    [(0 0 1)
