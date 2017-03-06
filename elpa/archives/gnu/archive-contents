@@ -144,7 +144,7 @@
 	   [(1 0)
 	    ((emacs
 	      (25)))
-	    "CL-style generic printer facilies" single
+	    "CL-style generic printing" single
 	    ((:url . "http://elpa.gnu.org/packages/cl-print.html")
 	     (:keywords))])
  (cobol-mode .

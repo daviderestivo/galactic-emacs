@@ -27,7 +27,7 @@ END-INFO-DIR-ENTRY
 
 Indirect:
 magit.info-1: 1222
-magit.info-2: 322605
+magit.info-2: 322679
 
 Tag Table:
 (Indirect)
@@ -94,75 +94,75 @@ Node: Initiating a Commit137319
 Node: Editing Commit Messages140630
 Node: Branching151026
 Node: The Two Remotes151226
-Node: The Branch Popup153770
-Node: The Branch Config Popup163115
-Node: Merging169018
-Node: Resolving Conflicts171185
-Node: Rebasing176190
-Node: Editing Rebase Sequences179830
-Node: Information About In-Progress Rebase182860
-Ref: Information About In-Progress Rebase-Footnote-1189696
-Node: Cherry Picking190282
-Node: Reverting191887
-Node: Resetting193250
-Node: Stashing194761
-Node: Transferring198955
-Node: Remotes199193
-Node: Fetching200478
-Node: Pulling201843
-Node: Pushing202688
-Node: Creating and Sending Patches207431
-Node: Applying Patches208126
-Node: Miscellaneous209123
-Node: Tagging209426
-Node: Notes210210
-Node: Submodules212734
-Node: Listing Submodules212948
-Node: Submodule Popup214767
-Node: Subtree216050
-Node: Common Commands217297
-Node: Wip Modes219042
-Node: Minor Mode for Buffers Visiting Files225838
-Node: Minor Mode for Buffers Visiting Blobs229312
-Node: Customizing230125
-Node: Per-Repository Configuration231797
-Node: Essential Settings233444
-Node: Safety233768
-Node: Performance235601
-Node: Plumbing243563
-Node: Calling Git244387
-Node: Getting a Value from Git245910
-Node: Calling Git for Effect249014
-Node: Section Plumbing255518
-Node: Creating Sections255746
-Node: Section Selection259645
-Node: Matching Sections261325
-Node: Refreshing Buffers266757
-Node: Conventions269892
-Node: Confirmation and Completion270069
-Node: Theming Faces270967
-Node: FAQ279118
-Node: FAQ - How to …?279511
-Node: How to show git's output?279875
-Node: How to install the gitman info manual?280629
-Node: How to show diffs for gpg-encrypted files?281599
-Node: How does branching and pushing work?282195
-Node: Can Magit be used as ‘ediff-version-control-package’?282574
-Node: FAQ - Issues and Errors284570
-Node: Magit is slow285314
-Node: I changed several thousand files at once and now Magit is unusable285539
-Node: I am having problems committing286279
-Node: I am using MS Windows and cannot push with Magit286760
-Node: I am using OS X and SOMETHING works in shell but not in Magit287377
-Node: Diffs contain control sequences288183
-Node: Expanding a file to show the diff causes it to disappear289257
-Node: Point is wrong in the ‘COMMIT_EDITMSG’ buffer289814
-Node: The mode-line information isn't always up-to-date290866
-Node: Emacs 245 hangs when loading Magit291933
-Node: Keystroke Index292483
-Node: Command Index322605
-Node: Function Index352833
-Node: Variable Index366143
+Node: The Branch Popup153851
+Node: The Branch Config Popup163196
+Node: Merging169099
+Node: Resolving Conflicts171266
+Node: Rebasing176271
+Node: Editing Rebase Sequences179911
+Node: Information About In-Progress Rebase182941
+Ref: Information About In-Progress Rebase-Footnote-1189777
+Node: Cherry Picking190363
+Node: Reverting191968
+Node: Resetting193331
+Node: Stashing194842
+Node: Transferring199036
+Node: Remotes199274
+Node: Fetching200552
+Node: Pulling201917
+Node: Pushing202762
+Node: Creating and Sending Patches207505
+Node: Applying Patches208200
+Node: Miscellaneous209197
+Node: Tagging209500
+Node: Notes210284
+Node: Submodules212808
+Node: Listing Submodules213022
+Node: Submodule Popup214841
+Node: Subtree216124
+Node: Common Commands217371
+Node: Wip Modes219116
+Node: Minor Mode for Buffers Visiting Files225912
+Node: Minor Mode for Buffers Visiting Blobs229386
+Node: Customizing230199
+Node: Per-Repository Configuration231871
+Node: Essential Settings233518
+Node: Safety233842
+Node: Performance235675
+Node: Plumbing243637
+Node: Calling Git244461
+Node: Getting a Value from Git245984
+Node: Calling Git for Effect249088
+Node: Section Plumbing255592
+Node: Creating Sections255820
+Node: Section Selection259719
+Node: Matching Sections261399
+Node: Refreshing Buffers266831
+Node: Conventions269966
+Node: Confirmation and Completion270143
+Node: Theming Faces271041
+Node: FAQ279192
+Node: FAQ - How to …?279585
+Node: How to show git's output?279949
+Node: How to install the gitman info manual?280703
+Node: How to show diffs for gpg-encrypted files?281673
+Node: How does branching and pushing work?282269
+Node: Can Magit be used as ‘ediff-version-control-package’?282648
+Node: FAQ - Issues and Errors284644
+Node: Magit is slow285388
+Node: I changed several thousand files at once and now Magit is unusable285613
+Node: I am having problems committing286353
+Node: I am using MS Windows and cannot push with Magit286834
+Node: I am using OS X and SOMETHING works in shell but not in Magit287451
+Node: Diffs contain control sequences288257
+Node: Expanding a file to show the diff causes it to disappear289331
+Node: Point is wrong in the ‘COMMIT_EDITMSG’ buffer289888
+Node: The mode-line information isn't always up-to-date290940
+Node: Emacs 245 hangs when loading Magit292007
+Node: Keystroke Index292557
+Node: Command Index322679
+Node: Function Index352907
+Node: Variable Index366217
 
 End Tag Table
 
