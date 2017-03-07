@@ -929,7 +929,7 @@
 		 ((:url . "http://elpa.gnu.org/packages/url-http-ntlm.html")
 		  (:keywords "comm" "data" "processes" "hypermedia"))])
  (validate .
-	   [(1 0 2)
+	   [(1 0 4)
 	    ((emacs
 	      (24 1))
 	     (cl-lib
