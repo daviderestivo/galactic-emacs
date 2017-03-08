@@ -1,11 +1,11 @@
 ;;; zenburn-theme.el --- A low contrast color theme for Emacs.
 
-;; Copyright (C) 2011-2016 Bozhidar Batsov
+;; Copyright (C) 2011-2017 Bozhidar Batsov
 
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; URL: http://github.com/bbatsov/zenburn-emacs
-;; Package-Version: 20170306.429
-;; Version: 2.4
+;; Package-Version: 20170306.2250
+;; Version: 2.5
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -22,7 +22,7 @@
 
 ;;; Commentary:
 
-;; A port of the popular Vim theme Zenburn for Emacs 24, built on top
+;; A port of the popular Vim theme Zenburn for Emacs 24+, built on top
 ;; of the new built-in theme support in Emacs 24.
 
 ;;; Credits:
