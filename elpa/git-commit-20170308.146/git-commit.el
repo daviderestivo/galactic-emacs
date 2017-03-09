@@ -12,7 +12,7 @@
 ;; Maintainer: Jonas Bernoulli <jonas@bernoul.li>
 
 ;; Package-Requires: ((emacs "24.4") (dash "20170207.2056") (with-editor "20170111.609"))
-;; Package-Version: 20170214.347
+;; Package-Version: 20170308.146
 ;; Keywords: git tools vc
 ;; Homepage: https://github.com/magit/magit
 
