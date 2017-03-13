@@ -160,6 +160,12 @@
 (column-number-mode 1)
 
 ;;
+;; Enable word wrap
+;;
+(global-visual-line-mode t)
+
+
+;;
 ;; whitespace-mode
 ;;
 ;; Highlight lines that exceed a certain length (80 columns)
