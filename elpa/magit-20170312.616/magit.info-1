@@ -2668,8 +2668,8 @@ the default value of ‘magit-diff-arguments’ is used instead.
 
      RANGE should be a range (A..B or A…B) but can also be a single
      commit.  If one side of the range is omitted, then it defaults to
-     HEAD. If just a commit is given, then changes in the working tree
-     relative to that commit are shown.
+     ‘HEAD’.  If just a commit is given, then changes in the working
+     tree relative to that commit are shown.
 
      If the region is active, use the revisions on the first and last
      line of the region.  With a prefix argument, instead of diffing the
@@ -3047,7 +3047,7 @@ information on how to use Ediff itself, see *note (ediff)Top::.
 
 ‘E w’     (‘magit-ediff-show-working-tree’)
 
-     Show changes in a file between HEAD and working tree using Ediff.
+     Show changes in a file between ‘HEAD’ and working tree using Ediff.
 
 ‘E c’     (‘magit-ediff-show-commit’)
 
@@ -3215,7 +3215,7 @@ you should also change the others to keep things aligned.  The following
      This option controls how ‘magit-visit-ref’ behaves in
      ‘magit-refs-mode’ buffers.
 
-     By default ‘magit-visit-ref’ behaves like ‘magit-show-commits’, in
+     By default ‘magit-visit-ref’ behaves like ‘magit-show-commit’, in
      all buffers, including ‘magit-refs-mode’ buffers.  When the type of
      the section at point is ‘commit’ then "RET" is bound to
      ‘magit-show-commit’, and when the type is either ‘branch’ or ‘tag’
@@ -4656,7 +4656,7 @@ of commands and binding ‘C-c ^ C-h’ and press ‘RET’ while point is on a
 command name to read its documentation.
 
    Normally you would edit one version and then tell Smerge to keep only
-that version.  Use ‘C-c ^ m’ (‘smerge-keep-mine)’ to keep the "HEAD"
+that version.  Use ‘C-c ^ m’ (‘smerge-keep-mine’) to keep the ‘HEAD’
 version or ‘C-c ^ o’ (‘smerge-keep-other’) to keep the version that
 follows "|||||||".  Then use ‘C-c ^ n’ to move to the next conflicting
 area in the same file.  Once you are done resolving conflicts, return to

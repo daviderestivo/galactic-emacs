@@ -400,7 +400,7 @@
 		 ((:keywords "gnome" "c" "coding style")
 		  (:url . "http://elpa.gnu.org/packages/gnome-c-style.html"))])
  (gnorb .
-	[(1 1 2)
+	[(1 1 5)
 	 ((cl-lib
 	   (0 5)))
 	 "Glue code between Gnus, Org, and BBDB" tar
@@ -520,7 +520,7 @@
        ((:url . "http://elpa.gnu.org/packages/lmc.html")
 	(:keywords))])
  (load-dir .
-	   [(0 0 3)
+	   [(0 0 4)
 	    nil "Load all Emacs Lisp files in a given directory" single
 	    ((:url . "http://elpa.gnu.org/packages/load-dir.html")
 	     (:keywords "lisp" "files" "convenience"))])
