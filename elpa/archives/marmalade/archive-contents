@@ -2498,7 +2498,7 @@
 	      [(1 6 2)
 	       nil "Major mode for Inform 6 interactive fiction code" single])
  (inf-ruby .
-	   [(2 3 2)
+	   [(2 5 0)
 	    nil "Run a Ruby process in a buffer" single])
  (inf-groovy .
 	     [(2 0)

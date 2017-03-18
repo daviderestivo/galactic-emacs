@@ -87,7 +87,7 @@
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(package-selected-packages
    (quote
-    (smart-mode-line-powerline-theme smart-mode-line zenburn-theme markdown-preview-mode ein jedi auto-package-update rainbow-delimiters org magit ## exec-path-from-shell)))
+    (yaml-mode smart-mode-line-powerline-theme smart-mode-line zenburn-theme markdown-preview-mode ein jedi auto-package-update rainbow-delimiters org magit ## exec-path-from-shell)))
  '(show-paren-mode t)
  '(winner-mode t))
 (custom-set-faces
@@ -455,3 +455,13 @@
 ;; Setup transpose-frame
 ;;
 (require 'transpose-frame)
+
+;;
+;; Setup YAML mode
+;;
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+
+(add-hook 'yaml-mode-hook
+	  '(lambda ()
+	     (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
