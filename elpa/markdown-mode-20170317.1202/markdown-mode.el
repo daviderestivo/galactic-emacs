@@ -33,7 +33,7 @@
 ;; Maintainer: Jason R. Blevins <jrblevin@sdf.org>
 ;; Created: May 24, 2007
 ;; Version: 2.1
-;; Package-Version: 20161222.1416
+;; Package-Version: 20170317.1202
 ;; Package-Requires: ((emacs "24") (cl-lib "0.5"))
 ;; Keywords: Markdown, GitHub Flavored Markdown, itex
 ;; URL: http://jblevins.org/projects/markdown-mode/
@@ -885,7 +885,7 @@
 ;;   * Google's Open Source Programs Office for recognizing the project with
 ;;     a monetary contribution in June 2015.
 ;;   * Howard Melman <hmelman@gmail.com> for supporting GFM checkboxes
-;;     as buttons.
+;;     as buttons and several bug reports.
 ;;   * Danny McClanahan <danieldmcclanahan@gmail.com> for live preview
 ;;     mode, completion of GFM programming language names, improved
 ;;     font lock for fenced code blocks and metadata blocks, `cl-lib'
@@ -1476,7 +1476,7 @@ or
   "Regular expression for matching Pandoc metadata.")
 
 (defconst markdown-regex-yaml-metadata-border
-  "\\(\\-\\{3\\}\\)$"
+  "\\(-\\{3\\}\\)$"
   "Regular expression for matching yaml metadata.")
 
 (defconst markdown-regex-yaml-pandoc-metadata-end-border
@@ -1634,7 +1634,8 @@ easier.")
   "Return regexp to find all \"start\" sections of fenced block constructs.
 Which construct is actually contained in the match must be found separately."
   (mapconcat
-   'identity
+   #'identity
+   ;; FIXME: Why `cl-mapcar' rather than `mapcar'?
    (cl-mapcar (lambda (entry) (markdown-maybe-funcall-regexp (caar entry)))
               markdown-fenced-block-pairs)
    "\\|"))
@@ -4108,18 +4109,18 @@ NIL is returned instead."
                        (>= (current-indentation) 4))))
         (forward-line -1))
       (when result
-        ; Advance if there is a next line that is either blank or indented.
-        ; (Need to check if we're on the last line, because
-        ; markdown-next-line-blank-p returns true for last line in buffer.)
+        ;; Advance if there is a next line that is either blank or indented.
+        ;; (Need to check if we're on the last line, because
+        ;; markdown-next-line-blank-p returns true for last line in buffer.)
         (while (and (/= (line-end-position) (point-max))
                     (or (markdown-next-line-blank-p)
                         (>= (markdown-next-line-indent) 4)))
           (forward-line))
-        ; Move back while the current line is blank.
+        ;; Move back while the current line is blank.
         (while (markdown-cur-line-blank-p)
           (forward-line -1))
-        ; Advance to capture this line and a single trailing newline (if there
-        ; is one).
+        ;; Advance to capture this line and a single trailing newline (if there
+        ;; is one).
         (forward-line)
         (append result (list (point)))))))
 
@@ -5883,7 +5884,8 @@ Standalone XHTML output is identified by an occurrence of
                                   'mime-charset))
           "iso-8859-1"))))
   (if (> (length markdown-css-paths) 0)
-      (insert (mapconcat 'markdown-stylesheet-link-string markdown-css-paths "\n")))
+      (insert (mapconcat #'markdown-stylesheet-link-string
+                         markdown-css-paths "\n")))
   (when (> (length markdown-xhtml-header-content) 0)
     (insert markdown-xhtml-header-content))
   (insert "\n</head>\n\n"
@@ -6636,7 +6638,7 @@ BEG and END are the limits of scanned region."
 This can be toggled with `markdown-toggle-inline-images'
 or \\[markdown-toggle-inline-images]."
   (interactive)
-  (mapc 'delete-overlay markdown-inline-image-overlays)
+  (mapc #'delete-overlay markdown-inline-image-overlays)
   (setq markdown-inline-image-overlays nil))
 
 (defun markdown-display-inline-images ()
@@ -6726,9 +6728,9 @@ or \\[markdown-toggle-inline-images]."
        'markdown-end-of-defun)
   ;; Paragraph filling
   (set
-   ; Should match start of lines that start or separate paragraphs
+   ;; Should match start of lines that start or separate paragraphs
    (make-local-variable 'paragraph-start)
-       (mapconcat 'identity
+       (mapconcat #'identity
                   '(
                     "\f" ; starts with a literal line-feed
                     "[ \t\f]*$" ; space-only line
@@ -6739,14 +6741,14 @@ or \\[markdown-toggle-inline-images]."
                     )
                   "\\|"))
   (set
-   ; Should match lines that separate paragraphs without being
-   ; part of any paragraph:
+   ;; Should match lines that separate paragraphs without being
+   ;; part of any paragraph:
    (make-local-variable 'paragraph-separate)
-   (mapconcat 'identity
+   (mapconcat #'identity
               '("[ \t\f]*$" ; space-only line
-                ; The following is not ideal, but the Fill customization
-                ; options really only handle paragraph-starting prefixes,
-                ; not paragraph-ending suffixes:
+                ;; The following is not ideal, but the Fill customization
+                ;; options really only handle paragraph-starting prefixes,
+                ;; not paragraph-ending suffixes:
                 ".*  $" ; line ending in two spaces
                 "^#+"
                 "[ \t]*\\[\\^\\S-*\\]:[ \t]*$") ; just the start of a footnote def

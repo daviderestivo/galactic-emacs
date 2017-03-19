@@ -4718,7 +4718,7 @@ In-Progress Rebase.
      All commits that are reachable from head but not from the selected
      branch TARGET are being rebased."
 
-‘r o’     (‘magit-rebase-subset’)
+‘r s’     (‘magit-rebase-subset’)
 
      Start a non-interactive rebase sequence with commits from START to
      ‘HEAD’ onto NEWBASE. START has to be selected from a list of recent
@@ -7921,10 +7921,10 @@ Appendix B Keystroke Index
 * r f:                                   Rebasing.            (line  66)
 * r i:                                   Rebasing.            (line  62)
 * r m:                                   Rebasing.            (line  70)
-* r o:                                   Rebasing.            (line  40)
 * r p:                                   Rebasing.            (line  25)
 * r r:                                   Rebasing.            (line  81)
-* r s:                                   Rebasing.            (line  88)
+* r s:                                   Rebasing.            (line  40)
+* r s <1>:                               Rebasing.            (line  88)
 * r u:                                   Rebasing.            (line  30)
 * r w:                                   Rebasing.            (line  74)
 * RET:                                   Diff Buffer.         (line   6)

@@ -45,6 +45,9 @@
 (declare-function ido-completing-read+ 'ido-completing-read+)
 (declare-function Info-get-token 'info)
 
+(eval-when-compile (require 'vc-git))
+(declare-function vc-git--run-command-string 'vc-git)
+
 (defvar magit-wip-before-change-mode)
 
 ;;; Options
@@ -551,6 +554,22 @@ See http://debbugs.gnu.org/cgi/bugreport.cgi?bug=21573#17
 and https://github.com/magit/magit/issues/2295."
   (and (file-directory-p filename)
        (file-accessible-directory-p filename)))
+
+(when (version<= "25.1" emacs-version)
+  (with-eval-after-load 'vc-git
+    (defun vc-git-conflicted-files (directory)
+      "Return the list of files with conflicts in DIRECTORY."
+      (let* ((status
+              (vc-git--run-command-string directory "diff-files"
+                                          "--name-status"))
+             (lines (when status (split-string status "\n" 'omit-nulls)))
+             files)
+        (dolist (line lines files)
+          (when (string-match "\\([ MADRCU?!]\\)[ \t]+\\(.+\\)" line)
+            (let ((state (match-string 1 line))
+                  (file (match-string 2 line)))
+              (when (equal state "U")
+                (push (expand-file-name file directory) files)))))))))
 
 ;;; Kludges for Incompatible Modes
 
