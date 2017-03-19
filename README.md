@@ -20,6 +20,7 @@ install the needed packages by yourself.
 * smart-mode-line [[link](https://github.com/Malabarba/smart-mode-line)]
 * smart-mode-line-powerline-theme  [[link](https://github.com/Malabarba/smart-mode-line)]
 * transpose-frame [[link](https://www.emacswiki.org/emacs/TransposeFrame)]
+* yaml-mode [[Link](https://github.com/yoshiki/yaml-mode)]
 * zenburn-theme [[link](https://github.com/bbatsov/zenburn-emacs)]
 
 The above list does include the packages' dependencies. Feel free to drop me 
