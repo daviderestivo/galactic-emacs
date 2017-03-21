@@ -516,12 +516,18 @@
        ((:url . "http://elpa.gnu.org/packages/lex.html"))])
  (lmc .
       [(1 4)
-       nil "Little Man Computer in Elisp" single
+       ((emacs
+	 (24))
+	(cl-lib
+	 (0 5)))
+       "Little Man Computer in Elisp" single
        ((:url . "http://elpa.gnu.org/packages/lmc.html")
 	(:keywords))])
  (load-dir .
-	   [(0 0 4)
-	    nil "Load all Emacs Lisp files in a given directory" single
+	   [(0 0 5)
+	    ((cl-lib
+	      (0 5)))
+	    "Load all Emacs Lisp files in a given directory" single
 	    ((:url . "http://elpa.gnu.org/packages/load-dir.html")
 	     (:keywords "lisp" "files" "convenience"))])
  (load-relative .

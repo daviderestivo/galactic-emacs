@@ -86,7 +86,6 @@ the log of the running jupyter server."
                 (read-directory-name "Notebook Directory: " (or *ein:last-jupyter-directory*
                                                                 ein:jupyter-default-notebook-directory))))
   (assert (and (file-exists-p server-path)
-
                (file-executable-p server-path))
           t "Command %s is not valid!" server-path)
   (setf *ein:last-jupyter-command* server-path
@@ -99,6 +98,8 @@ the log of the running jupyter server."
                              :buffer ein:jupyter-server-buffer-name
                              :command (ein:jupyter-server--cmd server-path server-directory))))
     (setq %ein:jupyter-server-session% proc)
+    (if (>= ein:log-level 40)
+        (switch-to-buffer ein:jupyter-server-buffer-name))
     (if (accept-process-output proc *ein:jupyter-server-accept-timeout*)
         (with-current-buffer (process-buffer proc)
           (goto-char (point-min))
