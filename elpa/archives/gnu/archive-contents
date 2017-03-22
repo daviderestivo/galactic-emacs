@@ -400,12 +400,12 @@
 		 ((:keywords "gnome" "c" "coding style")
 		  (:url . "http://elpa.gnu.org/packages/gnome-c-style.html"))])
  (gnorb .
-	[(1 1 5)
+	[(1 2)
 	 ((cl-lib
 	   (0 5)))
 	 "Glue code between Gnus, Org, and BBDB" tar
 	 ((:keywords "mail" "org" "gnus" "bbdb" "todo" "task")
-	  (:url . "https://github.com/girzel/gnorb"))])
+	  (:url . "http://elpa.gnu.org/packages/gnorb.html"))])
  (gnugo .
 	[(3 1 0)
 	 ((ascii-art-to-unicode
