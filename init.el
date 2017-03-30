@@ -87,7 +87,7 @@
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(package-selected-packages
    (quote
-    (yaml-mode smart-mode-line-powerline-theme smart-mode-line zenburn-theme markdown-preview-mode ein jedi auto-package-update rainbow-delimiters org magit ## exec-path-from-shell)))
+    (web-mode yaml-mode smart-mode-line-powerline-theme smart-mode-line zenburn-theme markdown-preview-mode ein jedi auto-package-update rainbow-delimiters org magit ## exec-path-from-shell)))
  '(show-paren-mode t)
  '(winner-mode t))
 (custom-set-faces
