@@ -214,7 +214,7 @@
 ;;
 ;; Always use bash 
 ;;
-(defvar my-term-shell "/bin/bash")
+(defvar my-term-shell "/usr/local/bin/bash")
 (defadvice ansi-term (before force-bash)
   (interactive (list my-term-shell)))
 (ad-activate 'ansi-term)
@@ -239,7 +239,7 @@
   (split-window-below)
   (balance-windows)
   (other-window 1)
-  (ansi-term "/bin/bash"))
+  (ansi-term "/usr/local/bin/bash"))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; END ansi-term settings ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -449,3 +449,13 @@
 (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
 (global-set-key (kbd "C-x C-f") #'helm-find-files)
 ;; bind keys because of this commit: https://github.com/emacs-helm/helm/commit/1de1701c73b15a86e99ab1c5c53bd0e8659d8ede
+
+;;
+;; Setup company-mode
+;;
+(global-company-mode)
+(setq company-idle-delay 0.2)
+(setq company-selection-wrap-around t)
+(define-key company-active-map [tab] 'company-complete)
+(define-key company-active-map (kbd "C-n") 'company-select-next)
+(define-key company-active-map (kbd "C-p") 'company-select-previous)
