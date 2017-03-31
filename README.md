@@ -11,7 +11,7 @@ install the needed packages by yourself.
 * auto-package-update [[link](https://github.com/rranelli/auto-package-update.el)]
 * cisco-router-mode.el [[link](https://www.emacswiki.org/emacs/download/cisco-router-mode.el)]
 * ein [[link](https://github.com/millejoh/emacs-ipython-notebook)]
-* elm-mode [[link](https://github.com/emacs-helm/helm)]
+* helm [[link](https://github.com/emacs-helm/helm)]
 * exec-path-from-shell [link](https://github.com/purcell/exec-path-from-shell)]
 * jedi [[link](https://github.com/tkf/emacs-jedi)]
 * jinja2-mode [[link](https://github.com/paradoxxxzero/jinja2-mode)]
