@@ -465,3 +465,21 @@
 (add-hook 'yaml-mode-hook
 	  '(lambda ()
 	     (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+
+
+;;
+;; Setup Jinja2 mode
+;;
+(require 'jinja2-mode)
+(add-to-list 'auto-mode-alist '("\\.j2\\'" . jinja2-mode))
+;; "C-c c" jinja2-close-tag
+;; "C-c t" jinja2-insert-tag
+;; "C-c v" jinja2-insert-var
+;; "C-c #" jinja2-insert-comment
+
+
+;;
+;; Setup helm
+;;
+(require 'helm-config)
+(global-set-key (kbd "M-x") 'helm-M-x)
