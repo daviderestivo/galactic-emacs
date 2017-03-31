@@ -40,4 +40,3 @@
  '(sml/read-only ((t (:inherit sml/not-modified :foreground "dark gray"))))
  '(sml/vc ((t (:inherit sml/git :background "#5F5F5F" :foreground "dark gray"))))
  '(sml/vc-edited ((t (:inherit sml/prefix :background "#5F5F5F" :foreground "burlywood1")))))
- 
