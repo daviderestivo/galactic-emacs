@@ -344,6 +344,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; BEGIN Jedi - Python auto-completion package for Emacs - ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; Sun Apr  2 00:56:58 CEST 2017 - Disabled below section because jedi has been
+;; replaced with company-jedi.
+;;
 ;; (require 'jedi)
 ;; (add-hook 'python-mode-hook 'jedi:setup)
 ;; (setq jedi:complete-on-dot t)
@@ -360,7 +364,7 @@
 ;;
 ;; 2. Evaluate the following: 
 ;;
-;;    (setq jedi:environment-root "default")
+;;    (setq jedi:environment-root "python2")
 ;;    (setq jedi:environment-virtualenv
 ;;          (append python-environment-virtualenv
 ;;                  '("--python" "/usr/local/bin/python")))
@@ -384,9 +388,9 @@
   (jedi:stop-server)
   (make-local-variable 'jedi:server-command)
   (setq jedi:server-command
-	'("~/.emacs.d/.python-environments/default/bin/jediepcserver"))
+	'("~/.emacs.d/.python-environments/python2/bin/jediepcserver"))
   (make-local-variable 'jedi:environment-root)
-  (setq  jedi:environment-root "default")
+  (setq  jedi:environment-root "python2")
   )
 
 (defun jedi:use-python3 ()
