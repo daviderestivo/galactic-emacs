@@ -276,22 +276,20 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;
-;; Code completion key bindings in Emacs
-;;
-(global-set-key (kbd "C-<tab>") 'hippie-expand)
-;;
 ;; Settings for hippie-expand
 ;;
-(setq hippie-expand-try-functions-list
-       '(try-complete-lisp-symbol
-         try-complete-lisp-symbol-partially
-         try-expand-dabbrev
-         try-expand-dabbrev-from-kill
-         try-expand-dabbrev-all-buffers
-         try-expand-line
-         try-complete-file-name-partially
-         try-complete-file-name))
+;; (global-set-key (kbd "C-<tab>") 'hippie-expand)
+;; (setq hippie-expand-try-functions-list
+;;        '(try-complete-lisp-symbol
+;;          try-complete-lisp-symbol-partially
+;;          try-expand-dabbrev
+;;          try-expand-dabbrev-from-kill
+;;          try-expand-dabbrev-all-buffers
+;;          try-expand-line
+;;          try-complete-file-name-partially
+;;          try-complete-file-name))
 
+;; 
 ;;
 ;; Create a new buffer without prompting for the name. Bound to F7
 ;;
