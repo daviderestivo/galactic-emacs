@@ -29,9 +29,32 @@
   (exec-path-from-shell-initialize))
 
 ;;
-;; Inhibit welcome buffer
+;; Inhibit welcome buffer and echo area message
 ;;
-(setq inhibit-startup-screen t)
+(setq inhibit-startup-screen t
+      inhibit-startup-message t)
+;; Yes, it's disgusting, but it's a portable way to disable that silly
+;; message. See http://yann.hodique.info/blog/rant-obfuscation-in-emacs/
+(put 'inhibit-startup-echo-area-message 'saved-value
+     (setq inhibit-startup-echo-area-message (user-login-name)))
+
+;;
+;; Enable visual line fringe and empty line indicator
+;;
+(setq visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow))
+(setq-default left-fringe-width nil
+              indicate-empty-lines t
+              indent-tabs-mode nil)
+
+;;
+;; Set tab width to 4
+;;
+(setq tab-width 4)
+
+;;
+;; Use visual bell instead of audio
+;;
+(setq visible-bell 1)
 
 ;;
 ;; Set the initial major mode to text-mode
@@ -118,7 +141,7 @@
 ;;
 ;; Enable line and column numbering
 ;;
-(add-hook 'find-file-hook (lambda () (linum-mode 1)))
+(global-linum-mode t)
 (setq linum-format "%d ")
 (column-number-mode 1)
 
