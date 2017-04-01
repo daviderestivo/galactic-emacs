@@ -404,6 +404,13 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
 
 ;;
+;; company-jedi setup
+;;
+(defun company-jedi:python-mode-hook ()
+  (add-to-list 'company-backends 'company-jedi))
+(add-hook 'python-mode-hook 'company-jedi:python-mode-hook)
+
+;;
 ;; Emacs IPython Notebook config section
 ;; 
 (require 'ein)
