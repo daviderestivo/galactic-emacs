@@ -29,15 +29,11 @@
   (exec-path-from-shell-initialize))
 
 ;;
-;; Inhibit welcome buffer, splash screen and echo area message
+;; Inhibit startup screen, splash screen and startup message
 ;;
 (setq inhibit-startup-screen t
       inhibit-splash-screen t
       inhibit-startup-message t)
-;; Yes, it's disgusting, but it's a portable way to disable that silly
-;; message. See http://yann.hodique.info/blog/rant-obfuscation-in-emacs/
-(put 'inhibit-startup-echo-area-message 'saved-value
-     (setq inhibit-startup-echo-area-message (user-login-name)))
 
 ;;
 ;; Enable visual line fringe and empty line indicator
