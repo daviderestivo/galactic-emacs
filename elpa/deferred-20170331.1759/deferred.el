@@ -4,7 +4,7 @@
 
 ;; Author: SAKURAI Masashi <m.sakurai at kiwanami.net>
 ;; Version: 0.5.0
-;; Package-Version: 20161228.1930
+;; Package-Version: 20170331.1759
 ;; Keywords: deferred, async
 ;; Package-Requires: ((emacs "24.3"))
 ;; URL: https://github.com/kiwanami/emacs-deferred
@@ -72,7 +72,7 @@
 (declare-function pp-display-expression 'pp)
 
 (defvar deferred:version nil "deferred.el version")
-(setq deferred:version "0.4.0")
+(setq deferred:version "0.5.0")
 
 ;;; Code:
 
