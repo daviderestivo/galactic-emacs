@@ -289,7 +289,6 @@
 ;;          try-complete-file-name-partially
 ;;          try-complete-file-name))
 
-;; 
 ;;
 ;; Create a new buffer without prompting for the name. Bound to F7
 ;;
