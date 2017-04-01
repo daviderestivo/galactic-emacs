@@ -44,6 +44,12 @@
               indent-tabs-mode nil)
 
 ;;
+;; Datetime
+;;
+(setq display-time-day-and-date t
+      display-time-24hr-format t)
+
+;;
 ;; Set tab width to 4
 ;;
 (setq tab-width 4)
