@@ -29,9 +29,10 @@
   (exec-path-from-shell-initialize))
 
 ;;
-;; Inhibit welcome buffer and echo area message
+;; Inhibit welcome buffer, splash screen and echo area message
 ;;
 (setq inhibit-startup-screen t
+      inhibit-splash-screen t
       inhibit-startup-message t)
 ;; Yes, it's disgusting, but it's a portable way to disable that silly
 ;; message. See http://yann.hodique.info/blog/rant-obfuscation-in-emacs/
@@ -75,6 +76,13 @@
 ;; Disable the Scrollbar
 ;;
 (toggle-scroll-bar -1)
+
+;;
+;; Enable show-paren-mode. paren-mode allows one to see
+;; matching pairs of parentheses and other characters.
+;;
+(show-paren-mode 1)
+(setq show-paren-delay 0)
 
 ;;
 ;; Change default dir to ~
