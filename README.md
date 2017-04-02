@@ -10,11 +10,11 @@ install the needed packages by yourself.
 
 * auto-package-update [[link](https://github.com/rranelli/auto-package-update.el)]
 * cisco-router-mode.el [[link](https://www.emacswiki.org/emacs/download/cisco-router-mode.el)]
+* company-jedi [[link](https://github.com/syohex/emacs-company-jedi)]
 * company-mode [[link](https://github.com/company-mode/company-mode)]
 * ein [[link](https://github.com/millejoh/emacs-ipython-notebook)]
 * helm [[link](https://github.com/emacs-helm/helm)]
 * exec-path-from-shell [link](https://github.com/purcell/exec-path-from-shell)]
-* jedi [[link](https://github.com/tkf/emacs-jedi)]
 * jinja2-mode [[link](https://github.com/paradoxxxzero/jinja2-mode)]
 * magit [[link](https://magit.vc)]
 * markdown-preview-mode [[link](https://github.com/ancane/markdown-preview-mode)]
