@@ -12,7 +12,7 @@
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(package-selected-packages
    (quote
-    (company-jedi company jinja2-mode helm yaml-mode smart-mode-line-powerline-theme smart-mode-line zenburn-theme markdown-preview-mode ein auto-package-update rainbow-delimiters org magit ## exec-path-from-shell)))
+    (projectile company-jedi company jinja2-mode helm yaml-mode smart-mode-line-powerline-theme smart-mode-line zenburn-theme markdown-preview-mode ein auto-package-update rainbow-delimiters org magit ## exec-path-from-shell)))
  '(show-paren-mode t)
  '(winner-mode t))
 (custom-set-faces
