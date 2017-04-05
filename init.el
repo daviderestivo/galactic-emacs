@@ -487,3 +487,8 @@
 (define-key company-active-map [tab] 'company-complete)
 (define-key company-active-map (kbd "C-n") 'company-select-next)
 (define-key company-active-map (kbd "C-p") 'company-select-previous)
+
+;;
+;; Enable projectile mode
+;;
+(require 'projectile)
