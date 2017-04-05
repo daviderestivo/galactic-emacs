@@ -19,6 +19,7 @@ install the needed packages by yourself.
 * magit [[link](https://magit.vc)]
 * markdown-preview-mode [[link](https://github.com/ancane/markdown-preview-mode)]
 * org [[link](http://orgmode.org)]
+* projectile [[link](https://github.com/bbatsov/projectile)]
 * rainbow-delimiters [[link](https://www.emacswiki.org/emacs/RainbowDelimiters)]
 * smart-mode-line [[link](https://github.com/Malabarba/smart-mode-line)]
 * smart-mode-line-powerline-theme  [[link](https://github.com/Malabarba/smart-mode-line)]
