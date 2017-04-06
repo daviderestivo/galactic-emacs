@@ -492,3 +492,9 @@
 ;; Enable projectile mode
 ;;
 (require 'projectile)
+(add-hook 'python-mode-hook 'projectile-mode)
+
+;;
+;; Automatically auto-refresh a buffer if the file has changed on disk
+;;
+(global-auto-revert-mode t)
