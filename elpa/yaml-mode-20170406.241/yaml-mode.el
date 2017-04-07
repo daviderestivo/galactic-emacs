@@ -6,7 +6,7 @@
 ;;         Marshall T. Vandegrift <llasram@gmail.com>
 ;; Maintainer: Vasilij Schneidermann <v.schneidermann@gmail.com>
 ;; Package-Requires: ((emacs "24.1"))
-;; Package-Version: 20170213.1023
+;; Package-Version: 20170406.241
 ;; Keywords: data yaml
 ;; Version: 0.0.13
 
@@ -204,6 +204,8 @@ that key is pressed to begin a block literal."
     (modify-syntax-entry ?\\ "\\" syntax-table)
     (modify-syntax-entry ?- "_" syntax-table)
     (modify-syntax-entry ?_ "_" syntax-table)
+    (modify-syntax-entry ?& "." syntax-table)
+    (modify-syntax-entry ?* "." syntax-table)
     (modify-syntax-entry ?\( "." syntax-table)
     (modify-syntax-entry ?\) "." syntax-table)
     (modify-syntax-entry ?\{ "(}" syntax-table)
