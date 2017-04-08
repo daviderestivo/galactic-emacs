@@ -17,6 +17,13 @@
 	     '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 ;;
+;; Set Environment variable
+;;
+(setenv "LC_ALL" "en_US.UTF-8")
+(setenv "LANG" "en_US.UTF-8")
+(setenv "LC_CTYPE" "en_US.UTF-8")
+
+;;
 ;; Sort apropos results by relevancy
 ;;
 (setq apropos-sort-by-scores t)

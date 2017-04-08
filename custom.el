@@ -12,7 +12,7 @@
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(package-selected-packages
    (quote
-    (fill-column-indicator atom-one-dark-theme projectile company-jedi company jinja2-mode helm yaml-mode smart-mode-line markdown-preview-mode ein auto-package-update rainbow-delimiters org magit exec-path-from-shell))))
+    (markdown-mode fill-column-indicator atom-one-dark-theme projectile company-jedi company jinja2-mode helm yaml-mode smart-mode-line ein auto-package-update rainbow-delimiters org magit exec-path-from-shell))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

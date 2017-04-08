@@ -18,7 +18,7 @@ install the needed packages by yourself.
 * helm [[link](https://github.com/emacs-helm/helm)]
 * jinja2-mode [[link](https://github.com/paradoxxxzero/jinja2-mode)]
 * magit [[link](https://magit.vc)]
-* markdown-preview-mode [[link](https://github.com/ancane/markdown-preview-mode)]
+* markdown-mode [[link](http://jblevins.org/projects/markdown-mode/)]
 * org [[link](http://orgmode.org)]
 * projectile [[link](https://github.com/bbatsov/projectile)]
 * rainbow-delimiters [[link](https://www.emacswiki.org/emacs/RainbowDelimiters)]
