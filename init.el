@@ -17,7 +17,7 @@
 	     '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 ;;
-;; Set Environment variable
+;; Set Environment variables
 ;;
 (setenv "LC_ALL" "en_US.UTF-8")
 (setenv "LANG" "en_US.UTF-8")
@@ -120,7 +120,7 @@
 (set-default-font "Menlo 14")
 
 ;;
-;; Add Major modes
+;; Add cisco-router-mode
 ;; 
 (load-library "cisco-router-mode")
 

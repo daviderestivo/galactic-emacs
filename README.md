@@ -15,6 +15,7 @@ install the needed packages by yourself.
 * company-mode [[link](https://github.com/company-mode/company-mode)]
 * ein [[link](https://github.com/millejoh/emacs-ipython-notebook)]
 * exec-path-from-shell [link](https://github.com/purcell/exec-path-from-shell)]
+* fill-column-indicator [link](https://github.com/alpaker/Fill-Column-Indicator)]
 * helm [[link](https://github.com/emacs-helm/helm)]
 * jinja2-mode [[link](https://github.com/paradoxxxzero/jinja2-mode)]
 * magit [[link](https://magit.vc)]

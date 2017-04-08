@@ -1,11 +1,7 @@
-auto-save-list
-recentf
-bookmarks
-*.pyc
-ac-comphist.dat
-.python-environments
-.last-package-update-day
-.markdown-preview.html
 .DS_Store
-url/*
+.last-package-update-day
+.python-environments/
+auto-save-list/
+bookmarks
 projectile-bookmarks.eld
+recentf
