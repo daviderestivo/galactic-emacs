@@ -5,14 +5,14 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
- '(custom-enabled-themes (quote (zenburn)))
+ '(custom-enabled-themes (quote (atom-one-dark)))
  '(custom-safe-themes
    (quote
-    ("84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "f5512c02e0a6887e987a816918b7a684d558716262ac7ee2dd0437ab913eaec6" default)))
+    ("84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "08b8807d23c290c840bbb14614a83878529359eaba1805618b3be7d61b0b0a32" default)))
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(package-selected-packages
    (quote
-    (atom-one-dark-theme projectile company-jedi company jinja2-mode helm yaml-mode smart-mode-line-powerline-theme smart-mode-line markdown-preview-mode ein auto-package-update rainbow-delimiters org magit ## exec-path-from-shell))))
+    (atom-one-dark-theme projectile company-jedi company jinja2-mode helm yaml-mode smart-mode-line-powerline-theme smart-mode-line markdown-preview-mode ein auto-package-update rainbow-delimiters org magit exec-path-from-shell))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
