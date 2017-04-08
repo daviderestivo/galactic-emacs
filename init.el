@@ -448,7 +448,7 @@
 ;;
 (display-time-mode)
 (display-battery-mode)
-(setq sml/theme 'powerline)
+(setq sml/theme 'respectful)
 (sml/setup)
 
 ;;

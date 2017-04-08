@@ -8,6 +8,7 @@ install the needed packages by yourself.
 
 ## Required packages
 
+* atom-one-dark-theme [[link](https://github.com/jonathanchu/atom-one-dark-theme)]
 * auto-package-update [[link](https://github.com/rranelli/auto-package-update.el)]
 * cisco-router-mode.el [[link](https://www.emacswiki.org/emacs/download/cisco-router-mode.el)]
 * company-jedi [[link](https://github.com/syohex/emacs-company-jedi)]
@@ -25,7 +26,6 @@ install the needed packages by yourself.
 * smart-mode-line-powerline-theme  [[link](https://github.com/Malabarba/smart-mode-line)]
 * transpose-frame [[link](https://www.emacswiki.org/emacs/TransposeFrame)]
 * yaml-mode [[Link](https://github.com/yoshiki/yaml-mode)]
-* zenburn-theme [[link](https://github.com/bbatsov/zenburn-emacs)]
 
 The above list does include the packages' dependencies. Feel free to drop me 
 an email in case of questions.

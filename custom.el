@@ -8,7 +8,7 @@
  '(custom-enabled-themes (quote (atom-one-dark)))
  '(custom-safe-themes
    (quote
-    ("84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "08b8807d23c290c840bbb14614a83878529359eaba1805618b3be7d61b0b0a32" default)))
+    ("c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "08b8807d23c290c840bbb14614a83878529359eaba1805618b3be7d61b0b0a32" default)))
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(package-selected-packages
    (quote
@@ -28,17 +28,7 @@
  '(rainbow-delimiters-depth-7-face ((t (:foreground "purple"))))
  '(rainbow-delimiters-depth-8-face ((t (:foreground "black"))))
  '(rainbow-delimiters-depth-9-face ((t (:foreground "white"))))
- '(rainbow-delimiters-unmatched-face ((t (:background "cyan"))))
- '(sml/col-number ((t (:inherit sml/global :background "black" :foreground "gray70" :weight bold))))
- '(sml/filename ((t (:inherit sml/global :background "#383838" :foreground "dark gray" :weight light))))
- '(sml/line-number ((t (:inherit sml/global :background "black" :foreground "gray70" :weight bold))))
- '(sml/modes ((t (:inherit sml/global :background "#5F5F5F" :foreground "Black" :weight ultra-light))))
- '(sml/modified ((t (:foreground "dark gray"))))
- '(sml/position-percentage ((t (:inherit sml/prefix :background "#5F5F5F" :foreground "gray70" :weight normal))))
- '(sml/prefix ((t (:inherit sml/global :background "#383838" :foreground "dark gray"))))
- '(sml/read-only ((t (:inherit sml/not-modified :foreground "dark gray"))))
- '(sml/vc ((t (:inherit sml/git :background "#5F5F5F" :foreground "dark gray"))))
- '(sml/vc-edited ((t (:inherit sml/prefix :background "#5F5F5F" :foreground "burlywood1")))))
+ '(rainbow-delimiters-unmatched-face ((t (:background "cyan")))))
 
 ;;
 ;; rainbow-delimiters-mode setup, with decreasing bracket size
