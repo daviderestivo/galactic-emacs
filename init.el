@@ -44,7 +44,7 @@
               indent-tabs-mode nil)
 
 ;;
-;; Datetime
+;; Datetime format
 ;;
 (setq display-time-day-and-date t
       display-time-24hr-format t)
@@ -85,6 +85,15 @@
 ;;
 (show-paren-mode 1)
 (setq show-paren-delay 0)
+
+;;
+;; Enable winner mode
+;;
+;; Winner Mode is a global minor mode. When activated, it allows you to “undo”
+;; (and “redo”) changes in the window configuration with the key commands
+;; ‘C-c left’ and ‘C-c right’
+;;
+(winner-mode t)
 
 ;;
 ;; Change default dir to ~

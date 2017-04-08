@@ -8,13 +8,12 @@
  '(custom-enabled-themes (quote (zenburn)))
  '(custom-safe-themes
    (quote
-    ("f5512c02e0a6887e987a816918b7a684d558716262ac7ee2dd0437ab913eaec6" "4fc7f95b03416aa4270cdeefecc45f3153b8ceadef2e8d5722dce63d1bf83400" "2997ecd20f07b99259bddba648555335ffb7a7d908d8d3e6660ecbec415f6b95" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "9d91458c4ad7c74cf946bd97ad085c0f6a40c370ac0a1cbeb2e3879f15b40553" "3d47d88c86c30150c9a993cc14c808c769dad2d4e9d0388a24fee1fbf61f0971" default)))
+    (default)))
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(package-selected-packages
    (quote
-    (projectile company-jedi company jinja2-mode helm yaml-mode smart-mode-line-powerline-theme smart-mode-line zenburn-theme markdown-preview-mode ein auto-package-update rainbow-delimiters org magit ## exec-path-from-shell)))
- '(show-paren-mode t)
- '(winner-mode t))
+    (projectile company-jedi company jinja2-mode helm yaml-mode smart-mode-line-powerline-theme smart-mode-line zenburn-theme markdown-preview-mode ein auto-package-update rainbow-delimiters org magit ## exec-path-from-shell))))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
