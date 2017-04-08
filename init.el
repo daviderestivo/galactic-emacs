@@ -11,7 +11,8 @@
 (add-to-list 'package-archives
 	     '("melpa" . "http://melpa.org/packages/"))
 (add-to-list 'package-archives
-	     '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+	     '("melpa-stable" . "https://stable.melpa.org/packages/")
+             t)
 (add-to-list 'package-archives
 	     '("marmalade" . "http://marmalade-repo.org/packages/"))
 
@@ -38,7 +39,8 @@
 ;;
 ;; Enable visual line fringe and empty line indicator
 ;;
-(setq visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow))
+(setq visual-line-fringe-indicators
+      '(left-curly-arrow right-curly-arrow))
 (setq-default left-fringe-width nil
               indicate-empty-lines t
               indent-tabs-mode nil)
@@ -89,9 +91,9 @@
 ;;
 ;; Enable winner mode
 ;;
-;; Winner Mode is a global minor mode. When activated, it allows you to “undo”
-;; (and “redo”) changes in the window configuration with the key commands
-;; ‘C-c left’ and ‘C-c right’
+;; Winner Mode is a global minor mode. When activated, it allows
+;; you to “undo” (and “redo”) changes in the window configuration
+;; with the key commands ‘C-c left’ and ‘C-c right’.
 ;;
 (winner-mode t)
 
@@ -118,7 +120,8 @@
 ;;
 ;; Save custom variables to custom.el
 ;;
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(setq custom-file (expand-file-name "custom.el"
+                                    user-emacs-directory))
 (load custom-file 'noerror)
 
 ;;
@@ -134,8 +137,10 @@
 
 (setq initial-frame-alist
 ;; Avoid the issue of having emacs on the middle of two displays. 
-      `((left . ,(/ (- (round (* (display-pixel-height) 1.777))  frame-pixel-width) 2))
-	(top .  ,(/ (- (display-pixel-height)  frame-pixel-height) 2))))
+      `((left . ,(/ (- (round (* (display-pixel-height) 1.777))
+                       frame-pixel-width) 2))
+	(top .  ,(/ (- (display-pixel-height)  frame-pixel-height)
+                    2))))
 
 ;;
 ;; Set Emacs startup position
@@ -150,10 +155,10 @@
 ;; Backup the file by copying it
 (setq backup-by-copying t)
 (setq delete-old-versions t ; delete excess backup files silently
-      kept-new-versions 6   ; oldest versions to keep when a new numbered backup
-			    ; is made (default: 2)
-      kept-old-versions 2   ; newest versions to keep when a new numbered backup
-			    ; is made (default: 2)
+      kept-new-versions 6   ; oldest versions to keep when a new
+			    ; numbered backup is made (default: 2)
+      kept-old-versions 2   ; newest versions to keep when a new
+			    ; numbered backup is made (default: 2)
       version-control t     ; version numbers for backup files
       )
 
@@ -168,17 +173,6 @@
 ;; Enable word wrap
 ;;
 (global-visual-line-mode t)
-
-
-;;
-;; whitespace-mode
-;;
-;; Highlight lines that exceed a certain length (80 columns)
-;;
-(require 'whitespace)
-(setq whitespace-line-column 80) ;; limit line length to 80 columns
-(setq whitespace-style '(face lines-tail))
-(global-whitespace-mode 1)
 
 ;;
 ;; Insert right brackets when left one is typed
@@ -224,14 +218,16 @@
   (ispell-word))
 (global-set-key (kbd "M-<f8>") 'flyspell-check-next-highlighted-word)
 ;;
-;; In Mac OS X the right mouse button does not seem to trigger [mouse-2], so you
-;; cannot right click a word to get a suggestion. This can be fixed with
-;; the below:
+;; In Mac OS X the right mouse button does not seem to trigger
+;; [mouse-2], so you cannot right click a word to get a suggestion.
+;; This can be fixed with the below:
 ;;
 (eval-after-load "flyspell"
   '(progn
-     (define-key flyspell-mouse-map [down-mouse-3] #'flyspell-correct-word)
-     (define-key flyspell-mouse-map [mouse-3] #'undefined)))
+     (define-key flyspell-mouse-map [down-mouse-3]
+       #'flyspell-correct-word)
+     (define-key flyspell-mouse-map [mouse-3]
+       #'undefined)))
 
 ;;
 ;; Ediff settings: split horizontally and avoid floating ediff window
@@ -243,8 +239,8 @@
 ;; BEGIN ansi-term settings ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
-;; This tells term (which is used by ansi-term) to kill the buffer after the
-;; terminal is exited. 
+;; This tells term (which is used by ansi-term) to kill the buffer
+;; after the terminal is exited.
 ;;
 (defadvice term-sentinel (around my-advice-term-sentinel (proc msg))
   (if (memq (process-status proc) '(signal exit))
@@ -267,8 +263,8 @@
   (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))
 (add-hook 'term-exec-hook 'my-term-use-utf8)
 ;;
-;; URLs that show up in my terminal (via man pages, help, info, errors, etc)
-;; to be clickable.
+;; URLs that show up in my terminal (via man pages, help, info,
+;; errors, etc) to be clickable.
 ;;
 (defun my-term-hook () (goto-address-mode))
 (add-hook 'term-mode-hook 'my-term-hook)
@@ -347,8 +343,8 @@
 ;; BEGIN Jedi - Python auto-completion package for Emacs - ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
-;; Sun Apr  2 00:56:58 CEST 2017 - Disabled below section because jedi has been
-;; replaced with company-jedi.
+;; Sun Apr  2 00:56:58 CEST 2017 - Disabled below section because jedi
+;; has been replaced with company-jedi.
 ;;
 ;; (require 'jedi)
 ;; (add-hook 'python-mode-hook 'jedi:setup)
@@ -375,8 +371,9 @@
 ;;
 ;;    M-x jedi:install-server
 ;; 
-;; IMPORTANT: running jedi:install-server on an already installed venv will
-;; update all of the additional packages (pip install --upgrade).
+;; IMPORTANT: running jedi:install-server on an already installed
+;; venv will update all of the additional packages
+;; (pip install --upgrade).
 ;;
 
 ;;
@@ -482,10 +479,10 @@
 ;; Setup helm
 ;;
 (require 'helm-config)
+;; bind keys because of this commit: https://github.com/emacs-helm/helm/commit/1de1701c73b15a86e99ab1c5c53bd0e8659d8ede
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
 (global-set-key (kbd "C-x C-f") #'helm-find-files)
-;; bind keys because of this commit: https://github.com/emacs-helm/helm/commit/1de1701c73b15a86e99ab1c5c53bd0e8659d8ede
 
 ;;
 ;; Setup company-mode
@@ -507,3 +504,13 @@
 ;; Automatically auto-refresh a buffer if the file has changed on disk
 ;;
 (global-auto-revert-mode t)
+
+;;
+;; Setup fill-column-indicator
+;;
+(setq fci-rule-width 1)
+(setq fci-rule-color "#3E4451")
+;; enable fci-mode as a global minor mode
+(define-globalized-minor-mode global-fci-mode
+  fci-mode (lambda () (fci-mode 1)))
+(global-fci-mode 1)
