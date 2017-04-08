@@ -23,7 +23,6 @@ install the needed packages by yourself.
 * projectile [[link](https://github.com/bbatsov/projectile)]
 * rainbow-delimiters [[link](https://www.emacswiki.org/emacs/RainbowDelimiters)]
 * smart-mode-line [[link](https://github.com/Malabarba/smart-mode-line)]
-* smart-mode-line-powerline-theme  [[link](https://github.com/Malabarba/smart-mode-line)]
 * transpose-frame [[link](https://www.emacswiki.org/emacs/TransposeFrame)]
 * yaml-mode [[Link](https://github.com/yoshiki/yaml-mode)]
 
