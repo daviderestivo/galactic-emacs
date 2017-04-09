@@ -146,7 +146,7 @@
 ;; Avoid the issue of having emacs on the middle of two displays. 
       `((left . ,(/ (- (round (* (display-pixel-height) 1.777))
                        frame-pixel-width) 2))
-	(top .  ,(/ (- (display-pixel-height)  frame-pixel-height)
+	(top .  ,(/ (- (- (display-pixel-height) 100)  frame-pixel-height)
                     2))))
 
 ;;
