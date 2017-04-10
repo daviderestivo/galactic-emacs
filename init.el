@@ -524,3 +524,13 @@
 (define-globalized-minor-mode global-fci-mode
   fci-mode (lambda () (fci-mode 1)))
 (global-fci-mode 1)
+
+;;
+;; Setup bookmark
+;;
+(setq bookmark-save-flag 1) ;; every time bookmark is changed,
+                            ;; automatically save it
+;; Open bookmark list at startup
+(require 'bookmark)
+(bookmark-bmenu-list)
+(switch-to-buffer "*Bookmark List*")
