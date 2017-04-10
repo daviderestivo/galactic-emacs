@@ -5422,9 +5422,11 @@ Meaning of prefix ARG is the same as in `reposition-window'."
         (cl-loop for i in helm--file-completion-sources
                  thereis (string= cur-source i)))))
 
-(defun helm-mark-all ()
-  "Mark all visible unmarked candidates in current source."
-  (interactive)
+(defun helm-mark-all (&optional all)
+  "Mark all visible unmarked candidates in current source.
+
+With a prefix arg mark in all sources."
+  (interactive "P")
   (with-helm-alive-p
     (with-helm-window
       (let* ((src        (helm-get-current-source))
@@ -5448,7 +5450,7 @@ Meaning of prefix ARG is the same as in `reposition-window'."
                                               (goto-char next-head)
                                               (forward-line -1)
                                               (point))))
-                            (maxpoint  (or end (point-max))))
+                            (maxpoint  (or (and (null all) end) (point-max))))
                        (while (< (point) maxpoint)
                          (helm-mark-current-line)
                          (let* ((prefix (get-text-property (point-at-bol) 'display))
@@ -5458,6 +5460,7 @@ Meaning of prefix ARG is the same as in `reposition-window'."
                            ;; autosave files/links and non--existent file.
                            (unless
                                (or (helm-this-visible-mark)
+                                   (helm-pos-header-line-p)
                                    (string= prefix "[?]")   ; doesn't match
                                    (and filecomp-p
                                         (or (string-match-p ; autosave or dot files
@@ -5489,17 +5492,19 @@ Meaning of prefix ARG is the same as in `reposition-window'."
       (helm-display-mode-line (helm-get-current-source)))))
 (put 'helm-unmark-all 'helm-only t)
 
-(defun helm-toggle-all-marks ()
+(defun helm-toggle-all-marks (&optional all)
   "Toggle all marks.
+
 Mark all visible candidates of current source or unmark all candidates
-visible or invisible in all sources of current helm session"
-  (interactive)
+visible or invisible in all sources of current helm session.
+With a prefix arg mark candidates in ALL sources."
+  (interactive "P")
   (with-helm-alive-p
     (let ((marked (helm-marked-candidates)))
       (if (and (>= (length marked) 1)
                (with-helm-window helm-visible-mark-overlays))
           (helm-unmark-all)
-          (helm-mark-all)))))
+          (helm-mark-all all)))))
 (put 'helm-toggle-all-marks 'helm-only t)
 
 (defun helm--compute-marked (real source &optional wildcard)
@@ -5520,16 +5525,21 @@ visible or invisible in all sources of current helm session"
       (setq coerced nil))
     (or wilds (and coerced (list coerced)))))
 
-(cl-defun helm-marked-candidates (&key with-wildcard)
+(cl-defun helm-marked-candidates (&key with-wildcard all-sources)
   "Return marked candidates of current source, if any.
+
 Otherwise return one element list consisting of the current
-selection. When key WITH-WILDCARD is specified, expand it."
+selection. When key WITH-WILDCARD is specified, expand it.
+When ALL-SOURCES key value is non-nil returns marked candidates of all
+sources."
   (with-current-buffer helm-buffer
     (let ((candidates
            (cl-loop with current-src = (helm-get-current-source)
                     for (source . real) in (reverse helm-marked-candidates)
                     for use-wc = (and with-wildcard (string-match-p "\\*" real))
-                    when (equal (assq 'name source) (assq 'name current-src))
+                    when (or all-sources
+                             (equal (assq 'name source)
+                                    (assq 'name current-src)))
                     append (helm--compute-marked real source use-wc)
                     into cands
                     finally return (or cands
