@@ -5384,11 +5384,13 @@ Meaning of prefix ARG is the same as in `reposition-window'."
 (defun helm-make-visible-mark (&optional src selection)
   (let* ((source (or src  (helm-get-current-source)))
          (sel    (or selection (helm-get-selection nil nil src)))
-         (o (make-overlay (point-at-bol)
-                          (if (helm-pos-multiline-p)
-                              (or (helm-get-next-candidate-separator-pos)
-                                  (point-max))
-                              (1+ (point-at-eol))))))
+         (selection-end (if (helm-pos-multiline-p)
+                            (or (helm-get-next-candidate-separator-pos)  ; Stays within source
+                                (helm-get-next-header-pos)
+                                (point-max))
+                          ;; Not multiline
+                          (1+ (point-at-eol))))
+         (o (make-overlay (point-at-bol) selection-end)))
     (overlay-put o 'priority 0)
     (overlay-put o 'face   'helm-visible-mark)
     (overlay-put o 'source (assoc-default 'name source))
@@ -5422,11 +5424,9 @@ Meaning of prefix ARG is the same as in `reposition-window'."
         (cl-loop for i in helm--file-completion-sources
                  thereis (string= cur-source i)))))
 
-(defun helm-mark-all (&optional all)
-  "Mark all visible unmarked candidates in current source.
-
-With a prefix arg mark in all sources."
-  (interactive "P")
+(defun helm-mark-all ()
+  "Mark all visible unmarked candidates in current source."
+  (interactive)
   (with-helm-alive-p
     (with-helm-window
       (let* ((src        (helm-get-current-source))
@@ -5450,7 +5450,7 @@ With a prefix arg mark in all sources."
                                               (goto-char next-head)
                                               (forward-line -1)
                                               (point))))
-                            (maxpoint  (or (and (null all) end) (point-max))))
+                            (maxpoint  (or end (point-max))))
                        (while (< (point) maxpoint)
                          (helm-mark-current-line)
                          (let* ((prefix (get-text-property (point-at-bol) 'display))
@@ -5460,7 +5460,6 @@ With a prefix arg mark in all sources."
                            ;; autosave files/links and non--existent file.
                            (unless
                                (or (helm-this-visible-mark)
-                                   (helm-pos-header-line-p)
                                    (string= prefix "[?]")   ; doesn't match
                                    (and filecomp-p
                                         (or (string-match-p ; autosave or dot files
@@ -5492,19 +5491,18 @@ With a prefix arg mark in all sources."
       (helm-display-mode-line (helm-get-current-source)))))
 (put 'helm-unmark-all 'helm-only t)
 
-(defun helm-toggle-all-marks (&optional all)
+(defun helm-toggle-all-marks ()
   "Toggle all marks.
 
 Mark all visible candidates of current source or unmark all candidates
-visible or invisible in all sources of current helm session.
-With a prefix arg mark candidates in ALL sources."
-  (interactive "P")
+visible or invisible in all sources of current helm session."
+  (interactive)
   (with-helm-alive-p
     (let ((marked (helm-marked-candidates)))
       (if (and (>= (length marked) 1)
                (with-helm-window helm-visible-mark-overlays))
           (helm-unmark-all)
-          (helm-mark-all all)))))
+          (helm-mark-all)))))
 (put 'helm-toggle-all-marks 'helm-only t)
 
 (defun helm--compute-marked (real source &optional wildcard)
