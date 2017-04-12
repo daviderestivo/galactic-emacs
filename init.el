@@ -199,12 +199,16 @@
 ;;
 (setq ispell-program-name "aspell")
 ;;
-;; Enable flyspell for text files 
+;; Enable flyspell for text files and enable superword mode
 ;;
 (dolist (hook '(text-mode-hook))
-  (add-hook hook (lambda () (flyspell-mode 1))))
+  (add-hook hook (lambda ()
+                   (flyspell-mode 1)
+                   ;; Enable superword mode, useful for “snake_case”.
+                   (superword-mode 1)
+                   )))
 ;;
-;; Enable flyspell for code 
+;; Enable flyspell for code and enable superword mode
 ;;
 (dolist (mode '(emacs-lisp-mode-hook
                 inferior-lisp-mode-hook
@@ -214,7 +218,10 @@
                 R-mode-hook))
   (add-hook mode
             '(lambda ()
-               (flyspell-prog-mode))))
+               (flyspell-prog-mode)
+               ;; Enable superword mode, useful for “snake_case”.
+               (superword-mode 1)
+               )))
 ;;
 ;; Add some of the ispell shortcuts:
 ;; - press <f8> to check a word
@@ -422,6 +429,11 @@
 (defun company-jedi:python-mode-hook ()
   (add-to-list 'company-backends 'company-jedi))
 (add-hook 'python-mode-hook 'company-jedi:python-mode-hook)
+(add-hook 'python-mode-hook
+          '(lambda ()
+             ;; Enable superword mode, useful for “snake_case”.
+             (superword-mode 1)
+             ))
 
 ;;
 ;; Emacs IPython Notebook config section

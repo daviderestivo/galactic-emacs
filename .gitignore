@@ -1,6 +1,7 @@
 .DS_Store
 .last-package-update-day
 .python-environments/
+ac-comphist.dat
 auto-save-list/
 bookmarks
 projectile-bookmarks.eld
