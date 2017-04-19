@@ -80,7 +80,7 @@
 	 ((:keywords "async")
 	  (:url . "http://elpa.gnu.org/packages/async.html"))])
  (auctex .
-	 [(11 90 0)
+	 [(11 90 1)
 	  nil "Integrated environment for *TeX*" tar
 	  ((:url . "http://www.gnu.org/software/auctex/"))])
  (aumix-mode .
@@ -301,7 +301,7 @@
 	     ((:url . "http://elpa.gnu.org/packages/ediprolog.html")
 	      (:keywords "languages" "processes"))])
  (el-search .
-	    [(1 3)
+	    [(1 3 1)
 	     ((emacs
 	       (25))
 	      (stream
@@ -320,7 +320,7 @@
 		    ((:url . "http://elpa.gnu.org/packages/electric-spacing.html")
 		     (:keywords))])
  (enwc .
-       [(2 0 -2 2)
+       [(2 0)
 	((emacs
 	  (25 1)))
 	"The Emacs Network Client" tar
