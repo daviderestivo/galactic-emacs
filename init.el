@@ -496,12 +496,12 @@
 ;; "C-c v" jinja2-insert-var
 ;; "C-c #" jinja2-insert-comment
 
-
 ;;
 ;; Setup helm
 ;;
 (require 'helm-config)
-;; bind keys because of this commit: https://github.com/emacs-helm/helm/commit/1de1701c73b15a86e99ab1c5c53bd0e8659d8ede
+;; bind keys because of this commit:
+;; https://github.com/emacs-helm/helm/commit/1de1701c73b15a86e99ab1c5c53bd0e8659d8ede
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
 (global-set-key (kbd "C-x C-f") #'helm-find-files)
