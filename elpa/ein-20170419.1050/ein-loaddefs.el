@@ -1,10 +1,55 @@
-;;; ein-autoloads.el --- automatically extracted autoloads
+;;; ein-loaddefs.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
+
 
-;;;### (autoloads nil "ein-connect" "ein-connect.el" (22766 5079
+;;;### (autoloads nil "ein-ac" "ein-ac.el" (0 0 0 0))
+;;; Generated autoloads from ein-ac.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-ac" '("ein:")))
+
+;;;***
+
+;;;### (autoloads nil "ein-cell" "ein-cell.el" (0 0 0 0))
+;;; Generated autoloads from ein-cell.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-cell" '("ein:")))
+
+;;;***
+
+;;;### (autoloads nil "ein-cell-edit" "ein-cell-edit.el" (0 0 0 0))
+;;; Generated autoloads from ein-cell-edit.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-cell-edit" '("ein:")))
+
+;;;***
+
+;;;### (autoloads nil "ein-cell-output" "ein-cell-output.el" (0 0
 ;;;;;;  0 0))
+;;; Generated autoloads from ein-cell-output.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-cell-output" '("ein:")))
+
+;;;***
+
+;;;### (autoloads nil "ein-company" "ein-company.el" (0 0 0 0))
+;;; Generated autoloads from ein-company.el
+
+(autoload 'ein:company-backend "ein-company" "\
+
+
+\(fn COMMAND &optional ARG &rest IGNORE)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "ein-completer" "ein-completer.el" (0 0 0 0))
+;;; Generated autoloads from ein-completer.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-completer" '("ein:complete")))
+
+;;;***
+
+;;;### (autoloads nil "ein-connect" "ein-connect.el" (0 0 0 0))
 ;;; Generated autoloads from ein-connect.el
 
 (autoload 'ein:connect-to-notebook-command "ein-connect" "\
@@ -38,10 +83,11 @@ notebook.
 
 \(fn)" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-connect" '("ein:")))
+
 ;;;***
 
-;;;### (autoloads nil "ein-console" "ein-console.el" (22766 5079
-;;;;;;  0 0))
+;;;### (autoloads nil "ein-console" "ein-console.el" (0 0 0 0))
 ;;; Generated autoloads from ein-console.el
 
 (autoload 'ein:console-open "ein-console" "\
@@ -58,9 +104,26 @@ It should be possible to support python-mode.el.  Patches are welcome!
 
 \(fn)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-console" '("ein:console-")))
+
 ;;;***
 
-;;;### (autoloads nil "ein-dev" "ein-dev.el" (22766 5079 0 0))
+;;;### (autoloads nil "ein-contents-api" "ein-contents-api.el" (0
+;;;;;;  0 0 0))
+;;; Generated autoloads from ein-contents-api.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-contents-api" '("ein:" "update-content-path" "*ein:content-hierarchy*")))
+
+;;;***
+
+;;;### (autoloads nil "ein-core" "ein-core.el" (0 0 0 0))
+;;; Generated autoloads from ein-core.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-core" '("ein:" "*running-ipython-version*")))
+
+;;;***
+
+;;;### (autoloads nil "ein-dev" "ein-dev.el" (0 0 0 0))
 ;;; Generated autoloads from ein-dev.el
 
 (autoload 'ein:dev-insert-mode-map "ein-dev" "\
@@ -85,9 +148,18 @@ Open a buffer with bug report template.
 
 \(fn)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-dev" '("ein:")))
+
 ;;;***
 
-;;;### (autoloads nil "ein-helm" "ein-helm.el" (22766 5079 0 0))
+;;;### (autoloads nil "ein-events" "ein-events.el" (0 0 0 0))
+;;; Generated autoloads from ein-events.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-events" '("ein:events")))
+
+;;;***
+
+;;;### (autoloads nil "ein-helm" "ein-helm.el" (0 0 0 0))
 ;;; Generated autoloads from ein-helm.el
 
 (autoload 'anything-ein-kernel-history "ein-helm" "\
@@ -110,9 +182,11 @@ Choose opened notebook using helm interface.
 
 \(fn)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-helm" '("ein:helm-")))
+
 ;;;***
 
-;;;### (autoloads nil "ein-iexec" "ein-iexec.el" (22766 5079 0 0))
+;;;### (autoloads nil "ein-iexec" "ein-iexec.el" (0 0 0 0))
 ;;; Generated autoloads from ein-iexec.el
 
 (autoload 'ein:iexec-mode "ein-iexec" "\
@@ -122,10 +196,11 @@ change in its input area.
 
 \(fn &optional ARG)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-iexec" '("ein:iexec-")))
+
 ;;;***
 
-;;;### (autoloads nil "ein-inspector" "ein-inspector.el" (22766 5079
-;;;;;;  0 0))
+;;;### (autoloads nil "ein-inspector" "ein-inspector.el" (0 0 0 0))
 ;;; Generated autoloads from ein-inspector.el
 
 (autoload 'ein:inspect-object "ein-inspector" "\
@@ -133,10 +208,19 @@ change in its input area.
 
 \(fn KERNEL OBJECT)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-inspector" '("ein:")))
+
 ;;;***
 
-;;;### (autoloads nil "ein-ipynb-mode" "ein-ipynb-mode.el" (22766
-;;;;;;  5079 0 0))
+;;;### (autoloads nil "ein-ipdb" "ein-ipdb.el" (0 0 0 0))
+;;; Generated autoloads from ein-ipdb.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-ipdb" '("ein:" "*ein:ipdb-")))
+
+;;;***
+
+;;;### (autoloads nil "ein-ipynb-mode" "ein-ipynb-mode.el" (0 0 0
+;;;;;;  0))
 ;;; Generated autoloads from ein-ipynb-mode.el
 
 (autoload 'ein:ipynb-mode "ein-ipynb-mode" "\
@@ -146,9 +230,11 @@ A simple mode for ipynb file.
 
 (add-to-list 'auto-mode-alist '(".*\\.ipynb\\'" . ein:ipynb-mode))
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-ipynb-mode" '("ein:ipynb-parent-mode")))
+
 ;;;***
 
-;;;### (autoloads nil "ein-jedi" "ein-jedi.el" (22766 5079 0 0))
+;;;### (autoloads nil "ein-jedi" "ein-jedi.el" (0 0 0 0))
 ;;; Generated autoloads from ein-jedi.el
 
 (autoload 'ein:jedi-complete "ein-jedi" "\
@@ -173,9 +259,11 @@ To use EIN and Jedi together, add the following in your Emacs setup.::
 
 \(fn)" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-jedi" '("ein:jedi-")))
+
 ;;;***
 
-;;;### (autoloads nil "ein-junk" "ein-junk.el" (22766 5079 0 0))
+;;;### (autoloads nil "ein-junk" "ein-junk.el" (0 0 0 0))
 ;;; Generated autoloads from ein-junk.el
 
 (autoload 'ein:junk-new "ein-junk" "\
@@ -193,10 +281,11 @@ and save it immediately.
 
 \(fn NAME)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-junk" '("ein:junk-notebook-name")))
+
 ;;;***
 
-;;;### (autoloads nil "ein-jupyter" "ein-jupyter.el" (22766 5079
-;;;;;;  0 0))
+;;;### (autoloads nil "ein-jupyter" "ein-jupyter.el" (0 0 0 0))
 ;;; Generated autoloads from ein-jupyter.el
 
 (autoload 'ein:jupyter-server-start "ein-jupyter" "\
@@ -224,20 +313,44 @@ there is no running server then no action will be taken.
 
 \(fn)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-jupyter" '("ein:jupyter-" "*ein:" "%ein:jupyter-server-session%")))
+
 ;;;***
 
-;;;### (autoloads nil "ein-kernel" "ein-kernel.el" (22766 5079 0
-;;;;;;  0))
+;;;### (autoloads nil "ein-kernel" "ein-kernel.el" (0 0 0 0))
 ;;; Generated autoloads from ein-kernel.el
 
 (defalias 'ein:kernel-url-or-port 'ein:$kernel-url-or-port)
 
 (defalias 'ein:kernel-id 'ein:$kernel-kernel-id)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-kernel" '("ein:" "max-kernel-restart-try-count" "kernel-restart-try-count")))
+
 ;;;***
 
-;;;### (autoloads nil "ein-multilang" "ein-multilang.el" (22766 5079
-;;;;;;  0 0))
+;;;### (autoloads nil "ein-kernelinfo" "ein-kernelinfo.el" (0 0 0
+;;;;;;  0))
+;;; Generated autoloads from ein-kernelinfo.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-kernelinfo" '("ein:kernelinfo")))
+
+;;;***
+
+;;;### (autoloads nil "ein-kill-ring" "ein-kill-ring.el" (0 0 0 0))
+;;; Generated autoloads from ein-kill-ring.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-kill-ring" '("ein:")))
+
+;;;***
+
+;;;### (autoloads nil "ein-log" "ein-log.el" (0 0 0 0))
+;;; Generated autoloads from ein-log.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-log" '("ein:")))
+
+;;;***
+
+;;;### (autoloads nil "ein-multilang" "ein-multilang.el" (0 0 0 0))
 ;;; Generated autoloads from ein-multilang.el
 
 (autoload 'ein:notebook-multilang-mode "ein-multilang" "\
@@ -245,18 +358,36 @@ Notebook mode with multiple language fontification.
 
 \(fn)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-multilang" '("ein:" "python-imenu-format-parent-item-jump-label")))
+
 ;;;***
 
-;;;### (autoloads nil "ein-notebook" "ein-notebook.el" (22766 5079
-;;;;;;  0 0))
+;;;### (autoloads nil "ein-multilang-fontify" "ein-multilang-fontify.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ein-multilang-fontify.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-multilang-fontify" '("ein:mlf-")))
+
+;;;***
+
+;;;### (autoloads nil "ein-node" "ein-node.el" (0 0 0 0))
+;;; Generated autoloads from ein-node.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-node" '("ein:")))
+
+;;;***
+
+;;;### (autoloads nil "ein-notebook" "ein-notebook.el" (0 0 0 0))
 ;;; Generated autoloads from ein-notebook.el
 
 (defalias 'ein:notebook-name 'ein:$notebook-notebook-name)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-notebook" '("ein:")))
+
 ;;;***
 
-;;;### (autoloads nil "ein-notebooklist" "ein-notebooklist.el" (22766
-;;;;;;  5079 0 0))
+;;;### (autoloads nil "ein-notebooklist" "ein-notebooklist.el" (0
+;;;;;;  0 0 0))
 ;;; Generated autoloads from ein-notebooklist.el
 
 (autoload 'ein:notebooklist-open "ein-notebooklist" "\
@@ -341,9 +472,19 @@ Login to IPython notebook server.
 
 \(fn URL-OR-PORT PASSWORD &optional RETRY-P)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-notebooklist" '("ein:" "generate-breadcrumbs")))
+
 ;;;***
 
-;;;### (autoloads nil "ein-org" "ein-org.el" (22766 5079 0 0))
+;;;### (autoloads nil "ein-notification" "ein-notification.el" (0
+;;;;;;  0 0 0))
+;;; Generated autoloads from ein-notification.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-notification" '("ein:")))
+
+;;;***
+
+;;;### (autoloads nil "ein-org" "ein-org.el" (0 0 0 0))
 ;;; Generated autoloads from ein-org.el
 
 (autoload 'ein:org-open "ein-org" "\
@@ -376,10 +517,27 @@ node `(org) External links' and Info node `(org) Search options'
 
 (eval-after-load "org" '(progn (if (fboundp 'org-link-set-parameters) (org-link-set-parameters "ipynb" :follow #'ein:org-open) (org-add-link-type "ipynb" :follow 'ein:org-open)) (add-hook 'org-store-link-functions 'ein:org-store-link)))
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-org" '("ein:org-goto-link")))
+
+;;;***
+
+;;;### (autoloads nil "ein-output-area" "ein-output-area.el" (0 0
+;;;;;;  0 0))
+;;; Generated autoloads from ein-output-area.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-output-area" '("ein:")))
+
+;;;***
+
+;;;### (autoloads nil "ein-pager" "ein-pager.el" (0 0 0 0))
+;;; Generated autoloads from ein-pager.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-pager" '("ein:pager-")))
+
 ;;;***
 
 ;;;### (autoloads nil "ein-pseudo-console" "ein-pseudo-console.el"
-;;;;;;  (22766 5079 0 0))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from ein-pseudo-console.el
 
 (autoload 'ein:pseudo-console-mode "ein-pseudo-console" "\
@@ -387,10 +545,41 @@ Pseudo console mode.  Hit RET to execute code.
 
 \(fn &optional ARG)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-pseudo-console" '("ein:pseudo-console-mode-map")))
+
+;;;***
+
+;;;### (autoloads nil "ein-python" "ein-python.el" (0 0 0 0))
+;;; Generated autoloads from ein-python.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-python" '("ein:python-")))
+
+;;;***
+
+;;;### (autoloads nil "ein-pytools" "ein-pytools.el" (0 0 0 0))
+;;; Generated autoloads from ein-pytools.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-pytools" '("ein:")))
+
+;;;***
+
+;;;### (autoloads nil "ein-query" "ein-query.el" (0 0 0 0))
+;;; Generated autoloads from ein-query.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-query" '("ein:")))
+
+;;;***
+
+;;;### (autoloads nil "ein-scratchsheet" "ein-scratchsheet.el" (0
+;;;;;;  0 0 0))
+;;; Generated autoloads from ein-scratchsheet.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-scratchsheet" '("ein:")))
+
 ;;;***
 
 ;;;### (autoloads nil "ein-shared-output" "ein-shared-output.el"
-;;;;;;  (22766 5079 0 0))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from ein-shared-output.el
 
 (autoload 'ein:shared-output-pop-to-buffer "ein-shared-output" "\
@@ -417,10 +606,26 @@ shared output buffer.  You can open the buffer by the command
 
 \(fn CODE &optional POPUP VERBOSE KERNEL &rest ARGS)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-shared-output" '("ein:")))
+
 ;;;***
 
-;;;### (autoloads nil "ein-traceback" "ein-traceback.el" (22766 5079
+;;;### (autoloads nil "ein-smartrep" "ein-smartrep.el" (0 0 0 0))
+;;; Generated autoloads from ein-smartrep.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-smartrep" '("ein:smartrep-")))
+
+;;;***
+
+;;;### (autoloads nil "ein-subpackages" "ein-subpackages.el" (0 0
 ;;;;;;  0 0))
+;;; Generated autoloads from ein-subpackages.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-subpackages" '("ein:")))
+
+;;;***
+
+;;;### (autoloads nil "ein-traceback" "ein-traceback.el" (0 0 0 0))
 ;;; Generated autoloads from ein-traceback.el
 
 (autoload 'ein:tb-show "ein-traceback" "\
@@ -428,23 +633,55 @@ Show full traceback in traceback viewer.
 
 \(fn)" t nil)
 
-;;;***
-
-;;;### (autoloads nil nil ("debug-ein.el" "ein-ac.el" "ein-cell-edit.el"
-;;;;;;  "ein-cell-output.el" "ein-cell.el" "ein-completer.el" "ein-contents-api.el"
-;;;;;;  "ein-core.el" "ein-events.el" "ein-ipdb.el" "ein-kernelinfo.el"
-;;;;;;  "ein-kill-ring.el" "ein-loaddefs.el" "ein-log.el" "ein-multilang-fontify.el"
-;;;;;;  "ein-node.el" "ein-notification.el" "ein-output-area.el"
-;;;;;;  "ein-pager.el" "ein-pkg.el" "ein-python.el" "ein-pytools.el"
-;;;;;;  "ein-query.el" "ein-scratchsheet.el" "ein-smartrep.el" "ein-subpackages.el"
-;;;;;;  "ein-utils.el" "ein-websocket.el" "ein-worksheet.el" "ein.el"
-;;;;;;  "ob-ein.el") (22766 5079 0 0))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-traceback" '("ein:t")))
 
 ;;;***
 
+;;;### (autoloads nil "ein-utils" "ein-utils.el" (0 0 0 0))
+;;; Generated autoloads from ein-utils.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-utils" '("ein:")))
+
+;;;***
+
+;;;### (autoloads nil "ein-websocket" "ein-websocket.el" (0 0 0 0))
+;;; Generated autoloads from ein-websocket.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-websocket" '("ein:" "fix-request-netscape-cookie-parse")))
+
+;;;***
+
+;;;### (autoloads nil "ein-worksheet" "ein-worksheet.el" (0 0 0 0))
+;;; Generated autoloads from ein-worksheet.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ein-worksheet" '("ein:")))
+
+;;;***
+
+;;;### (autoloads nil "ob-ein" "ob-ein.el" (0 0 0 0))
+;;; Generated autoloads from ob-ein.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ob-ein" '("org-babel-" "ein:" "*ein:org-babel-sessions*")))
+
+;;;***
+
+;;;### (autoloads nil "zeroein" "zeroein.el" (0 0 0 0))
+;;; Generated autoloads from zeroein.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "zeroein" '("zeroein:")))
+
+;;;***
+
+;;;### (autoloads nil nil ("debug-ein.el" "ein-pkg.el" "ein.el")
+;;;;;;  (0 0 0 0))
+
+;;;***
+
+(provide 'ein-loaddefs)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
+;; coding: utf-8
 ;; End:
-;;; ein-autoloads.el ends here
+;;; ein-loaddefs.el ends here
