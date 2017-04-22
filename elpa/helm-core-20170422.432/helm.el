@@ -3689,27 +3689,44 @@ respectively `helm-cand-num' and `helm-cur-source'."
         (put-text-property start (point-at-eol) 'helm-cur-source source))
       (funcall insert-function "\n"))))
 
+(defun helm--mouse-reset-selection-help-echo ()
+  (let* ((start (overlay-start helm-selection-overlay))
+         (end   (overlay-end helm-selection-overlay))
+         (help-echo (get-text-property start 'help-echo)))
+    (when (and help-echo
+               (string-match "mouse-2: execute action" help-echo))
+      (put-text-property
+       start end
+       'help-echo (replace-match "mouse-1: select candidate"
+                                 t t help-echo)))))
+
+(defun helm--bind-mouse-for-selection (pos)
+  (let ((map (get-text-property pos 'keymap)))
+    (define-key map [mouse-2] 'helm-maybe-exit-minibuffer)
+    (put-text-property
+     helm-selection-point
+     (overlay-end helm-selection-overlay)
+     'help-echo (helm-aif (get-text-property pos 'help-echo)
+                    (if (string-match "mouse-1: select candidate" it)
+                        (replace-match "mouse-2: execute action" t t it)
+                        "mouse-2: execute action\nmouse-3: menu actions")))))
+
 (defun helm-mouse-select-candidate (event)
   (interactive "e")
   (let* ((window (posn-window (event-end event)))
-         (pos    (posn-point (event-end event)))
-         (map    (get-text-property pos 'keymap)))
+         (pos    (posn-point (event-end event))))
     (unwind-protect
          (with-current-buffer (window-buffer window)
+           (helm--mouse-reset-selection-help-echo)
            (goto-char pos)
-           (helm-mark-current-line)
-           (define-key map [mouse-2] 'helm-maybe-exit-minibuffer)
-           (put-text-property
-            (point-at-bol) (point-at-eol)
-            ;; FIXME: Once help-echo is modified here, it is no more
-            ;; reset to nonselected candidate help-echo when the
-            ;; candidate is unselected.
-            'help-echo (helm-aif (get-text-property pos 'help-echo)
-                           (concat (replace-regexp-in-string "\n.*" "" it)
-                                   "\nmouse-2: execute action\nmouse-3: menu actions")
-                         "mouse-2: execute action\nmouse-3: menu actions")))
+           (when (helm-pos-multiline-p)
+             (goto-char (or (helm-get-previous-candidate-separator-pos)
+                            (helm-get-previous-header-pos)))
+             (forward-line 1))
+           (helm-mark-current-line))
       (select-window (minibuffer-window))
       (set-buffer (window-buffer window)))))
+(put 'helm-mouse-select-candidate 'helm-only t)
 
 (defun helm-insert-header-from-source (source)
   "Insert SOURCE name in `helm-buffer' header.
@@ -3978,6 +3995,7 @@ If action buffer is selected, back to the helm buffer."
   (with-current-buffer (get-buffer-create helm-action-buffer)
     (erase-buffer)
     (buffer-disable-undo)
+    (setq cursor-type nil)
     (set-window-buffer (if (and helm-show-action-window-other-window
                                 helm-always-two-windows
                                 (eq helm-split-window-state 'vertical))
@@ -4222,6 +4240,8 @@ Key arg DIRECTION can be one of:
     (unless (or (helm-empty-buffer-p (helm-buffer-get))
                 (not (helm-window)))
       (with-helm-window
+        (when helm-allow-mouse
+          (helm--mouse-reset-selection-help-echo))
         (helm-log-run-hook 'helm-move-selection-before-hook)
         (funcall move-func)
         (and (memq direction '(next previous))
@@ -4474,7 +4494,9 @@ candidates."
                header-pos
                (point-max)))
        (1+ (point-at-eol))))
-    (setq helm-selection-point (overlay-start helm-selection-overlay))))
+    (setq helm-selection-point (overlay-start helm-selection-overlay))
+    (when helm-allow-mouse
+      (helm--bind-mouse-for-selection helm-selection-point))))
 
 (defun helm-confirm-and-exit-minibuffer ()
   "Maybe ask for confirmation when exiting helm.
