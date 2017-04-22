@@ -5168,35 +5168,33 @@ Also see *note (gitman)git-reset::.
      defaulting to the commit at point.  The working tree is kept as-is.
      With a prefix argument also reset the working tree.
 
-‘M-x magit-reset-index’     (‘magit-reset-index’)
+‘X m’     (‘magit-reset-head’)
+
+     Reset the ‘HEAD’ and index to some commit read from the user and
+     defaulting to the commit at point.  The working tree is kept as-is.
+
+‘X s’     (‘magit-reset-soft’)
+
+     Reset the ‘HEAD’ to some commit read from the user and defaulting
+     to the commit at point.  The index and the working tree are kept
+     as-is.
+
+‘X h’     (‘magit-reset-hard’)
+
+     Reset the ‘HEAD’, index, and working tree to some commit read from
+     the user and defaulting to the commit at point.
+
+‘X i’     (‘magit-reset-index’)
 
      Reset the index to some commit read from the user and defaulting to
      the commit at point.  Keep the ‘HEAD’ and working tree as-is, so if
      the commit refers to the ‘HEAD’, then this effectively unstages all
      changes.
 
-‘M-x magit-reset-head’     (‘magit-reset-head’)
-
-     Reset the ‘HEAD’ and index to some commit read from the user and
-     defaulting to the commit at point.  The working tree is kept as-is.
-
-‘M-x magit-reset-soft’     (‘magit-reset-soft’)
-
-     Reset the ‘HEAD’ to some commit read from the user and defaulting
-     to the commit at point.  The index and the working tree are kept
-     as-is.
-
-‘M-x magit-reset-hard’     (‘magit-reset-hard’)
-
-     Reset the ‘HEAD’, index, and working tree to some commit read from
-     the user and defaulting to the commit at point.
-
-‘M-x magit-file-checkout’     (‘magit-file-checkout’)
+‘X f’     (‘magit-file-checkout’)
 
      Update file in the working tree and index to the contents from a
-     revision.
-
-     Both the revision and file are read from the user.
+     revision.  Both the revision and file are read from the user.
 
 
 File: magit.info,  Node: Stashing,  Prev: Resetting,  Up: Manipulating
@@ -6402,30 +6400,10 @@ repositories, then you might want to disable certain features on a
 per-repository or per-repository-class basis only.  See *note
 Per-Repository Configuration: Per-Repository Configuration.
 
-Microsoft Windows Performance
-.............................
+* Menu:
 
-In order to update the status buffer, ‘git’ has to be run a few dozen
-times.  That is only problematic on Microsoft Windows, because that
-operating system is exceptionally slow at starting processes.  Sadly
-this is an issue that can only be fixed by Microsoft itself, and they
-don’t appear to be particularly interested in doing so.
-
-   Beside the subprocess issue, there also exist other Window-specific
-performance issues, some of which can be worked around.  The maintainers
-of "Git for Windows" try to reduce their effect, and in order to benefit
-from the latest performance tweaks, should always use the latest
-release.  Magit too tries to work around some Windows-specific issues.
-
-   According to some sources setting the following Git variables can
-also help.
-
-     git config --global core.preloadindex true   # default since v2.1
-     git config --global core.fscache true        # default since v2.8
-     git config --global gc.auto 256
-
-   You should also check whether an anti-virus program is slowing things
-down.
+* Microsoft Windows Performance::
+* MacOS Performance::
 
 Log Performance
 ...............
@@ -6523,6 +6501,70 @@ performing unnecessary work:
 using another version control system:
 
      (setq vc-handled-backends (delq 'Git vc-handled-backends))
+
+
+File: magit.info,  Node: Microsoft Windows Performance,  Next: MacOS Performance,  Up: Performance
+
+Microsoft Windows Performance
+.............................
+
+In order to update the status buffer, ‘git’ has to be run a few dozen
+times.  That is problematic on Microsoft Windows, because that operating
+system is exceptionally slow at starting processes.  Sadly this is an
+issue that can only be fixed by Microsoft itself, and they don’t appear
+to be particularly interested in doing so.
+
+   Beside the subprocess issue, there also exist other Window-specific
+performance issues, some of which can be worked around.  The maintainers
+of "Git for Windows" try to reduce their effect, and in order to benefit
+from the latest performance tweaks, should always use the latest
+release.  Magit too tries to work around some Windows-specific issues.
+
+   According to some sources setting the following Git variables can
+also help.
+
+     git config --global core.preloadindex true   # default since v2.1
+     git config --global core.fscache true        # default since v2.8
+     git config --global gc.auto 256
+
+   You should also check whether an anti-virus program is slowing things
+down.
+
+
+File: magit.info,  Node: MacOS Performance,  Prev: Microsoft Windows Performance,  Up: Performance
+
+MacOS Performance
+.................
+
+On macOS Emacs currently creates child processes using ‘fork’.  It
+appears that this also copies GUI resources.  The result is that forking
+takes about 30 times as long on Darwin than on Linux.  And because Magit
+starts many ‘git’ processes even when doing simple things, that makes
+quite a difference.
+
+   On the ‘master’ branch Emacs now uses ‘vfork’ when possible, like
+this was already done on Linux, and now child creation only takes about
+twice as long on Darwin.  See (1) for more information.
+
+   Nobody knows when the changes on the ‘master’ branch will be released
+as ‘26.1’, but it is still a long way off.  You might want to get your
+hands on this change before then.  The easiest way to get a patched
+Emacs is to install the ‘emacs-plus’ formula (2) using ‘homebrew’.  The
+change has been backported, so you get it not only when using ‘--HEAD’,
+but also when using ‘--devel’ or when installing the latest release (by
+not using a version argument).
+
+   Alternatively you can apply the backport (3) manually.
+
+   ---------- Footnotes ----------
+
+   (1) 
+<https://lists.gnu.org/archive/html/bug-gnu-emacs/2017-04/msg00201.html>
+
+   (2) <https://github.com/d12frosted/homebrew-emacs-plus>
+
+   (3) 
+<https://gist.githubusercontent.com/aaronjensen/f45894ddf431ecbff78b1bcf533d3e6b/raw/6a5cd7f57341aba673234348d8b0d2e776f86719/Emacs-25-OS-X-use-vfork.patch>
 
 
 File: magit.info,  Node: Plumbing,  Next: FAQ,  Prev: Customizing,  Up: Top
@@ -7926,16 +7968,11 @@ Appendix C Keystroke Index
                                                               (line  13)
 * M-x magit-describe-section <1>:        Matching Sections.   (line   6)
 * M-x magit-emacs-Q-command:             Debugging Tools.     (line  16)
-* M-x magit-file-checkout:               Resetting.           (line  37)
 * M-x magit-find-file:                   Visiting Blobs.      (line   6)
 * M-x magit-find-file-other-window:      Visiting Blobs.      (line  11)
 * M-x magit-init:                        Repository Setup.    (line   6)
-* M-x magit-reset-hard:                  Resetting.           (line  32)
-* M-x magit-reset-head:                  Resetting.           (line  21)
 * M-x magit-reset-index:                 Staging and Unstaging.
                                                               (line  88)
-* M-x magit-reset-index <1>:             Resetting.           (line  14)
-* M-x magit-reset-soft:                  Resetting.           (line  26)
 * M-x magit-reverse-in-index:            Staging and Unstaging.
                                                               (line  63)
 * M-x magit-stage-file:                  Staging from File-Visiting Buffers.
@@ -8063,6 +8100,11 @@ Appendix C Keystroke Index
 * x:                                     Editing Rebase Sequences.
                                                               (line  76)
 * x <1>:                                 Resetting.           (line   8)
+* X f:                                   Resetting.           (line  37)
+* X h:                                   Resetting.           (line  25)
+* X i:                                   Resetting.           (line  30)
+* X m:                                   Resetting.           (line  14)
+* X s:                                   Resetting.           (line  19)
 * Y:                                     Cherries.            (line  17)
 * y:                                     References Buffer.   (line   6)
 * y <1>:                                 Editing Rebase Sequences.

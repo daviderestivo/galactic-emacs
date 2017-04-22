@@ -995,6 +995,10 @@ A basic usage of mouse is provided when user set `helm-allow-mouse' to non-nil.
 - mouse-2 execute default action on selected candidate.
 - mouse-3 pops up menu action.
 
+NOTE: When mouse usage is enabled in helm, it allow also clicking around and quit
+the minibuffer focus, it will be up to you to click back to helm buffer or minibuffer
+to retrieve control of your helm session.
+
 ** Marked candidates
 
 You can mark candidates to execute an action on them instead
@@ -2856,7 +2860,7 @@ WARNING: Do not use this mode yourself, it is internal to helm."
    helm-exit-idle-delay nil
    (lambda () (setq helm--in-update nil))))
 
-(add-hook 'helm-after-update-hook #'helm--reset-update-flag)
+;; (add-hook 'helm-after-update-hook #'helm--reset-update-flag)
 
 
 ;; All candidates
@@ -3512,7 +3516,8 @@ without recomputing them, it should be a list of lists."
                       do (helm-render-source src mtc))
              ;; Move to first line only when there is matches
              ;; to avoid cursor moving upside down (issue #1703).
-             (helm--update-move-first-line)))
+             (helm--update-move-first-line)
+             (helm--reset-update-flag)))
       (let ((src (or source (helm-get-current-source))))
         (unless (assq 'candidates-process src)
           (helm-display-mode-line src)
@@ -3694,8 +3699,15 @@ respectively `helm-cand-num' and `helm-cur-source'."
            (goto-char pos)
            (helm-mark-current-line)
            (define-key map [mouse-2] 'helm-maybe-exit-minibuffer)
-           (put-text-property (point-at-bol) (point-at-eol)
-                              'help-echo "mouse-2: execute action"))
+           (put-text-property
+            (point-at-bol) (point-at-eol)
+            ;; FIXME: Once help-echo is modified here, it is no more
+            ;; reset to nonselected candidate help-echo when the
+            ;; candidate is unselected.
+            'help-echo (helm-aif (get-text-property pos 'help-echo)
+                           (concat (replace-regexp-in-string "\n.*" "" it)
+                                   "\nmouse-2: execute action\nmouse-3: menu actions")
+                         "mouse-2: execute action\nmouse-3: menu actions")))
       (select-window (minibuffer-window))
       (set-buffer (window-buffer window)))))
 
@@ -3816,7 +3828,8 @@ this additional info after the source name by overlay."
         ;; FIXME Don't hardcode follow delay.
         (helm-follow-execute-persistent-action-maybe 0.5)
         (helm-display-mode-line (helm-get-current-source))
-        (helm-log-run-hook 'helm-after-update-hook))))
+        (helm-log-run-hook 'helm-after-update-hook)
+        (helm--reset-update-flag))))
 
 (defun helm-process-deferred-sentinel-hook (process event file)
   "Defer remote processes in sentinels.
@@ -4538,8 +4551,10 @@ don't exit and send message 'no match'."
   (with-helm-alive-p
     (if (and (helm--updating-p)
              (null helm--reading-passwd-or-string))
-        (progn (message "[Display not ready]")
-               (sit-for 0.5) (message nil))
+        (progn
+          (message "[Display not ready]")
+          (sit-for 0.5) (message nil)
+          (helm-update))
         (helm-exit-minibuffer))))
 (put 'helm-maybe-exit-minibuffer 'helm-only t)
 
