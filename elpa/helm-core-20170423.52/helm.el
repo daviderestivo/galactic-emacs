@@ -3690,7 +3690,8 @@ respectively `helm-cand-num' and `helm-cur-source'."
       (funcall insert-function "\n"))))
 
 (defun helm--mouse-reset-selection-help-echo ()
-  (let* ((start (overlay-start helm-selection-overlay))
+  (let* ((inhibit-read-only t)
+         (start (overlay-start helm-selection-overlay))
          (end   (overlay-end helm-selection-overlay))
          (help-echo (get-text-property start 'help-echo)))
     (when (and help-echo
@@ -3701,7 +3702,8 @@ respectively `helm-cand-num' and `helm-cur-source'."
                                  t t help-echo)))))
 
 (defun helm--bind-mouse-for-selection (pos)
-  (let ((map (get-text-property pos 'keymap)))
+  (let ((inhibit-read-only t)
+        (map (get-text-property pos 'keymap)))
     (when map
       (define-key map [mouse-2] 'helm-maybe-exit-minibuffer)
       (put-text-property
@@ -3719,12 +3721,15 @@ respectively `helm-cand-num' and `helm-cur-source'."
          (pos    (posn-point (event-end event))))
     (unwind-protect
          (with-current-buffer (window-buffer window)
-           (helm--mouse-reset-selection-help-echo)
-           (goto-char pos)
-           (when (helm-pos-multiline-p)
-             (goto-char (or (helm-get-previous-candidate-separator-pos)
-                            (helm-get-previous-header-pos)))
-             (forward-line 1))
+           (if (and (helm-action-window)
+                    (eql window (get-buffer-window helm-buffer)))
+               (user-error "selection in helm-window not available while selecting action")
+               (helm--mouse-reset-selection-help-echo)
+               (goto-char pos)
+               (when (helm-pos-multiline-p)
+                 (goto-char (or (helm-get-previous-candidate-separator-pos)
+                                (helm-get-previous-header-pos)))
+                 (forward-line 1)))
            (helm-mark-current-line))
       (select-window (minibuffer-window))
       (set-buffer (window-buffer window)))))
