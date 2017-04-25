@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "helm" "helm.el" (22781 48474 0 0))
+;;;### (autoloads nil "helm" "helm.el" (22782 59062 0 0))
 ;;; Generated autoloads from helm.el
 
 (autoload 'helm-define-multi-key "helm" "\
@@ -64,8 +64,8 @@ Arg EXIT-FN specifies a function to run on exit.
 For any other keys pressed, run their assigned command as defined
 in MAP and then exit the loop running EXIT-FN, if specified.
 
-NOTE: SUBKEY and OTHER-SUBKEYS bindings support char syntax only
-\(e.g ?n), so don't use strings or vectors to define them.
+NOTE: SUBKEY and OTHER-SUBKEYS bindings support only char syntax and
+vectors, so don't use strings to define them.
 
 \(fn MAP KEY SUBKEY COMMAND &optional OTHER-SUBKEYS MENU EXIT-FN)" nil nil)
 
@@ -214,7 +214,7 @@ Call `helm' only with ANY-SOURCES and ANY-BUFFER as args.
 ;;;***
 
 ;;;### (autoloads nil nil ("helm-core-pkg.el" "helm-lib.el" "helm-multi-match.el"
-;;;;;;  "helm-source.el") (22781 48474 0 0))
+;;;;;;  "helm-source.el") (22782 59062 0 0))
 
 ;;;***
 
