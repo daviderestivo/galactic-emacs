@@ -51,7 +51,8 @@
 (declare-function async-byte-recompile-directory "ext:async-bytecomp.el")
 
 (defun helm-el-package--init ()
-  (let (package-menu-async)
+  (let (package-menu-async
+        (inhibit-read-only t))
     (when (null package-alist)
       (setq helm-el-package--show-only 'all))
     (when (and (fboundp 'package--removable-packages)
@@ -76,6 +77,8 @@
                'global
              (with-current-buffer (get-buffer "*Packages*")
                (setq helm-el-package--tabulated-list tabulated-list-entries)
+               (remove-text-properties (point-min) (point-max)
+                                       '(read-only button follow-link category))
                (buffer-string)))
            (setq helm-el-package--upgrades (helm-el-package-menu--find-upgrades))
            (if helm--force-updating-p
@@ -446,11 +449,13 @@
         :buffer "*helm list packages*"))
 
 ;;;###autoload
-(defun helm-list-elisp-packages-no-fetch ()
+(defun helm-list-elisp-packages-no-fetch (arg)
   "Preconfigured helm for emacs packages.
-Same as `helm-list-elisp-packages' but don't fetch packages on remote."
-  (interactive)
-  (let ((helm-el-package--initialized-p t))
+
+Same as `helm-list-elisp-packages' but don't fetch packages on remote.
+Called with a prefix ARG always fetch packages on remote."
+  (interactive "P")
+  (let ((helm-el-package--initialized-p (null arg)))
     (helm-list-elisp-packages nil)))
 
 (provide 'helm-elisp-package)

@@ -425,6 +425,13 @@
 			      nil "Highlight escape sequences" single
 			      ((:url . "https://github.com/dgutov/highlight-escape-sequences")
 			       (:keywords "convenience"))])
+ (hook-helpers .
+	       [(1 1)
+		((emacs
+		  (25 1)))
+		"Anonymous, modifiable hook functions" tar
+		((:keywords "development" "hooks")
+		 (:url . "https://savannah.nongnu.org/projects/hook-helpers-el/"))])
  (html5-schema .
 	       [(0 1)
 		nil "Add HTML5 schemas for use by nXML" tar
