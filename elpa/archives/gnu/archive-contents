@@ -28,7 +28,7 @@
 	       ((:keywords "languages" "ada")
 		(:url . "http://stephe-leake.org/ada/arm.html"))])
  (adaptive-wrap .
-		[(0 5)
+		[(0 5 1)
 		 nil "Smart line-wrapping with wrap-prefix" single
 		 ((:url . "http://elpa.gnu.org/packages/adaptive-wrap.html")
 		  (:keywords))])
