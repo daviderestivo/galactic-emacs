@@ -251,6 +251,21 @@
 ;;
 (setq ediff-split-window-function 'split-window-horizontally)
 
+;; Customize ediff background colors
+(add-hook 'ediff-load-hook
+          (lambda ()
+            (set-face-background
+             ediff-even-diff-face-A "SlateGray4")
+            (set-face-background
+             ediff-even-diff-face-B "SlateGray4")
+            (set-face-background
+             ediff-even-diff-face-C "SlateGray4")
+            (set-face-background
+             ediff-odd-diff-face-A "SlateGray4")
+            (set-face-background
+             ediff-odd-diff-face-B "SlateGray4")
+            (set-face-background
+             ediff-odd-diff-face-C "SlateGray4")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; BEGIN ansi-term settings ;;
