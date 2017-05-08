@@ -12,7 +12,7 @@
 ;; Maintainer: Jonas Bernoulli <jonas@bernoul.li>
 
 ;; Package-Requires: ((emacs "24.4") (dash "20170207.2056") (with-editor "20170111.609"))
-;; Package-Version: 20170506.1303
+;; Package-Version: 20170507.1603
 ;; Keywords: git tools vc
 ;; Homepage: https://github.com/magit/magit
 
@@ -477,6 +477,7 @@ to `git-commit-fill-column'."
   (when (and (numberp git-commit-fill-column)
              (not (local-variable-p 'fill-column)))
     (setq fill-column git-commit-fill-column))
+  (setq-local comment-auto-fill-only-comments nil)
   (turn-on-auto-fill))
 
 (defun git-commit-turn-on-flyspell ()
