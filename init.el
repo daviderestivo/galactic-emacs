@@ -53,6 +53,15 @@
               indent-tabs-mode nil)
 
 ;;
+;; Show trailing whitespaces
+;;
+;; Type M-x delete-trailing-whitespace to delete all trailing whitespace.
+;; This command deletes all extra spaces at the end of each line in the buffer,
+;; and all empty lines at the end of the buffer
+;;
+(setq-default show-trailing-whitespace t)
+
+;;
 ;; Datetime format
 ;;
 (setq display-time-day-and-date t
@@ -121,7 +130,7 @@
 
 ;;
 ;; Add cisco-router-mode
-;; 
+;;
 (load-library "cisco-router-mode")
 
 ;;
@@ -143,7 +152,7 @@
 (defvar frame-pixel-width  (* frame-width (frame-char-width)))
 
 (setq initial-frame-alist
-;; Avoid the issue of having emacs on the middle of two displays. 
+;; Avoid the issue of having emacs on the middle of two displays.
       `((left . ,(/ (-
                      (round (* (display-pixel-height) 1.777))
                        frame-pixel-width) 2))
@@ -226,7 +235,7 @@
 ;; Add some of the ispell shortcuts:
 ;; - press <f8> to check a word
 ;; - press M-<f8> to check the next one
-;; 
+;;
 (global-set-key (kbd "<f8>") 'ispell-word)
 (defun flyspell-check-next-highlighted-word ()
   "Custom function to spell check next highlighted word"
@@ -282,7 +291,7 @@
     ad-do-it))
 (ad-activate 'term-sentinel)
 ;;
-;; Always use bash 
+;; Always use bash
 ;;
 (defvar my-term-shell "/usr/local/bin/bash")
 (defadvice ansi-term (before force-bash)
@@ -334,7 +343,7 @@
 ;; Create a new buffer without prompting for the name. Bound to F7
 ;;
 (defun new-empty-buffer ()
-  "Create a new empty buffer. New buffer will be named “untitled” or 
+  "Create a new empty buffer. New buffer will be named “untitled” or
 “untitled<2>”, “untitled<3>”, ..."
   (interactive)
   (let ((new-buf (generate-new-buffer "untitled")))
@@ -344,7 +353,7 @@
 (global-set-key (kbd "<f7>") 'new-empty-buffer)
 
 ;;
-;; Add magit-status key binding 
+;; Add magit-status key binding
 ;;
 (global-set-key (kbd "<f2>") 'magit-status)
 
