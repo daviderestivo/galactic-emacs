@@ -371,92 +371,6 @@
 ;; See custom.el for the configuration
 ;;
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; BEGIN Jedi - Python auto-completion package for Emacs - ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;; Sun Apr  2 00:56:58 CEST 2017 - Disabled below section because jedi
-;; has been replaced with company-jedi.
-;;
-;; (require 'jedi)
-;; (add-hook 'python-mode-hook 'jedi:setup)
-;; (setq jedi:complete-on-dot t)
-;;
-;; Set Jedi to use python3 instead of the default python2
-;;
-(setq jedi:environment-root "python3")
-(setq jedi:server-command
-      '("~/.emacs.d/.python-environments/python3/bin/jediepcserver"))
-;;
-;; In order to install a python2 venv for Jedi do the following:
-;;
-;; 1. Create a new buffer and enter python-mode
-;;
-;; 2. Evaluate the following: 
-;;
-;;    (setq jedi:environment-root "python2")
-;;    (setq jedi:environment-virtualenv
-;;          (append python-environment-virtualenv
-;;                  '("--python" "/usr/local/bin/python")))
-;;
-;; 3. Install the Jedi server using:
-;;
-;;    M-x jedi:install-server
-;; 
-;; IMPORTANT: running jedi:install-server on an already installed
-;; venv will update all of the additional packages
-;; (pip install --upgrade).
-;;
-
-;;
-;; The default Jedy python venv is python3 based. See above.
-;; The below two functions permit to switch a buffer between
-;; python2 and python3 if needed.
-;;
-(defun jedi:use-python2 ()
-  (interactive)
-  ;; Switch a buffer to python2
-  (jedi:stop-server)
-  (make-local-variable 'jedi:server-command)
-  (setq jedi:server-command
-	'("~/.emacs.d/.python-environments/python2/bin/jediepcserver"))
-  (make-local-variable 'jedi:environment-root)
-  (setq  jedi:environment-root "python2")
-  )
-
-(defun jedi:use-python3 ()
-  (interactive)
-  (jedi:stop-server)
-  ;; Switch a buffer to python3
-  (make-local-variable 'jedi:server-command)
-  (setq jedi:server-command
-	'("~/.emacs.d/.python-environments/python3/bin/jediepcserver"))
-  (make-local-variable 'jedi:environment-root)
-  (setq  jedi:environment-root "python3")  
-  )
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; END Jedi - Python auto-completion package for Emacs - ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
-
-;;
-;; company-jedi setup
-;;
-(defun company-jedi:python-mode-hook ()
-  (add-to-list 'company-backends 'company-jedi))
-(add-hook 'python-mode-hook 'company-jedi:python-mode-hook)
-(add-hook 'python-mode-hook
-          '(lambda ()
-             ;; Enable superword mode, useful for “snake_case”.
-             (superword-mode 1)
-             ))
-
-;;
-;; Emacs IPython Notebook config section
-;; 
-(require 'ein)
-;; Enable autocomplete
-(setq ein:use-auto-complete t)
-
 ;;
 ;; auto-package-update - Automatically delete old packages
 ;;
@@ -543,14 +457,12 @@
 (global-auto-revert-mode t)
 
 ;;
-;; Setup fill-column-indicator
+;; Highlight lines that exceed 80 chars length
 ;;
-(setq fci-rule-width 1)
-(setq fci-rule-color "#3E4451")
-;; enable fci-mode as a global minor mode
-(define-globalized-minor-mode global-fci-mode
-  fci-mode (lambda () (fci-mode 1)))
-(global-fci-mode 1)
+(require 'whitespace)
+(setq whitespace-line-column 80) ;; limit line length
+(setq whitespace-style '(face lines-tail))
+(global-whitespace-mode +1)
 
 ;;
 ;; Setup bookmark
