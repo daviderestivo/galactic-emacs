@@ -12,7 +12,7 @@
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(package-selected-packages
    (quote
-    (elpy magit markdown-mode atom-one-dark-theme projectile company jinja2-mode helm yaml-mode smart-mode-line auto-package-update rainbow-delimiters org exec-path-from-shell))))
+    (py-autopep8 elpy magit markdown-mode atom-one-dark-theme projectile company jinja2-mode helm yaml-mode smart-mode-line auto-package-update rainbow-delimiters org exec-path-from-shell))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

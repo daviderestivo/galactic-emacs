@@ -488,3 +488,17 @@
 ;;
 (package-initialize)
 (elpy-enable)
+(elpy-use-ipython)
+;; Fix IPython5 s new prompt behavior (https://github.com/jorgenschaefer/elpy/issues/992)
+(setenv "IPY_TEST_SIMPLE_PROMPT" "1")
+
+;;
+;; Configure py-autopep8
+;;
+(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+
+;;
+;; highlight-indentation-mode configuration
+;;
+(set-face-background 'highlight-indentation-face "gray18")
+(set-face-background 'highlight-indentation-current-column-face "gray18")
