@@ -12,6 +12,7 @@ install the needed packages by yourself.
 * auto-package-update [[link](https://github.com/rranelli/auto-package-update.el)]
 * cisco-router-mode.el [[link](https://www.emacswiki.org/emacs/download/cisco-router-mode.el)]
 * company-mode [[link](https://github.com/company-mode/company-mode)]
+* elpy [[link](https://elpy.readthedocs.io)]
 * exec-path-from-shell [link](https://github.com/purcell/exec-path-from-shell)]
 * helm [[link](https://github.com/emacs-helm/helm)]
 * jinja2-mode [[link](https://github.com/paradoxxxzero/jinja2-mode)]
