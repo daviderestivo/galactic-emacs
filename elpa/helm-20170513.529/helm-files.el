@@ -404,7 +404,7 @@ Remote filesystem are generally mounted with sshfs."
     (define-key map (kbd "C-{")           'helm-enlarge-window)
     (define-key map (kbd "C-<backspace>") 'helm-ff-run-toggle-auto-update)
     (define-key map (kbd "C-c <DEL>")     'helm-ff-run-toggle-auto-update)
-    (define-key map (kbd "C-c C-a")       'helm-ff-run-gnus-attach-files)
+    (define-key map (kbd "C-c C-a")       'helm-ff-run-mail-attach-files)
     (define-key map (kbd "C-c p")         'helm-ff-run-print-file)
     (define-key map (kbd "C-c /")         'helm-ff-run-find-sh-command)
     ;; Next 2 have no effect if candidate is not an image file.
@@ -483,10 +483,10 @@ Don't set it directly, use instead `helm-ff-auto-update-initial-value'.")
    "Find File" 'helm-find-file-or-marked
    "Find file in Dired" 'helm-point-file-in-dired
    "View file" 'view-file
-   "Checksum File" 'helm-ff-checksum
    "Query replace fnames on marked" 'helm-ff-query-replace-on-marked
    "Query replace contents on marked" 'helm-ff-query-replace
    "Query replace regexp contents on marked" 'helm-ff-query-replace-regexp
+   "Attach file(s) to mail buffer" 'helm-ff-mail-attach-files
    "Serial rename files" 'helm-ff-serial-rename
    "Serial rename by symlinking files" 'helm-ff-serial-rename-by-symlink
    "Serial rename by copying files" 'helm-ff-serial-rename-by-copying
@@ -1363,12 +1363,12 @@ Behave differently depending of `helm-selection':
     (helm-exit-and-execute-action 'find-alternate-file)))
 (put 'helm-ff-run-find-alternate-file 'helm-only t)
 
-(defun helm-ff-run-gnus-attach-files ()
-  "Run gnus attach files command action from `helm-source-find-files'."
+(defun helm-ff-run-mail-attach-files ()
+  "Run mail attach files command action from `helm-source-find-files'."
   (interactive)
   (with-helm-alive-p
-    (helm-exit-and-execute-action 'helm-ff-gnus-attach-files)))
-(put 'helm-ff-run-gnus-attach-files 'helm-only t)
+    (helm-exit-and-execute-action 'helm-ff-mail-attach-files)))
+(put 'helm-ff-run-mail-attach-files 'helm-only t)
 
 (defun helm-ff-run-etags ()
   "Run Etags command action from `helm-source-find-files'."
@@ -1438,6 +1438,8 @@ Same as `dired-do-print' but for helm."
 (defun helm-ff-checksum (file)
   "Calculate the checksum of FILE.
 The checksum is copied to kill-ring."
+  (cl-assert (file-regular-p file)
+             nil "`%s' is not a regular file" file)
   (let ((algo (intern (helm-comp-read
                        "Algorithm: "
                        '(md5 sha1 sha224 sha256 sha384 sha512))))
@@ -2374,34 +2376,37 @@ Return candidates prefixed with basename of `helm-input' first."
   (let ((str-at-point (with-helm-current-buffer
                         (buffer-substring-no-properties
                          (point-at-bol) (point-at-eol)))))
-    (cond ((with-helm-current-buffer
-             (eq major-mode 'message-mode))
-           (append actions
-                   '(("Gnus attach file(s)" . helm-ff-gnus-attach-files))))
-          ((and ffap-url-regexp
+    (when (file-regular-p candidate)
+      (setq actions (helm-append-at-nth
+                     actions '(("Checksum File" . helm-ff-checksum)) 4)))
+    (cond ((and ffap-url-regexp
                 (not (string-match-p ffap-url-regexp str-at-point))
                 (not (with-helm-current-buffer (eq major-mode 'dired-mode)))
                 (string-match-p ":\\([0-9]+:?\\)" str-at-point))
            (append '(("Find file to line number" . helm-ff-goto-linum))
                    actions))
           ((string-match (image-file-name-regexp) candidate)
-           (append actions
-                   '(("Rotate image right `M-r'" . helm-ff-rotate-image-right)
-                     ("Rotate image left `M-l'" . helm-ff-rotate-image-left))))
+           (helm-append-at-nth
+            actions
+            '(("Rotate image right `M-r'" . helm-ff-rotate-image-right)
+              ("Rotate image left `M-l'" . helm-ff-rotate-image-left))
+            3))
           ((string-match "\.el$" (helm-aif (helm-marked-candidates)
                                      (car it) candidate))
-           (append actions
-                   '(("Byte compile lisp file(s) `M-B, C-u to load'"
-                      . helm-find-files-byte-compile)
-                     ("Load File(s) `M-L'" . helm-find-files-load-files))))
+           (helm-append-at-nth
+            actions
+            '(("Byte compile lisp file(s) `M-B, C-u to load'"
+               . helm-find-files-byte-compile)
+              ("Load File(s) `M-L'" . helm-find-files-load-files))
+            2))
           ((and (string-match "\.html?$" candidate)
                 (file-exists-p candidate))
-           (append actions
-                   '(("Browse url file" . browse-url-of-file))))
+           (helm-append-at-nth
+            actions '(("Browse url file" . browse-url-of-file)) 2))
           ((or (string= (file-name-extension candidate) "pdf")
                (string= (file-name-extension candidate) "PDF"))
-           (append actions
-                   '(("Pdfgrep File(s)" . helm-ff-pdfgrep))))
+           (helm-append-at-nth
+            actions '(("Pdfgrep File(s)" . helm-ff-pdfgrep)) 4))
           (t actions))))
 
 (defun helm-ff-goto-linum (candidate)
@@ -2417,7 +2422,7 @@ e.g \"foo:12\"."
     (and linum (not (string= linum ""))
          (helm-goto-line (string-to-number linum) t))))
 
-(defun helm-ff-gnus-attach-files (_candidate)
+(defun helm-ff-mail-attach-files (_candidate)
   "Run `gnus-dired-attach' on `helm-marked-candidates' or CANDIDATE."
   (require 'gnus-dired)
   (let ((flist (helm-marked-candidates :with-wildcard t)))

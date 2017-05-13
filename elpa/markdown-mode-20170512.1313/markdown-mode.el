@@ -7,7 +7,7 @@
 ;; Maintainer: Jason R. Blevins <jrblevin@sdf.org>
 ;; Created: May 24, 2007
 ;; Version: 2.1
-;; Package-Version: 20170511.1852
+;; Package-Version: 20170512.1313
 ;; Package-Requires: ((emacs "24") (cl-lib "0.5"))
 ;; Keywords: Markdown, GitHub Flavored Markdown, itex
 ;; URL: http://jblevins.org/projects/markdown-mode/
@@ -296,7 +296,9 @@
 ;;     side-by-side with the source Markdown. **For all export commands,
 ;;     the output file will be overwritten without notice.**
 ;;     `markdown-live-preview-window-function' can be customized to open
-;;     in a browser other than `eww'.
+;;     in a browser other than `eww'.  If you want to force the
+;;     preview window to appear at the bottom or right, you can
+;;     customize `markdown-split-window-direction`.
 ;;
 ;;     To summarize:
 ;;
@@ -549,8 +551,8 @@
 ;;     indentation (default: `markdown-indent-line').
 ;;
 ;;   * `markdown-indent-on-enter' - set to a non-nil value to
-;;     automatically indent new lines when the enter key is pressed
-;;     (default: `t')
+;;     automatically indent new lines and/or continue lists when the
+;;     enter key is pressed (default: `t')
 ;;
 ;;   * `markdown-enable-wiki-links' - syntax highlighting for wiki
 ;;     links (default: `nil').  Set this to a non-nil value to turn on
@@ -942,11 +944,13 @@ line around the header title."
   :type 'function)
 
 (defcustom markdown-indent-on-enter t
-  "Automatically indent new lines when enter key is pressed.
+  "Indent new lines and continue lists when enter is pressed.
 When this variable is set to t, pressing RET will call
-`newline-and-indent'.  When set to nil, define RET to call
-`newline' as usual.  In the latter case, you can still use
-auto-indentation by pressing \\[newline-and-indent]."
+`newline-and-indent' and will continue a list.  When set to nil,
+define RET to call `newline' as usual.  In the latter case, you
+can still use auto-indentation by pressing
+\\[newline-and-indent] or continue lists with
+\\[markdown-insert-list-item]."
   :group 'markdown
   :type 'boolean)
 
@@ -1079,6 +1083,18 @@ completion."
   "When non-nil, allow yaml metadata anywhere in the document."
   :group 'markdown
   :type 'boolean)
+
+(defcustom markdown-split-window-direction 'any
+  "Preference for splitting windows for static and live preview.
+The default value is 'any, which instructs Emacs to use
+`split-window-sensibly' to automatically choose how to split
+windows based on the values of `split-width-threshold' and
+`split-height-threshold' and the available windows.  To force
+vertically split (left and right) windows, set this to 'vertical
+or 'right.  To force horizontally split (top and bottom) windows,
+set this to 'horizontal or 'below."
+  :group 'markdown
+  :type 'symbol)
 
 (defcustom markdown-live-preview-window-function
   'markdown-live-preview-window-eww
@@ -1219,10 +1235,14 @@ Groups 1 and 3 match the opening and closing tags.
 Group 2 matches the key sequence.")
 
 (defconst markdown-regex-gfm-code-block-open
- "^[[:blank:]]*\\(```\\)[ ]?\\([^[:space:]]+\\|{[^}]*}\\)?\\([[:space:]]*?\\)$"
+ "^[[:blank:]]*\\(```\\)[[:blank:]]*\\({\\)?[[:blank:]]*\\([^[:space:]]+?\\)?\\(?:[[:blank:]]+\\(.+?\\)\\)?[[:blank:]]*\\(}\\)?[[:blank:]]*$"
  "Regular expression matching opening of GFM code blocks.
 Group 1 matches the opening three backticks.
-Group 2 matches the language identifier (optional).")
+Group 2 matches the opening brace (optional).
+Group 3 matches the language identifier (optional).
+Group 4 matches the info string (optional).
+Group 5 matches the closing brace (optional).
+Groups need to agree with `markdown-regex-tilde-fence-begin'.")
 
 (defconst markdown-regex-gfm-code-block-close
  "^[[:blank:]]*\\(```\\)\\s *?$"
@@ -1346,15 +1366,22 @@ Groups 1 and 3 match the opening and closing delimiters.
 Group 2 matches the mathematical expression contained within.")
 
 (defsubst markdown-make-tilde-fence-regex (num-tildes &optional end-of-line)
-  "Return regexp matching a Pandoc code fence at least NUM-TILDES long.
+  "Return regexp matching a tilde code fence at least NUM-TILDES long.
 END-OF-LINE is the regexp construct to indicate end of line; $ if
 missing."
-  (format "%s%d%s%s" "^\\([~]\\{" num-tildes ",\\}\\)" (or end-of-line "$")))
+  (format "%s%d%s%s" "^[[:blank:]]*\\([~]\\{" num-tildes ",\\}\\)"
+          (or end-of-line "$")))
 
 (defconst markdown-regex-tilde-fence-begin
   (markdown-make-tilde-fence-regex
-   3 "[ ]?\\([^[:space:]]+\\|{[^}]*}\\)?\\([[:space:]]*?\\)$")
-  "Regular expression for matching Pandoc tildes.")
+   3 "[[:blank:]]*\\({\\)?[[:blank:]]*\\([^[:space:]]+?\\)?\\(?:[[:blank:]]+\\(.+?\\)\\)?[[:blank:]]*\\(}\\)?[[:blank:]]*$")
+  "Regular expression for matching tilde-fenced code blocks.
+Group 1 matches the opening tildes.
+Group 2 matches the opening brace (optional).
+Group 3 matches the language identifier (optional).
+Group 4 matches the info string (optional).
+Group 5 matches the closing brace (optional).
+Groups need to agree with `markdown-regex-gfm-code-block-open'.")
 
 (defconst markdown-regex-declarative-metadata
   "^\\([[:alpha:]][[:alpha:] _-]*?\\)\\([:=][ \t]*\\)\\(.*\\)$"
@@ -1956,6 +1983,9 @@ START and END delimit region to propertize."
 (defvar markdown-language-keyword-face 'markdown-language-keyword-face
   "Face name to use for programming language identifiers.")
 
+(defvar markdown-language-info-face 'markdown-language-info-face
+  "Face name to use for programming info strings.")
+
 (defvar markdown-link-face 'markdown-link-face
   "Face name to use for links.")
 
@@ -2058,6 +2088,11 @@ START and END delimit region to propertize."
   "Face for programming language identifiers."
   :group 'markdown-faces)
 
+(defface markdown-language-info-face
+  '((t (:inherit font-lock-string-face)))
+  "Face for programming language info strings."
+  :group 'markdown-faces)
+
 (defface markdown-link-face
   '((t (:inherit font-lock-keyword-face)))
   "Face for links."
@@ -2150,8 +2185,8 @@ Used when `markdown-header-scaling' is non-nil."
 (defun markdown-make-header-faces ()
   "Build the faces used for Markdown headers."
   (defface markdown-header-face
-    `((t (:inherit (,(when markdown-header-scaling 'variable-pitch)
-                     font-lock-function-name-face)
+    `((t (:inherit (,@(when markdown-header-scaling 'variable-pitch)
+                    font-lock-function-name-face)
                    :weight bold)))
     "Base face for headers."
     :group 'markdown-faces)
@@ -2200,11 +2235,17 @@ See `font-lock-syntactic-face-function' for details."
                                          (2 markdown-markup-face)
                                          (3 markdown-metadata-value-face)))
     (markdown-match-gfm-open-code-blocks . ((1 markdown-markup-face)
-                                            (2 markdown-language-keyword-face nil t)))
+                                            (2 markdown-markup-face nil t)
+                                            (3 markdown-language-keyword-face nil t)
+                                            (4 markdown-language-info-face nil t)
+                                            (5 markdown-markup-face nil t)))
     (markdown-match-gfm-close-code-blocks . ((1 markdown-markup-face)))
     (markdown-match-gfm-code-blocks . ((0 markdown-pre-face)))
     (markdown-match-fenced-start-code-block . ((1 markdown-markup-face)
-                                               (2 markdown-language-keyword-face nil t)))
+                                               (2 markdown-markup-face nil t)
+                                               (3 markdown-language-keyword-face nil t)
+                                               (4 markdown-language-info-face nil t)
+                                               (5 markdown-markup-face nil t)))
     (markdown-match-fenced-end-code-block . ((0 markdown-markup-face)))
     (markdown-match-fenced-code-blocks . ((0 markdown-pre-face)))
     (markdown-match-pre-blocks . ((0 markdown-pre-face)))
@@ -3923,9 +3964,11 @@ automatically in order to have the correct markup."
                     (goto-char (car pos-prop))
                     (save-match-data
                       (set-match-data (get-text-property (point) prop))
-                      (when (and (match-beginning 2) (match-end 2))
+                      ;; Note: Hard-coded group number assumes tilde
+                      ;; and GFM fenced code regexp groups agree.
+                      (when (and (match-beginning 3) (match-end 3))
                         (buffer-substring-no-properties
-                         (match-beginning 2) (match-end 2)))))
+                         (match-beginning 3) (match-end 3)))))
        do (progn (when lang (markdown-gfm-add-used-language lang))
                  (goto-char (next-single-property-change (point) prop)))))))
 
@@ -4287,11 +4330,30 @@ duplicate positions, which are handled up by calling functions."
     (reverse positions)))
 
 (defun markdown-enter-key ()
-  "Handle RET according to to the value of `markdown-indent-on-enter'."
+  "Handle RET according to customized settings.
+When `markdown-indent-on-enter' is nil, this is equivalent to
+`newline'.  Otherwise, indent following RET and when the point is
+in a list item, start a new item with the same indentation.  If
+the point is in an empty list item, remove it."
   (interactive)
-  (newline)
-  (when markdown-indent-on-enter
-    (markdown-indent-line)))
+  (if (not markdown-indent-on-enter)
+      (newline)
+    (let ((bounds (markdown-cur-list-item-bounds)))
+      (if bounds
+          (let ((beg (cl-first bounds))
+                (end (cl-second bounds))
+                (length (cl-fourth bounds)))
+            ;; Point is in a list item
+            (if (= (- end beg) length)
+                ;; Delete blank list
+                (progn
+                  (delete-region beg end)
+                  (newline)
+                  (markdown-indent-line))
+              (call-interactively #'markdown-insert-list-item)))
+        ;; Point is not in a list
+        (newline)
+        (markdown-indent-line)))))
 
 (defun markdown-exdent-or-delete (arg)
   "Handle BACKSPACE by cycling through indentation points.
@@ -6104,7 +6166,14 @@ displaying the rendered output."
         (delete-file outfile-name)))))
 
 (defun markdown-display-buffer-other-window (buf)
-  (let ((cur-buf (current-buffer)))
+  (let ((cur-buf (current-buffer))
+        split-width-threshold split-height-threshold)
+    (cond ((memq markdown-split-window-direction '(vertical below))
+           (setq split-width-threshold nil)
+           (setq split-height-threshold 0))
+          ((memq markdown-split-window-direction '(horizontal right))
+           (setq split-width-threshold 0)
+           (setq split-height-threshold nil)))
     (switch-to-buffer-other-window buf)
     (set-buffer cur-buf)))
 
@@ -6546,7 +6615,9 @@ handles filling itself, it always returns t so that
             nil nil nil nil
             (font-lock-syntactic-face-function . markdown-syntactic-face)))
     ;; Refontify buffer
-    (when (fboundp 'font-lock-refresh-defaults) (font-lock-refresh-defaults))
+    (when (and font-lock-mode (fboundp 'font-lock-refresh-defaults))
+      (font-lock-refresh-defaults))
+
     ;; Add or remove hooks related to extensions
     (markdown-setup-wiki-link-hooks)))
 
