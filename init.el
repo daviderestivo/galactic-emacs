@@ -488,6 +488,7 @@
 ;;
 (package-initialize)
 (elpy-enable)
+(setq elpy-rpc-python-command "python3")
 (elpy-use-ipython "ipython3")
 ;; Fix IPython5 s new prompt behavior (https://github.com/jorgenschaefer/elpy/issues/992)
 (setenv "IPY_TEST_SIMPLE_PROMPT" "1")
