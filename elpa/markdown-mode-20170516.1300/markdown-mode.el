@@ -7,7 +7,7 @@
 ;; Maintainer: Jason R. Blevins <jrblevin@sdf.org>
 ;; Created: May 24, 2007
 ;; Version: 2.1
-;; Package-Version: 20170515.1940
+;; Package-Version: 20170516.1300
 ;; Package-Requires: ((emacs "24") (cl-lib "0.5"))
 ;; Keywords: Markdown, GitHub Flavored Markdown, itex
 ;; URL: http://jblevins.org/projects/markdown-mode/
@@ -2419,10 +2419,12 @@ backwards compatibility."
         (and (memq system-type '(windows-nt ms-dos))
              (= lastc ?\\)))))
 
-;; Provide a function to find files recursively Emacs 24
-;; In Emacs 25, this can be replaced by directory-files-recursively.
-(defun markdown-directory-files-recursively (dir regexp)
-  "Return list of all files under DIR that have file names matching REGEXP.
+;; Provide a function to find files recursively in Emacs 24.
+(defalias 'markdown-directory-files-recursively
+  (if (fboundp 'directory-files-recursively)
+      'directory-files-recursively
+    (lambda (dir regexp)
+    "Return list of all files under DIR that have file names matching REGEXP.
 This function works recursively.  Files are returned in \"depth first\"
 order, and files from each directory are sorted in alphabetical order.
 Each file name appears in the returned list in its absolute form.
@@ -2444,7 +2446,7 @@ here for backwards compatibility."
                                    full-file regexp))))
           (when (string-match regexp file)
             (push (expand-file-name file dir) files)))))
-    (nconc result (nreverse files))))
+    (nconc result (nreverse files))))))
 
 
 ;;; Markdown Parsing Functions ================================================
@@ -5504,22 +5506,6 @@ See `markdown-wiki-link-p' and `markdown-next-wiki-link'."
       (goto-char opoint)
       nil)))
 
-(defun markdown-next-heading ()
-  "Move to the next heading line of any level.
-With argument, repeats or can move backward if negative."
-  (let ((pos (outline-next-heading)))
-    (while (markdown-code-block-at-point)
-      (setq pos (outline-next-heading)))
-    pos))
-
-(defun markdown-previous-heading ()
-  "Move to the previous heading line of any level.
-With argument, repeats or can move backward if negative."
-  (let ((pos (outline-previous-heading)))
-    (while (markdown-code-block-at-point)
-      (setq pos (outline-previous-heading)))
-    pos))
-
 
 ;;; Outline ===================================================================
 
@@ -5528,11 +5514,12 @@ With argument, repeats or can move backward if negative."
 MOVE-FN is a function and ARG is its argument. For example,
 headings inside preformatted code blocks may match
 `outline-regexp' but should not be considered as headings."
-  (funcall move-fn arg)
-  (let ((prev -1))
+  (let ((prev -1) (start (point)))
+    (if arg (funcall move-fn arg) (funcall move-fn))
     (while (and (/= prev (point)) (markdown-code-block-at-point))
       (setq prev (point))
-      (funcall move-fn arg))))
+      (if arg (funcall move-fn arg) (funcall move-fn)))
+    (if (= (point) start) nil (point))))
 
 (defun markdown-next-visible-heading (arg)
   "Move to the next visible heading line of any level.
@@ -5547,6 +5534,14 @@ With argument, repeats or can move backward if negative. ARG is
 passed to `outline-previous-visible-heading'."
   (interactive "p")
   (markdown-move-heading-common 'outline-previous-visible-heading arg))
+
+(defun markdown-next-heading ()
+  "Move to the next heading line of any level."
+  (markdown-move-heading-common 'outline-next-heading))
+
+(defun markdown-previous-heading ()
+  "Move to the previous heading line of any level."
+  (markdown-move-heading-common 'outline-previous-heading))
 
 (defun markdown-forward-same-level (arg)
   "Move forward to the ARG'th heading at same level as this one.
@@ -5591,6 +5586,8 @@ Stop at the first and last headings of a superior heading."
   "Move to the visible heading line of which the present line is a subheading.
 With argument, move up ARG levels."
   (interactive "p")
+  (and (called-interactively-p 'any)
+       (not (eq last-command 'markdown-up-heading)) (push-mark))
   (markdown-move-heading-common 'outline-up-heading arg))
 
 (defun markdown-back-to-heading (&optional invisible-ok)
@@ -5611,9 +5608,9 @@ non-nil.
 Derived from `org-end-of-subtree'."
   (markdown-back-to-heading invisible-OK)
   (let ((first t)
-        (level (funcall outline-level)))
+        (level (markdown-outline-level)))
     (while (and (not (eobp))
-                (or first (> (funcall outline-level) level)))
+                (or first (> (markdown-outline-level) level)))
       (setq first nil)
       (markdown-next-heading))
     (if (memq (preceding-char) '(?\n ?\^M))
@@ -5760,10 +5757,10 @@ Calls `markdown-cycle' with argument t."
 (defun markdown-outline-level ()
   "Return the depth to which a statement is nested in the outline."
   (cond
-   ((markdown-code-block-at-point) 7)
+   ((markdown-code-block-at-point-p) 7) ;; Only 6 header levels are defined.
    ((match-end 2) 1)
    ((match-end 3) 2)
-   ((- (match-end 4) (match-beginning 4)))))
+   ((match-end 4) (- (match-end 4) (match-beginning 4)))))
 
 (defun markdown-promote-subtree (&optional arg)
   "Promote the current subtree of ATX headings.
@@ -6583,6 +6580,11 @@ handles filling itself, it always returns t so that
   t)
 
 (defun markdown-fill-forward-paragraph-function (&optional arg)
+  "Function used by `fill-paragraph' to move over ARG paragraphs.
+This is a `fill-forward-paragraph-function' for `markdown-mode'.
+It is called with a single argument specifying the number of
+paragraphs to move.  Just like `forward-paragraph', it should
+return the number of paragraphs left to move."
   (let* ((arg (or arg 1))
          (paragraphs-remaining (forward-paragraph arg))
          (start (point)))
