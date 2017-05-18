@@ -748,7 +748,7 @@ See info node `(with-editor)Debugging' for instructions."
           (fun (let ((warning-minimum-level :error)
                      (warning-minimum-log-level :error))
                  (with-editor-locate-emacsclient))))
-      (insert "magit-emacsclient-executable:\n"
+      (insert "with-editor-emacsclient-executable:\n"
               (format " value:   %s (%s)\n" val
                       (and val (with-editor-emacsclient-version val)))
               (format " default: %s (%s)\n" def
@@ -762,7 +762,8 @@ See info node `(with-editor)Debugging' for instructions."
     (--each (with-editor-emacsclient-path)
       (insert (format "    %s (%s)\n" it (car (file-attributes it))))
       (when (file-directory-p it)
-        (dolist (exec (directory-files it t "emacsclient"))
+        ;; Don't match emacsclientw.exe, it makes popup windows.
+        (dolist (exec (directory-files it t "emacsclient\\(?:[^w]\\|\\'\\)"))
           (insert (format "      %s (%s)\n" exec
                           (with-editor-emacsclient-version exec))))))))
 

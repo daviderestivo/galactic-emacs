@@ -7,7 +7,7 @@
 ;; Maintainer: Jason R. Blevins <jrblevin@sdf.org>
 ;; Created: May 24, 2007
 ;; Version: 2.1
-;; Package-Version: 20170516.1300
+;; Package-Version: 20170516.1824
 ;; Package-Requires: ((emacs "24") (cl-lib "0.5"))
 ;; Keywords: Markdown, GitHub Flavored Markdown, itex
 ;; URL: http://jblevins.org/projects/markdown-mode/
@@ -1431,13 +1431,13 @@ Function is called repeatedly until it returns nil. For details, see
   (save-match-data
     (save-excursion
       (let* ((new-start (progn (goto-char start)
-                               (skip-chars-forward "\n")
-                               (if (re-search-backward "\n\n" nil t)
+                               (if (re-search-backward
+                                    markdown-regex-block-separator nil t)
                                    (min start (match-end 0))
                                  (point-min))))
              (new-end (progn (goto-char end)
-                             (skip-chars-backward "\n")
-                             (if (re-search-forward "\n\n" nil t)
+                             (if (re-search-forward
+                                  markdown-regex-block-separator nil t)
                                  (max end (match-beginning 0))
                                (point-max))))
              (code-match (markdown-code-block-at-pos new-start))
@@ -1919,13 +1919,15 @@ start which was previously propertized."
 (defun markdown-syntax-propertize (start end)
   "Function used as `syntax-propertize-function'.
 START and END delimit region to propertize."
-  (remove-text-properties start end markdown--syntax-properties)
-  (markdown-syntax-propertize-fenced-block-constructs start end)
-  (markdown-syntax-propertize-yaml-metadata start end)
-  (markdown-syntax-propertize-pre-blocks start end)
-  (markdown-syntax-propertize-blockquotes start end)
-  (markdown-syntax-propertize-headings start end)
-  (markdown-syntax-propertize-comments start end))
+  (with-silent-modifications
+    (save-excursion
+      (remove-text-properties start end markdown--syntax-properties)
+      (markdown-syntax-propertize-fenced-block-constructs start end)
+      (markdown-syntax-propertize-yaml-metadata start end)
+      (markdown-syntax-propertize-pre-blocks start end)
+      (markdown-syntax-propertize-blockquotes start end)
+      (markdown-syntax-propertize-headings start end)
+      (markdown-syntax-propertize-comments start end))))
 
 
 ;;; Font Lock =================================================================
@@ -4788,21 +4790,21 @@ See also `markdown-mode-map'.")
       ["Sixth Level atx" markdown-insert-header-atx-6])
      ["Horizontal Rule" markdown-insert-hr]
      "---"
-     ["Promote Header" markdown-promote]
-     ["Demote Header" markdown-demote]
-     ["Promote Subtree" markdown-promote-subtree]
-     ["Demote Subtree" markdown-demote-subtree]
-     ["Move Subtree Up" markdown-move-subtree-up]
-     ["Move Subtree Down" markdown-move-subtree-down])
+     ["Move Subtree Up" markdown-move-subtree-up :keys "M-S-<up>"]
+     ["Move Subtree Down" markdown-move-subtree-down :keys "M-S-<down>"]
+     ["Promote Subtree" markdown-promote-subtree :keys "M-S-<left>"]
+     ["Demote Subtree" markdown-demote-subtree :keys "M-S-<right>"]
+     ["Promote Header" markdown-promote :keys "M-<left>"]
+     ["Demote Header" markdown-demote :keys "M-<right>"])
     ("Region Editing"
      ["Indent Region" markdown-indent-region]
      ["Exdent Region" markdown-exdent-region])
     ("Lists"
      ["Insert List Item" markdown-insert-list-item]
-     ["Indent List Item" markdown-demote]
-     ["Exdent List Item" markdown-promote]
-     ["Move List Item Up" markdown-move-up]
-     ["Move List Item Down" markdown-move-down]
+     ["Move List Item Up" markdown-move-up :keys "M-<up>"]
+     ["Move List Item Down" markdown-move-down :keys "M-<down>"]
+     ["Exdent List Item" markdown-promote :keys "M-<left>"]
+     ["Indent List Item" markdown-demote :keys "M-<right>"]
      ["Renumber List" markdown-cleanup-list-numbers]
      ["Toggle Task List Item" markdown-toggle-gfm-checkbox])
     ("Links & Images"
@@ -4816,7 +4818,8 @@ See also `markdown-mode-map'.")
      "---"
      ["Check References" markdown-check-refs]
      ["Toggle Inline Images" markdown-toggle-inline-images
-      :style toggle :selected markdown-inline-image-overlays])
+      :style radio
+      :selected markdown-inline-image-overlays])
     ("Styles"
      ["Bold" markdown-insert-bold]
      ["Italic" markdown-insert-italic]
@@ -4829,7 +4832,11 @@ See also `markdown-mode-map'.")
      ["GFM Code Block" markdown-insert-gfm-code-block]
      "---"
      ["Blockquote Region" markdown-blockquote-region]
-     ["Preformatted Region" markdown-pre-region])
+     ["Preformatted Region" markdown-pre-region]
+     "---"
+     ["Enable LaTeX math" markdown-toggle-math
+      :style radio
+      :selected markdown-enable-math])
     "---"
     ("Preview & Export"
      ["Compile" markdown-other-window]
@@ -4838,7 +4845,8 @@ See also `markdown-mode-map'.")
      ["Export & View" markdown-export-and-preview]
      ["Open" markdown-open]
      ["Live Export" markdown-live-preview-mode
-      :style toggle :selected markdown-live-preview-mode]
+      :style radio
+      :selected markdown-live-preview-mode]
      ["Kill ring save" markdown-kill-ring-save])
     ("Markup Completion and Cycling"
      ["Complete Markup" markdown-complete]
@@ -6944,6 +6952,9 @@ or \\[markdown-toggle-inline-images]."
     (make-local-hook 'after-change-functions)
     (make-local-hook 'font-lock-extend-region-functions)
     (make-local-hook 'window-configuration-change-hook))
+
+  ;; Initial syntax analysis
+  (markdown-syntax-propertize (point-min) (point-max))
 
   ;; Make checkboxes buttons
   (when markdown-make-gfm-checkboxes-buttons

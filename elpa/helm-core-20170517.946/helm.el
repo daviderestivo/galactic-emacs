@@ -3598,8 +3598,9 @@ pattern has changed.
 
 Selection is preserved to current candidate if it still exists after
 update or moved to PRESELECT, if specified.
-The helm-window is recentered at the end when RECENTER is non nil
-which is the default."
+The helm-window is recentered at the end when RECENTER is `t'
+which is the default, RECENTER can be also a number in this case it is
+passed as argument to `recenter'."
   (with-helm-window
     (let* ((source    (helm-get-current-source))
            (selection (helm-aif (helm-get-selection nil t source)
@@ -3610,7 +3611,7 @@ which is the default."
         (mapc 'helm-force-update--reinit
               (helm-get-sources)))
       (helm-update (or preselect selection) source)
-      (and recenter (recenter)))))
+      (and recenter (recenter (and (numberp recenter) recenter))))))
 
 (defun helm-refresh ()
   "Force recalculation and update of candidates."
