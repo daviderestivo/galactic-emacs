@@ -7,7 +7,7 @@
 ;; Maintainer: Jason R. Blevins <jrblevin@sdf.org>
 ;; Created: May 24, 2007
 ;; Version: 2.1
-;; Package-Version: 20170516.1824
+;; Package-Version: 20170518.1221
 ;; Package-Requires: ((emacs "24") (cl-lib "0.5"))
 ;; Keywords: Markdown, GitHub Flavored Markdown, itex
 ;; URL: http://jblevins.org/projects/markdown-mode/
@@ -725,7 +725,7 @@
 ;;   variable names such as `a_test_variable` will not trigger
 ;;   emphasis (italics).
 ;;
-;; * **Fenced code blocks:** Code blocks quoted with backticks, with
+;; * **Fenced code blocks:** Code blocks quoted with backquotes, with
 ;;   optional programming language keywords, are highlighted in
 ;;   both `markdown-mode' and `gfm-mode'.  They can be inserted with
 ;;   `C-c C-s P`.  If there is an active region, the text in the
@@ -1216,10 +1216,10 @@ Group 6 matches the closing hash marks of an atx heading.")
   "\\(?:\\`\\|[^\\]\\)\\(\\(`+\\)\\(\\(?:.\\|\n[^\n]\\)*?[^`]\\)\\(\\2\\)\\)\\(?:[^`]\\|\\'\\)"
   "Regular expression for matching inline code fragments.
 
-Group 1 matches the entire code fragment including the backticks.
-Group 2 matches the opening backticks.
-Group 3 matches the code fragment itself, without backticks.
-Group 4 matches the closing backticks.
+Group 1 matches the entire code fragment including the backquotes.
+Group 2 matches the opening backquotes.
+Group 3 matches the code fragment itself, without backquotes.
+Group 4 matches the closing backquotes.
 
 The leading, unnumbered group ensures that the leading backquote
 character is not escaped.
@@ -1237,7 +1237,7 @@ Group 2 matches the key sequence.")
 (defconst markdown-regex-gfm-code-block-open
  "^[[:blank:]]*\\(```\\)[[:blank:]]*\\({\\)?[[:blank:]]*\\([^[:space:]]+?\\)?\\(?:[[:blank:]]+\\(.+?\\)\\)?[[:blank:]]*\\(}\\)?[[:blank:]]*$"
  "Regular expression matching opening of GFM code blocks.
-Group 1 matches the opening three backticks.
+Group 1 matches the opening three backquotes.
 Group 2 matches the opening brace (optional).
 Group 3 matches the language identifier (optional).
 Group 4 matches the info string (optional).
@@ -1247,7 +1247,7 @@ Groups need to agree with `markdown-regex-tilde-fence-begin'.")
 (defconst markdown-regex-gfm-code-block-close
  "^[[:blank:]]*\\(```\\)\\s *?$"
  "Regular expression matching closing of GFM code blocks.
-Group 1 matches the closing three backticks.")
+Group 1 matches the closing three backquotes.")
 
 (defconst markdown-regex-pre
   "^\\(    \\|\t\\).*$"
@@ -1442,7 +1442,7 @@ Function is called repeatedly until it returns nil. For details, see
                                (point-max))))
              (code-match (markdown-code-block-at-pos new-start))
              (new-start (or (and code-match (cl-first code-match)) new-start))
-             (code-match (markdown-code-block-at-pos end))
+             (code-match (and (< end (point-max)) (markdown-code-block-at-pos end)))
              (new-end (or (and code-match (cl-second code-match)) new-end)))
         (unless (and (eq new-start start) (eq new-end end))
           (cons new-start (min new-end (point-max))))))))
@@ -1453,6 +1453,11 @@ Delegates to `markdown-syntax-propertize-extend-region'. START
 and END are the previous region to refontify."
   (let ((res (markdown-syntax-propertize-extend-region start end)))
     (when res
+      ;; syntax-propertize-function is not called when character at
+      ;; (point-max) is deleted, but font-lock-extend-region-functions
+      ;; are called.  Force a syntax property update in that case.
+      (when (= end (point-max))
+        (markdown-syntax-propertize (car res) (cdr res)))
       (setq jit-lock-start (car res)
             jit-lock-end (cdr res)))))
 
@@ -2795,9 +2800,9 @@ because `thing-at-point-looking-at' does not work reliably with
 `markdown-regex-code'.
 
 The match data is set as follows:
-Group 1 matches the opening backticks.
-Group 2 matches the code fragment itself, without backticks.
-Group 3 matches the closing backticks."
+Group 1 matches the opening backquotes.
+Group 2 matches the code fragment itself, without backquotes.
+Group 3 matches the closing backquotes."
   (save-excursion
     (let ((old-point (point))
           (end-of-block (progn (markdown-end-of-block) (point)))
