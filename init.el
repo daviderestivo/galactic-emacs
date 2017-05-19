@@ -124,9 +124,11 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 ;;
-;; Set default font
+;; Set default font to Menlo 14pt
 ;;
-(set-default-font "Menlo 14")
+(custom-set-faces
+ '(default ((t (:height 140 :family "Menlo"))))
+ )
 
 ;;
 ;; Add cisco-router-mode
