@@ -950,6 +950,15 @@
 	    "Schema validation for Emacs-lisp" single
 	    ((:url . "http://elpa.gnu.org/packages/validate.html")
 	     (:keywords "lisp"))])
+ (vdiff .
+	[(0 2)
+	 ((emacs
+	   (24 4))
+	  (hydra
+	   (0 13 0)))
+	 "A diff tool similar to  vimdiff" single
+	 ((:url . "https://github.com/justbur/emacs-vdiff")
+	  (:keywords "diff"))])
  (vlf .
       [(1 7)
        nil "View Large Files" tar

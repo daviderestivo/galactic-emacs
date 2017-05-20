@@ -47,14 +47,17 @@ If DELAY is specified, switch back to initial function of FUNCTIONS list
 after DELAY seconds.
 The functions in FUNCTIONS list take no args.
 e.g
-  \(defun foo ()
-    (message \"Run foo\"))
-  \(defun bar ()
-    (message \"Run bar\"))
-  \(defun baz ()
-    (message \"Run baz\"))
+    (defun foo ()
+      (interactive)
+      (message \"Run foo\"))
+    (defun bar ()
+      (interactive)
+      (message \"Run bar\"))
+    (defun baz ()
+      (interactive)
+      (message \"Run baz\"))
 
-\(helm-define-multi-key global-map \"<f5> q\" '(foo bar baz) 2)
+\(helm-define-multi-key global-map (kbd \"<f5> q\") '(foo bar baz) 2)
 
 Each time \"<f5> q\" is pressed, the next function is executed. Waiting
 more than 2 seconds between key presses switches back to executing the first
@@ -79,7 +82,9 @@ Run each function in the FUNCTIONS list in turn when called within DELAY seconds
         (iter (cl-gensym "helm-iter-key"))
         (timeout delay))
     (eval (list 'defvar iter nil))
-    (lambda () (interactive) (helm-run-multi-key-command funs iter timeout))))
+    (lambda ()
+      (interactive)
+      (helm-run-multi-key-command funs iter timeout))))
 
 (defun helm-run-multi-key-command (functions iterator delay)
   (let ((fn (lambda ()
@@ -94,9 +99,11 @@ Run each function in the FUNCTIONS list in turn when called within DELAY seconds
     (unless next
       (set iterator (helm-iter-list (funcall fn)))
       (setq next (helm-iter-next (symbol-value iterator))))
-    (and next (symbol-value iterator) (call-interactively (nth (1- next) functions)))
-    (when delay (run-with-idle-timer delay nil (lambda ()
-                                                 (setq iterator nil))))))
+    (and next (symbol-value iterator)
+         (call-interactively (nth (1- next) functions)))
+    (when delay (run-with-idle-timer
+                 delay nil (lambda ()
+                             (set iterator nil))))))
 
 (helm-multi-key-defun helm-toggle-resplit-and-swap-windows
     "Multi key command to re-split and swap helm window.
@@ -228,6 +235,7 @@ vectors, so don't use strings to define them."
     (define-key map (kbd "C-!")        'helm-toggle-suspend-update)
     (define-key map (kbd "C-x b")      'helm-resume-previous-session-after-quit)
     (define-key map (kbd "C-x C-b")    'helm-resume-list-buffers-after-quit)
+    (define-key map (kbd "<S-f1>")     'helm-run-cycle-resume)
     ;; Disable `file-cache-minibuffer-complete'.
     (define-key map (kbd "<C-tab>")    'undefined)
     ;; Multi keys
@@ -1240,6 +1248,7 @@ You should not modify this yourself unless you know what you are doing.")
 Should be set in candidates functions if needed, will be restored
 at end of session.")
 (defvar helm--action-prompt "Select action: ")
+(defvar helm--cycle-resume-iterator nil)
 
 ;; Utility: logging
 (defun helm-log (format-string &rest args)
@@ -2212,6 +2221,29 @@ Return nil if no `helm-buffer' found."
               :resume 'noresume
               :buffer "*helm resume*")
         (keyboard-quit))))
+
+;;;###autoload
+(defun helm-cycle-resume ()
+  (interactive)
+  (cl-assert helm-buffers nil "No helm buffers to resume")
+  (setq helm--cycle-resume-iterator
+        (helm-iter-sub-next-circular
+         helm-buffers helm-last-buffer :test 'equal))
+  (message "Resuming helm buffer `%s'" helm-last-buffer)
+  (if (sit-for 1.2)
+      (helm-resume helm-last-buffer)
+    (message "Resuming helm buffer `%s'"
+             (setq helm-last-buffer
+                   (helm-iter-next helm--cycle-resume-iterator)))
+    (sit-for 1)))
+
+(defun helm-run-cycle-resume ()
+  (interactive)
+  (when (cdr helm-buffers)
+    (setq helm-last-buffer
+          (helm-iter-next helm--cycle-resume-iterator)))
+  (helm-run-after-exit 'helm-cycle-resume))
+(put 'helm-run-cycle-resume 'helm-only t)
 
 
 ;;;###autoload
