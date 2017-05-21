@@ -951,7 +951,7 @@
 	    ((:url . "http://elpa.gnu.org/packages/validate.html")
 	     (:keywords "lisp"))])
  (vdiff .
-	[(0 2)
+	[(0 2 3)
 	 ((emacs
 	   (24 4))
 	  (hydra
