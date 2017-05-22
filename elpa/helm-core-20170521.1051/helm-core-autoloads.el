@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "helm" "helm.el" (22816 18193 0 0))
+;;;### (autoloads nil "helm" "helm.el" (22818 35434 0 0))
 ;;; Generated autoloads from helm.el
 
 (autoload 'helm-define-multi-key "helm" "\
@@ -209,7 +209,7 @@ However, the use of non-keyword args is deprecated.
 \(fn &key SOURCES INPUT PROMPT RESUME PRESELECT BUFFER KEYMAP DEFAULT HISTORY ALLOW-NEST OTHER-LOCAL-VARS)" nil nil)
 
 (autoload 'helm-cycle-resume "helm" "\
-
+Cycle in `helm-buffers' list and resume when waiting more than 1.2s.
 
 \(fn)" t nil)
 
@@ -222,7 +222,7 @@ Call `helm' only with ANY-SOURCES and ANY-BUFFER as args.
 ;;;***
 
 ;;;### (autoloads nil nil ("helm-core-pkg.el" "helm-lib.el" "helm-multi-match.el"
-;;;;;;  "helm-source.el") (22816 18193 0 0))
+;;;;;;  "helm-source.el") (22818 35434 0 0))
 
 ;;;***
 
