@@ -4,7 +4,7 @@
 
 ;; Author: Magnar Sveen <magnars@gmail.com>
 ;; Version: 2.13.0
-;; Package-Version: 20170207.2056
+;; Package-Version: 20170523.219
 ;; Keywords: lists
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -389,7 +389,7 @@ See also: `-map-when', `-replace-first'"
   `(-map-first (lambda (it) ,pred) (lambda (it) (ignore it) ,rep) ,list))
 
 (defun -map-last (pred rep list)
-  "Replace first item in LIST satisfying PRED with result of REP called on this item.
+  "Replace last item in LIST satisfying PRED with result of REP called on this item.
 
 See also: `-map-when', `-replace-last'"
   (nreverse (-map-first pred rep (reverse list))))
