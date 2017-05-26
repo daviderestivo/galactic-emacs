@@ -505,3 +505,8 @@
 ;;
 (set-face-background 'highlight-indentation-face "gray18")
 (set-face-background 'highlight-indentation-current-column-face "gray18")
+
+;;
+;; Enable octave-mode for .m files
+;;
+(add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
