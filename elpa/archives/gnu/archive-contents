@@ -536,7 +536,7 @@
 	    ((:url . "http://elpa.gnu.org/packages/load-dir.html")
 	     (:keywords "lisp" "files" "convenience"))])
  (load-relative .
-		[(1 2)
+		[(1 3)
 		 nil "relative file load (within a multi-file Emacs package)" single
 		 ((:url . "http://github.com/rocky/emacs-load-relative")
 		  (:keywords "internal"))])
@@ -821,9 +821,9 @@
 	    ((:url . "http://elpa.gnu.org/packages/sml-mode.html")
 	     (:keywords "sml"))])
  (soap-client .
-	      [(3 1 1)
+	      [(3 1 2)
 	       ((cl-lib
-		 (0 5)))
+		 (0 6 1)))
 	       "Access SOAP web services" tar
 	       ((:keywords "soap" "web-services" "comm" "hypermedia")
 		(:url . "http://elpa.gnu.org/packages/soap-client.html"))])
@@ -882,7 +882,7 @@
 		      ((:url . "http://elpa.gnu.org/packages/temp-buffer-browse.html")
 		       (:keywords "convenience"))])
  (test-simple .
-	      [(1 2 0)
+	      [(1 3 0)
 	       ((cl-lib
 		 (0)))
 	       "Simple Unit Test Framework for Emacs Lisp" single
