@@ -6,8 +6,8 @@
 ;; Author: Jason R. Blevins <jrblevin@sdf.org>
 ;; Maintainer: Jason R. Blevins <jrblevin@sdf.org>
 ;; Created: May 24, 2007
-;; Version: 2.1
-;; Package-Version: 20170525.435
+;; Version: 2.2
+;; Package-Version: 20170526.1213
 ;; Package-Requires: ((emacs "24") (cl-lib "0.5"))
 ;; Keywords: Markdown, GitHub Flavored Markdown, itex
 ;; URL: http://jblevins.org/projects/markdown-mode/
@@ -32,16 +32,18 @@
 ;;; Commentary:
 
 ;; markdown-mode is a major mode for editing [Markdown][]-formatted
-;; text. The latest stable version is markdown-mode 2.1, released on
-;; January 9, 2016. See the [release notes][] for details.
-;; markdown-mode is free software, licensed under the GNU GPL.
+;; text. The latest stable version is markdown-mode 2.2, released on
+;; May 26, 2017. See the [release notes][] for details.
+;; markdown-mode is free software, licensed under the GNU GPL v2.
 
 ;; ![Markdown Mode Screenshot](http://jblevins.org/projects/markdown-mode/screenshots/20160108-001.png)
 
 ;; [Markdown]: http://daringfireball.net/projects/markdown/
-;; [release notes]: http://jblevins.org/projects/markdown-mode/rev-2-1
+;; [release notes]: http://jblevins.org/projects/markdown-mode/rev-2-2
 
 ;;; Documentation:
+
+;; <a href="https://leanpub.com/markdown-mode"><img src="http://jblevins.org/projects/markdown-mode/guide-v2.2.png" align="right" height="350" width="252"></a>
 
 ;; Documentation for Markdown Mode is available below, but Emacs is also
 ;; a self-documenting editor.  That means that the source code itself
@@ -70,10 +72,12 @@
 ;; repository by adding the following to your `.emacs', `init.el',
 ;; or equivalent startup file:
 
-;;     (require 'package)
-;;     (add-to-list 'package-archives
-;;                  '("melpa-stable" . "https://stable.melpa.org/packages/"))
-;;     (package-initialize)
+;; ``` Lisp
+;; (require 'package)
+;; (add-to-list 'package-archives
+;;              '("melpa-stable" . "https://stable.melpa.org/packages/"))
+;; (package-initialize)
+;; ```
 
 ;; Then, after restarting Emacs or evaluating the above statements, issue
 ;; the following command: `M-x package-install RET markdown-mode RET`.
@@ -86,13 +90,15 @@
 ;; adding a declaration such as this one to your init file (as an
 ;; example; adjust settings as desired):
 ;;
-;;     (use-package markdown-mode
-;;       :ensure t
-;;       :commands (markdown-mode gfm-mode)
-;;       :mode (("README\\.md\\'" . gfm-mode)
-;;              ("\\.md\\'" . markdown-mode)
-;;              ("\\.markdown\\'" . markdown-mode))
-;;       :init (setq markdown-command "multimarkdown"))
+;; ``` Lisp
+;; (use-package markdown-mode
+;;   :ensure t
+;;   :commands (markdown-mode gfm-mode)
+;;   :mode (("README\\.md\\'" . gfm-mode)
+;;          ("\\.md\\'" . markdown-mode)
+;;          ("\\.markdown\\'" . markdown-mode))
+;;   :init (setq markdown-command "multimarkdown"))
+;; ```
 
 ;; [MELPA Stable]: http://stable.melpa.org/
 ;; [use-package]: https://github.com/jwiegley/use-package
@@ -105,14 +111,16 @@
 ;; `load-path'). You can then configure `markdown-mode' and `gfm-mode'
 ;; to load automatically by adding the following to your init file:
 
-;;     (autoload 'markdown-mode "markdown-mode"
-;;        "Major mode for editing Markdown files" t)
-;;     (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-;;     (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+;; ``` Lisp
+;; (autoload 'markdown-mode "markdown-mode"
+;;    "Major mode for editing Markdown files" t)
+;; (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+;; (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 ;;
-;;     (autoload 'gfm-mode "markdown-mode"
-;;        "Major mode for editing GitHub Flavored Markdown files" t)
-;;     (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
+;; (autoload 'gfm-mode "markdown-mode"
+;;    "Major mode for editing GitHub Flavored Markdown files" t)
+;; (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
+;; ```
 
 ;; [markdown-mode.el]: http://jblevins.org/projects/markdown-mode/markdown-mode.el
 
@@ -122,7 +130,9 @@
 ;; browse or clone the Git repository
 ;; [on GitHub](https://github.com/jrblevin/markdown-mode):
 
-;;     git clone https://github.com/jrblevin/markdown-mode.git
+;; ```
+;; git clone https://github.com/jrblevin/markdown-mode.git
+;; ```
 
 ;; If you prefer to install and use the development version, which may
 ;; become unstable at some times, you can either clone the Git
@@ -132,7 +142,9 @@
 ;; If you clone the repository directly, then make sure that Emacs can
 ;; find it by adding the following line to your startup file:
 ;;
-;;     (add-to-list 'load-path "/path/to/markdown-mode/repository")
+;; ``` Lisp
+;; (add-to-list 'load-path "/path/to/markdown-mode/repository")
+;; ```
 
 ;; **Packaged Installation**
 
@@ -565,7 +577,7 @@
 ;;   * `markdown-header-scaling-values' - list of scaling values,
 ;;     relative to baseline, for headers of levels one through six,
 ;;     used when `markdown-header-scaling' is non-nil
-;;     (default: `(list 1.8 1.4 1.2 1.0 1.0 1.0)`).
+;;     (default: `(1.8 1.4 1.2 1.0 1.0 1.0)`).
 ;;
 ;;   * `markdown-list-indent-width' - depth of indentation for lists
 ;;     when inserting, promoting, and demoting list items (default: 4).
@@ -573,9 +585,10 @@
 ;;   * `markdown-indent-function' - the function to use for automatic
 ;;     indentation (default: `markdown-indent-line').
 ;;
-;;   * `markdown-indent-on-enter' - set to a non-nil value to
-;;     automatically indent new lines and/or continue lists when the
-;;     enter key is pressed (default: `t')
+;;   * `markdown-indent-on-enter' - Set to a non-nil value to
+;;     automatically indent new lines when `RET' is pressed.
+;;     Set to `indent-and-new-item' to additionally continue lists
+;;     when `RET' is pressed (default: `t').
 ;;
 ;;   * `markdown-enable-wiki-links' - syntax highlighting for wiki
 ;;     links (default: `nil').  Set this to a non-nil value to turn on
@@ -707,7 +720,9 @@
 ;; You can do this either by using `M-x customize-group markdown`
 ;; or by placing the following in your `.emacs` file:
 ;;
-;;     (setq markdown-command "markdown | smartypants")
+;; ``` Lisp
+;; (setq markdown-command "markdown | smartypants")
+;; ```
 ;;
 ;; [SmartyPants]: http://daringfireball.net/projects/smartypants/
 ;;
@@ -786,10 +801,12 @@
 ;;   for line wrapping in buffers.  You can do this with a
 ;;   `gfm-mode-hook' as follows:
 ;;
-;;         ;; Use visual-line-mode in gfm-mode
-;;         (defun my-gfm-mode-hook ()
-;;           (visual-line-mode 1))
-;;         (add-hook 'gfm-mode-hook 'my-gfm-mode-hook)
+;;     ``` Lisp
+;;     ;; Use visual-line-mode in gfm-mode
+;;     (defun my-gfm-mode-hook ()
+;;       (visual-line-mode 1))
+;;     (add-hook 'gfm-mode-hook 'my-gfm-mode-hook)
+;;     ```
 ;;
 ;; * **Preview:** GFM-specific preview can be powered by setting
 ;;   `markdown-command' to use [Docter][].  This may also be
@@ -835,6 +852,7 @@
 ;;   * 2013-01-25: [Version 1.9][]
 ;;   * 2013-03-24: [Version 2.0][]
 ;;   * 2016-01-09: [Version 2.1][]
+;;   * 2016-05-26: [Version 2.2][]
 ;;
 ;; [Version 1.1]: http://jblevins.org/projects/markdown-mode/rev-1-1
 ;; [Version 1.2]: http://jblevins.org/projects/markdown-mode/rev-1-2
@@ -848,6 +866,7 @@
 ;; [Version 1.9]: http://jblevins.org/projects/markdown-mode/rev-1-9
 ;; [Version 2.0]: http://jblevins.org/projects/markdown-mode/rev-2-0
 ;; [Version 2.1]: http://jblevins.org/projects/markdown-mode/rev-2-1
+;; [Version 2.2]: http://jblevins.org/projects/markdown-mode/rev-2-2
 
 
 ;;; Code:
@@ -867,7 +886,7 @@
 
 ;;; Constants =================================================================
 
-(defconst markdown-mode-version "2.1"
+(defconst markdown-mode-version "2.2"
   "Markdown mode version number.")
 
 (defconst markdown-output-buffer-name "*markdown-output*"
@@ -967,15 +986,31 @@ line around the header title."
   :type 'function)
 
 (defcustom markdown-indent-on-enter t
-  "Indent new lines and continue lists when enter is pressed.
-When this variable is set to t, pressing RET will call
-`newline-and-indent' and will continue a list.  When set to nil,
-define RET to call `newline' as usual.  In the latter case, you
-can still use auto-indentation by pressing
-\\[newline-and-indent] or continue lists with
-\\[markdown-insert-list-item]."
+  "Determines indentation behavior when pressing \\[newline].
+Possible settings are nil, t, and 'indent-and-new-item.
+
+When non-nil, pressing \\[newline] will call `newline-and-indent'
+to indent the following line according to the context using
+`markdown-indent-function'.  In this case, note that
+\\[electric-newline-and-maybe-indent] can still be used to insert
+a newline without indentation.
+
+When set to 'indent-and-new-item and the point is in a list item
+when \\[newline] is pressed, the list will be continued on the next
+line, where a new item will be inserted.
+
+When set to nil, simply call `newline' as usual.  In this case,
+you can still indent lines using \\[markdown-cycle] and continue
+lists with \\[markdown-insert-list-item].
+
+Note that this assumes the variable `electric-indent-mode' is
+non-nil (enabled).  When it is *disabled*, the behavior of
+\\[newline] and `\\[electric-newline-and-maybe-indent]' are
+reversed."
   :group 'markdown
-  :type 'boolean)
+  :type '(choice (const :tag "Don't automatically indent" nil)
+                 (const :tag "Automatically indent" t)
+                 (const :tag "Automatically indent and insert new list items" indent-and-new-item)))
 
 (defcustom markdown-enable-wiki-links nil
   "Syntax highlighting for wiki links.
@@ -1117,7 +1152,9 @@ vertically split (left and right) windows, set this to 'vertical
 or 'right.  To force horizontally split (top and bottom) windows,
 set this to 'horizontal or 'below."
   :group 'markdown
-  :type 'symbol)
+  :type '(choice (const :tag "Automatic" any)
+                 (const :tag "Right (vertical)" right)
+                 (const :tag "Below (horizontal)" below)))
 
 (defcustom markdown-live-preview-window-function
   'markdown-live-preview-window-eww
@@ -1128,12 +1165,15 @@ the buffer."
   :type 'function)
 
 (defcustom markdown-live-preview-delete-export 'delete-on-destroy
-  "Delete exported html file when using `markdown-live-preview-export'.
+  "Delete exported HTML file when using `markdown-live-preview-export'.
 If set to 'delete-on-export, delete on every export. When set to
 'delete-on-destroy delete when quitting from command
 `markdown-live-preview-mode'. Never delete if set to nil."
   :group 'markdown
-  :type 'symbol)
+  :type '(choice
+          (const :tag "Delete on every export" delete-on-export)
+          (const :tag "Delete when quitting live preview" delete-on-destroy)
+          (const :tag "Never delete" nil)))
 
 (defcustom markdown-list-indent-width 4
   "Depth of indentation for markdown lists.
@@ -2876,7 +2916,7 @@ This is a predicate function counterpart to
 data.  See `markdown-code-block-at-point-p' for code blocks."
   (save-match-data (markdown-inline-code-at-point)))
 
-(make-obsolete 'markdown-code-at-point-p 'markdown-inline-code-at-point-p "2017-05-10")
+(make-obsolete 'markdown-code-at-point-p 'markdown-inline-code-at-point-p "v2.2")
 
 (defun markdown-code-block-at-pos (pos)
   "Return match data list if there is a code block at POS.
@@ -4483,16 +4523,19 @@ duplicate positions, which are handled up by calling functions."
     (reverse positions)))
 
 (defun markdown-enter-key ()
-  "Handle RET according to customized settings.
-When `markdown-indent-on-enter' is nil, this is equivalent to
-`newline'.  Otherwise, indent following RET and when the point is
-in a list item, start a new item with the same indentation.  If
-the point is in an empty list item, remove it."
+  "Handle RET according to value of `markdown-indent-on-enter'.
+When it is nil, simply call `newline'.  Otherwise, indent the next line
+following RET using `markdown-indent-line'.  Furthermore, when it
+is set to 'indent-and-new-item and the point is in a list item,
+start a new item with the same indentation. If the point is in an
+empty list item, remove it (so that pressing RET twice when in a
+list simply adds a blank line)."
   (interactive)
   (if (not markdown-indent-on-enter)
       (newline)
-    (let ((bounds (markdown-cur-list-item-bounds)))
-      (if bounds
+    (let (bounds)
+      (if (and (memq markdown-indent-on-enter '(indent-and-new-item))
+               (setq bounds (markdown-cur-list-item-bounds)))
           (let ((beg (cl-first bounds))
                 (end (cl-second bounds))
                 (length (cl-fourth bounds)))
@@ -5013,7 +5056,8 @@ See also `markdown-mode-map'.")
     ("Documentation"
      ["Version" markdown-show-version]
      ["Homepage" markdown-mode-info]
-     ["Describe Mode" (describe-function 'markdown-mode)])))
+     ["Describe Mode" (describe-function 'markdown-mode)]
+     ["Guide" (browse-url "https://leanpub.com/markdown-mode")])))
 
 
 ;;; imenu =====================================================================
@@ -5097,7 +5141,7 @@ See `imenu-create-index-function' and `imenu--index-alist' for details."
     (let* ((text (match-string-no-properties 3))
            (reference (match-string-no-properties 6))
            (target (downcase (if (string= reference "") text reference)))
-           (loc (cadr (markdown-reference-definition target))))
+           (loc (cadr (save-match-data (markdown-reference-definition target)))))
       (if loc
           (goto-char loc)
         (goto-char (match-beginning 0))
@@ -5582,7 +5626,7 @@ move back to the ARG-th preceding section."
     (goto-char (point-max)))
   (skip-syntax-backward "-"))
 
-(make-obsolete 'markdown-beginning-of-block 'markdown-beginning-of-text-block "2017-05-18")
+(make-obsolete 'markdown-beginning-of-block 'markdown-beginning-of-text-block "v2.2")
 
 (defun markdown-beginning-of-text-block ()
   "Move backward to previous beginning of a plain text block.
@@ -5599,7 +5643,7 @@ the surrounding context in light of Markdown syntax.  For that, see
           (goto-char (match-end 0))
         (goto-char (point-min))))))
 
-(make-obsolete 'markdown-end-of-block 'markdown-end-of-text-block "2017-05-18")
+(make-obsolete 'markdown-end-of-block 'markdown-end-of-text-block "v2.2")
 
 (defun markdown-end-of-text-block ()
   "Move forward to next beginning of a plain text block.
