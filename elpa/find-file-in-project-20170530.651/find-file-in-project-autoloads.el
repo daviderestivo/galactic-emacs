@@ -4,7 +4,7 @@
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
 ;;;### (autoloads nil "find-file-in-project" "find-file-in-project.el"
-;;;;;;  (22819 57885 0 0))
+;;;;;;  (22830 23357 0 0))
 ;;; Generated autoloads from find-file-in-project.el
 
 (autoload 'ffip-diff-backend-git-show-commit "find-file-in-project" "\
@@ -195,6 +195,21 @@ NUM is the index selected backend from `ffip-diff-backends'.
 NUM is zero based whose default value is zero.
 
 \(fn &optional NUM)" t nil)
+
+(autoload 'ffip-show-diff-by-description "find-file-in-project" "\
+Show the diff output by excuting selected `ffip-diff-backends. 
+
+\(fn)" t nil)
+
+(autoload 'ffip-diff-apply-hunk "find-file-in-project" "\
+Apply current hunk in `diff-mode'. Try to locate the file to patch
+from `recentf-list'. If nothing is found in `recentf-list', user need
+specify the file path.
+
+It's same as `diff-apply-hunk' except finding file in `recentf-list'.
+So please read documenation of `diff-apply-hunk' to get more details.
+
+\(fn &optional REVERSE)" t nil)
 
 ;;;***
 
