@@ -1,10 +1,6 @@
 # emacs-config
 
-This is my emacs config file. Feel free to use it, if you find anything
-interesting for you in it. Below you can find the list of the packages that are
-installed. You might decide to clone the whole repo and use the already
-installed packages or to use only part of the init.el file and then
-install the needed packages by yourself.
+This is my emacs config file. Below you can find the list of the packages used.
 
 ## Required packages
 
@@ -27,5 +23,4 @@ install the needed packages by yourself.
 * use-package [[link](https://github.com/jwiegley/use-package)]
 * yaml-mode [[Link](https://github.com/yoshiki/yaml-mode)]
 
-The above list does include the packages' dependencies. Feel free to drop me
-an email in case of questions.
+Feel free to drop me an email in case of questions.
