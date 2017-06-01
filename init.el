@@ -2,25 +2,27 @@
 ;; GENERAL CONFIGURATION SECTION ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; Configure package manager
+;; Configure Emacs package manager
 (package-initialize)
 (require 'package)
 (add-to-list 'package-archives
 	     '("melpa" . "http://melpa.org/packages/"))
-;; Un-comment the below if you prefer to use stable packets
+;; Un-comment the below if you prefer to use melpa stable packets
 ;; (add-to-list 'package-archives
 ;;	     '("melpa-stable" . "https://stable.melpa.org/packages/"))
 (add-to-list 'package-archives
 	     '("marmalade" . "http://marmalade-repo.org/packages/"))
-;; Make sure use-package is installed
-;; install use-package
+
+;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
- (package-install 'use-package))
+  (package-install 'use-package))
 (eval-when-compile
   (require 'use-package))
+(require 'diminish)
+(require 'bind-key)
 
-;; Set environment variables
+;; Set LANG and LC_* variables
 (setenv "LC_ALL" "en_US.UTF-8")
 (setenv "LANG" "en_US.UTF-8")
 (setenv "LC_CTYPE" "en_US.UTF-8")
@@ -63,10 +65,8 @@
 ;; Make *scratch* buffer blank.
 (setq initial-scratch-message nil)
 
-;; Disable the toolbar
+;; Disable the toolbar and the scroll-bar
 (tool-bar-mode -1)
-
-;; Disable the scroll-bar
 (toggle-scroll-bar -1)
 
 ;; Enable show-paren-mode. paren-mode allows one to see
@@ -83,7 +83,7 @@
 ;; Change default dir to ~
 (cd "~")
 
-;; Tell emacs where is your personal elisp lib directory
+;; Tell Emacs where is your personal elisp lib directory
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 ;; Save custom variables to custom.el
@@ -139,7 +139,6 @@
 
 ;; Spell checking configuration
 (setq ispell-program-name "aspell")
-
 ;; Enable flyspell for text files and enable superword mode
 (dolist (hook '(text-mode-hook))
   (add-hook hook (lambda ()
@@ -180,9 +179,9 @@
      (define-key flyspell-mouse-map [mouse-3]
        #'undefined)))
 
-;; Ediff settings: split horizontally and avoid floating ediff window
+;; Ediff settings
+;; Split horizontally and avoid floating ediff window
 (setq ediff-split-window-function 'split-window-horizontally)
-
 ;; Customize ediff background colors
 (add-hook 'ediff-load-hook
           (lambda ()
@@ -257,6 +256,9 @@
 ;; Keyboard scroll one line at a time
 (setq scroll-step 1)
 
+;; copy-line key binding
+(global-set-key "\C-c\C-c" 'copy-line)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; END GENERAL CONFIGURATION SECTION ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -277,7 +279,7 @@
     (setq buffer-offer-save t)))
 (global-set-key (kbd "<f7>") 'new-empty-buffer)
 
-;; Open a terminal below current buffer
+;; Open a new terminal window below the current one
 (defun tb ()
   "Add terminal on the bottom"
   (interactive)
@@ -308,9 +310,6 @@
   (beginning-of-line (or (and arg (1+ arg)) 2))
   (if (and arg (not (= 1 arg))) (message "%d lines copied" arg)))
 
-;; copy-line key binding
-(global-set-key "\C-c\C-c" 'copy-line)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; END HELPER FUNCTIONS ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -326,11 +325,11 @@
 
 ;; transpose-frame
 ;; https://www.emacswiki.org/emacs/TransposeFrame
-(require 'transpose-frame)
+(load-library "transpose-frame")
 
 ;; atom-one-dark-theme
 (use-package atom-one-dark-theme
- 	:ensure t)
+  :ensure t)
 
 ;; exec-path-from-shell
 (use-package exec-path-from-shell
@@ -345,7 +344,8 @@
 (use-package magit
   :ensure t
   :config
-  (global-set-key (kbd "<f2>") 'magit-status))
+  :bind
+  ("<f2>" . magit-status))
 
 ;; ORG
 (use-package org
@@ -358,10 +358,13 @@
                                "~/org/work-project-BNS.org"
                                "~/org/work-project-HE.org"
                                "~/org/work-project-ME.org"
-                               "~/org/work-various.org")))
+                               "~/org/work-various.org"))
+  :bind
+  ("\C-cl" . org-store-link)
+  ("\C-ca" . org-agenda))
 
 ;; rainbow-delimiters
-(use-package rainbow-delimiters ;; See custom.el for the configuration
+(use-package rainbow-delimiters
   :ensure t
   :config
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
@@ -413,22 +416,22 @@
   (setq helm-buffers-fuzzy-matching t)
   (setq helm-autoresize-mode t)
   :bind
-	;; bind keys because of this commit:
-	;; https://github.com/emacs-helm/helm/commit/1de1701c73b15a86e99ab1c5c53bd0e8659d8ede
+  ;; bind keys because of this commit:
+  ;; https://github.com/emacs-helm/helm/commit/1de1701c73b15a86e99ab1c5c53bd0e8659d8ede
   ("M-x"     . helm-M-x)
   ("C-x r b" . helm-filtered-bookmarks)
   ("C-x C-f" . helm-find-files))
 
 ;; company-mode
 (use-package company-mode
- :ensure t
- :config
-(global-company-mode)
-(setq company-idle-delay 0.2)
-(setq company-selection-wrap-around t)
-(define-key company-active-map [tab] 'company-complete)
-(define-key company-active-map (kbd "C-n") 'company-select-next)
-(define-key company-active-map (kbd "C-p") 'company-select-previous))
+  :ensure t
+  :config
+  (global-company-mode)
+  (setq company-idle-delay 0.2)
+  (setq company-selection-wrap-around t)
+  (define-key company-active-map [tab] 'company-complete)
+  (define-key company-active-map (kbd "C-n") 'company-select-next)
+  (define-key company-active-map (kbd "C-p") 'company-select-previous))
 
 ;; projectile
 (use-package projectile
@@ -455,6 +458,10 @@
   (set-face-background 'highlight-indentation-face "gray18")
   (set-face-background 'highlight-indentation-current-column-face "gray18"))
 
-	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; markdown-mode
+(use-package markdown-mode
+  :ensure t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; END PACKAGES CONFIGURATION SECTION ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
