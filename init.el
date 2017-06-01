@@ -422,8 +422,8 @@
   ("C-x r b" . helm-filtered-bookmarks)
   ("C-x C-f" . helm-find-files))
 
-;; company-mode
-(use-package company-mode
+;; company
+(use-package company
   :ensure t
   :config
   (global-company-mode)
