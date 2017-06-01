@@ -12,13 +12,14 @@
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(package-selected-packages
    (quote
-    (py-autopep8 elpy magit markdown-mode atom-one-dark-theme projectile company jinja2-mode helm yaml-mode smart-mode-line auto-package-update rainbow-delimiters org exec-path-from-shell))))
+    (helm-config py-autopep8 elpy magit markdown-mode atom-one-dark-theme projectile company jinja2-mode helm yaml-mode smart-mode-line auto-package-update rainbow-delimiters org exec-path-from-shell))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default ((t (:height 140 :family "Menlo"))))
  '(rainbow-delimiters-depth-1-face ((t (:foreground "red"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "orange"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "yellow"))))

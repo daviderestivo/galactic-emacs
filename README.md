@@ -24,6 +24,7 @@ install the needed packages by yourself.
 * rainbow-delimiters [[link](https://www.emacswiki.org/emacs/RainbowDelimiters)]
 * smart-mode-line [[link](https://github.com/Malabarba/smart-mode-line)]
 * transpose-frame [[link](https://www.emacswiki.org/emacs/TransposeFrame)]
+* use-package [[link](https://github.com/jwiegley/use-package)]
 * yaml-mode [[Link](https://github.com/yoshiki/yaml-mode)]
 
 The above list does include the packages' dependencies. Feel free to drop me
