@@ -265,6 +265,15 @@
 	    nil "View diffs in side-by-side format" single
 	    ((:url . "https://github.com/mgalgs/diffview-mode")
 	     (:keywords "convenience" "diff"))])
+ (dired-du .
+	   [(0 5)
+	    ((emacs
+	      (24 4))
+	     (cl-lib
+	      (0 5)))
+	    "Dired with recursive directory sizes" tar
+	    ((:keywords "files" "unix" "convenience")
+	     (:url . "http://elpa.gnu.org/packages/dired-du.html"))])
  (dismal .
 	 [(1 5)
 	  ((cl-lib
@@ -503,6 +512,13 @@
 	 nil "jump to previous insertion points" single
 	 ((:url . "http://elpa.gnu.org/packages/jumpc.html")
 	  (:keywords))])
+ (kmb .
+      [(0 1)
+       ((emacs
+	 (24 1)))
+       "Kill buffers matching a regexp w/o confirmation" single
+       ((:url . "http://elpa.gnu.org/packages/kmb.html")
+	(:keywords "lisp" "convenience"))])
  (landmark .
 	   [(1 0)
 	    nil "Neural-network robot that learns landmarks" single

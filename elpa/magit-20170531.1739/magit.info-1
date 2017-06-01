@@ -2725,7 +2725,7 @@ Buffers and Prefix Commands: Popup Buffers and Prefix Commands.).
      revisions, choose a revision to view changes along, starting at the
      common ancestor of both revisions (i.e., use a "…" range).
 
-‘d w’     (‘magit-diff-worktree’)
+‘d w’     (‘magit-diff-working-tree’)
 
      Show changes between the current working tree and the ‘HEAD’
      commit.  With a prefix argument show changes between the working
@@ -2906,9 +2906,9 @@ File: magit.info,  Node: Diff Buffer,  Next: Diff Options,  Prev: Refreshing Dif
      hunk headers get less useful the "older" the changes are, and as a
      result, jumping to the appropriate position gets less reliable.
 
-     Also see ‘magit-diff-visit-file-worktree’, which visits the
-     respective blob, unless the diff shows changes in the worktree, the
-     index, or ‘HEAD’.
+     Also see ‘magit-diff-visit-file’, which visits the respective blob,
+     unless the diff shows changes in the worktree, the index, or
+     ‘HEAD’.
 
 ‘j’     (‘magit-jump-to-diffstat-or-diff’)
 
