@@ -86,11 +86,6 @@
 ;; Tell emacs where is your personal elisp lib directory
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
-;; Set default font to Menlo 14pt
-(custom-set-faces
- '(default ((t (:height 140 :family "Menlo"))))
- )
-
 ;; Save custom variables to custom.el
 (setq custom-file (expand-file-name "custom.el"
                                     user-emacs-directory))
@@ -333,6 +328,10 @@
 ;; https://www.emacswiki.org/emacs/TransposeFrame
 (require 'transpose-frame)
 
+;; atom-one-dark-theme
+(use-package atom-one-dark-theme
+ 	:ensure t)
+
 ;; exec-path-from-shell
 (use-package exec-path-from-shell
   :ensure t
@@ -404,12 +403,18 @@
    )
 
 ;; helm
-(use-package helm-config
+(use-package helm
   :ensure t
+  :defer 1
+  :diminish helm-mode
+  :commands helm-mode
   :config
-  ;; bind keys because of this commit:
-  ;; https://github.com/emacs-helm/helm/commit/1de1701c73b15a86e99ab1c5c53bd0e8659d8ede
+  (helm-mode 1)
+  (setq helm-buffers-fuzzy-matching t)
+  (setq helm-autoresize-mode t)
   :bind
+	;; bind keys because of this commit:
+	;; https://github.com/emacs-helm/helm/commit/1de1701c73b15a86e99ab1c5c53bd0e8659d8ede
   ("M-x"     . helm-M-x)
   ("C-x r b" . helm-filtered-bookmarks)
   ("C-x C-f" . helm-find-files))
@@ -417,7 +422,7 @@
 ;; company-mode
 (use-package company-mode
  :ensure t
- :config 
+ :config
 (global-company-mode)
 (setq company-idle-delay 0.2)
 (setq company-selection-wrap-around t)
@@ -450,7 +455,6 @@
   (set-face-background 'highlight-indentation-face "gray18")
   (set-face-background 'highlight-indentation-current-column-face "gray18"))
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; END PACKAGES CONFIGURATION SECTION ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
