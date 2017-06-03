@@ -1,11 +1,12 @@
-;;; init.el
+;;; init.el - An Emacs init file
 ;;
-;; Copyright (c) 2016-2017 Davide Restivo
+;; Copyright (C) 2016-2017 Davide Restivo
 ;;
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
+;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
 ;; URL: https://github.com/daviderestivo/emacs-config
 ;; Version: 4.0.0
-;; Keywords: emacs config
+;; Keywords: emacs config dotemacs
 
 
 ;;; License:
@@ -24,6 +25,32 @@
 ;; along with GNU Emacs; see the file COPYING.  If not, write to the
 ;; Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
+
+;;; Commentary:
+
+;; This is my emacs config file. Below you can find the list of the
+;; packages used:
+;;
+;; - atom-one-dark-theme
+;; - auto-package-update
+;; - cisco-router-mode
+;; - company-mode
+;; - elpy
+;; - exec-path-from-shell
+;; - helm
+;; - jinja2-mode
+;; - magit
+;; - markdown-mode
+;; - org
+;; - projectile
+;; - py-autopep8
+;; - rainbow-delimiters
+;; - smart-mode-line
+;; - transpose-frame
+;; - use-package
+;; - yaml-mode
+;;
+;; Feel free to drop me an email in case of questions.
 
 
 ;;; General configuration section

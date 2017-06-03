@@ -6,7 +6,7 @@ This is my emacs config file. Below you can find the list of the packages used.
 
 * atom-one-dark-theme [[link](https://github.com/jonathanchu/atom-one-dark-theme)]
 * auto-package-update [[link](https://github.com/rranelli/auto-package-update.el)]
-* cisco-router-mode.el [[link](https://www.emacswiki.org/emacs/download/cisco-router-mode.el)]
+* cisco-router-mode [[link](https://www.emacswiki.org/emacs/download/cisco-router-mode.el)]
 * company-mode [[link](https://github.com/company-mode/company-mode)]
 * elpy [[link](https://elpy.readthedocs.io)]
 * exec-path-from-shell [link](https://github.com/purcell/exec-path-from-shell)]
