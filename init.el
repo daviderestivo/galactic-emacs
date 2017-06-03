@@ -26,6 +26,7 @@
 ;; Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
+
 ;;; Commentary:
 
 ;; This is my emacs config file. Below you can find the list of the
@@ -502,3 +503,5 @@
 ;; markdown-mode
 (use-package markdown-mode
   :ensure t)
+
+;;; init.el ends here
