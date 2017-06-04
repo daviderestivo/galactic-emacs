@@ -32,24 +32,24 @@
 ;; This is my emacs config file. Below you can find the list of the
 ;; packages used:
 ;;
-;; - atom-one-dark-theme
-;; - auto-package-update
-;; - cisco-router-mode
-;; - company-mode
-;; - elpy
-;; - exec-path-from-shell
-;; - helm
-;; - jinja2-mode
-;; - magit
-;; - markdown-mode
-;; - org
-;; - projectile
-;; - py-autopep8
-;; - rainbow-delimiters
-;; - smart-mode-line
-;; - transpose-frame
-;; - use-package
-;; - yaml-mode
+;; - atom-one-dark-theme  [https://github.com/jonathanchu/atom-one-dark-theme]
+;; - auto-package-update  [https://github.com/rranelli/auto-package-update.el]
+;; - cisco-router-mode    [https://www.emacswiki.org/emacs/download/cisco-router-mode.el]
+;; - company-mode         [https://github.com/company-mode/company-mode]
+;; - elpy                 [https://elpy.readthedocs.io]
+;; - exec-path-from-shell [https://github.com/purcell/exec-path-from-shell]
+;; - helm                 [https://github.com/emacs-helm/helm]
+;; - jinja2-mode          [https://github.com/paradoxxxzero/jinja2-mode]
+;; - magit                [https://magit.vc]
+;; - markdown-mode        [http://jblevins.org/projects/markdown-mode/]
+;; - org                  [http://orgmode.org]
+;; - projectile           [https://github.com/bbatsov/projectile]
+;; - py-autopep8          [https://github.com/paetzke/py-autopep8.el]
+;; - rainbow-delimiters   [https://www.emacswiki.org/emacs/RainbowDelimiters]
+;; - smart-mode-line      [https://github.com/Malabarba/smart-mode-line]
+;; - transpose-frame      [https://www.emacswiki.org/emacs/TransposeFrame]
+;; - use-package          [https://github.com/jwiegley/use-package]
+;; - yaml-mode            [https://github.com/yoshiki/yaml-mode]
 ;;
 ;; Feel free to drop me an email in case of questions.
 
