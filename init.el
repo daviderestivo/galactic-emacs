@@ -375,7 +375,7 @@
   :if window-system
   :ensure t)
 
-;; wheatgrass (Terminal mode)
+;; wheatgrass-theme (Terminal mode)
 (use-package wheatgrass-theme
   :if (eq window-system nil))
 
