@@ -371,6 +371,7 @@
 
 ;; atom-one-dark-theme
 (use-package atom-one-dark-theme
+  :if window-system
   :ensure t)
 
 ;; exec-path-from-shell
