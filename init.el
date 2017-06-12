@@ -51,6 +51,7 @@
 ;; - transpose-frame      [https://www.emacswiki.org/emacs/TransposeFrame]
 ;; - use-package          [https://github.com/jwiegley/use-package]
 ;; - yaml-mode            [https://github.com/yoshiki/yaml-mode]
+;; - wheatgrass-theme     [https://github.com/jwiegley/emacs-release/blob/master/etc/themes/wheatgrass-theme.el]
 ;;
 ;; Feel free to drop me an email in case of questions.
 
@@ -370,9 +371,14 @@
 ;; https://www.emacswiki.org/emacs/TransposeFrame
 (load-library "transpose-frame")
 
-;; atom-one-dark-theme
+;; atom-one-dark-theme (GUI mode)
 (use-package atom-one-dark-theme
+  :if window-system
   :ensure t)
+
+;; wheatgrass-theme (Terminal mode)
+(use-package wheatgrass-theme
+  :if (eq window-system nil))
 
 ;; exec-path-from-shell
 (use-package exec-path-from-shell
