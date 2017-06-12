@@ -1,4 +1,5 @@
 ;;; init.el - An Emacs init file
+
 ;;
 ;; Copyright (C) 2016-2017 Davide Restivo
 ;;
