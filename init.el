@@ -121,9 +121,10 @@
 ;; Make *scratch* buffer blank.
 (setq initial-scratch-message nil)
 
-;; Disable the toolbar and the scroll-bar
+;; Disable the toolbar and the scroll-bar. Press F9 to enable the scroll-bar
 (tool-bar-mode -1)
 (toggle-scroll-bar -1)
+(global-set-key (kbd "<f9>") 'toggle-scroll-bar)
 
 ;; Enable show-paren-mode. paren-mode allows one to see
 ;; matching pairs of parentheses and other characters.
@@ -286,7 +287,7 @@
 (require 'whitespace)
 (setq whitespace-line-column 80) ;; limit line length
 (setq whitespace-style '(face lines-tail))
-(global-whitespace-mode +1)
+(global-whitespace-mode t)
 
 ;; Setup bookmark
 (setq bookmark-save-flag 1) ;; every time bookmark is changed,
