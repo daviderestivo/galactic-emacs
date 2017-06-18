@@ -37,7 +37,7 @@ This is my emacs config file. Below you can find the list of the packages used.
 | C-c left  | Winner mode - Undo windows changes  |
 | C-c right  | Winner mode - Redo windows changes  |
 | C-m | YAML mode - New line and indent |
-| C-x r | helm-filtered-bookmarks |
+| C-x r b | helm-filtered-bookmarks |
 
 
 Feel free to drop me an email in case of questions.
