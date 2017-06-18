@@ -24,4 +24,18 @@ This is my emacs config file. Below you can find the list of the packages used.
 * yaml-mode [[Link](https://github.com/yoshiki/yaml-mode)]
 * wheatgrass-theme [[Link](https://github.com/jwiegley/emacs-release/blob/master/etc/themes/wheatgrass-theme.el)]
 
+## Key bindings
+
+| Key | Function |
+| --- | ---      |
+| < f2 > | magit-status |
+| < f7 > | Create new empty buffer |
+| < f8 > | ispell-word |
+| M-< f8 > | flyspell-check-next-highlighted-word |
+| < f9 > | Toggle sroll bar  |
+| C-c C-c | copy-line |
+| C-c left  | Winner mode - Undo windows changes  |
+| C-c right  | Winner mode - Redo windows changes  |
+
+
 Feel free to drop me an email in case of questions.
