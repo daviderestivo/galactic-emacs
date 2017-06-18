@@ -27,7 +27,7 @@ This is my emacs config file. Below you can find the list of the packages used.
 ## Key bindings
 
 | Key | Function |
-| --- | ---      |
+| :--- | :--- |
 | < f2 > | magit-status |
 | < f7 > | Create new empty buffer |
 | < f8 > | ispell-word |
