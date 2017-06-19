@@ -149,8 +149,8 @@
 (load custom-file 'noerror)
 
 ;; Set Emacs frame size and center it on the screen
-(defvar frame-height 50)
-(defvar frame-width 120)
+(defvar frame-height 60)
+(defvar frame-width 130)
 (add-to-list 'default-frame-alist
              `(height . ,frame-height))
 (add-to-list 'default-frame-alist
