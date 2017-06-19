@@ -482,10 +482,11 @@ The following %-sequences are provided:
   (sml/setup)
   (display-time-mode)
   ;; The below is a temporary fix for Emacs <= 25.2.1
-  (setq battery-status-function 'battery-pmset-with-fix
-        battery-echo-area-format "Power %L, battery %B (%p%% charged, remaining time %t)"
-        battery-mode-line-format " [ %b%p%% ] ")
-  (display-battery-mode))
+  (when (memq window-system '(mac ns))
+    (setq battery-status-function 'battery-pmset-with-fix
+          battery-echo-area-format "Power %L, battery %B (%p%% charged, remaining time %t)"
+          battery-mode-line-format " [ %b%p%% ] ")
+    (display-battery-mode)))
 
 ;; yaml-mode
 (use-package yaml-mode
