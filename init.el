@@ -316,6 +316,9 @@
 ;; copy-line key binding
 (global-set-key "\C-c\C-c" 'copy-line)
 
+;; Make isearch treat space dash underscore newline as same
+(setq search-whitespace-regexp "[-_ \n]")
+
 
 ;;; Helper functions
 
