@@ -477,6 +477,7 @@ The following %-sequences are provided:
   (setq org-confirm-babel-evaluate nil)
   ;; Turn on syntax highlight
   (setq org-src-fontify-natively t)
+  ;; Set python3 as default python interpreter
   (setq org-babel-python-command "python3"))
 
 ;; rainbow-delimiters
