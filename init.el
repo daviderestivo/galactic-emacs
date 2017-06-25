@@ -464,6 +464,21 @@ The following %-sequences are provided:
   ("\C-cl" . org-store-link)
   ("\C-ca" . org-agenda))
 
+;; ORG Babel (OB)
+(use-package ob
+  :config
+  ;; Make org mode allow eval elisp, python and ruby
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((emacs-lisp . t)
+     (python . t)
+     (ruby . t)))
+  ;; Stop Emacs asking for confirmation when evaluating a code block
+  (setq org-confirm-babel-evaluate nil)
+  ;; Turn on syntax highlight
+  (setq org-src-fontify-natively t)
+  (setq org-babel-python-command "python3"))
+
 ;; rainbow-delimiters
 (use-package rainbow-delimiters
   :ensure t
