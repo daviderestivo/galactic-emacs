@@ -490,9 +490,12 @@ The following %-sequences are provided:
 (use-package ob-ipython
   :ensure t
   :config
+  (setq ob-ipython-command "ipython3")
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '((ipython . t))))
+   '((ipython . t)))
+  ;; Display images inline in the same buffer
+  (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append))
 
 ;; rainbow-delimiters
 (use-package rainbow-delimiters
