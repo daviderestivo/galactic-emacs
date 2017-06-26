@@ -460,6 +460,8 @@ The following %-sequences are provided:
                                "~/org/work-project-HE.org"
                                "~/org/work-project-ME.org"
                                "~/org/work-various.org"))
+  ;; Equivalent of "#+STARTUP: showeverything " on all ORG files
+  (setq org-startup-folded nil)
   :bind
   ("\C-cl" . org-store-link)
   ("\C-ca" . org-agenda))
