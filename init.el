@@ -462,6 +462,10 @@ The following %-sequences are provided:
                                "~/org/work-various.org"))
   ;; Equivalent of "#+STARTUP: showeverything " on all ORG files
   (setq org-startup-folded nil)
+  ;; org-mobile configuration: File where mobile captured notes will be stored
+  (setq org-mobile-inbox-for-pull "~/org/mobileorg.org")
+  ;; org-mobile configuration: Dropbox root directory
+  (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
   :bind
   ("\C-cl" . org-store-link)
   ("\C-ca" . org-agenda))
