@@ -470,7 +470,7 @@ The following %-sequences are provided:
   ("\C-cl" . org-store-link)
   ("\C-ca" . org-agenda))
 
-;; ORG Babel (OB)
+;; ORG Babel: Main section
 (use-package ob
   :config
   ;; Make org mode allow eval elisp, python and ruby
@@ -485,6 +485,14 @@ The following %-sequences are provided:
   (setq org-src-fontify-natively t)
   ;; Set python3 as default python interpreter
   (setq org-babel-python-command "python3"))
+
+;; ORG Babel: Ipython section
+(use-package ob-ipython
+  :ensure t
+  :config
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((ipython . t))))
 
 ;; rainbow-delimiters
 (use-package rainbow-delimiters
