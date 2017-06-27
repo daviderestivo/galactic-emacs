@@ -1,8 +1,23 @@
 # emacs-config
 
-This is my emacs config file. Below you can find the list of the packages used.
+This are my Emacs configuration files. Below you can find the list of the packages used.
 
-## Required packages
+## Installation
+
+```
+cd ~
+mv .emacs.d .emacs.d.bak
+git clone https://github.com/daviderestivo/emacs-config.git .emacs.d
+cd .emacs.d
+git submodule init
+git submodule update
+git submodule foreach --recursive git checkout master
+```
+
+## Included packages
+
+The following is the list of the included packages. Packages dependencies are
+not listed.
 
 * atom-one-dark-theme [[link](https://github.com/jonathanchu/atom-one-dark-theme)]
 * auto-package-update [[link](https://github.com/rranelli/auto-package-update.el)]
