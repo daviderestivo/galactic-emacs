@@ -601,4 +601,11 @@ The following %-sequences are provided:
 (use-package markdown-mode
   :ensure t)
 
+;; yasnippet
+(use-package yasnippet
+  :ensure t
+  :config
+  (yas-global-mode 1)
+  )
+
 ;;; init.el ends here

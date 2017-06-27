@@ -23,6 +23,7 @@ This is my emacs config file. Below you can find the list of the packages used.
 * transpose-frame [[link](https://www.emacswiki.org/emacs/TransposeFrame)]
 * use-package [[link](https://github.com/jwiegley/use-package)]
 * yaml-mode [[Link](https://github.com/yoshiki/yaml-mode)]
+* yasnippet [[Link](https://github.com/joaotavora/yasnippet)]
 * wheatgrass-theme [[Link](https://github.com/jwiegley/emacs-release/blob/master/etc/themes/wheatgrass-theme.el)]
 
 ## Key bindings
