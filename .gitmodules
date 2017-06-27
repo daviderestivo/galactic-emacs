@@ -1,0 +1,4 @@
+[submodule "snippets"]
+	path = snippets
+	url = git@github.com:AndreaCrotti/yasnippet-snippets.git
+	branch = master
