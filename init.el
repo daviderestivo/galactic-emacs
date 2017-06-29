@@ -606,6 +606,10 @@ The following %-sequences are provided:
   :ensure t
   :config
   (yas-global-mode 1)
-  )
+  (setq yas-snippet-dirs
+        '("~/.emacs.d/snippets"           ;; AndreaCrotti/yasnippet-snippets
+          "~/.emacs.d/snippets-addons"    ;; Personal snippets
+          ))
+  (yas-reload-all))
 
 ;;; init.el ends here
