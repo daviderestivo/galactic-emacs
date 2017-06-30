@@ -65,12 +65,15 @@
 	     '("melpa" . "http://melpa.org/packages/"))
 (add-to-list 'package-archives
 	     '("melpa-stable" . "https://stable.melpa.org/packages/"))
+(add-to-list 'package-archives
+             '("org" . "http://orgmode.org/elpa/"))
 
 ;; Change the below priorities if you prefer melpa-stable packages. Higher is better.
 (setq package-archive-priorities
-      '(("melpa" .  3)
+      '(("org" . 4)
+        ("melpa" .  3)
         ("mepla-stable" . 2)
-        ("org" . 1)))
+        ("gnu" . 1)))
 
 ;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)
@@ -455,7 +458,7 @@ The following %-sequences are provided:
 
 ;; ORG
 (use-package org
-  :ensure t
+  :ensure org-plus-contrib
   :config
   (setq org-log-done t)
   (setq org-agenda-files (list "~/org/home-various.org"
