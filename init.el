@@ -63,11 +63,14 @@
 (require 'package)
 (add-to-list 'package-archives
 	     '("melpa" . "http://melpa.org/packages/"))
-;; Un-comment the below if you prefer to use melpa stable packets
-;; (add-to-list 'package-archives
-;;	     '("melpa-stable" . "https://stable.melpa.org/packages/"))
 (add-to-list 'package-archives
-	     '("marmalade" . "http://marmalade-repo.org/packages/"))
+	     '("melpa-stable" . "https://stable.melpa.org/packages/"))
+
+;; Change the below priorities if you prefer melpa-stable packages. Higher is better.
+(setq package-archive-priorities
+      '(("melpa" .  3)
+        ("mepla-stable" . 2)
+        ("org" . 1)))
 
 ;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)
