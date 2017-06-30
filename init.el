@@ -472,6 +472,9 @@ The following %-sequences are provided:
   (setq org-mobile-inbox-for-pull "~/org/mobileorg.org")
   ;; org-mobile configuration: Dropbox root directory
   (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
+  ;; Setup org-bullets. Non need to install an additional package since this is already
+  ;; included into org-plus-contrib
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
   :bind
   ("\C-cl" . org-store-link)
   ("\C-ca" . org-agenda))
