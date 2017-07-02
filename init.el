@@ -40,10 +40,12 @@
 ;; - elpy                 [https://elpy.readthedocs.io]
 ;; - exec-path-from-shell [https://github.com/purcell/exec-path-from-shell]
 ;; - helm                 [https://github.com/emacs-helm/helm]
+;; - helm-descbinds       [https://github.com/emacs-helm/helm-descbinds]
 ;; - jinja2-mode          [https://github.com/paradoxxxzero/jinja2-mode]
 ;; - magit                [https://magit.vc]
 ;; - markdown-mode        [http://jblevins.org/projects/markdown-mode/]
-;; - org                  [http://orgmode.org]
+;; - ob-ipython           [https://github.com/gregsexton/ob-ipython]
+;; - org-plus-contrib     [http://orgmode.org]
 ;; - projectile           [https://github.com/bbatsov/projectile]
 ;; - py-autopep8          [https://github.com/paetzke/py-autopep8.el]
 ;; - rainbow-delimiters   [https://www.emacswiki.org/emacs/RainbowDelimiters]
@@ -51,6 +53,7 @@
 ;; - transpose-frame      [https://www.emacswiki.org/emacs/TransposeFrame]
 ;; - use-package          [https://github.com/jwiegley/use-package]
 ;; - yaml-mode            [https://github.com/yoshiki/yaml-mode]
+;; - yasnippet            [https://github.com/joaotavora/yasnippet]
 ;; - wheatgrass-theme     [https://github.com/jwiegley/emacs-release/blob/master/etc/themes/wheatgrass-theme.el]
 ;;
 ;; Feel free to drop me an email in case of questions.
@@ -569,6 +572,12 @@ The following %-sequences are provided:
   ("M-x"     . helm-M-x)
   ("C-x r b" . helm-filtered-bookmarks)
   ("C-x C-f" . helm-find-files))
+
+;; helm-descbinds
+(use-package helm-descbinds
+  :ensure t
+  :config
+  (helm-descbinds-mode))
 
 ;; company
 (use-package company
