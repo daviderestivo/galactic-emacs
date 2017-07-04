@@ -323,7 +323,7 @@
 (setq scroll-step 1)
 
 ;; copy-line key binding
-(global-set-key "\C-c\C-c" 'copy-line)
+(global-set-key "\C-\\" 'copy-line)
 
 ;; Make isearch treat space dash underscore newline as same
 (setq search-whitespace-regexp "[-_ \n]")
@@ -471,6 +471,17 @@ The following %-sequences are provided:
                                "~/org/work-various.org"))
   ;; Equivalent of "#+STARTUP: showeverything " on all ORG files
   (setq org-startup-folded nil)
+  ;; ORG default TODO keywords
+  ;; The below can be customized per file using:
+  ;;
+  ;; #+TODO: "TODO(t)" "DOING(d)" "WAIT OTHERS(w)" "DELEGATED(g)" "REVIEW(r)" "|" "DONE(D)" "CANCELED(C)" " REVIEWED(R)")
+  ;;
+  (setq org-todo-keywords
+        '((sequence "TODO(t)" "DOING(d)" "WAIT OTHERS(w)" "DELEGATED(g)" "REVIEW(r)" "|" "DONE(D)" "CANCELED(C)" " REVIEWED(R)")))
+  ;; Wrap long lines. Don't let it disappear to the right
+  (setq org-startup-truncated nil)
+  ;; When in a URL pressing enter key opens it
+  (setq org-return-follows-link t)
   ;; org-mobile configuration: File where mobile captured notes will be stored
   (setq org-mobile-inbox-for-pull "~/org/mobileorg.org")
   ;; org-mobile configuration: Dropbox root directory
