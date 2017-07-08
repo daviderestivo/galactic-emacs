@@ -51,6 +51,7 @@
 ;; - rainbow-delimiters   [https://www.emacswiki.org/emacs/RainbowDelimiters]
 ;; - smart-mode-line      [https://github.com/Malabarba/smart-mode-line]
 ;; - transpose-frame      [https://www.emacswiki.org/emacs/TransposeFrame]
+;; - undo-tree            [https://github.com/emacsmirror/undo-tree]
 ;; - use-package          [https://github.com/jwiegley/use-package]
 ;; - yaml-mode            [https://github.com/yoshiki/yaml-mode]
 ;; - yasnippet            [https://github.com/joaotavora/yasnippet]
@@ -640,5 +641,11 @@ The following %-sequences are provided:
           "~/.emacs.d/snippets-addons"    ;; Personal snippets
           ))
   (yas-reload-all))
+
+;; undo-tree
+(use-package undo-tree
+  :ensure t
+  :config
+  (global-undo-tree-mode 1))
 
 ;;; init.el ends here

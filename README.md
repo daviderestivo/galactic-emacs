@@ -37,6 +37,7 @@ not listed.
 * rainbow-delimiters [[link](https://www.emacswiki.org/emacs/RainbowDelimiters)]
 * smart-mode-line [[link](https://github.com/Malabarba/smart-mode-line)]
 * transpose-frame [[link](https://www.emacswiki.org/emacs/TransposeFrame)]
+* undo-tree [[link](https://github.com/emacsmirror/undo-tree)]
 * use-package [[link](https://github.com/jwiegley/use-package)]
 * yaml-mode [[Link](https://github.com/yoshiki/yaml-mode)]
 * yasnippet [[Link](https://github.com/joaotavora/yasnippet)]
