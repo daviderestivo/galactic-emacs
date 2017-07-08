@@ -6,7 +6,7 @@
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
 ;; URL: https://github.com/daviderestivo/emacs-config
-;; Version: 4.0.0
+;; Version: 4.1.0
 ;; Keywords: emacs config dotemacs
 
 
@@ -93,6 +93,10 @@
 (setenv "LC_ALL" "en_US.UTF-8")
 (setenv "LANG" "en_US.UTF-8")
 (setenv "LC_CTYPE" "en_US.UTF-8")
+
+;; UTF-8 as default encoding
+(set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8)
 
 ;; Sort apropos results by relevancy
 (setq apropos-sort-by-scores t)
@@ -330,6 +334,18 @@
 
 ;; Make isearch treat space dash underscore newline as same
 (setq search-whitespace-regexp "[-_ \n]")
+
+;; Type y/n instead of yes/no
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+;; Ask for confirmation before exiting emacs
+(setq confirm-kill-emacs 'y-or-n-p)
+
+;; Turn on highlighting current line
+(global-hl-line-mode 1)
+
+;; Make typing delete/overwrites selected text
+(delete-selection-mode 1)
 
 
 ;;; Helper functions
