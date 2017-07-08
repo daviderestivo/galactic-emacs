@@ -2,6 +2,7 @@
 .last-package-update-day
 auto-save-list/
 bookmarks
+elisp-objects/
 elpa/
 projectile-bookmarks.eld
 recentf

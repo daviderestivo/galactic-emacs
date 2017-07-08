@@ -47,6 +47,7 @@
 ;; - ob-ipython           [https://github.com/gregsexton/ob-ipython]
 ;; - org-plus-contrib     [http://orgmode.org]
 ;; - projectile           [https://github.com/bbatsov/projectile]
+;; - psession             [https://github.com/thierryvolpiatto/psession]
 ;; - py-autopep8          [https://github.com/paetzke/py-autopep8.el]
 ;; - rainbow-delimiters   [https://www.emacswiki.org/emacs/RainbowDelimiters]
 ;; - smart-mode-line      [https://github.com/Malabarba/smart-mode-line]
@@ -650,5 +651,12 @@ The following %-sequences are provided:
   :ensure t
   :config
   (global-undo-tree-mode 1))
+
+;; psession
+(use-package psession
+  :ensure t
+  :config
+  (psession-mode 1))
+
 
 ;;; init.el ends here

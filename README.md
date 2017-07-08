@@ -33,6 +33,7 @@ not listed.
 * ob-ipython [[link](https://github.com/gregsexton/ob-ipython)]
 * org-plus-contrib [[link](http://orgmode.org)]
 * projectile [[link](https://github.com/bbatsov/projectile)]
+* psession [[link](https://github.com/thierryvolpiatto/psession)]
 * py-autopep8 [[link](https://github.com/paetzke/py-autopep8.el)]
 * rainbow-delimiters [[link](https://www.emacswiki.org/emacs/RainbowDelimiters)]
 * smart-mode-line [[link](https://github.com/Malabarba/smart-mode-line)]
