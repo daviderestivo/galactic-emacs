@@ -523,7 +523,12 @@ The following %-sequences are provided:
   (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
   ;; Setup org-bullets. Non need to install an additional package since this is already
   ;; included into org-plus-contrib
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+  (add-hook 'org-mode-hook
+            '(lambda ()
+                (setq show-trailing-whitespace t)
+                (flyspell-prog-mode)
+                (superword-mode 1)
+                (org-bullets-mode 1)))
   :bind
   ("\C-cl" . org-store-link)
   ("\C-ca" . org-agenda))
@@ -589,7 +594,10 @@ The following %-sequences are provided:
   (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
   (add-hook 'yaml-mode-hook
             '(lambda ()
-               (define-key yaml-mode-map "\C-m" 'newline-and-indent))))
+               (define-key yaml-mode-map "\C-m" 'newline-and-indent)
+               (setq show-trailing-whitespace t)
+               (flyspell-prog-mode)
+               (superword-mode 1))))
 
 ;; jinja2-mode
 (use-package jinja2-mode
@@ -600,7 +608,11 @@ The following %-sequences are provided:
    ;; "C-c t" jinja2-insert-tag
    ;; "C-c v" jinja2-insert-var
    ;; "C-c #" jinja2-insert-comment
-   )
+   (add-hook 'jinja2-mode-hook
+             '(lambda ()
+                 (setq show-trailing-whitespace t)
+                 (flyspell-prog-mode)
+                 (superword-mode 1))))
 
 ;; helm
 (use-package helm
@@ -665,7 +677,13 @@ The following %-sequences are provided:
 
 ;; markdown-mode
 (use-package markdown-mode
-  :ensure t)
+  :ensure t
+  :config
+  (add-hook 'markdown-mode-hook
+            '(lambda ()
+                (setq show-trailing-whitespace t)
+                (flyspell-prog-mode)
+                (superword-mode 1))))
 
 ;; yasnippet
 (use-package yasnippet
