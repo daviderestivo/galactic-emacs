@@ -118,7 +118,13 @@
 ;; white-space. This command deletes all extra spaces at the
 ;; end of each line in the buffer, and all empty lines at the
 ;; end of the buffer.
-(setq-default show-trailing-whitespace t)
+(dolist (mode '(emacs-lisp-mode-hook
+                inferior-lisp-mode-hook
+                python-mode-hook
+                js-mode-hook))
+  (add-hook mode
+            '(lambda ()
+               (setq show-trailing-whitespace t))))
 
 ;; Datetime format
 (setq display-time-day-and-date t
@@ -222,10 +228,8 @@
 ;; Enable flyspell for code and enable superword mode
 (dolist (mode '(emacs-lisp-mode-hook
                 inferior-lisp-mode-hook
-                clojure-mode-hook
                 python-mode-hook
-                js-mode-hook
-                R-mode-hook))
+                js-mode-hook))
   (add-hook mode
             '(lambda ()
                (flyspell-prog-mode)
