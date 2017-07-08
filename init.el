@@ -684,6 +684,20 @@ The following %-sequences are provided:
 (use-package psession
   :ensure t
   :config
+  (setq psession-object-to-save-alist
+        '(
+          ;;(ioccur-history . "ioccur-history.el")
+          (extended-command-history . "extended-command-history.el")
+          (helm-external-command-history . "helm-external-command-history.el")
+          (helm-surfraw-engines-history . "helm-(setq )urfraw-engines-history.el")
+          (psession--save-buffers-alist . "psession-save-buffers-alist.el")
+          (helm-ff-history . "helm-ff-history.el")
+          (helm-grep-history . "helm-grep-history.el")
+          (kill-ring . "kill-ring.el")
+          (kill-ring-yank-pointer . "kill-ring-yank-pointer.el")
+          (register-alist . "register-alist.el")
+          (psession--winconf-alist . "psession-winconf-alist.el")
+          ))
   (psession-mode 1))
 
 
