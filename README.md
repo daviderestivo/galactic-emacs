@@ -58,6 +58,7 @@ not listed.
 | C-c right  | Winner mode - Redo windows changes  |
 | C-m | YAML mode - New line and indent |
 | C-x r b | helm-filtered-bookmarks |
+| C-x C-r | helm-recentf |
 
 
 Feel free to drop me an email in case of questions.
