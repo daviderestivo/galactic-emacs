@@ -202,6 +202,7 @@
 (electric-pair-mode 1)
 
 ;; Keep a list of recently opened files
+(setq-default recent-save-file "~/.emacs.d/recentf")
 (recentf-mode 1)
 
 ;; Spell checking configuration
@@ -576,6 +577,7 @@ The following %-sequences are provided:
   :commands helm-mode
   :config
   (helm-mode 1)
+  (setq helm-ff-file-name-history-use-recentf t)
   (setq helm-buffers-fuzzy-matching t)
   (setq helm-autoresize-mode t)
   :bind
@@ -583,7 +585,8 @@ The following %-sequences are provided:
   ;; https://github.com/emacs-helm/helm/commit/1de1701c73b15a86e99ab1c5c53bd0e8659d8ede
   ("M-x"     . helm-M-x)
   ("C-x r b" . helm-filtered-bookmarks)
-  ("C-x C-f" . helm-find-files))
+  ("C-x C-f" . helm-find-files)
+  ("C-x C-r" . helm-recentf))
 
 ;; helm-descbinds
 (use-package helm-descbinds
