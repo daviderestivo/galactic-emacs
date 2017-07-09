@@ -1,5 +1,6 @@
 .DS_Store
 .last-package-update-day
+.org-id-locations
 auto-save-list/
 bookmarks
 elisp-objects/
