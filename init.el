@@ -89,14 +89,13 @@
 (require 'diminish)
 (require 'bind-key)
 
+;; UTF-8 as default encoding
+(set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8)
 ;; Set LANG and LC_* variables
 (setenv "LC_ALL" "en_US.UTF-8")
 (setenv "LANG" "en_US.UTF-8")
 (setenv "LC_CTYPE" "en_US.UTF-8")
-
-;; UTF-8 as default encoding
-(set-language-environment "UTF-8")
-(set-default-coding-systems 'utf-8)
 
 ;; Sort apropos results by relevancy
 (setq apropos-sort-by-scores t)
@@ -112,19 +111,6 @@
 (setq-default left-fringe-width nil
               indicate-empty-lines t
               indent-tabs-mode nil)
-
-;; Show trailing white-spaces
-;; Type M-x delete-trailing-whitespace to delete all trailing
-;; white-space. This command deletes all extra spaces at the
-;; end of each line in the buffer, and all empty lines at the
-;; end of the buffer.
-(dolist (mode '(emacs-lisp-mode-hook
-                inferior-lisp-mode-hook
-                python-mode-hook
-                js-mode-hook))
-  (add-hook mode
-            '(lambda ()
-               (setq show-trailing-whitespace t))))
 
 ;; Datetime format
 (setq display-time-day-and-date t
@@ -215,6 +201,19 @@
 ;; Keep a list of recently opened files
 (setq-default recent-save-file "~/.emacs.d/recentf")
 (recentf-mode 1)
+
+;; Show trailing white-spaces
+;; Type M-x delete-trailing-whitespace to delete all trailing
+;; white-space. This command deletes all extra spaces at the
+;; end of each line in the buffer, and all empty lines at the
+;; end of the buffer.
+(dolist (mode '(emacs-lisp-mode-hook
+                inferior-lisp-mode-hook
+                python-mode-hook
+                js-mode-hook))
+  (add-hook mode
+            '(lambda ()
+               (setq show-trailing-whitespace t))))
 
 ;; Spell checking configuration
 (setq ispell-program-name "aspell")
