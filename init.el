@@ -699,7 +699,9 @@ The following %-sequences are provided:
 (use-package undo-tree
   :ensure t
   :config
-  (global-undo-tree-mode 1))
+  (global-undo-tree-mode 1)
+  (setq undo-tree-visualizer-diff 1)
+  (setq undo-tree-visualizer-timestamps 1))
 
 ;; psession
 (use-package psession
