@@ -27,6 +27,7 @@ not listed.
 * exec-path-from-shell [link](https://github.com/purcell/exec-path-from-shell)]
 * helm [[link](https://github.com/emacs-helm/helm)]
 * helm-descbinds [[link](https://github.com/emacs-helm/helm-descbinds)]
+* helm-projectile [[link](https://github.com/bbatsov/helm-projectile)]
 * jinja2-mode [[link](https://github.com/paradoxxxzero/jinja2-mode)]
 * magit [[link](https://magit.vc)]
 * markdown-mode [[link](http://jblevins.org/projects/markdown-mode)]

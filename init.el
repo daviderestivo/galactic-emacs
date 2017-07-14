@@ -41,6 +41,7 @@
 ;; - exec-path-from-shell [https://github.com/purcell/exec-path-from-shell]
 ;; - helm                 [https://github.com/emacs-helm/helm]
 ;; - helm-descbinds       [https://github.com/emacs-helm/helm-descbinds]
+;; - helm-projectile      [https://github.com/bbatsov/helm-projectile]
 ;; - jinja2-mode          [https://github.com/paradoxxxzero/jinja2-mode]
 ;; - magit                [https://magit.vc]
 ;; - markdown-mode        [http://jblevins.org/projects/markdown-mode/]
@@ -638,6 +639,12 @@ The following %-sequences are provided:
   :config
   (helm-descbinds-mode))
 
+;; helm-projectile
+(use-package helm-projectile
+  :ensure t
+  :config
+  (helm-projectile-on))
+
 ;; company
 (use-package company
   :ensure t
@@ -653,7 +660,8 @@ The following %-sequences are provided:
 (use-package projectile
   :ensure t
   :config
-  (add-hook 'python-mode-hook 'projectile-mode))
+  (add-hook 'python-mode-hook 'projectile-mode)
+  (setq projectile-completion-system 'helm))
 
 ;; elpy
 (use-package elpy
