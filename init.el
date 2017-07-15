@@ -500,11 +500,11 @@ The following %-sequences are provided:
   :ensure org-plus-contrib
   :config
   (setq org-log-done t)
-  (setq org-agenda-files (list "~/org/home-various.org"
-                               "~/org/work-project-BNS.org"
-                               "~/org/work-project-HE.org"
-                               "~/org/work-project-ME.org"
-                               "~/org/work-various.org"))
+  (setq org-agenda-files (list "~/org/agenda/home-various.org"
+                               "~/org/agenda/work-project-BNS.org"
+                               "~/org/agenda/work-project-HE.org"
+                               "~/org/agenda/work-project-ME.org"
+                               "~/org/agenda/work-various.org"))
   ;; Equivalent of "#+STARTUP: showeverything " on all ORG files
   (setq org-startup-folded nil)
   ;; Images inlined on opening an org buffer
@@ -526,7 +526,7 @@ The following %-sequences are provided:
   ;; When in a URL pressing enter key opens it
   (setq org-return-follows-link t)
   ;; org-mobile configuration: File where mobile captured notes will be stored
-  (setq org-mobile-inbox-for-pull "~/org/mobileorg.org")
+  (setq org-mobile-inbox-for-pull "~/org/agenda/mobileorg.org")
   ;; org-mobile configuration: Dropbox root directory
   (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
   ;; Setup org-bullets. Non need to install an additional package since this is already
