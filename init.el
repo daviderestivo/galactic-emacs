@@ -500,11 +500,7 @@ The following %-sequences are provided:
   :ensure org-plus-contrib
   :config
   (setq org-log-done t)
-  (setq org-agenda-files (list "~/org/agenda/home-various.org"
-                               "~/org/agenda/work-project-BNS.org"
-                               "~/org/agenda/work-project-HE.org"
-                               "~/org/agenda/work-project-ME.org"
-                               "~/org/agenda/work-various.org"))
+  (setq org-agenda-files '("~/org/agenda"))
   ;; Equivalent of "#+STARTUP: showeverything " on all ORG files
   (setq org-startup-folded nil)
   ;; Images inlined on opening an org buffer
