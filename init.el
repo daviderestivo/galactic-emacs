@@ -507,6 +507,8 @@ The following %-sequences are provided:
                                "~/org/work-various.org"))
   ;; Equivalent of "#+STARTUP: showeverything " on all ORG files
   (setq org-startup-folded nil)
+  ;; Images inlined on opening an org buffer
+  (setq org-startup-with-inline-images t)
   ;; Set images default width to 320. Emacs requires ImageMagick support "--with-imagemagick@6"
   (setq org-image-actual-width '(320))
   ;; Default file applications on a macOS system
