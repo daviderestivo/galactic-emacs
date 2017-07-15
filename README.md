@@ -32,6 +32,7 @@ not listed.
 * magit [[link](https://magit.vc)]
 * markdown-mode [[link](http://jblevins.org/projects/markdown-mode)]
 * ob-ipython [[link](https://github.com/gregsexton/ob-ipython)]
+* org-download [[link](https://github.com/abo-abo/org-download)]
 * org-plus-contrib [[link](http://orgmode.org)]
 * projectile [[link](https://github.com/bbatsov/projectile)]
 * psession [[link](https://github.com/thierryvolpiatto/psession)]

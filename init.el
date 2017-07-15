@@ -44,8 +44,9 @@
 ;; - helm-projectile      [https://github.com/bbatsov/helm-projectile]
 ;; - jinja2-mode          [https://github.com/paradoxxxzero/jinja2-mode]
 ;; - magit                [https://magit.vc]
-;; - markdown-mode        [http://jblevins.org/projects/markdown-mode/]
+;; - markdown-mode        [http://jblevins.org/projects/markdown-mode]
 ;; - ob-ipython           [https://github.com/gregsexton/ob-ipython]
+;; - org-download         [https://github.com/abo-abo/org-download]
 ;; - org-plus-contrib     [http://orgmode.org]
 ;; - projectile           [https://github.com/bbatsov/projectile]
 ;; - psession             [https://github.com/thierryvolpiatto/psession]
@@ -506,6 +507,11 @@ The following %-sequences are provided:
                                "~/org/work-various.org"))
   ;; Equivalent of "#+STARTUP: showeverything " on all ORG files
   (setq org-startup-folded nil)
+  ;; Set images default width to 320. Emacs requires ImageMagick support "--with-imagemagick@6"
+  (setq org-image-actual-width '(320))
+  ;; Default file applications on a macOS system
+  (when (memq window-system '(mac ns))
+    (setq org-file-apps org-file-apps-defaults-macosx))
   ;; ORG default TODO keywords
   ;; The below can be customized per file using:
   ;;
@@ -559,6 +565,17 @@ The following %-sequences are provided:
    '((ipython . t)))
   ;; Display images inline in the same buffer
   (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append))
+
+;; org-download
+(use-package org-download
+  :ensure t
+  :config
+  ;; Change screen capture command only for macOS
+  (when (memq window-system '(mac ns))
+    (setq org-download-screenshot-method "screencapture -s -x %s"))
+  ;; org-download default directory
+  (setq-default org-download-image-dir "./image")
+  (setq org-download-image-html-width '320))
 
 ;; rainbow-delimiters
 (use-package rainbow-delimiters
