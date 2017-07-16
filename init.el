@@ -499,6 +499,8 @@ The following %-sequences are provided:
 (use-package org
   :ensure org-plus-contrib
   :config
+  ;; Save all org buffers every hour
+  (run-at-time "00:59" 3600 'org-save-all-org-buffers)
   (setq org-log-done t)
   (setq org-agenda-files '("~/org/agenda"))
   ;; Equivalent of "#+STARTUP: showeverything " on all ORG files
