@@ -502,6 +502,8 @@ The following %-sequences are provided:
 (use-package org
   :ensure org-plus-contrib
   :config
+  ;; Set org ellipsis style
+  (setq org-ellipsis "⤵")
   ;; Save all org buffers every hour
   (run-at-time "00:59" 3600 'org-save-all-org-buffers)
   (setq org-log-done t)
@@ -577,7 +579,7 @@ The following %-sequences are provided:
   (when (memq window-system '(mac ns))
     (setq org-download-screenshot-method "screencapture -s -x %s"))
   ;; org-download default directory
-  (setq-default org-download-image-dir "./image")
+  (setq-default org-download-image-dir "./images")
   (setq org-download-image-html-width '320))
 
 ;; rainbow-delimiters
