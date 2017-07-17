@@ -753,5 +753,12 @@ The following %-sequences are provided:
           ))
   (psession-mode 1))
 
+;;
+(use-package diff-hl
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
+  (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode))
+
 
 ;;; init.el ends here
