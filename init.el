@@ -91,6 +91,9 @@
 (require 'diminish)
 (require 'bind-key)
 
+;; Personal Information
+(load "~/.emacs.d/personal.el")
+
 ;; UTF-8 as default encoding
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
