@@ -37,6 +37,7 @@
 ;; - auto-package-update  [https://github.com/rranelli/auto-package-update.el]
 ;; - cisco-router-mode    [https://www.emacswiki.org/emacs/download/cisco-router-mode.el]
 ;; - company-mode         [https://github.com/company-mode/company-mode]
+;; - diff-hl              [https://github.com/dgutov/diff-hl]
 ;; - elpy                 [https://elpy.readthedocs.io]
 ;; - exec-path-from-shell [https://github.com/purcell/exec-path-from-shell]
 ;; - helm                 [https://github.com/emacs-helm/helm]
