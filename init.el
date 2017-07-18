@@ -503,14 +503,16 @@ The following %-sequences are provided:
 (use-package org
   :ensure org-plus-contrib
   :config
+  ;; ORG directories and files location
   (setq org-directory "~/org/")
-  ;; Set org ellipsis style
+  (setq org-agenda-files (list (concat org-directory "agenda")))
+  (setq org-default-notes-file (concat org-directory "refile.org"))
+  ;; Set org ellipsis style to a downward arrow instead of "..."
   (setq org-ellipsis "⤵")
   ;; Save all org buffers every hour
   (run-at-time "00:59" 3600 'org-save-all-org-buffers)
+  ;; Add CLOSED: [timestamp] when a task is marked as DONE
   (setq org-log-done t)
-  (setq org-agenda-files (list (concat org-directory "agenda")))
-  (setq org-default-notes-file (concat org-directory "refile.org"))
   ;; Equivalent of "#+STARTUP: showeverything " on all ORG files
   (setq org-startup-folded nil)
   ;; Images inlined on opening an org buffer
