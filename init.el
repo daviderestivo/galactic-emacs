@@ -30,7 +30,7 @@
 
 ;;; Commentary:
 
-;; This is my emacs config file. Below you can find the list of the
+;; This is my Emacs config file. Below you can find the list of the
 ;; packages used:
 ;;
 ;; - atom-one-dark-theme  [https://github.com/jonathanchu/atom-one-dark-theme]
@@ -103,6 +103,13 @@
 (setenv "LANG" "en_US.UTF-8")
 (setenv "LC_CTYPE" "en_US.UTF-8")
 
+;; macOS 'ls' command does not support the "--dired" option needed by Emacs
+;; Alternatively, we use Emacs's own emulation of "ls"
+(when (string= system-type "darwin")
+  (setq dired-use-ls-dired nil)
+  (setq ls-lisp-use-insert-directory-(point)rogram nil)
+  (require 'ls-lisp))
+
 ;; Sort apropos results by relevancy
 (setq apropos-sort-by-scores t)
 
@@ -173,7 +180,7 @@
 (defvar frame-pixel-width
   (* frame-width (frame-char-width)))
 (setq initial-frame-alist
-;; Avoid the issue of having emacs on the middle of two displays.
+;; Avoid the issue of having Emacs on the middle of two displays.
       `((left . ,(/ (-
                      (round (* (display-pixel-height) 1.777))
                        frame-pixel-width) 2))
@@ -347,7 +354,7 @@
 ;; Type y/n instead of yes/no
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-;; Ask for confirmation before exiting emacs
+;; Ask for confirmation before exiting Emacs
 (setq confirm-kill-emacs 'y-or-n-p)
 
 ;; Turn on highlighting current line
@@ -356,7 +363,7 @@
 ;; Make typing delete/overwrites selected text
 (delete-selection-mode 1)
 
-;; Customize emacs calendar to start a week on Monday and to show the week number
+;; Customize Emacs calendar to start a week on Monday and to show the week number
 (setq calendar-week-start-day 1)
 (copy-face font-lock-constant-face 'calendar-iso-week-face)
 (set-face-attribute 'calendar-iso-week-face nil :foreground "light green")
