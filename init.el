@@ -503,12 +503,14 @@ The following %-sequences are provided:
 (use-package org
   :ensure org-plus-contrib
   :config
+  (setq org-directory "~/org/")
   ;; Set org ellipsis style
   (setq org-ellipsis "⤵")
   ;; Save all org buffers every hour
   (run-at-time "00:59" 3600 'org-save-all-org-buffers)
   (setq org-log-done t)
-  (setq org-agenda-files '("~/org/agenda"))
+  (setq org-agenda-files (list (concat org-directory "agenda")))
+  (setq org-default-notes-file (concat org-directory "refile.org"))
   ;; Equivalent of "#+STARTUP: showeverything " on all ORG files
   (setq org-startup-folded nil)
   ;; Images inlined on opening an org buffer
@@ -543,7 +545,8 @@ The following %-sequences are provided:
                 (org-bullets-mode 1)))
   :bind
   ("\C-cl" . org-store-link)
-  ("\C-ca" . org-agenda))
+  ("\C-ca" . org-agenda)
+  ("\C-cc" . org-capture))
 
 ;; ORG Babel: Main section
 (use-package ob
