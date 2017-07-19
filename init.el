@@ -514,6 +514,16 @@ The following %-sequences are provided:
   (setq org-directory "~/org/")
   (setq org-agenda-files (list (concat org-directory "agenda")))
   (setq org-default-notes-file (concat org-directory "refile.org"))
+  ;; Additional files to be searched in addition to the default ones
+  ;; contained in the agenda folder
+  (load-library "find-lisp")
+  (setq org-agenda-text-search-extra-files
+        (append
+         (find-lisp-find-files (concat org-directory "home-projects") "\.org$")
+         (find-lisp-find-files (concat org-directory "work-projects") "\.org$")
+         (find-lisp-find-files (concat org-directory "notebooks") "\.org$")
+         (list (concat org-directory "mobileorg.org"))
+         (list (concat org-directory "refile.org"))))
   ;; Set org ellipsis style to a downward arrow "⤵" instead of "..."
   (setq org-ellipsis "⤵")
   ;; Save all org buffers every hour
