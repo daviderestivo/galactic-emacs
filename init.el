@@ -89,6 +89,7 @@
   (package-install 'use-package))
 (eval-when-compile
   (require 'use-package))
+(setq package-enable-at-startup nil)
 (require 'diminish)
 (require 'bind-key)
 
@@ -501,6 +502,7 @@ The following %-sequences are provided:
 
 ;; magit
 (use-package magit
+  :defer t
   :ensure t
   :config
   :bind
@@ -508,6 +510,7 @@ The following %-sequences are provided:
 
 ;; ORG
 (use-package org
+  :defer t
   :ensure org-plus-contrib
   :config
   ;; ORG directories and files
@@ -569,6 +572,7 @@ The following %-sequences are provided:
 
 ;; ORG Babel: Main section
 (use-package ob
+  :defer t
   :config
   ;; Make org mode allow eval elisp, python and ruby
   (org-babel-do-load-languages
@@ -585,6 +589,7 @@ The following %-sequences are provided:
 
 ;; ORG Babel: Ipython section
 (use-package ob-ipython
+  :defer t
   :ensure t
   :config
   (setq ob-ipython-command "ipython3")
@@ -613,6 +618,7 @@ The following %-sequences are provided:
 
 ;; auto-package-update
 (use-package auto-package-update
+  :defer t
   :ensure t
   :config
   ;; Automatically delete old packages
@@ -634,6 +640,7 @@ The following %-sequences are provided:
 
 ;; yaml-mode
 (use-package yaml-mode
+  :defer t
   :ensure t
   :config
   (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
@@ -646,6 +653,7 @@ The following %-sequences are provided:
 
 ;; jinja2-mode
 (use-package jinja2-mode
+  :defer t
   :ensure t
   :config
    (add-to-list 'auto-mode-alist '("\\.j2\\'" . jinja2-mode))
@@ -661,8 +669,8 @@ The following %-sequences are provided:
 
 ;; helm
 (use-package helm
+  :defer t
   :ensure t
-  :defer 1
   :diminish helm-mode
   :commands helm-mode
   :config
@@ -710,6 +718,7 @@ The following %-sequences are provided:
 
 ;; elpy
 (use-package elpy
+  :defer t
   :ensure t
   :config
   (elpy-enable)
@@ -729,6 +738,7 @@ The following %-sequences are provided:
 
 ;; markdown-mode
 (use-package markdown-mode
+  :defer t
   :ensure t
   :config
   (add-hook 'markdown-mode-hook
