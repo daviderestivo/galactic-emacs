@@ -484,14 +484,23 @@ The following %-sequences are provided:
 ;; https://www.emacswiki.org/emacs/TransposeFrame
 (load-library "transpose-frame")
 
-;; atom-one-dark-theme (GUI mode)
+;; atom-one-dark-theme (GUI mode) and wheatgrass-theme (Terminal mode)
 (use-package atom-one-dark-theme
-  :if window-system
-  :ensure t)
-
-;; wheatgrass-theme (Terminal mode)
-(use-package wheatgrass-theme
-  :if (eq window-system nil))
+  :ensure t
+  :config
+  ;; The below hook is needed when Emacs is started in daemon mode.
+  ;; In this case it is required to add a hook called during the
+  ;; creation of every new frame in order to load the configured
+  (if (daemonp)
+      (add-hook 'after-make-frame-functions
+                (lambda (frame)
+                  (select-frame frame)
+                  (if (display-graphic-p frame)
+                      (load-theme 'atom-one-dark t)
+                    (load-theme 'wheatgrass t)))))
+  (if (window-system)
+      (load-theme 'atom-one-dark t)
+    (load-theme 'wheatgrass t)))
 
 ;; exec-path-from-shell
 (use-package exec-path-from-shell
