@@ -325,10 +325,12 @@
 ;; Setup bookmark
 (setq bookmark-save-flag 1) ;; every time bookmark is changed,
                             ;; automatically save it
-;; Open bookmark list at startup
+;; Load bookmarks list at startup
 (require 'bookmark)
 (bookmark-bmenu-list)
-(switch-to-buffer "*Bookmark List*")
+;; Uncomment the next line if you want Emacs to switch to the
+;; bookmarks buffer at startup
+;; (switch-to-buffer "*Bookmark List*")
 
 ;; Automatically auto-refresh a buffer if the file has changed on disk
 (global-auto-revert-mode t)
