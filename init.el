@@ -499,7 +499,9 @@ The following %-sequences are provided:
                         (display-graphic-p frame)
                         (load-theme 'atom-one-dark t)
                         ;; Transparent window in Emacs on macOS
-                        (set-frame-parameter (selected-frame) 'alpha '(98 98)))
+                        (set-frame-parameter (selected-frame) 'alpha '(98 98))
+                        ;; Always bring a newly created frame on top
+                        (select-frame-set-input-focus frame))
                     (load-theme 'wheatgrass t)))))
   (if (window-system)
       (progn
