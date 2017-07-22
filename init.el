@@ -232,7 +232,7 @@
                (setq show-trailing-whitespace t))))
 
 ;; Spell checking configuration
-(setq ispell-program-name "aspell")
+(setq ispell-program-name "/usr/local/bin/aspell")
 ;; Enable flyspell for text files and enable superword mode
 (dolist (hook '(text-mode-hook))
   (add-hook hook (lambda ()
