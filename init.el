@@ -497,7 +497,7 @@ The following %-sequences are provided:
       (add-hook 'after-make-frame-functions
                 (lambda (frame)
                   (select-frame frame)
-                  (if
+                  (if (window-system)
                       (progn
                         (display-graphic-p frame)
                         (load-theme 'atom-one-dark t)
