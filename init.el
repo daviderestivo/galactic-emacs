@@ -495,11 +495,18 @@ The following %-sequences are provided:
       (add-hook 'after-make-frame-functions
                 (lambda (frame)
                   (select-frame frame)
-                  (if (display-graphic-p frame)
-                      (load-theme 'atom-one-dark t)
+                  (if
+                      (progn
+                        (display-graphic-p frame)
+                        (load-theme 'atom-one-dark t)
+                        ;; Transparent window in Emacs on macOS
+                        (set-frame-parameter (selected-frame) 'alpha '(98 98)))
                     (load-theme 'wheatgrass t)))))
   (if (window-system)
-      (load-theme 'atom-one-dark t)
+      (progn
+         (load-theme 'atom-one-dark t)
+         ;; Transparent window in Emacs on macOS
+         (set-frame-parameter (selected-frame) 'alpha '(98 98)))
     (load-theme 'wheatgrass t)))
 
 ;; exec-path-from-shell
