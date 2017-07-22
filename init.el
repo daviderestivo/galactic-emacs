@@ -534,7 +534,8 @@ The following %-sequences are provided:
   :config
   ;; ORG directories and files
   (setq org-directory "~/org/")
-  (setq org-agenda-files (list (concat org-directory "agenda")))
+  (setq org-agenda-files (list (concat org-directory "agenda")
+                               (concat org-directory "refile.org")))
   (setq org-default-notes-file (concat org-directory "refile.org"))
   ;; Additional files to be searched in addition to the default ones
   ;; contained in the agenda folder
