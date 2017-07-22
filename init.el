@@ -805,5 +805,14 @@ The following %-sequences are provided:
           ))
   (psession-mode 1))
 
+;; git-gutter
+(use-package git-gutter
+  :ensure t
+  :config
+  (global-git-gutter-mode t)
+  (set-face-foreground 'git-gutter:modified "medium purple")
+  (set-face-foreground 'git-gutter:added "light green")
+  (set-face-foreground 'git-gutter:deleted "IndianRed2"))
+
 
 ;;; init.el ends here

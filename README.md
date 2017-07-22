@@ -25,6 +25,7 @@ not listed.
 * company-mode [[link](https://github.com/company-mode/company-mode)]
 * elpy [[link](https://elpy.readthedocs.io)]
 * exec-path-from-shell [link](https://github.com/purcell/exec-path-from-shell)]
+* git-gutter [link](https://github.com/syohex/emacs-git-gutter)]
 * helm [[link](https://github.com/emacs-helm/helm)]
 * helm-descbinds [[link](https://github.com/emacs-helm/helm-descbinds)]
 * helm-projectile [[link](https://github.com/bbatsov/helm-projectile)]
