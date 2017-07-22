@@ -232,7 +232,7 @@
                (setq show-trailing-whitespace t))))
 
 ;; Spell checking configuration
-(setq ispell-program-name "/usr/local/bin/aspell")
+(setq ispell-program-name "aspell")
 ;; Enable flyspell for text files and enable superword mode
 (dolist (hook '(text-mode-hook))
   (add-hook hook (lambda ()
@@ -520,7 +520,7 @@ The following %-sequences are provided:
   :config
   (setq exec-path-from-shell-check-startup-files nil)
   ;; http://stackoverflow.com/questions/35286203/exec-path-from-shell-message-when-starting-emacs
-  (when (memq window-system '(mac ns))
+  (when (string= system-type "darwin")
     (exec-path-from-shell-initialize)))
 
 ;; magit
@@ -564,7 +564,7 @@ The following %-sequences are provided:
   ;; Set images default width to 320. Emacs requires ImageMagick support "--with-imagemagick@6"
   (setq org-image-actual-width '(320))
   ;; Default file applications on a macOS system
-  (when (memq window-system '(mac ns))
+  (when (string= system-type "darwin")
     (setq org-file-apps org-file-apps-defaults-macosx))
   ;; ORG default TODO keywords
   ;; The below can be customized per file using:
@@ -628,7 +628,7 @@ The following %-sequences are provided:
   :ensure t
   :config
   ;; Change screen capture command only for macOS
-  (when (memq window-system '(mac ns))
+  (when (string= system-type "darwin")
     (setq org-download-screenshot-method "screencapture -s -x %s"))
   ;; org-download default directory
   (setq-default org-download-image-dir "./images")
@@ -656,7 +656,7 @@ The following %-sequences are provided:
   (sml/setup)
   (display-time-mode)
   ;; The below is a temporary fix for Emacs <= 25.2.1
-  (when (memq window-system '(mac ns))
+  (when (string= system-type "darwin")
     (setq battery-status-function 'battery-pmset-with-fix
           battery-echo-area-format "Power %L, battery %B (%p%% charged, remaining time %t)"
           battery-mode-line-format " [ %b%p%% ] ")
