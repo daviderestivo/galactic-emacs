@@ -501,7 +501,8 @@ The following %-sequences are provided:
                         ;; Transparent window in Emacs on macOS
                         (set-frame-parameter (selected-frame) 'alpha '(98 98))
                         ;; Always bring a newly created frame on top
-                        (select-frame-set-input-focus frame))
+                        (select-frame-set-input-focus frame)
+                        (toggle-scroll-bar -1))
                     (load-theme 'wheatgrass t)))))
   (if (window-system)
       (progn
