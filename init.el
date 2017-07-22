@@ -37,7 +37,6 @@
 ;; - auto-package-update  [https://github.com/rranelli/auto-package-update.el]
 ;; - cisco-router-mode    [https://www.emacswiki.org/emacs/download/cisco-router-mode.el]
 ;; - company-mode         [https://github.com/company-mode/company-mode]
-;; - diff-hl              [https://github.com/dgutov/diff-hl]
 ;; - elpy                 [https://elpy.readthedocs.io]
 ;; - exec-path-from-shell [https://github.com/purcell/exec-path-from-shell]
 ;; - helm                 [https://github.com/emacs-helm/helm]
@@ -803,14 +802,6 @@ The following %-sequences are provided:
           (psession--winconf-alist . "psession-winconf-alist.el")
           ))
   (psession-mode 1))
-
-;;
-(use-package diff-hl
-  :ensure t
-  :config
-  (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
-  (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode)
-  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
 
 
 ;;; init.el ends here
