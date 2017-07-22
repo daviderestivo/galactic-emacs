@@ -92,6 +92,9 @@
 (require 'diminish)
 (require 'bind-key)
 
+;; Print Emacs server utpime every half an hour
+(run-at-time "00:00" 1800 '(lambda () (message  (concat "Emacs server uptime: "  (emacs-uptime)))))
+
 ;; Personal Information
 (load "~/.emacs.d/personal.el")
 
