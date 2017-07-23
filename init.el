@@ -140,11 +140,14 @@
 ;; Use visual bell instead of audio
 (setq visible-bell 1)
 
-;; Set the initial major mode to text-mode
-(setq initial-major-mode (quote text-mode))
+;; Set the initial major mode of newly created buffers to org-mode
+(setq initial-major-mode (quote org-mode))
 
-;; Make *scratch* buffer blank.
+;; Make *scratch* buffer blank and set major mode to lisp-interaction
 (setq initial-scratch-message nil)
+(with-current-buffer
+    (get-buffer "*scratch*")
+  (lisp-interaction-mode))
 
 ;; Disable the toolbar and the scroll-bar. Press F9 to enable the scroll-bar
 (tool-bar-mode -1)
