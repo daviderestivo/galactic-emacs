@@ -39,6 +39,8 @@
 ;; - company-mode         [https://github.com/company-mode/company-mode]
 ;; - elpy                 [https://elpy.readthedocs.io]
 ;; - exec-path-from-shell [https://github.com/purcell/exec-path-from-shell]
+;; - git-gutter           [https://github.com/syohex/emacs-git-gutter]
+;; - git-timemachine      [https://github.com/pidu/git-timemachine]
 ;; - helm                 [https://github.com/emacs-helm/helm]
 ;; - helm-descbinds       [https://github.com/emacs-helm/helm-descbinds]
 ;; - helm-projectile      [https://github.com/bbatsov/helm-projectile]
@@ -823,6 +825,12 @@ The following %-sequences are provided:
   (set-face-foreground 'git-gutter:modified "medium purple")
   (set-face-foreground 'git-gutter:added "light green")
   (set-face-foreground 'git-gutter:deleted "IndianRed2"))
+
+;; git-timemachine
+(use-package git-timemachine
+  :defer t
+  :ensure t
+)
 
 
 ;;; init.el ends here
