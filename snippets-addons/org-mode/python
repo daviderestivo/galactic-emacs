@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: python
-# contributor: Davide Restivo (davide.restivo@yahoo.it)
-# key: py_
-# --
-#+BEGIN_SRC python
-$0
-#+END_SRC
