@@ -390,6 +390,12 @@
 
 ;;; Helper functions
 
+;;
+(defun reload-dotemacs-file ()
+  "Reload your init.el file without restarting Emacs"
+  (interactive)
+  (load-file "~/.emacs.d/init.el"))
+
 ;; Redefine battery-pmset because of https://lists.gnu.org/archive/html/bug-gnu-emacs/2016-09/msg00952.html
 (defun battery-pmset-with-fix ()
   "Get battery status information using `pmset'.
