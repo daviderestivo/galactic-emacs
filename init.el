@@ -564,6 +564,12 @@ The following %-sequences are provided:
          (find-lisp-find-files (concat org-directory "notebooks") "\.org$")
          (list (concat org-directory "mobileorg.org"))
          (list (concat org-directory "refile.org"))))
+  ;; Configure refiling
+  (setq org-outline-path-complete-in-steps nil)
+  (setq org-refile-targets '((org-agenda-files :maxlevel . 1)))
+  (setq org-refile-allow-creating-parent-nodes t)
+  ;; A timestamp or a note will be recorded when an entry has been refiled
+  (setq  org-log-refile t)
   ;; Set org ellipsis style to a downward arrow "⤵" instead of "..."
   (setq org-ellipsis "⤵")
   ;; Save all org buffers every hour
