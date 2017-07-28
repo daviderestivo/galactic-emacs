@@ -611,7 +611,8 @@ The following %-sequences are provided:
   :bind
   ("\C-cl" . org-store-link)
   ("\C-ca" . org-agenda)
-  ("\C-cc" . org-capture))
+  ("\C-cc" . org-capture)
+  ("\C-cb" . org-iswitchb))
 
 ;; ORG Babel: Main section
 (use-package ob
