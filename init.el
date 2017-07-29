@@ -367,7 +367,8 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; Ask for confirmation before exiting Emacs
-(setq confirm-kill-emacs 'y-or-n-p)
+(if (not (daemonp))
+    (setq confirm-kill-emacs 'y-or-n-p))
 
 ;; Turn on highlighting current line
 (global-hl-line-mode 1)
