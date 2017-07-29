@@ -600,6 +600,12 @@ The following %-sequences are provided:
   (setq org-mobile-inbox-for-pull "~/org/agenda/mobileorg.org")
   ;; org-mobile configuration: Dropbox root directory
   (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
+  ;; Capture templates for: TODO tasks and notes
+  (setq org-capture-templates
+        (quote (("t" "Todo" entry (file (concat org-directory "refile.org"))
+                 "* TODO %?\n%U\n%a\n")
+                ("n" "Note" entry (file (concat org-directory "refile.org"))
+                 "* %? :NOTE:\n%U\n%a\n"))))
   ;; Setup org-bullets. Non need to install an additional package since this is already
   ;; included into org-plus-contrib
   (add-hook 'org-mode-hook
