@@ -42,6 +42,7 @@
 ;; - git-gutter           [https://github.com/syohex/emacs-git-gutter]
 ;; - git-timemachine      [https://github.com/pidu/git-timemachine]
 ;; - helm                 [https://github.com/emacs-helm/helm]
+;; - helm-ag              [https://github.com/syohex/emacs-helm-ag]
 ;; - helm-descbinds       [https://github.com/emacs-helm/helm-descbinds]
 ;; - helm-projectile      [https://github.com/bbatsov/helm-projectile]
 ;; - jinja2-mode          [https://github.com/paradoxxxzero/jinja2-mode]
@@ -391,7 +392,17 @@
 
 ;;; Helper functions
 
-;;
+;; Search for a keyword on the org directory using ag
+;; Requires "The Silver Searcher" (ag) to be installed:
+;; On macOS use: 'brew install the_silver_searcher'
+(defun org-directory-search-ag ()
+  "Search for a keyword in the org folder using ag"
+  (interactive)
+  (if (not (eq org-directory nil))
+      (helm-do-ag org-directory)
+    (message "error: org-directory not set.")))
+
+;; Reload Emacs init file
 (defun reload-dotemacs-file ()
   "Reload your init.el file without restarting Emacs"
   (interactive)
@@ -619,7 +630,8 @@ The following %-sequences are provided:
   ("\C-cl" . org-store-link)
   ("\C-ca" . org-agenda)
   ("\C-cc" . org-capture)
-  ("\C-cb" . org-iswitchb))
+  ("\C-cb" . org-iswitchb)
+  ("<f6>"  . org-directory-search-ag))
 
 ;; ORG Babel: Main section
 (use-package ob
@@ -729,6 +741,7 @@ The following %-sequences are provided:
   (setq helm-ff-file-name-history-use-recentf t)
   (setq helm-buffers-fuzzy-matching t)
   (setq helm-autoresize-mode t)
+  (setq helm-follow-mode-persistent t)
   :bind
   ;; bind keys because of this commit:
   ;; https://github.com/emacs-helm/helm/commit/1de1701c73b15a86e99ab1c5c53bd0e8659d8ede
@@ -849,8 +862,14 @@ The following %-sequences are provided:
 ;; git-timemachine
 (use-package git-timemachine
   :defer t
-  :ensure t
-)
+  :ensure t)
+
+;; helm-ag
+;; Requires "The Silver Searcher" (ag) to be installed:
+;; On macOS use: 'brew install the_silver_searcher'
+(use-package helm-ag
+  :defer t
+  :ensure t)
 
 
 ;;; init.el ends here

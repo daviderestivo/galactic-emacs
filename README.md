@@ -28,6 +28,7 @@ not listed.
 * git-gutter [link](https://github.com/syohex/emacs-git-gutter)]
 * git-timemachine [[link](https://github.com/pidu/git-timemachine)]
 * helm [[link](https://github.com/emacs-helm/helm)]
+* helm-ag [[link](https://github.com/syohex/emacs-helm-ag)]
 * helm-descbinds [[link](https://github.com/emacs-helm/helm-descbinds)]
 * helm-projectile [[link](https://github.com/bbatsov/helm-projectile)]
 * jinja2-mode [[link](https://github.com/paradoxxxzero/jinja2-mode)]
@@ -53,6 +54,7 @@ not listed.
 | Key | Function |
 | :--- | :--- |
 | < f2 > | magit-status |
+| < f6 > | org-directory-search-ag |
 | < f7 > | Create new empty buffer |
 | < f8 > | ispell-word |
 | M-< f8 > | flyspell-check-next-highlighted-word |
