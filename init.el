@@ -748,7 +748,8 @@ The following %-sequences are provided:
   ("M-x"     . helm-M-x)
   ("C-x r b" . helm-filtered-bookmarks)
   ("C-x C-f" . helm-find-files)
-  ("C-x C-r" . helm-recentf))
+  ("C-x C-r" . helm-recentf)
+  ("M-y"     . helm-show-kill-ring))
 
 ;; helm-descbinds
 (use-package helm-descbinds
