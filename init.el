@@ -810,7 +810,9 @@ The following %-sequences are provided:
             '(lambda ()
                 (setq show-trailing-whitespace t)
                 (flyspell-prog-mode)
-                (superword-mode 1))))
+                (superword-mode 1)))
+  (set-face-background 'markdown-code-face "#282C34")
+  (set-face-foreground 'markdown-code-face "#ABB2BF"))
 
 ;; yasnippet
 (use-package yasnippet
