@@ -870,7 +870,9 @@ The following %-sequences are provided:
 ;; On macOS use: 'brew install the_silver_searcher'
 (use-package helm-ag
   :defer t
-  :ensure t)
+  :ensure t
+  :bind
+  ("M-s" . helm-ag-this-file))
 
 
 ;;; init.el ends here
