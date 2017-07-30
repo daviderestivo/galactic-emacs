@@ -65,7 +65,8 @@ not listed.
 | C-m | YAML mode - New line and indent |
 | C-x r b | helm-filtered-bookmarks |
 | C-x C-r | helm-recentf |
-| M-s | helm-ag-this-file |
+| M-s | helm-do-ag-this-file |
+| C-u M-s | helm-do-ag-buffers |
 
 
 Feel free to drop me an email in case of questions.

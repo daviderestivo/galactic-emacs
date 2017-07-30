@@ -874,8 +874,13 @@ The following %-sequences are provided:
 (use-package helm-ag
   :defer t
   :ensure t
-  :bind
-  ("M-s" . helm-ag-this-file))
+  :config
+  ;; :bind together with lambdas is unsupported in use-package
+  (global-set-key (kbd "M-s") '(lambda (P)
+                                 (interactive "P")
+                                 (if (eq P nil)
+                                     (helm-do-ag-this-file)
+                                   (helm-do-ag-buffers)))))
 
 
 ;;; init.el ends here
