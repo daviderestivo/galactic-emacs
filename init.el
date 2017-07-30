@@ -395,6 +395,7 @@
 ;; Search for a keyword on the org directory using ag
 ;; Requires "The Silver Searcher" (ag) to be installed:
 ;; On macOS use: 'brew install the_silver_searcher'
+;; On a Debian based GNU/Linux distro use: 'apt-get install silversearcher-ag'
 (defun org-directory-search-ag ()
   "Search for a keyword in the org folder using ag"
   (interactive)
