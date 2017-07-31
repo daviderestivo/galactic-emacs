@@ -59,7 +59,7 @@ not listed.
 | < f8 > | ispell-word |
 | M-< f8 > | flyspell-check-next-highlighted-word |
 | < f9 > | Toggle sroll bar  |
-| C-' | copy-line |
+| C-= | copy-line |
 | C-c left  | Winner mode - Undo windows changes  |
 | C-c right  | Winner mode - Redo windows changes  |
 | C-m | YAML mode - New line and indent |

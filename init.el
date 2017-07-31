@@ -359,7 +359,7 @@
 (setq scroll-step 1)
 
 ;; copy-line key binding
-(global-set-key (kbd "C-'") 'copy-line)
+(global-set-key (kbd "C-=") 'copy-line)
 
 ;; Make isearch treat space dash underscore newline as same
 (setq search-whitespace-regexp "[-_ \n]")
