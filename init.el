@@ -742,12 +742,14 @@ The following %-sequences are provided:
   (helm-mode 1)
   (setq helm-ff-file-name-history-use-recentf t)
   (setq helm-buffers-fuzzy-matching t)
+  (setq helm-recentf-fuzzy-match    t)
   (setq helm-autoresize-mode t)
   (setq helm-follow-mode-persistent t)
   :bind
   ;; bind keys because of this commit:
   ;; https://github.com/emacs-helm/helm/commit/1de1701c73b15a86e99ab1c5c53bd0e8659d8ede
   ("M-x"     . helm-M-x)
+  ("C-x b"   . helm-mini)
   ("C-x r b" . helm-filtered-bookmarks)
   ("C-x C-f" . helm-find-files)
   ("C-x C-r" . helm-recentf)
