@@ -872,7 +872,6 @@ The following %-sequences are provided:
 ;; Requires "The Silver Searcher" (ag) to be installed:
 ;; On macOS use: 'brew install the_silver_searcher'
 (use-package helm-ag
-  :defer t
   :ensure t
   :config
   ;; :bind together with lambdas is unsupported in use-package
