@@ -625,6 +625,7 @@ The following %-sequences are provided:
             '(lambda ()
                 (setq show-trailing-whitespace t)
                 (flyspell-prog-mode)
+                (org-indent-mode)
                 (superword-mode 1)
                 (org-bullets-mode 1)))
   :bind
