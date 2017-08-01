@@ -752,6 +752,23 @@ The following %-sequences are provided:
   ("C-x C-r" . helm-recentf)
   ("M-y"     . helm-show-kill-ring))
 
+;; helm-ag
+;; Requires "The Silver Searcher" (ag) to be installed:
+;; On macOS use: 'brew install the_silver_searcher'
+(use-package helm-ag
+  :ensure t
+  :config
+  ;; Use .agignore file at project root
+  (setq helm-ag-use-agignore t)
+  ;; Enable  approximate string matching (fuzzy matching)
+  (setq helm-ag-fuzzy-match t)
+  ;; :bind together with lambdas is unsupported in use-package
+  (global-set-key (kbd "M-s") '(lambda (P)
+                                 (interactive "P")
+                                 (if (eq P nil)
+                                     (helm-do-ag-this-file)
+                                   (helm-do-ag-buffers)))))
+
 ;; helm-descbinds
 (use-package helm-descbinds
   :ensure t
@@ -867,19 +884,6 @@ The following %-sequences are provided:
 (use-package git-timemachine
   :defer t
   :ensure t)
-
-;; helm-ag
-;; Requires "The Silver Searcher" (ag) to be installed:
-;; On macOS use: 'brew install the_silver_searcher'
-(use-package helm-ag
-  :ensure t
-  :config
-  ;; :bind together with lambdas is unsupported in use-package
-  (global-set-key (kbd "M-s") '(lambda (P)
-                                 (interactive "P")
-                                 (if (eq P nil)
-                                     (helm-do-ag-this-file)
-                                   (helm-do-ag-buffers)))))
 
 
 ;;; init.el ends here
