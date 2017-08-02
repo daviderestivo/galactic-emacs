@@ -26,7 +26,6 @@ not listed.
 * elpy [[link](https://elpy.readthedocs.io)]
 * exec-path-from-shell [link](https://github.com/purcell/exec-path-from-shell)]
 * git-gutter [link](https://github.com/syohex/emacs-git-gutter)]
-* git-timemachine [[link](https://github.com/pidu/git-timemachine)]
 * helm [[link](https://github.com/emacs-helm/helm)]
 * helm-ag [[link](https://github.com/syohex/emacs-helm-ag)]
 * helm-descbinds [[link](https://github.com/emacs-helm/helm-descbinds)]
