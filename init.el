@@ -348,6 +348,7 @@
 
 ;; Automatically auto-refresh a buffer if the file has changed on disk
 (global-auto-revert-mode t)
+(diminish 'auto-revert-mode)
 
 ;; Enable smooth scrolling
 ;; Scroll one line at a time (less "jumpy" than defaults)
