@@ -505,6 +505,16 @@ The following %-sequences are provided:
   (beginning-of-line (or (and arg (1+ arg)) 2))
   (if (and arg (not (= 1 arg))) (message "%d lines copied" arg)))
 
+(defun helm-hide-minibuffer-maybe ()
+  "Hide minibuffer in Helm session if we use the header line as input field."
+  (when (with-helm-buffer helm-echo-input-in-header-line)
+    (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
+      (overlay-put ov 'window (selected-window))
+      (overlay-put ov 'face
+                   (let ((bg-color (face-background 'default nil)))
+                     `(:background ,bg-color :foreground ,bg-color)))
+      (setq-local cursor-type nil))))
+
 
 ;;; Packages configuration section
 
@@ -743,21 +753,29 @@ The following %-sequences are provided:
   :diminish helm-mode
   :commands helm-mode
   :config
+  (require 'helm-config)
   (helm-mode 1)
   (setq helm-ff-file-name-history-use-recentf t)
   (setq helm-buffers-fuzzy-matching t)
   (setq helm-recentf-fuzzy-match    t)
   (setq helm-autoresize-mode t)
+  (setq helm-echo-input-in-header-line t)
   (setq helm-follow-mode-persistent t)
+  (setq helm-autoresize-max-height 0)
+  (setq helm-autoresize-min-height 40)
+  (helm-autoresize-mode 1)
+  (add-hook 'helm-minibuffer-set-up-hook
+            'helm-hide-minibuffer-maybe)
   :bind
   ;; bind keys because of this commit:
   ;; https://github.com/emacs-helm/helm/commit/1de1701c73b15a86e99ab1c5c53bd0e8659d8ede
+  ("C-c h"   . helm-command-prefix)
   ("M-x"     . helm-M-x)
+  ("M-y"     . helm-show-kill-ring)
   ("C-x b"   . helm-mini)
   ("C-x r b" . helm-filtered-bookmarks)
   ("C-x C-f" . helm-find-files)
-  ("C-x C-r" . helm-recentf)
-  ("M-y"     . helm-show-kill-ring))
+  ("C-x C-r" . helm-recentf))
 
 ;; helm-ag
 ;; Requires "The Silver Searcher" (ag) to be installed:
