@@ -218,6 +218,7 @@
 
 ;; Enable word wrap
 (global-visual-line-mode t)
+(diminish 'visual-line-mode)
 
 ;; Insert right brackets when left one is typed
 (electric-pair-mode 1)
@@ -245,8 +246,10 @@
 (dolist (hook '(text-mode-hook))
   (add-hook hook (lambda ()
                    (flyspell-mode 1)
+                   (diminish 'flyspell-mode)
                    ;; Enable superword mode, useful for “snake_case”.
                    (superword-mode 1)
+                   (diminish 'superword-mode)
                    )))
 ;; Enable flyspell for code and enable superword mode
 (dolist (mode '(emacs-lisp-mode-hook
@@ -331,6 +334,7 @@
 (setq whitespace-line-column 80) ;; limit line length
 (setq whitespace-style '(face lines-tail))
 (global-whitespace-mode t)
+(diminish 'global-whitespace-mode)
 
 ;; Setup bookmark
 (setq bookmark-save-flag 1) ;; every time bookmark is changed,
@@ -786,6 +790,7 @@ The following %-sequences are provided:
 
 ;; company
 (use-package company
+  :diminish t
   :ensure t
   :config
   (global-company-mode)
@@ -838,6 +843,7 @@ The following %-sequences are provided:
 ;; yasnippet
 (use-package yasnippet
   :ensure t
+  :diminish yas-minor-mode
   :config
   (yas-global-mode 1)
   (setq yas-snippet-dirs
@@ -849,6 +855,7 @@ The following %-sequences are provided:
 ;; undo-tree
 (use-package undo-tree
   :ensure t
+  :diminish undo-tree-mode
   :config
   (global-undo-tree-mode 1)
   (setq undo-tree-visualizer-diff 1)
@@ -877,6 +884,7 @@ The following %-sequences are provided:
 ;; git-gutter
 (use-package git-gutter
   :ensure t
+  :diminish git-gutter-mode
   :config
   (global-git-gutter-mode t)
   (set-face-foreground 'git-gutter:modified "medium purple")
