@@ -822,7 +822,7 @@ The following %-sequences are provided:
 
 ;; company
 (use-package company
-  :diminish t
+  :diminish company-mode
   :ensure t
   :config
   (global-company-mode)
