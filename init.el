@@ -834,6 +834,7 @@ The following %-sequences are provided:
 
 ;; projectile
 (use-package projectile
+  :diminish projectile-mode
   :ensure t
   :config
   (add-hook 'python-mode-hook 'projectile-mode)
