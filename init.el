@@ -746,6 +746,12 @@ The following %-sequences are provided:
                  (flyspell-prog-mode)
                  (superword-mode 1))))
 
+;; helm-config
+(use-package helm-config
+  :config
+  (global-set-key (kbd "C-c h") 'helm-command-prefix)
+  (global-unset-key (kbd "C-x c")))
+
 ;; helm
 (use-package helm
   :defer t
@@ -753,11 +759,17 @@ The following %-sequences are provided:
   :diminish helm-mode
   :commands helm-mode
   :config
-  (require 'helm-config)
   (helm-mode 1)
-  (setq helm-ff-file-name-history-use-recentf t)
+  ;; Enable fuzzy matching
   (setq helm-buffers-fuzzy-matching t)
-  (setq helm-recentf-fuzzy-match    t)
+  (setq helm-recentf-fuzzy-match t)
+  (setq helm-M-x-fuzzy-match t)
+  (if (string= system-type "darwin")
+      (setq helm-locate-fuzzy-match nil)
+    (setq helm-locate-fuzzy-match t))
+  (setq helm-semantic-fuzzy-match t)
+  (setq helm-imenu-fuzzy-match t)
+  (setq helm-ff-file-name-history-use-recentf t)
   (setq helm-autoresize-mode t)
   (setq helm-echo-input-in-header-line t)
   (setq helm-follow-mode-persistent t)
@@ -766,16 +778,18 @@ The following %-sequences are provided:
   (helm-autoresize-mode 1)
   (add-hook 'helm-minibuffer-set-up-hook
             'helm-hide-minibuffer-maybe)
+  (define-key minibuffer-local-map (kbd "C-c C-l") 'helm-minibuffer-history)
   :bind
   ;; bind keys because of this commit:
   ;; https://github.com/emacs-helm/helm/commit/1de1701c73b15a86e99ab1c5c53bd0e8659d8ede
-  ("C-c h"   . helm-command-prefix)
   ("M-x"     . helm-M-x)
   ("M-y"     . helm-show-kill-ring)
   ("C-x b"   . helm-mini)
   ("C-x r b" . helm-filtered-bookmarks)
   ("C-x C-f" . helm-find-files)
-  ("C-x C-r" . helm-recentf))
+  ("C-x C-r" . helm-recentf)
+  ("C-c h x" . helm-register)
+  ("C-c h SPC" . helm-all-mark-rings))
 
 ;; helm-ag
 ;; Requires "The Silver Searcher" (ag) to be installed:
