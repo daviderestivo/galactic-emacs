@@ -140,6 +140,9 @@
 ;; Set tab width to 4
 (setq tab-width 4)
 
+;; Blinking cursor
+(blink-cursor-mode t)
+
 ;; Use visual bell instead of audio
 (setq visible-bell 1)
 
