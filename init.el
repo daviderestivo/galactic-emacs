@@ -168,7 +168,7 @@
 ;; with the key commands ‘C-c left’ and ‘C-c right’.
 (winner-mode t)
 
-;; Change default dir to ~
+;; Change default directory to ~
 (cd "~")
 
 ;; Tell Emacs where is your personal elisp lib directory
@@ -253,7 +253,7 @@ Files whose full name matches this regexp are backed up to
 (setq backup-directory-alist
       `(("" . ,(expand-file-name "per-save" drestivo/backup-location))))
 
-;; Add trash dir if needed
+;; Add trash directories if needed
 (if drestivo/backup-exclude-regexp
     (add-to-list 'backup-directory-alist `(,drestivo/backup-exclude-regexp . ,drestivo/backup-trash-dir)))
 
