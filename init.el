@@ -146,6 +146,14 @@
 ;; Use visual bell instead of audio
 (setq visible-bell 1)
 
+;; By default, Emacs thinks a sentence is a full-stop followed by 2
+;; spaces. Let’s make it full-stop and 1 space.
+(setq sentence-end-double-space nil)
+
+;; Emacs has the built-in DocView mode which lets you view PDFs. The
+;; below setting allows continue scrolling
+(setq doc-view-continuous t)
+
 ;; Set the initial major mode of newly created buffers to org-mode
 (setq initial-major-mode (quote org-mode))
 
