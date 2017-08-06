@@ -180,25 +180,23 @@
 (load custom-file 'noerror)
 
 ;; Set Emacs frame size and center it on the screen
-(defvar frame-height 60)
-(defvar frame-width 130)
+(defvar drestivo/frame-height 60)
+(defvar drestivo/frame-width 130)
 (add-to-list 'default-frame-alist
-             `(height . ,frame-height))
+             `(height . ,drestivo/frame-height))
 (add-to-list 'default-frame-alist
-             `(width . ,frame-width))
-(defvar frame-pixel-height
-  (* frame-height (frame-char-height)))
-(defvar frame-pixel-width
-  (* frame-width (frame-char-width)))
+             `(width . ,drestivo/frame-width))
+(defvar drestivo/frame-pixel-height
+  (* drestivo/frame-height (frame-char-height)))
+(defvar drestivo/frame-pixel-width
+  (* drestivo/frame-width (frame-char-width)))
 (setq initial-frame-alist
 ;; Avoid the issue of having Emacs on the middle of two displays.
       `((left . ,(/ (-
                      (round (* (display-pixel-height) 1.777))
-                       frame-pixel-width) 2))
+                       drestivo/frame-pixel-width) 2))
 	(top .  ,(/ (-
                      ;; Remove 100px to take into account the MAC dock
-                     (- (display-pixel-height) 100)  frame-pixel-height)
-                    2))))
 
 ;; Backup files settings
 (setq backup-directory-alist `(("." . "~/.saves"))) ;; Backup directory
@@ -266,12 +264,12 @@
 ;; - press <f8> to check a word
 ;; - press M-<f8> to check the next one
 (global-set-key (kbd "<f8>") 'ispell-word)
-(defun flyspell-check-next-highlighted-word ()
+(defun drestivo/flyspell-check-next-highlighted-word ()
   "Custom function to spell check next highlighted word"
   (interactive)
   (flyspell-goto-next-error)
   (ispell-word))
-(global-set-key (kbd "M-<f8>") 'flyspell-check-next-highlighted-word)
+(global-set-key (kbd "M-<f8>") 'drestivo/flyspell-check-next-highlighted-word)
 ;; In Mac OS X the right mouse button does not seem to trigger
 ;; [mouse-2], so you cannot right click a word to get a suggestion.
 ;; This can be fixed with the below:
@@ -304,27 +302,27 @@
 ;; ansi-term settings
 ;; This tells term (which is used by ansi-term) to kill the buffer
 ;; after the terminal is exited.
-(defadvice term-sentinel (around my-advice-term-sentinel (proc msg))
+(defadvice term-sentinel (around drestivo/advice-term-sentinel (proc msg))
   (if (memq (process-status proc) '(signal exit))
       (let ((buffer (process-buffer proc)))
         ad-do-it
-        (kill-buffer buffer))
+        (kill-buffer-and-window))
     ad-do-it))
 (ad-activate 'term-sentinel)
 ;; Always use bash
-(defvar my-term-shell "/usr/local/bin/bash")
+(defvar drestivo/term-shell "/usr/local/bin/bash")
 (defadvice ansi-term (before force-bash)
-  (interactive (list my-term-shell)))
+  (interactive (list drestivo/term-shell)))
 (ad-activate 'ansi-term)
 
 ;; Sets the term to use UTF-8
-(defun my-term-use-utf8 ()
+(defun drestivo/term-use-utf8 ()
   (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))
-(add-hook 'term-exec-hook 'my-term-use-utf8)
+(add-hook 'term-exec-hook 'drestivo/term-use-utf8)
 ;; URLs that show up in my terminal (via man pages, help, info,
 ;; errors, etc) to be clickable.
-(defun my-term-hook () (goto-address-mode))
-(add-hook 'term-mode-hook 'my-term-hook)
+(defun drestivo/term-hook () (goto-address-mode))
+(add-hook 'term-mode-hook 'drestivo/term-hook)
 
 ;; Enable octave-mode for .m files
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
@@ -364,7 +362,7 @@
 (setq scroll-step 1)
 
 ;; copy-line key binding
-(global-set-key (kbd "C-=") 'copy-line)
+(global-set-key (kbd "C-=") 'drestivo/copy-line)
 
 ;; Make isearch treat space dash underscore newline as same
 (setq search-whitespace-regexp "[-_ \n]")
@@ -401,7 +399,7 @@
 ;; Requires "The Silver Searcher" (ag) to be installed:
 ;; On macOS use: 'brew install the_silver_searcher'
 ;; On a Debian based GNU/Linux distro use: 'apt-get install silversearcher-ag'
-(defun org-directory-search-ag ()
+(defun drestivo/org-directory-search-ag ()
   "Search for a keyword in the org folder using ag"
   (interactive)
   (if (not (eq org-directory nil))
@@ -409,13 +407,13 @@
     (message "error: org-directory not set.")))
 
 ;; Reload Emacs init file
-(defun reload-dotemacs-file ()
+(defun drestivo/reload-dotemacs-file ()
   "Reload your init.el file without restarting Emacs"
   (interactive)
   (load-file "~/.emacs.d/init.el"))
 
 ;; Redefine battery-pmset because of https://lists.gnu.org/archive/html/bug-gnu-emacs/2016-09/msg00952.html
-(defun battery-pmset-with-fix ()
+(defun drestivo/battery-pmset ()
   "Get battery status information using `pmset'.
 
 The following %-sequences are provided:
@@ -465,7 +463,7 @@ The following %-sequences are provided:
 	  (cons ?t (or remaining-time "N/A")))))
 
 ;; Create a new buffer without prompting for the name. Bound to F7
-(defun new-empty-buffer ()
+(defun drestivo/new-empty-buffer ()
   "Create a new empty buffer. New buffer will be named “untitled” or
 “untitled<2>”, “untitled<3>”, ..."
   (interactive)
@@ -473,19 +471,20 @@ The following %-sequences are provided:
     (switch-to-buffer new-buf)
     (funcall initial-major-mode)
     (setq buffer-offer-save t)))
-(global-set-key (kbd "<f7>") 'new-empty-buffer)
+(global-set-key (kbd "<f7>") 'drestivo/new-empty-buffer)
 
 ;; Open a new terminal window below the current one
-(defun tb ()
+(defun drestivo/tb ()
   "Add terminal on the bottom"
   (interactive)
   (split-window-below)
   (balance-windows)
   (other-window 1)
   (ansi-term "/usr/local/bin/bash"))
+(defalias 'tb 'drestivo/tb)
 
 ;; copy-line - Source https://www.emacswiki.org/emacs/CopyingWholeLines
-(defun copy-line (arg)
+(defun drestivo/copy-line (arg)
   "Copy lines (as many as prefix argument) in the kill ring.
     Ease of use features:
      - Move to start of next line.
@@ -499,14 +498,14 @@ The following %-sequences are provided:
       (if (> (point) (mark))
           (setq beg (save-excursion (goto-char (mark)) (line-beginning-position)))
         (setq end (save-excursion (goto-char (mark)) (line-end-position)))))
-    (if (eq last-command 'copy-line)
+    (if (eq last-command 'drestivo/copy-line)
         (kill-append (buffer-substring beg end) (< end beg))
       (kill-ring-save beg end)))
   (kill-append "\n" nil)
   (beginning-of-line (or (and arg (1+ arg)) 2))
   (if (and arg (not (= 1 arg))) (message "%d lines copied" arg)))
 
-(defun helm-hide-minibuffer-maybe ()
+(defun drestivo/helm-hide-minibuffer-maybe ()
   "Hide minibuffer in Helm session if we use the header line as input field."
   (when (with-helm-buffer helm-echo-input-in-header-line)
     (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
@@ -648,7 +647,7 @@ The following %-sequences are provided:
   ("\C-ca" . org-agenda)
   ("\C-cc" . org-capture)
   ("\C-cb" . org-iswitchb)
-  ("<f6>"  . org-directory-search-ag))
+  ("<f6>"  . drestivo/org-directory-search-ag))
 
 ;; ORG Babel: Main section
 (use-package ob
@@ -713,7 +712,7 @@ The following %-sequences are provided:
   (display-time-mode)
   ;; The below is a temporary fix for Emacs <= 25.2.1
   (when (string= system-type "darwin")
-    (setq battery-status-function 'battery-pmset-with-fix
+    (setq battery-status-function 'drestivo/battery-pmset
           battery-echo-area-format "Power %L, battery %B (%p%% charged, remaining time %t)"
           battery-mode-line-format " [ %b%p%% ] ")
     (display-battery-mode)))
