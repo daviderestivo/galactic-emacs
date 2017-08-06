@@ -197,17 +197,120 @@
                        drestivo/frame-pixel-width) 2))
 	(top .  ,(/ (-
                      ;; Remove 100px to take into account the MAC dock
+                     (- (display-pixel-height) 100)  drestivo/frame-pixel-height) 2))))
 
-;; Backup files settings
-(setq backup-directory-alist `(("." . "~/.saves"))) ;; Backup directory
-(setq backup-by-copying t)  ;; Backup the file by copying it
-(setq delete-old-versions t ;; delete excess backup files silently
-      kept-new-versions 6   ;; oldest versions to keep when a new
-			    ;; numbered backup is made (default: 2)
-      kept-old-versions 2   ;; newest versions to keep when a new
-			    ;; numbered backup is made (default: 2)
-      version-control t     ;; version numbers for backup files
+;;-------------------------;;
+;;  Backup files settings  ;;
+;;-------------------------;;
+;; Auto save often
+;; Save every 20 characters typed (this is the minimum)
+(setq auto-save-interval 20)
+;;
+;; An example to understand Emacs backup retention logic. Let's
+;; assume kept-new-versions and kept-old-versions are both set to
+;; 2. Here’s a simulation in Emacs Lisp of 8 saves using lists,
+;; showing what backups are available after each save when N is 2.
+;;
+;;  (1)
+;;  (2 1)
+;;  (3 2 1)
+;;  (4 3 2 1)
+;;  (5 4 2 1)
+;;  (6 5 2 1)
+;;  (7 6 2 1)
+;;  (8 7 2 1)
+;;
+(setq vc-make-backup-files t) ;; Backup version controlled files
+(setq backup-by-copying t)    ;; Backup the file by copying it
+(setq delete-old-versions t   ;; delete excess backup files silently
+      kept-old-versions 2     ;; oldest versions to keep when a new
+			      ;; numbered backup is made (default: 2)
+      kept-new-versions 10    ;; newest versions to keep when a new
+			      ;; numbered backup is made (default: 2)
+      version-control t       ;; version numbers for backup files
       )
+
+(defvar drestivo/backup-file-size-limit (* 10 1024 1024)
+  "Maximum size of a file (in bytes) that should be copied at each savepoint.
+
+If a file is greater than this size, don't make a backup of it.
+Default is 10 MB")
+
+(defvar drestivo/backup-location (expand-file-name "~/.saves")
+  "Base directory for backup files.")
+
+(defvar drestivo/backup-trash-dir (expand-file-name "~/.saves/.trash")
+  "Directory for unwanted backups.")
+
+(defvar drestivo/backup-exclude-regexp nil
+  "Don't back up files matching this regexp.
+
+Files whose full name matches this regexp are backed up to
+`drestivo/backup-trash-dir'. Set to nil to disable this.")
+
+;; Default and per-save backups go here:
+;; N.B. backtick and comma allow evaluation of expression
+;; when forming list
+(setq backup-directory-alist
+      `(("" . ,(expand-file-name "per-save" drestivo/backup-location))))
+
+;; Add trash dir if needed
+(if drestivo/backup-exclude-regexp
+    (add-to-list 'backup-directory-alist `(,drestivo/backup-exclude-regexp . ,drestivo/backup-trash-dir)))
+
+(defun drestivo/backup-every-save ()
+  "Backup files every time they are saved.
+
+Files are backed up to `drestivo/backup-location' in
+subdirectories \"per-session\" once per Emacs session, and
+\"per-save\" every time a file is saved.
+
+Files whose names match the REGEXP in
+`drestivo/backup-exclude-regexp' are copied to
+`drestivo/backup-trash-dir' instead of the normal backup
+directory.
+
+Files larger than `drestivo/backup-file-size-limit' are not
+backed up."
+
+  ;; Make a special "per session" backup at the first save of each
+  ;; emacs session.
+  (when (not buffer-backed-up)
+    ;; Override the default parameters for per-session backups.
+    (let ((backup-directory-alist
+           `(("." . ,(expand-file-name "per-session" drestivo/backup-location))))
+          (kept-new-versions 10))
+      ;; add trash dir if needed
+      (if drestivo/backup-exclude-regexp
+          (add-to-list
+           'backup-directory-alist
+           `(,drestivo/backup-exclude-regexp . ,drestivo/backup-trash-dir)))
+      ;; is file too large?
+      (if (<= (buffer-size) drestivo/backup-file-size-limit)
+          (progn
+            (message "Made per session backup of %s" (buffer-name))
+            (backup-buffer))
+        (message "WARNING: File %s too large to backup - increase value of drestivo/backup-file-size-limit" (buffer-name)))))
+  ;; Make a "per save" backup on each save.  The first save results in
+  ;; both a per-session and a per-save backup, to keep the numbering
+  ;; of per-save backups consistent.
+  (let ((buffer-backed-up nil))
+    ;;
+    ;; is file too large?
+    ;;
+    (if (<= (buffer-size) drestivo/backup-file-size-limit)
+        (progn
+          (message "Made per save backup of %s" (buffer-name))
+          (backup-buffer))
+      (message "WARNING: File %s too large to backup - increase value of drestivo/backup-file-size-limit" (buffer-name)))))
+
+;; add to save hook
+(add-hook 'before-save-hook 'drestivo/backup-every-save)
+
+;;-----------------------------;;
+;;  END Backup files settings  ;;
+;;-----------------------------;;
+
 
 ;; Enable line and column numbering
 (global-linum-mode t)
