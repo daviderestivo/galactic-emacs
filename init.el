@@ -736,6 +736,9 @@ The following %-sequences are provided:
   ;;
   (setq org-todo-keywords
         '((sequence "TODO(t)" "DOING(d)" "WAIT OTHERS(w)" "DELEGATED(g)" "REVIEW(r)" "|" "DONE(D)" "CANCELED(C)" " REVIEWED(R)")))
+  ;; Org mode has its own markup syntax but seeing the emphasis
+  ;; markers is distracting. The below setting hides it.
+  (setq org-hide-emphasis-markers t)
   ;; Wrap long lines. Don't let it disappear to the right
   (setq org-startup-truncated nil)
   ;; When in a URL pressing enter key opens it
