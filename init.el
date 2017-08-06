@@ -869,9 +869,23 @@ The following %-sequences are provided:
   (setq helm-buffers-fuzzy-matching t)
   (setq helm-recentf-fuzzy-match t)
   (setq helm-M-x-fuzzy-match t)
+  ;;--------------------------------------------------------------------------;;
+  ;;       Work with Spotlight on macOS instead of the regular locate         ;;
+  ;;--------------------------------------------------------------------------;;
   (if (string= system-type "darwin")
-      (setq helm-locate-fuzzy-match nil)
+      (progn
+        (setq drestivo/helm-locate-spotlight-command "mdfind -name -onlyin ~ %s %s")
+        (setq drestivo/helm-locate-exclude-dirs "~/Library")
+        (setq drestivo/helm-locate-exclude-command " | egrep -v ")
+        (setq helm-locate-command
+              (concat drestivo/helm-locate-spotlight-command
+                      drestivo/helm-locate-exclude-command
+                      drestivo/helm-locate-exclude-dirs))
+        (setq helm-locate-fuzzy-match nil))
     (setq helm-locate-fuzzy-match t))
+  ;;--------------------------------------------------------------------------;;
+  ;;     END Work with Spotlight on macOS instead of the regular locate       ;;
+  ;;--------------------------------------------------------------------------;;
   (setq helm-semantic-fuzzy-match t)
   (setq helm-imenu-fuzzy-match t)
   (setq helm-ff-file-name-history-use-recentf t)
