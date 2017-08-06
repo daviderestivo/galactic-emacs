@@ -841,6 +841,13 @@ The following %-sequences are provided:
   (add-hook 'python-mode-hook 'projectile-mode)
   (setq projectile-completion-system 'helm))
 
+;; py-autopep8
+(use-package py-autopep8
+  :ensure t
+  :config
+  ;; Configure elpy autopep8 support
+  (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save))
+
 ;; elpy
 (use-package elpy
   :defer t
@@ -851,8 +858,6 @@ The following %-sequences are provided:
   (elpy-use-ipython "ipython3")
   ;; Fix IPython5 s new prompt behavior (https://github.com/jorgenschaefer/elpy/issues/992)
   (setenv "IPY_TEST_SIMPLE_PROMPT" "1")
-  ;; Configure py-autopep8
-  (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save))
 
 ;; highlight-indentation-mode
 (use-package highlight-indentation
