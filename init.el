@@ -1070,5 +1070,14 @@ The following %-sequences are provided:
   :config
   (volatile-highlights-mode t))
 
+(use-package wttrin
+  :ensure t
+  :commands (wttrin)
+  :init
+  (setq wttrin-default-accept-language '("Accept-Language" . "en-US"))
+  (setq wttrin-default-cities '("Zurich"
+                                "Bern"
+                                "Aarau")))
+
 
 ;;; init.el ends here

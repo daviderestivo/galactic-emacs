@@ -11,7 +11,7 @@
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(package-selected-packages
    (quote
-    (volatile-highlights helm-ag git-timemachine git-gutter org-download helm-projectile psession undo-tree helm-descbinds org-plus-contrib ob-ipython helm-config py-autopep8 elpy magit markdown-mode atom-one-dark-theme projectile company jinja2-mode helm yaml-mode smart-mode-line auto-package-update rainbow-delimiters exec-path-from-shell use-package))))
+    (wttrin volatile-highlights helm-ag git-timemachine git-gutter org-download helm-projectile psession undo-tree helm-descbinds org-plus-contrib ob-ipython helm-config py-autopep8 elpy magit markdown-mode atom-one-dark-theme projectile company jinja2-mode helm yaml-mode smart-mode-line auto-package-update rainbow-delimiters exec-path-from-shell use-package))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
