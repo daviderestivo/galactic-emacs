@@ -177,7 +177,8 @@
 ;; Save custom variables to custom.el
 (setq custom-file (expand-file-name "custom.el"
                                     user-emacs-directory))
-(load custom-file 'noerror)
+(when (file-exists-p custom-file)
+  (load custom-file 'noerror))
 
 ;; Set Emacs frame size and center it on the screen
 (defvar drestivo/frame-height 60)
