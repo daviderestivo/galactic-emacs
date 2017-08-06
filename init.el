@@ -229,6 +229,10 @@
 			      ;; numbered backup is made (default: 2)
       version-control t)      ;; Version numbers for backup files
 
+;; By default, Emacs creates a backup only when you save the first
+;; time ('per-session' backup). Here we describe how to make Emacs do a
+;; backup on every save ('per-save' backup), not just the first.
+
 (defvar drestivo/backup-location (expand-file-name "~/.saves")
   "Base directory for backup files.")
 
