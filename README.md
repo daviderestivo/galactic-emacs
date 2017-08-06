@@ -47,6 +47,7 @@ not listed.
 * yaml-mode [[Link](https://github.com/yoshiki/yaml-mode)]
 * yasnippet [[Link](https://github.com/joaotavora/yasnippet)]
 * wheatgrass-theme [[Link](https://github.com/jwiegley/emacs-release/blob/master/etc/themes/wheatgrass-theme.el)]
+* volatile-highlights [[Link](https://github.com/k-talo/volatile-highlights.el)]
 
 ## Key bindings
 

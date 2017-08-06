@@ -61,6 +61,7 @@
 ;; - yaml-mode            [https://github.com/yoshiki/yaml-mode]
 ;; - yasnippet            [https://github.com/joaotavora/yasnippet]
 ;; - wheatgrass-theme     [https://github.com/jwiegley/emacs-release/blob/master/etc/themes/wheatgrass-theme.el]
+;; - volatile-highlights  [https://github.com/k-talo/volatile-highlights.el]
 ;;
 ;; Feel free to drop me an email in case of questions.
 
@@ -923,6 +924,13 @@ The following %-sequences are provided:
   (set-face-foreground 'git-gutter:modified "medium purple")
   (set-face-foreground 'git-gutter:added "light green")
   (set-face-foreground 'git-gutter:deleted "IndianRed2"))
+
+;; volatile-highlights
+(use-package volatile-highlights
+  :ensure t
+  :diminish volatile-highlights-mode
+  :config
+  (volatile-highlights-mode t))
 
 
 ;;; init.el ends here
