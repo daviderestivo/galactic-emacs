@@ -255,7 +255,7 @@
 If a file is greater than this size, don't make a backup of it.
 Default is 10 MB")
 
-(defvar drestivo/backup-trash-dir (expand-file-name "~/.saves/.trash")
+(defvar drestivo/backup-trash-dir (expand-file-name "~/.saves/trash")
   "Directory for unwanted backups.")
 
 (defvar drestivo/backup-exclude-regexp nil
