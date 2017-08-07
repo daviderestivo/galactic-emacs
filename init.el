@@ -61,6 +61,7 @@
 ;; - yaml-mode            [https://github.com/yoshiki/yaml-mode]
 ;; - yasnippet            [https://github.com/joaotavora/yasnippet]
 ;; - wheatgrass-theme     [https://github.com/jwiegley/emacs-release/blob/master/etc/themes/wheatgrass-theme.el]
+;; - which-key            [https://github.com/justbur/emacs-which-key]
 ;; - volatile-highlights  [https://github.com/k-talo/volatile-highlights.el]
 ;;
 ;; Feel free to drop me an email in case of questions.
@@ -1078,6 +1079,15 @@ The following %-sequences are provided:
   (setq wttrin-default-cities '("Zurich"
                                 "Bern"
                                 "Aarau")))
+
+(use-package which-key
+  :ensure t
+  :defer t
+  :diminish which-key-mode
+  :init
+  :config
+  (which-key-mode)
+  (which-key-setup-side-window-right))
 
 
 ;;; init.el ends here
