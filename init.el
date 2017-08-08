@@ -102,9 +102,9 @@
                                                (emacs-uptime)))))
 
 ;; Personal Information
-(setq dretsivo/personal-file (expand-file-name "personal.el"
+(setq drestivo/personal-file (expand-file-name "personal.el"
                                                user-emacs-directory))
-(when (file-exists-p custom-file)
+(when (file-exists-p drestivo/personal-file)
   (load drestivo/personal-file))
 
 ;; UTF-8 as default encoding
@@ -119,7 +119,7 @@
 ;; Alternatively, we use Emacs's own emulation of "ls"
 (when (string= system-type "darwin")
   (setq dired-use-ls-dired nil)
-  (setq ls-lisp-use-insert-directory-(point)rogram nil)
+  (setq ls-lisp-use-insert-directory-program nil)
   (require 'ls-lisp))
 
 ;; Sort apropos results by relevancy
