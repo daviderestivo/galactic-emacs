@@ -762,7 +762,8 @@ The following %-sequences are provided:
                 (flyspell-prog-mode)
                 (org-indent-mode)
                 (superword-mode 1)
-                (org-bullets-mode 1)))
+                (org-bullets-mode 1)
+                (whitespace-mode nil)))
   :bind
   ("\C-cl" . org-store-link)
   ("\C-ca" . org-agenda)
