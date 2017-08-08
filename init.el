@@ -102,7 +102,9 @@
                                                (emacs-uptime)))))
 
 ;; Personal Information
-(load "~/.emacs.d/personal.el")
+(setq drestivo/personal-file "~/.emacs.d/personal.el")
+(when (file-exists-p custom-file)
+  (load drestivo/personal-file))
 
 ;; UTF-8 as default encoding
 (set-language-environment "UTF-8")
