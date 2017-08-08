@@ -102,7 +102,8 @@
                                                (emacs-uptime)))))
 
 ;; Personal Information
-(setq drestivo/personal-file "~/.emacs.d/personal.el")
+(setq dretsivo/personal-file (expand-file-name "personal.el"
+                                               user-emacs-directory))
 (when (file-exists-p custom-file)
   (load drestivo/personal-file))
 
