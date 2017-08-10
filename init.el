@@ -449,13 +449,6 @@ backed up."
 ;; Enable octave-mode for .m files
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
 
-;; Highlight lines that exceed 80 chars length
-(require 'whitespace)
-(setq whitespace-line-column 80) ;; limit line length
-(setq whitespace-style '(face lines-tail))
-(global-whitespace-mode t)
-(diminish 'global-whitespace-mode)
-
 ;; Setup bookmark
 (setq bookmark-save-flag 1) ;; every time bookmark is changed,
                             ;; automatically save it
@@ -766,8 +759,7 @@ The following %-sequences are provided:
                 (flyspell-prog-mode)
                 (org-indent-mode)
                 (superword-mode 1)
-                (org-bullets-mode 1)
-                (whitespace-mode nil)))
+                (org-bullets-mode 1)))
   :bind
   ("\C-cl" . org-store-link)
   ("\C-ca" . org-agenda)
@@ -1076,6 +1068,7 @@ The following %-sequences are provided:
   :config
   (volatile-highlights-mode t))
 
+;; wttrin - Weather application
 (use-package wttrin
   :ensure t
   :commands (wttrin)
@@ -1085,6 +1078,7 @@ The following %-sequences are provided:
                                 "Bern"
                                 "Aarau")))
 
+;; which-key
 (use-package which-key
   :ensure t
   :defer t
@@ -1093,6 +1087,16 @@ The following %-sequences are provided:
   :config
   (which-key-mode)
   (which-key-setup-side-window-right))
+
+;; whitespace - Highlight lines that exceed 80 chars length
+(use-package whitespace
+  :ensure t
+  :diminish global-whitespace-mode
+  :config
+  (setq whitespace-line-column 80) ;; limit line length
+  (setq whitespace-style '(face lines-tail))
+  (setq whitespace-global-modes '(not org-mode))
+  (global-whitespace-mode t))
 
 
 ;;; init.el ends here
