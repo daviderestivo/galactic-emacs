@@ -44,11 +44,12 @@ not listed.
 * transpose-frame [[link](https://www.emacswiki.org/emacs/TransposeFrame)]
 * undo-tree [[link](https://github.com/emacsmirror/undo-tree)]
 * use-package [[link](https://github.com/jwiegley/use-package)]
-* yaml-mode [[Link](https://github.com/yoshiki/yaml-mode)]
-* yasnippet [[Link](https://github.com/joaotavora/yasnippet)]
+* volatile-highlights [[Link](https://github.com/k-talo/volatile-highlights.el)]
 * wheatgrass-theme [[Link](https://github.com/jwiegley/emacs-release/blob/master/etc/themes/wheatgrass-theme.el)]
 * which-key [[Link](https://github.com/justbur/emacs-which-key)]
-* volatile-highlights [[Link](https://github.com/k-talo/volatile-highlights.el)]
+* wttrin [[Link](https://github.com/bcbcarl/emacs-wttrin)]
+* yaml-mode [[Link](https://github.com/yoshiki/yaml-mode)]
+* yasnippet [[Link](https://github.com/joaotavora/yasnippet)]
 
 ## Key bindings
 

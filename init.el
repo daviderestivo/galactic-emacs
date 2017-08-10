@@ -58,11 +58,12 @@
 ;; - transpose-frame      [https://www.emacswiki.org/emacs/TransposeFrame]
 ;; - undo-tree            [https://github.com/emacsmirror/undo-tree]
 ;; - use-package          [https://github.com/jwiegley/use-package]
-;; - yaml-mode            [https://github.com/yoshiki/yaml-mode]
-;; - yasnippet            [https://github.com/joaotavora/yasnippet]
+;; - volatile-highlights  [https://github.com/k-talo/volatile-highlights.el]
 ;; - wheatgrass-theme     [https://github.com/jwiegley/emacs-release/blob/master/etc/themes/wheatgrass-theme.el]
 ;; - which-key            [https://github.com/justbur/emacs-which-key]
-;; - volatile-highlights  [https://github.com/k-talo/volatile-highlights.el]
+;; - wttrin               [https://github.com/bcbcarl/emacs-wttrin]
+;; - yaml-mode            [https://github.com/yoshiki/yaml-mode]
+;; - yasnippet            [https://github.com/joaotavora/yasnippet]
 ;;
 ;; Feel free to drop me an email in case of questions.
 
