@@ -1074,9 +1074,9 @@ The following %-sequences are provided:
   :commands (wttrin)
   :init
   (setq wttrin-default-accept-language '("Accept-Language" . "en-US"))
-  (setq wttrin-default-cities '("Zurich"
+  (setq wttrin-default-cities '("Aarau"
                                 "Bern"
-                                "Aarau")))
+                                "Zurich")))
 
 ;; which-key
 (use-package which-key
