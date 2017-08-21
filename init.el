@@ -981,17 +981,20 @@ The following %-sequences are provided:
 
 ;; elpy
 (use-package elpy
+  :diminish elpy-mode
   :defer t
   :ensure t
   :config
   (elpy-enable)
   (setq elpy-rpc-python-command "python3")
   (elpy-use-ipython "ipython3")
-  ;; Fix IPython5 s new prompt behavior (https://github.com/jorgenschaefer/elpy/issues/992)
-  (setenv "IPY_TEST_SIMPLE_PROMPT" "1"))
+  ;; Fix IPython5 new prompt behavior (https://github.com/jorgenschaefer/elpy/issues/992)
+  (setenv "IPY_TEST_SIMPLE_PROMPT" "1")
+  (add-hook 'python-mode-hook 'elpy-mode))
 
 ;; highlight-indentation-mode
 (use-package highlight-indentation
+  :diminish highlight-indentation-mode
   :ensure t
   :config
   (set-face-background 'highlight-indentation-face "gray18")
