@@ -1081,7 +1081,6 @@ The following %-sequences are provided:
 ;; which-key
 (use-package which-key
   :ensure t
-  :defer t
   :diminish which-key-mode
   :init
   :config
