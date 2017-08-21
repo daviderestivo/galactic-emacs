@@ -911,6 +911,12 @@ The following %-sequences are provided:
   (add-hook 'helm-minibuffer-set-up-hook
             'helm-hide-minibuffer-maybe)
   (define-key minibuffer-local-map (kbd "C-c C-l") 'helm-minibuffer-history)
+  ;; Replace the default helm grep command with ag.
+  ;; Requires "The Silver Searcher" (ag) to be installed:
+  ;; On macOS use: 'brew install the_silver_searcher'
+  (when (executable-find "ag")
+   (setq helm-grep-default-command         "ag --vimgrep --nogroup --nocolor -z %p %f"
+         helm-grep-default-recurse-command "ag --vimgrep --nogroup --nocolor -z %p %f"))
   :bind
   ;; bind keys because of this commit:
   ;; https://github.com/emacs-helm/helm/commit/1de1701c73b15a86e99ab1c5c53bd0e8659d8ede
