@@ -870,7 +870,8 @@ The following %-sequences are provided:
   (global-set-key (kbd "C-c h") 'helm-command-prefix)
   (global-unset-key (kbd "C-x c")))
 
-;; helm
+;; helm - Helm is an incremental completion and selection narrowing
+;; framework for Emacs.
 (use-package helm
   :defer t
   :ensure t
