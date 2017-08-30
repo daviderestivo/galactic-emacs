@@ -1145,5 +1145,16 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
   (setq whitespace-global-modes '(not org-mode))
   (global-whitespace-mode t))
 
+;; gnutls customization
+;;
+;; Please look at: https://blogs.fsfe.org/jens.lechtenboerger/2014/03/23/certificate-pinning-for-gnu-emacs/
+(use-package gnutls
+  :ensure t
+  :config
+  (setq tls-program '("gnutls-cli --strict-tofu -p %p %h")
+        imap-ssl-program '("gnutls-cli --strict-tofu -p %p %s")
+        smtpmail-stream-type 'starttls
+        starttls-extra-arguments '("--strict-tofu")))
+
 
 ;;; init.el ends here
