@@ -379,8 +379,10 @@ backed up."
   (add-hook mode
             '(lambda ()
                (flyspell-prog-mode)
+               (diminish 'flyspell-mode)
                ;; Enable superword mode, useful for “snake_case”.
                (superword-mode 1)
+               (diminish 'superword-mode)
                )))
 ;; Add some of the ispell shortcuts:
 ;; - press <f8> to check a word
