@@ -630,6 +630,37 @@ The following %-sequences are provided:
                      `(:background ,bg-color :foreground ,bg-color)))
       (setq-local cursor-type nil))))
 
+(defun drestivo/org-download-method (link)
+  "This is an helper function for org-download.
+
+It creates an \"./image\" folder within the same directory of the org file.
+Images are separated inside that image folder by additional folders one per
+org file.
+
+More info can be found here: https://github.com/abo-abo/org-download/issues/40.
+See the commit message for an example:
+https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc03039bf397b"
+  (let ((filename
+         (file-name-nondirectory
+          (car (url-path-and-query
+                (url-generic-parse-url link)))))
+        (dir (concat
+              (file-name-directory (buffer-file-name))
+              (format "%s/%s/%s"
+                      "images"
+                      (file-name-base (buffer-file-name))
+                      (org-download--dir-2)))))
+    (progn
+      (setq filename-with-timestamp (format "%s%s.%s"
+                                            (file-name-sans-extension filename)
+                                            (format-time-string org-download-timestamp)
+                                            (file-name-extension filename)))
+      ;; Check if directory exists otherwise creates it
+      (unless (file-exists-p dir)
+        (make-directory dir t))
+      (message (format "Image: %s saved!" (expand-file-name filename-with-timestamp dir)))
+      (expand-file-name filename-with-timestamp dir))))
+
 
 ;;; Packages configuration section
 
@@ -803,8 +834,10 @@ The following %-sequences are provided:
   ;; Change screen capture command only for macOS
   (when (string= system-type "darwin")
     (setq org-download-screenshot-method "screencapture -s -x %s"))
+  (setq org-download-method  'drestivo/org-download-method)
+  (setq org-download-heading-lvl 0)
   ;; org-download default directory
-  (setq-default org-download-image-dir "./images")
+  ;; (setq-default org-download-image-dir "./images")
   (setq org-download-image-html-width '320))
 
 ;; rainbow-delimiters
