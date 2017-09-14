@@ -48,6 +48,7 @@
 ;; - magit                [https://magit.vc]
 ;; - markdown-mode        [http://jblevins.org/projects/markdown-mode]
 ;; - ob-ipython           [https://github.com/gregsexton/ob-ipython]
+;; - org-bullets          [https://github.com/sabof/org-bullets]
 ;; - org-download         [https://github.com/abo-abo/org-download]
 ;; - org-plus-contrib     [http://orgmode.org]
 ;; - projectile           [https://github.com/bbatsov/projectile]
@@ -780,19 +781,17 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
   (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
   ;; Capture templates for: TODO tasks and notes
   (setq org-capture-templates
-        (quote (("t" "Todo" entry (file (concat org-directory "refile.org"))
+        (quote (("t" "Todo" entry (file (lambda () (concat org-directory "refile.org")))
                  "* TODO %?\n%U\n%a\n")
-                ("n" "Note" entry (file (concat org-directory "refile.org"))
+                ("n" "Note" entry (file (lambda () (concat org-directory "refile.org")))
                  "* %? :NOTE:\n%U\n%a\n"))))
-  ;; Setup org-bullets. Non need to install an additional package since this is already
-  ;; included into org-plus-contrib
+  ;; Add some useful hooks to org-mode
   (add-hook 'org-mode-hook
             '(lambda ()
                 (setq show-trailing-whitespace t)
                 (flyspell-prog-mode)
                 (org-indent-mode)
-                (superword-mode 1)
-                (org-bullets-mode 1)))
+                (superword-mode 1)))
   :bind
   ("\C-cl" . org-store-link)
   ("\C-ca" . org-agenda)
@@ -841,6 +840,14 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
   ;; org-download default directory
   ;; (setq-default org-download-image-dir "./images")
   (setq org-download-image-html-width '320))
+
+;; org-bullets
+(use-package org-bullets
+  :ensure t
+  :config
+ (add-hook 'org-mode-hook
+            '(lambda ()
+                (org-bullets-mode 1))))
 
 ;; rainbow-delimiters
 (use-package rainbow-delimiters
