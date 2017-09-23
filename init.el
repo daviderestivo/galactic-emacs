@@ -1163,5 +1163,14 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
         smtpmail-stream-type 'starttls
         starttls-extra-arguments '("--strict-tofu")))
 
+;; dired customization
+(use-package dired
+  :defer t
+  :config
+  (setq dired-dwim-target nil)
+  (add-hook 'dired-mode-hook
+            (lambda ()
+              (dired-hide-details-mode 1))))
+
 
 ;;; init.el ends here
