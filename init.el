@@ -725,14 +725,20 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
   :defer t
   :ensure org-plus-contrib
   :config
+  (load-library "find-lisp")
   ;; ORG directories and files
   (setq org-directory "~/org/")
-  (setq org-agenda-files (list (concat org-directory "agenda")
-                               (concat org-directory "refile.org")))
+  (add-hook 'org-agenda-mode-hook
+            (lambda ()
+              (setq org-agenda-files
+                    (append
+                     (find-lisp-find-files (concat org-directory "agenda") "\.org$")
+                     (find-lisp-find-files (concat org-directory "notebooks") "\.org$")
+                     (find-lisp-find-files (concat org-directory "work-projects") "\.org$")
+                     (list (concat org-directory "refile.org"))))))
   (setq org-default-notes-file (concat org-directory "refile.org"))
   ;; Additional files to be searched in addition to the default ones
   ;; contained in the agenda folder
-  (load-library "find-lisp")
   (setq org-agenda-text-search-extra-files
         (append
          (find-lisp-find-files (concat org-directory "home-projects") "\.org$")
