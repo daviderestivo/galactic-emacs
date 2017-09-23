@@ -98,6 +98,18 @@
 (require 'diminish)
 (require 'bind-key)
 
+;; Install `cl-generic' if required
+;;
+;; This is a forward compatibility package, which provides (a subset
+;; of) the features of the cl-generic package introduced in Emacs-25,
+;; for use on previous emacsen.
+(if (version< emacs-version "25")
+    (progn
+      (unless (package-installed-p 'cl-generic)
+        (package-refresh-contents)
+        (package-install 'cl-generic))
+      (require 'cl-generic)))
+
 ;; Print Emacs server utpime every half an hour
 (run-at-time "00:00" 1800 '(lambda () (message
                                        (concat "[" (current-time-string) "]" " GNU Emacs server uptime: "
