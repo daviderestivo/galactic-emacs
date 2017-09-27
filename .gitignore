@@ -1,7 +1,8 @@
 #--- Emacs ---
 *~
 *.elc
-[#]*[#]
+# Uncomment the below if you want to ignore backup (autosave) files
+#[#]*[#]
 
 #--- Compiled files ---
 *.com
