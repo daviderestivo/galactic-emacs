@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: html_title_attr
+# key: tit_
+# --
+#+attr_html: :title $0
