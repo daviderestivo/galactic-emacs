@@ -74,12 +74,10 @@
 ;; Configure Emacs package manager
 (package-initialize)
 (require 'package)
-(add-to-list 'package-archives
-	     '("melpa" . "http://melpa.org/packages/"))
-(add-to-list 'package-archives
-	     '("melpa-stable" . "https://stable.melpa.org/packages/"))
-(add-to-list 'package-archives
-             '("org" . "http://orgmode.org/elpa/"))
+(setq package-archives
+      '(("melpa" . "http://melpa.org/packages/")
+        ("melpa-stable" . "https://stable.melpa.org/packages/")
+        ("org" . "http://orgmode.org/elpa/")))
 
 ;; Change the below priorities if you prefer melpa-stable packages. Higher is better.
 (setq package-archive-priorities
