@@ -75,9 +75,9 @@
 (package-initialize)
 (require 'package)
 (setq package-archives
-      '(("melpa" . "http://melpa.org/packages/")
+      '(("org" . "http://orgmode.org/elpa/")
+        ("melpa" . "http://melpa.org/packages/")
         ("melpa-stable" . "https://stable.melpa.org/packages/")
-        ("org" . "http://orgmode.org/elpa/")
         ("gnu" . "http://elpa.gnu.org/packages/")))
 
 ;; Change the below priorities if you prefer melpa-stable packages. Higher is better.
