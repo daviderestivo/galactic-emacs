@@ -39,7 +39,6 @@
 ;; - company-mode         [https://github.com/company-mode/company-mode]
 ;; - elpy                 [https://elpy.readthedocs.io]
 ;; - exec-path-from-shell [https://github.com/purcell/exec-path-from-shell]
-;; - git-gutter           [https://github.com/syohex/emacs-git-gutter]
 ;; - helm                 [https://github.com/emacs-helm/helm]
 ;; - helm-ag              [https://github.com/syohex/emacs-helm-ag]
 ;; - helm-descbinds       [https://github.com/emacs-helm/helm-descbinds]
@@ -1122,16 +1121,6 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
           (psession--winconf-alist . "psession-winconf-alist.el")
           ))
   (psession-mode 1))
-
-;; git-gutter
-(use-package git-gutter
-  :ensure t
-  :diminish git-gutter-mode
-  :config
-  (global-git-gutter-mode t)
-  (set-face-foreground 'git-gutter:modified "medium purple")
-  (set-face-foreground 'git-gutter:added "light green")
-  (set-face-foreground 'git-gutter:deleted "IndianRed2"))
 
 ;; volatile-highlights
 (use-package volatile-highlights
