@@ -730,6 +730,7 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
   ;; The below hook is needed when Emacs is started in daemon mode.
   ;; In this case it is required to add a hook called during the
   ;; creation of every new frame in order to load the configured
+  ;; options like i.e. the theme.
   (if (daemonp)
       (add-hook 'after-make-frame-functions
                 (lambda (frame)
