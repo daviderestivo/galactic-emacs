@@ -1189,5 +1189,9 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
             (lambda ()
               (dired-hide-details-mode 1))))
 
+;; ElDoc
+(use-package eldoc
+  :diminish eldoc-mode)
+
 
 ;;; init.el ends here
