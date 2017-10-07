@@ -674,6 +674,30 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
       (message (format "Image: %s saved!" (expand-file-name filename-with-timestamp dir)))
       (expand-file-name filename-with-timestamp dir))))
 
+(defun drestivo/customize-wheatgrass-theme ()
+  "This is an helper function for customizing the wheatgrass theme"
+  ;; Linum customization
+  (custom-set-faces
+   '(linum ((t (:background "black"))))
+   ;; Helm customization
+   '(helm-candidate-number ((t (:background "color-233" :foreground "#98C379"))))
+   '(helm-ff-directory ((t (:background "black" :foreground "#56B6C2" :weight bold))))
+   '(helm-ff-executable ((t (:background "black" :foreground "#98C379" :weight normal))))
+   '(helm-ff-file ((t (:background "black" :foreground "#ABB2BF" :weight normal))))
+   '(helm-ff-invalid-symlink ((t (:background "black" :foreground "#E06C75" :weight bold))))
+   '(helm-ff-symlink ((t (:background "black" :foreground "#E5C07B" :weight bold))))
+   '(helm-header ((t (:background "color-234" :foreground "#828997" :box (:line-width 6 :color "#282C34") :underline nil))))
+   '(helm-separator ((t (:background "black" :foreground "#E06C75"))))
+   '(helm-source-header ((t (:background "black" :foreground "#E5C07B" :box (:line-width 6 :color "brightblack") :underline nil :weight bold))))
+   ;; Magit customization
+   '(magit-blame-date ((t (:background "black" :foreground "#5C6370"))))
+   '(magit-blame-hash ((t (:background "black" :foreground "#C678DD"))))
+   '(magit-blame-heading ((t (:background "black" :foreground "#828997"))))
+   '(magit-blame-name ((t (:background "black" :foreground "#E5C07B"))))
+   '(magit-blame-summary ((t (:background "black" :foreground "#828997"))))
+   '(magit-diff-context-highlight ((t (:background "black" :foreground "#ABB2BF"))))
+   '(magit-refname ((t (:background "black" :foreground "#ABB2BF" :weight bold))))
+   '(magit-refname-stash ((t (:foreground "#ABB2BF" :weight bold))))))
 
 ;;; Packages configuration section
 
@@ -705,13 +729,17 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
                         ;; Always bring a newly created frame on top
                         (select-frame-set-input-focus frame)
                         (toggle-scroll-bar -1))
-                    (load-theme 'wheatgrass t)))))
+                    (progn
+                      (load-theme 'wheatgrass t)
+                      (drestivo/customize-wheatgrass-theme))))))
   (if (window-system)
       (progn
          (load-theme 'atom-one-dark t)
          ;; Transparent window in Emacs on macOS
          (set-frame-parameter (selected-frame) 'alpha '(98 98)))
-    (load-theme 'wheatgrass t)))
+    (progn
+      (load-theme 'wheatgrass t)
+      (drestivo/customize-wheatgrass-theme))))
 
 ;; exec-path-from-shell
 (use-package exec-path-from-shell
