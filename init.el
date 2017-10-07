@@ -676,8 +676,20 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
 
 (defun drestivo/customize-wheatgrass-theme ()
   "This is an helper function for customizing the wheatgrass theme"
-  ;; Linum customization
   (custom-set-faces
+   ;; Selection highlight customization
+   '(region ((t (:background "gray13"))))
+   ;; company-mode customization
+   '(company-preview ((t (:background "black"))))
+   '(company-preview-common ((t (:background "black" :foreground "#E5C07B"))))
+   '(company-preview-search ((t (:inherit company-preview :background "black"))))
+   '(company-scrollbar-bg ((t (:background "black"))))
+   '(company-tooltip ((t (:background "black"))))
+   '(company-tooltip-annotation ((t (:background "black" :foreground "#828997"))))
+   '(company-tooltip-common ((t (:background "black"))))
+   ;; hl-line customization
+   '(hl-line ((t (:background "gray13"))))
+   ;; Linum customization
    '(linum ((t (:background "black"))))
    ;; Helm customization
    '(helm-candidate-number ((t (:background "color-233" :foreground "#98C379"))))
@@ -698,6 +710,7 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
    '(magit-diff-context-highlight ((t (:background "black" :foreground "#ABB2BF"))))
    '(magit-refname ((t (:background "black" :foreground "#ABB2BF" :weight bold))))
    '(magit-refname-stash ((t (:foreground "#ABB2BF" :weight bold))))))
+
 
 ;;; Packages configuration section
 
