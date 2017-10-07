@@ -37,6 +37,7 @@
 ;; - auto-package-update  [https://github.com/rranelli/auto-package-update.el]
 ;; - cisco-router-mode    [https://www.emacswiki.org/emacs/download/cisco-router-mode.el]
 ;; - company-mode         [https://github.com/company-mode/company-mode]
+;; - diff-hl              [https://github.com/dgutov/diff-hl]
 ;; - elpy                 [https://elpy.readthedocs.io]
 ;; - exec-path-from-shell [https://github.com/purcell/exec-path-from-shell]
 ;; - helm                 [https://github.com/emacs-helm/helm]
@@ -1222,6 +1223,20 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
 ;; ElDoc
 (use-package eldoc
   :diminish eldoc-mode)
+
+;; diff-hl
+(use-package diff-hl
+  :ensure t
+  :diminish diff-hl-mode
+  :config
+  (if (window-system)
+      (global-diff-hl-mode)
+    (progn
+      (global-diff-hl-mode)
+      (diff-hl-margin-mode)))
+  ;; Highlight changed files in the fringe of dired
+  (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
+  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
 
 
 ;;; init.el ends here
