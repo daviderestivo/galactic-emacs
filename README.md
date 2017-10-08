@@ -33,6 +33,7 @@ not listed.
 * jinja2-mode [[Link](https://github.com/paradoxxxzero/jinja2-mode)]
 * magit [[Link](https://magit.vc)]
 * markdown-mode [[Link](http://jblevins.org/projects/markdown-mode)]
+* nlinum-hl [[Link](https://github.com/hlissner/emacs-nlinum-hl)]
 * ob-ipython [[Link](https://github.com/gregsexton/ob-ipython)]
 * org-bullets [[Link](https://github.com/sabof/org-bullets)]
 * org-download [[Link](https://github.com/abo-abo/org-download)]

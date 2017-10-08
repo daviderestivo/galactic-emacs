@@ -47,6 +47,7 @@
 ;; - jinja2-mode          [https://github.com/paradoxxxzero/jinja2-mode]
 ;; - magit                [https://magit.vc]
 ;; - markdown-mode        [http://jblevins.org/projects/markdown-mode]
+;; - nlinum-hl            [https://github.com/hlissner/emacs-nlinum-hl]
 ;; - ob-ipython           [https://github.com/gregsexton/ob-ipython]
 ;; - org-bullets          [https://github.com/sabof/org-bullets]
 ;; - org-download         [https://github.com/abo-abo/org-download]
@@ -342,11 +343,6 @@ backed up."
 ;;-----------------------------;;
 ;;  END Backup files settings  ;;
 ;;-----------------------------;;
-
-;; Enable line and column numbering
-(global-linum-mode t)
-(setq linum-format "%d ")
-(column-number-mode 1)
 
 ;; Enable word wrap
 (global-visual-line-mode t)
@@ -746,15 +742,16 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
                         (toggle-scroll-bar -1))
                     (progn
                       (load-theme 'wheatgrass t)
-                      (drestivo/customize-wheatgrass-theme))))))
-  (if (window-system)
-      (progn
+                      (drestivo/customize-wheatgrass-theme)))))
+    ;; Emacs not running in daemon mode
+    (if (window-system)
+        (progn
          (load-theme 'atom-one-dark t)
          ;; Transparent window in Emacs on macOS
          (set-frame-parameter (selected-frame) 'alpha '(98 98)))
     (progn
       (load-theme 'wheatgrass t)
-      (drestivo/customize-wheatgrass-theme))))
+      (drestivo/customize-wheatgrass-theme)))))
 
 ;; exec-path-from-shell
 (use-package exec-path-from-shell
@@ -1225,19 +1222,39 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
 (use-package eldoc
   :diminish eldoc-mode)
 
+;; nlinum-hl - Line numbering mode
+(use-package nlinum-hl
+  :ensure t
+  :config
+  (global-nlinum-mode)
+  (setq nlinum-format "%d ")
+  (column-number-mode 1))
+
 ;; diff-hl
 (use-package diff-hl
   :ensure t
   :diminish diff-hl-mode
   :config
-  (if (window-system)
-      (global-diff-hl-mode)
-    (progn
-      (global-diff-hl-mode)
-      (diff-hl-margin-mode)))
+  (if (daemonp)
+      (add-hook 'after-make-frame-functions
+                (lambda (frame)
+                  (select-frame frame)
+                  (if (window-system)
+                      (global-diff-hl-mode)
+                    (progn
+                      (setq diff-hl-side 'right)
+                      (global-diff-hl-mode)
+                      (diff-hl-margin-mode)))))
+    ;; Emacs not running in daemon mode
+    (if (window-system)
+        (global-diff-hl-mode)
+      (progn
+        (setq diff-hl-side 'right)
+        (global-diff-hl-mode)
+        (diff-hl-margin-mode)))
   ;; Highlight changed files in the fringe of dired
   (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
-  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
+  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)))
 
 
 ;;; init.el ends here
