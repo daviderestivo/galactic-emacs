@@ -71,6 +71,7 @@ not listed.
 | C-x C-r | helm-recentf |
 | M-s | helm-do-ag-this-file |
 | C-u M-s | helm-do-ag-buffers |
+| C-+ | drestivo/insert-date |
 
 
 Feel free to drop me an email in case of questions.

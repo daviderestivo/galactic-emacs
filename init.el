@@ -708,6 +708,12 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
    '(magit-refname ((t (:background "black" :foreground "#ABB2BF" :weight bold))))
    '(magit-refname-stash ((t (:foreground "#ABB2BF" :weight bold))))))
 
+(defun drestivo/insert-date ()
+  (interactive)
+  "Insert date into current buffer without a newline."
+  (insert (shell-command-to-string "printf %s \"$(date)\"")))
+(global-set-key (kbd "C-+") 'drestivo/insert-date)
+
 
 ;;; Packages configuration section
 
