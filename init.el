@@ -710,7 +710,7 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
 
 (defun drestivo/insert-date ()
   (interactive)
-  "Insert date into current buffer without a newline."
+  "Insert current datetime into buffer without a newline."
   (insert (shell-command-to-string "printf %s \"$(date)\"")))
 (global-set-key (kbd "C-+") 'drestivo/insert-date)
 
