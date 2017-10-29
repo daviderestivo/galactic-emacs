@@ -847,6 +847,10 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
                  "* TODO %?\n%U\n%a\n")
                 ("n" "Note" entry (file (lambda () (concat org-directory "refile.org")))
                  "* %? :NOTE:\n%U\n%a\n"))))
+  ;; ORG tags shortcuts
+  (setq org-tag-alist '(("URGENT" . ?u)
+                        ("MEDIUM" . ?m)
+                        ("LOW" . ?l)))
   ;; Add some useful hooks to org-mode
   (add-hook 'org-mode-hook
             '(lambda ()
