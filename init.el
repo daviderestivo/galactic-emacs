@@ -520,12 +520,12 @@ backed up."
 
 ;;; Helper functions
 
-;; Search for a keyword on the org directory using ag
+;; Search for a keyword on the ORG directory using ag
 ;; Requires "The Silver Searcher" (ag) to be installed:
 ;; On macOS use: 'brew install the_silver_searcher'
 ;; On a Debian based GNU/Linux distro use: 'apt-get install silversearcher-ag'
 (defun drestivo/org-directory-search-ag ()
-  "Search for a keyword in the org folder using ag"
+  "Search for a keyword in the ORG folder using ag"
   (interactive)
   (if (not (eq org-directory nil))
       (helm-do-ag org-directory)
@@ -643,9 +643,9 @@ The following %-sequences are provided:
 (defun drestivo/org-download-method (link)
   "This is an helper function for org-download.
 
-It creates an \"./image\" folder within the same directory of the org file.
+It creates an \"./image\" folder within the same directory of the ORG file.
 Images are separated inside that image folder by additional folders one per
-org file.
+ORG file.
 
 More info can be found here: https://github.com/abo-abo/org-download/issues/40.
 See the commit message for an example:
@@ -808,9 +808,9 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
   (setq org-refile-allow-creating-parent-nodes t)
   ;; A timestamp or a note will be recorded when an entry has been refiled
   (setq  org-log-refile t)
-  ;; Set org ellipsis style to a downward arrow "⤵" instead of "..."
+  ;; Set ORG ellipsis style to a downward arrow "⤵" instead of "..."
   (setq org-ellipsis "⤵")
-  ;; Save all org buffers every hour
+  ;; Save all ORG buffers every hour
   (run-at-time "00:59" 3600 'org-save-all-org-buffers)
   ;; Add "CLOSED: [timestamp]" when a task is marked as DONE
   (setq org-log-done t)
@@ -830,7 +830,7 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
   ;;
   (setq org-todo-keywords
         '((sequence "TODO(t)" "DOING(d)" "WAIT OTHERS(w)" "DELEGATED(g)" "REVIEW(r)" "|" "DONE(D)" "CANCELED(C)" " REVIEWED(R)")))
-  ;; Org mode has its own markup syntax but seeing the emphasis
+  ;; ORG mode has its own markup syntax but seeing the emphasis
   ;; markers is distracting. The below setting hides it.
   (setq org-hide-emphasis-markers t)
   ;; Wrap long lines. Don't let it disappear to the right
@@ -865,7 +865,7 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
 (use-package ob
   :defer t
   :config
-  ;; Make org mode allow eval elisp, python and ruby
+  ;; Make ORG mode allow eval elisp, python and ruby
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((emacs-lisp . t)
