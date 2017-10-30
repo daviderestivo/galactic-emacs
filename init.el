@@ -848,9 +848,9 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
                 ("n" "Note" entry (file (lambda () (concat org-directory "refile.org")))
                  "* %? :NOTE:\n%U\n%a\n"))))
   ;; ORG tags shortcuts
-  (setq org-tag-alist '(("HIGH-PRIO" . ?h)
-                        ("MEDIUM-PRIO" . ?m)
-                        ("LOW-PRIO" . ?l)
+  (setq org-tag-alist '(("HIGH" . ?h)
+                        ("MEDIUM" . ?m)
+                        ("LOW" . ?l)
                         ("NOTE" . ?n)
                         ("REVIEW" . ?r)))
   ;; Add some useful hooks to org-mode
