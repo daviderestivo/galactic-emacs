@@ -580,7 +580,7 @@ The following %-sequences are provided:
   (split-window-below)
   (balance-windows)
   (other-window 1)
-  (eshell)
+  (eshell))
 (defalias 'tb 'drestivo/tb)
 
 ;; copy-line - Source https://www.emacswiki.org/emacs/CopyingWholeLines
