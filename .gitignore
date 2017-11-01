@@ -1,6 +1,17 @@
 #--- Emacs ---
 *~
 *.elc
+.last-package-update-day
+.org-id-locations
+auto-save-list/
+bookmarks
+elisp-objects/
+elpa/
+eshell/
+projectile-bookmarks.eld
+recentf
+personal.el
+tramp
 # Uncomment the below if you want to ignore backup (autosave) files
 #[#]*[#]
 
@@ -34,15 +45,3 @@ __MACOSX/
 .Spotlight-V100
 .Trashes
 Thumbs.db
-
-# --- Various ---
-.last-package-update-day
-.org-id-locations
-auto-save-list/
-bookmarks
-elisp-objects/
-elpa/
-projectile-bookmarks.eld
-recentf
-personal.el
-tramp
