@@ -431,31 +431,6 @@ backed up."
             (set-face-background
              ediff-odd-diff-face-C "SlateGray4")))
 
-;; ansi-term settings
-;; This tells term (which is used by ansi-term) to kill the buffer
-;; after the terminal is exited.
-(defadvice term-sentinel (around drestivo/advice-term-sentinel (proc msg))
-  (if (memq (process-status proc) '(signal exit))
-      (let ((buffer (process-buffer proc)))
-        ad-do-it
-        (kill-buffer-and-window))
-    ad-do-it))
-(ad-activate 'term-sentinel)
-;; Always use bash
-(defvar drestivo/term-shell "/usr/local/bin/bash")
-(defadvice ansi-term (before force-bash)
-  (interactive (list drestivo/term-shell)))
-(ad-activate 'ansi-term)
-
-;; Sets the term to use UTF-8
-(defun drestivo/term-use-utf8 ()
-  (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))
-(add-hook 'term-exec-hook 'drestivo/term-use-utf8)
-;; URLs that show up in my terminal (via man pages, help, info,
-;; errors, etc) to be clickable.
-(defun drestivo/term-hook () (goto-address-mode))
-(add-hook 'term-mode-hook 'drestivo/term-hook)
-
 ;; Enable octave-mode for .m files
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
 
@@ -605,7 +580,7 @@ The following %-sequences are provided:
   (split-window-below)
   (balance-windows)
   (other-window 1)
-  (ansi-term "/usr/local/bin/bash"))
+  (eshell)
 (defalias 'tb 'drestivo/tb)
 
 ;; copy-line - Source https://www.emacswiki.org/emacs/CopyingWholeLines
