@@ -689,6 +689,27 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
   (insert (concat "Date: " (shell-command-to-string "printf %s \"$(date)\""))))
 (global-set-key (kbd "C-+") 'drestivo/insert-date)
 
+(defmacro drestivo/with-face (str &rest properties)
+  `(propertize ,str 'face (list ,@properties)))
+
+(defun drestivo/eshell-prompt ()
+  "Customize eshell prompt"
+  (let ((header-bg "gray13"))
+    (concat
+     (drestivo/with-face (concat (eshell/pwd) " ") :background header-bg)
+     (drestivo/with-face (format-time-string "(%Y-%m-%d %H:%M:%S) " (current-time)) :background header-bg :foreground "#888")
+     (drestivo/with-face
+      (or (ignore-errors (format "(%s)" (vc-responsible-backend default-directory))) "")
+      :background header-bg)
+     (drestivo/with-face "\n" :background header-bg)
+     (drestivo/with-face user-login-name :foreground "LightBlue")
+     "@"
+     (drestivo/with-face (system-name) :foreground "LightGreen")
+     (if (= (user-uid) 0)
+         (drestivo/with-face " #" :foreground "LightRed")
+       " $")
+     " ")))
+
 
 ;;; Packages configuration section
 
@@ -1242,6 +1263,14 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
   ;; Highlight changed files in the fringe of dired
   (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)))
+
+;; Eshell
+(use-package eshell
+     :ensure t
+     :config
+     ;; Eshell prompt customization
+     (setq eshell-prompt-function 'drestivo/eshell-prompt)
+     (setq eshell-highlight-prompt nil))
 
 
 ;;; init.el ends here
