@@ -1270,7 +1270,10 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
      :config
      ;; Eshell prompt customization
      (setq eshell-prompt-function 'drestivo/eshell-prompt)
-     (setq eshell-highlight-prompt nil))
+     (setq eshell-highlight-prompt nil)
+     (add-hook 'eshell-exit-hook
+               (lambda ()
+                 (delete-window))))
 
 
 ;;; init.el ends here
