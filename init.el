@@ -694,12 +694,13 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
 
 (defun drestivo/eshell-prompt ()
   "Customize eshell prompt"
-  (let ((header-bg "gray13"))
+  (let ((header-bg "#2F343D"))
     (concat
      (drestivo/with-face (concat (eshell/pwd) " ") :background header-bg)
      (drestivo/with-face (format-time-string "(%Y-%m-%d %H:%M:%S) " (current-time)) :background header-bg :foreground "#888")
      (drestivo/with-face
-      (or (ignore-errors (format "(%s)" (vc-responsible-backend default-directory))) "")
+      (or (ignore-errors (format "(%s (%s))"
+                                 (vc-responsible-backend default-directory (car (vc-git-branches))))) "")
       :background header-bg)
      (drestivo/with-face "\n" :background header-bg)
      (drestivo/with-face user-login-name :foreground "LightBlue")
