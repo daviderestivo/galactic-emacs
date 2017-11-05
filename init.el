@@ -694,22 +694,25 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
 
 (defun drestivo/eshell-prompt ()
   "Customize eshell prompt"
-  (let ((header-bg "#2F343D"))
-    (setq git-status (vc-git--run-command-string default-directory "status" "-s"))
+  (let ((header-bg "#282C34"))
     (concat
+     "┌─ "
      (drestivo/with-face (concat (eshell/pwd) " ") :background header-bg)
-     (drestivo/with-face (format-time-string "(%Y-%m-%d %H:%M:%S) " (current-time)) :background header-bg :foreground "#888")
-     (drestivo/with-face
-      (or (ignore-errors (format "([%s:%s])"
-                                 (car (vc-git-branches))
-                                 (concat
-                                  (if (member "A" git-status)  "A" "-")  ;; Added files (not committed)
-                                  (if (member "M" git-status)  "M" "-")  ;; Modified files
-                                  (if (member "D" git-status)  "D" "-")  ;; Deleted files
-                                  (if (member "??" git-status) "U" "-")) ;; Untracked files
-                                 )) "")
-          :background header-bg)
-     (drestivo/with-face "\n" :background header-bg)
+     (if (string= (ignore-errors (vc-responsible-backend default-directory)) "Git")
+         (progn
+           (setq git-status (split-string (vc-git--run-command-string default-directory "status" "-s")))
+           (drestivo/with-face
+            (format "[%s (%s):%s] "
+                    (vc-responsible-backend default-directory)
+                    (car (vc-git-branches))
+                    (concat
+                     (if (member "A" git-status)  "A" "-")   ;; Added files (not committed)
+                     (if (member "M" git-status)  "M" "-")   ;; Modified files
+                     (if (member "D" git-status)  "D" "-")   ;; Deleted files
+                     (if (member "??" git-status) "U" "-"))) ;; Untracked files
+            :background header-bg :foreground "LightGreen")))
+     (drestivo/with-face (format-time-string "(%Y-%m-%d %H:%M:%S)" (current-time)) :background header-bg :foreground "gainsboro")
+     (drestivo/with-face "\n└─> " :background header-bg)
      (drestivo/with-face user-login-name :foreground "LightBlue")
      "@"
      (drestivo/with-face (system-name) :foreground "LightGreen")
