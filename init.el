@@ -697,7 +697,7 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
 (defun drestivo/eshell-prompt ()
   "Customize eshell prompt.
 
-This function require all-the-icons package to be installed
+This function requires `all-the-icons' package to be installed
 (https://github.com/domtronn/all-the-icons.el)."
   (if (window-system)
       (setq header-bg "#282C34")
