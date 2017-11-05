@@ -694,7 +694,9 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
 
 (defun drestivo/eshell-prompt ()
   "Customize eshell prompt"
-  (let ((header-bg "#282C34"))
+  (if (window-system)
+            (setq header-bg "#282C34")
+            (setq header-bg "black"))
     (concat
      "┌─ "
      (drestivo/with-face (concat (eshell/pwd) " ") :background header-bg)
@@ -719,7 +721,7 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
      (if (= (user-uid) 0)
          (drestivo/with-face " #" :foreground "LightRed")
        " $")
-     " ")))
+     " "))
 
 
 ;;; Packages configuration section
