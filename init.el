@@ -48,6 +48,7 @@
 ;; - jinja2-mode          [https://github.com/paradoxxxzero/jinja2-mode]
 ;; - magit                [https://magit.vc]
 ;; - markdown-mode        [http://jblevins.org/projects/markdown-mode]
+;; - mode-icons           [https://github.com/ryuslash/mode-icons]
 ;; - nlinum-hl            [https://github.com/hlissner/emacs-nlinum-hl]
 ;; - ob-ipython           [https://github.com/gregsexton/ob-ipython]
 ;; - org-bullets          [https://github.com/sabof/org-bullets]
@@ -1293,9 +1294,15 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
 (use-package all-the-icons
   :ensure t
   :config
-  ;; The below command needs to be run only once manually
+  ;; The below command needs to be run only once manually to install the needed fonts
   ;; (all-the-icons-install-fonts)
   )
+
+;; Modeline icons. Show icons instead of mode names
+(use-package mode-icons
+  :ensure t
+  :config
+  (mode-icons-mode))
 
 
 ;;; init.el ends here
