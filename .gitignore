@@ -13,6 +13,7 @@ projectile-bookmarks.eld
 recentf
 personal.el
 tramp
+url/
 # Uncomment the below if you want to ignore backup (autosave) files
 #[#]*[#]
 
