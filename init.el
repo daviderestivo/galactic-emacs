@@ -33,6 +33,7 @@
 ;; This is my Emacs config file. Below you can find the list of the
 ;; packages used:
 ;;
+;; - all-the-icons        [https://github.com/domtronn/all-the-icons.el]
 ;; - atom-one-dark-theme  [https://github.com/jonathanchu/atom-one-dark-theme]
 ;; - auto-package-update  [https://github.com/rranelli/auto-package-update.el]
 ;; - cisco-router-mode    [https://www.emacswiki.org/emacs/download/cisco-router-mode.el]
@@ -1287,6 +1288,14 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
      (add-hook 'eshell-exit-hook
                (lambda ()
                  (delete-window))))
+
+;; All the icons
+(use-package all-the-icons
+  :ensure t
+  :config
+  ;; The below command needs to be run only once manually
+  ;; (all-the-icons-install-fonts)
+  )
 
 
 ;;; init.el ends here

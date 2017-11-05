@@ -19,6 +19,7 @@ git submodule foreach --recursive git checkout master
 The following is the list of the included packages. Packages dependencies are
 not listed.
 
+* all-the-icons [[Link](https://github.com/domtronn/all-the-icons.el)]
 * atom-one-dark-theme [[Link](https://github.com/jonathanchu/atom-one-dark-theme)]
 * auto-package-update [[Link](https://github.com/rranelli/auto-package-update.el)]
 * cisco-router-mode [[Link](https://www.emacswiki.org/emacs/download/cisco-router-mode.el)]
