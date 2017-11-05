@@ -697,51 +697,52 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
 (defun drestivo/eshell-prompt ()
   "Customize eshell prompt"
   (if (window-system)
-            (setq header-bg "#282C34")
-            (setq header-bg "black"))
+      (setq header-bg "#282C34")
+    ;; The background used when Emacs runs in a terminal
+    (setq header-bg "black"))
+  (concat
+   "┌─ "
+   (if (window-system)
+       (all-the-icons-faicon "folder-open-o")
+     "")
+   " "
+   (drestivo/with-face (concat (eshell/pwd) " ") :background header-bg)
+   (if (string= (ignore-errors (vc-responsible-backend default-directory)) "Git")
+       (progn
+         (setq git-status (split-string (vc-git--run-command-string default-directory "status" "-s")))
+         (drestivo/with-face
+          (format "[%s %s %s] "
+                  (if (window-system)
+                      (all-the-icons-faicon "git-square")
+                    "Git")
+                  (if (window-system)
+                      (concat (all-the-icons-octicon  "git-branch") ":" (car (vc-git-branches)))
+                    (concat "branch" ":" (car (vc-git-branches))))
+                  (concat
+                   "status:"
+                   (if (member "A" git-status)  "A" "-")   ;; Added files (not committed)
+                   (if (member "M" git-status)  "M" "-")   ;; Modified files
+                   (if (member "D" git-status)  "D" "-")   ;; Deleted files
+                   (if (member "??" git-status) "U" "-"))) ;; Untracked files
+          :background header-bg :foreground "LightGreen")))
+   (drestivo/with-face
     (concat
-     "┌─ "
+     "["
      (if (window-system)
-         (all-the-icons-faicon "folder-open-o")
-       "")
-     " "
-     (drestivo/with-face (concat (eshell/pwd) " ") :background header-bg)
-     (if (string= (ignore-errors (vc-responsible-backend default-directory)) "Git")
-         (progn
-           (setq git-status (split-string (vc-git--run-command-string default-directory "status" "-s")))
-           (drestivo/with-face
-            (format "[%s %s %s] "
-                    (if (window-system)
-                        (all-the-icons-faicon "git-square")
-                      "Git")
-                     (if (window-system)
-                         (concat (all-the-icons-octicon  "git-branch") ":" (car (vc-git-branches)))
-                         (concat "branch" ":" (car (vc-git-branches))))
-                    (concat
-                     "status:"
-                     (if (member "A" git-status)  "A" "-")   ;; Added files (not committed)
-                     (if (member "M" git-status)  "M" "-")   ;; Modified files
-                     (if (member "D" git-status)  "D" "-")   ;; Deleted files
-                     (if (member "??" git-status) "U" "-"))) ;; Untracked files
-            :background header-bg :foreground "LightGreen")))
-     (drestivo/with-face
-      (concat
-       "["
-       (if (window-system)
-           (concat
-           (all-the-icons-material "access_time")
-           " "))
-       (format-time-string "%Y-%m-%d %H:%M:%S" (current-time))
-       "]")
-      :background header-bg :foreground "gainsboro")
-     (drestivo/with-face "\n└─> " :background header-bg)
-     (drestivo/with-face user-login-name :foreground "LightBlue")
-     "@"
-     (drestivo/with-face (system-name) :foreground "LightGreen")
-     (if (= (user-uid) 0)
-         (drestivo/with-face " #" :foreground "LightRed")
-       " $")
-     " "))
+         (concat
+          (all-the-icons-material "access_time")
+          " "))
+     (format-time-string "%Y-%m-%d %H:%M:%S" (current-time))
+     "]")
+    :background header-bg :foreground "gainsboro")
+   (drestivo/with-face "\n└─> " :background header-bg)
+   (drestivo/with-face user-login-name :foreground "LightBlue")
+   "@"
+   (drestivo/with-face (system-name) :foreground "LightGreen")
+   (if (= (user-uid) 0)
+       (drestivo/with-face " #" :foreground "LightRed")
+     " $")
+   " "))
 
 
 ;;; Packages configuration section
