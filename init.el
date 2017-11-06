@@ -68,6 +68,7 @@
 ;; - which-key            [https://github.com/justbur/emacs-which-key]
 ;; - wttrin               [https://github.com/bcbcarl/emacs-wttrin]
 ;; - yaml-mode            [https://github.com/yoshiki/yaml-mode]
+;; - yang-mode            [https://github.com/mbj4668/yang-mode]
 ;; - yasnippet            [https://github.com/joaotavora/yasnippet]
 ;;
 ;; Feel free to drop me an email in case of questions.
@@ -1332,6 +1333,10 @@ This function requires `all-the-icons' package to be installed
   :ensure t
   :config
   (load-theme 'org-beautify t))
+
+;; YANG mode
+(use-package yang-mode
+  :ensure t)
 
 
 ;;; init.el ends here

@@ -54,6 +54,7 @@ not listed.
 * which-key [[Link](https://github.com/justbur/emacs-which-key)]
 * wttrin [[Link](https://github.com/bcbcarl/emacs-wttrin)]
 * yaml-mode [[Link](https://github.com/yoshiki/yaml-mode)]
+* yang-mode [[Link](https://github.com/mbj4668/yang-mode)]
 * yasnippet [[Link](https://github.com/joaotavora/yasnippet)]
 
 ## Key bindings
