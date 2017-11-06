@@ -51,6 +51,7 @@
 ;; - mode-icons           [https://github.com/ryuslash/mode-icons]
 ;; - nlinum-hl            [https://github.com/hlissner/emacs-nlinum-hl]
 ;; - ob-ipython           [https://github.com/gregsexton/ob-ipython]
+;; - org-beautify-theme   [https://github.com/jonnay/org-beautify-theme]
 ;; - org-bullets          [https://github.com/sabof/org-bullets]
 ;; - org-download         [https://github.com/abo-abo/org-download]
 ;; - org-plus-contrib     [http://orgmode.org]
@@ -1325,6 +1326,12 @@ This function requires `all-the-icons' package to be installed
   :ensure t
   :config
   (mode-icons-mode))
+
+;; Beautify org buffers
+(use-package org-beautify-theme
+  :ensure t
+  :config
+  (load-theme 'org-beautify t))
 
 
 ;;; init.el ends here
