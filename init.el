@@ -37,6 +37,7 @@
 ;; - atom-one-dark-theme  [https://github.com/jonathanchu/atom-one-dark-theme]
 ;; - auto-package-update  [https://github.com/rranelli/auto-package-update.el]
 ;; - cisco-router-mode    [https://www.emacswiki.org/emacs/download/cisco-router-mode.el]
+;; - command-log-mode     [https://github.com/lewang/command-log-mode]
 ;; - company-mode         [https://github.com/company-mode/company-mode]
 ;; - diff-hl              [https://github.com/dgutov/diff-hl]
 ;; - elpy                 [https://elpy.readthedocs.io]
@@ -894,7 +895,8 @@ This function requires `all-the-icons' package to be installed
                 (setq show-trailing-whitespace t)
                 (flyspell-prog-mode)
                 (org-indent-mode)
-                (superword-mode 1)))
+                (superword-mode 1)
+                (load-theme 'org-beautify t)))
   :bind
   ("\C-cl" . org-store-link)
   ("\C-ca" . org-agenda)
@@ -1336,12 +1338,17 @@ This function requires `all-the-icons' package to be installed
 ;; Beautify org buffers
 (use-package org-beautify-theme
   :ensure t
-  :config
-  (load-theme 'org-beautify t))
+  ;; This theme is loaded when entering ORG mode. Please see the above ORG section
+  )
 
 ;; YANG mode
 (use-package yang-mode
   :ensure t)
+
+;; Display the keys you typed in a special buffer: *command-log*
+(use-package command-log-mode
+  :ensure t
+  :defer t)
 
 
 ;;; init.el ends here
