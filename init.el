@@ -1316,7 +1316,7 @@ This function requires `all-the-icons' package to be installed
   (add-hook 'eshell-mode-hook
             (lambda ()
               ;; (setq eshell-destroy-buffer-when-process-dies t)
-              ;; Programs that need special displays:
+              ;; Programs that need special displays
               (add-to-list 'eshell-visual-subcommands '("git" "diff" "help" "log" "show")))))
 
 ;; All the icons
