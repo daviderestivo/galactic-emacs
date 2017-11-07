@@ -1305,14 +1305,19 @@ This function requires `all-the-icons' package to be installed
 
 ;; Eshell
 (use-package eshell
-     :ensure t
-     :config
-     ;; Eshell prompt customization
-     (setq eshell-prompt-function 'drestivo/eshell-prompt)
-     (setq eshell-highlight-prompt nil)
-     (add-hook 'eshell-exit-hook
-               (lambda ()
-                 (delete-window))))
+  :ensure t
+  :config
+  ;; Eshell prompt customization
+  (setq eshell-highlight-prompt nil)
+  (setq eshell-prompt-function 'drestivo/eshell-prompt)
+  (add-hook 'eshell-exit-hook
+            (lambda ()
+              (delete-window)))
+  (add-hook 'eshell-mode-hook
+            (lambda ()
+              ;; (setq eshell-destroy-buffer-when-process-dies t)
+              ;; Programs that need special displays:
+              (add-to-list 'eshell-visual-subcommands '("git" "diff" "help" "log" "show")))))
 
 ;; All the icons
 (use-package all-the-icons
