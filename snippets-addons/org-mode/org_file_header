@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: org_file_header
+# key: head_
+# --
+#+TITLE:  $0
+#+AUTHOR: `(insert user-full-name)`
+#+EMAIL:  `(insert user-mail-address)`
+#+DATE:   `(insert (shell-command-to-string "printf %s \"$(date)\""))`
+#+TAGS:   $1
