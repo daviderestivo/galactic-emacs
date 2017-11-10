@@ -35,7 +35,6 @@ not listed.
 * jinja2-mode [[Link](https://github.com/paradoxxxzero/jinja2-mode)]
 * magit [[Link](https://magit.vc)]
 * markdown-mode [[Link](http://jblevins.org/projects/markdown-mode)]
-* mode-icons [[Link](https://github.com/ryuslash/mode-icons)]
 * nlinum-hl [[Link](https://github.com/hlissner/emacs-nlinum-hl)]
 * ob-ipython [[Link](https://github.com/gregsexton/ob-ipython)]
 * org-beautify-theme [[Link](https://github.com/jonnay/org-beautify-theme)]

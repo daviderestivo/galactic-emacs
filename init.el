@@ -49,7 +49,6 @@
 ;; - jinja2-mode          [https://github.com/paradoxxxzero/jinja2-mode]
 ;; - magit                [https://magit.vc]
 ;; - markdown-mode        [http://jblevins.org/projects/markdown-mode]
-;; - mode-icons           [https://github.com/ryuslash/mode-icons]
 ;; - nlinum-hl            [https://github.com/hlissner/emacs-nlinum-hl]
 ;; - ob-ipython           [https://github.com/gregsexton/ob-ipython]
 ;; - org-beautify-theme   [https://github.com/jonnay/org-beautify-theme]
@@ -1328,12 +1327,6 @@ This function requires `all-the-icons' package to be installed
   ;; The below command needs to be run only once manually to install the needed fonts
   ;; (all-the-icons-install-fonts)
   )
-
-;; Modeline icons. Show icons instead of mode names
-(use-package mode-icons
-  :ensure t
-  :config
-  (mode-icons-mode))
 
 ;; Beautify org buffers
 (use-package org-beautify-theme
