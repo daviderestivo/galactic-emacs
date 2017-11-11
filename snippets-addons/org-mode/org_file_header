@@ -2,8 +2,8 @@
 # name: org_file_header
 # key: head_
 # --
-#+TITLE:  $0
-#+AUTHOR: `(insert user-full-name)`
-#+EMAIL:  `(insert user-mail-address)`
-#+DATE:   `(insert (shell-command-to-string "printf %s \"$(date)\""))`
-#+TAGS:   $1
+#+TITLE:  $1
+#+AUTHOR: `(format "%s" user-full-name)`
+#+EMAIL:  `(format "%s" user-mail-address)`
+#+DATE:   `(shell-command-to-string "printf %s \"$(date)\"")`
+#+TAGS:   $0
