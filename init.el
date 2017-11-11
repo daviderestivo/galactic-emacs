@@ -741,13 +741,26 @@ This function requires `all-the-icons' package to be installed
      "]")
     :background header-bg :foreground "gainsboro")
    (drestivo/with-face "\n└─> " :background header-bg)
-   (drestivo/with-face user-login-name :foreground "LightBlue")
+   (if (not (file-remote-p default-directory))
+       (drestivo/with-face user-login-name :foreground "LightBlue")
+     (let ((shell-file-name "/bin/sh"))
+       (drestivo/with-face (replace-regexp-in-string "\n$" ""
+                                                     (shell-command-to-string "whoami")) :foreground "LightBlue")))
    "@"
-   (drestivo/with-face (system-name) :foreground "LightGreen")
-   (if (= (user-uid) 0)
-       (drestivo/with-face " #" :foreground "LightRed")
-     " $")
-   " "))
+   (if (not (file-remote-p default-directory))
+       (drestivo/with-face (system-name) :foreground "LightGreen")
+     (let ((shell-file-name "/bin/sh"))
+       (drestivo/with-face (replace-regexp-in-string "\n$" ""
+                                                     (shell-command-to-string "hostname")) :foreground "LightGreen")))
+   (if (not (file-remote-p default-directory))
+       (if (= (user-uid) 0)
+           (drestivo/with-face " #" :foreground "LightRed")
+         " $")
+     (let ((shell-file-name "/bin/sh"))
+       (if (= (string-to-number (shell-command-to-string "id -u")) 0)
+           (drestivo/with-face " #" :foreground "LightRed")
+         " $")))
+     " "))
 
 
 ;;; Packages configuration section
