@@ -895,7 +895,9 @@ This function requires `all-the-icons' package to be installed
                 (flyspell-prog-mode)
                 (org-indent-mode)
                 (superword-mode 1)
-                (load-theme 'org-beautify t)))
+                (if (window-system)
+                    (load-theme 'org-beautify t))))
+
   :bind
   ("\C-cl" . org-store-link)
   ("\C-ca" . org-agenda)
@@ -1331,6 +1333,7 @@ This function requires `all-the-icons' package to be installed
 ;; Beautify org buffers
 (use-package org-beautify-theme
   :ensure t
+  :defer t
   ;; This theme is loaded when entering ORG mode. Please see the above ORG section
   )
 
