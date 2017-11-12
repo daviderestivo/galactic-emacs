@@ -722,7 +722,8 @@ This function requires `all-the-icons' package to be installed
                                                                                 (shell-command-to-string "id -u")))))
         (progn
           (setq drestivo/user-login-name (user-login-name)
-                drestivo/system-name (system-name)
+                ;; Remove the domain name from the local eshell prompt
+                drestivo/system-name (car (split-string (system-name) "\\."))
                 drestivo/user-uid (user-uid))))
       (concat
        "┌─ "
