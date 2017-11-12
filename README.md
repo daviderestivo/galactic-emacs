@@ -25,7 +25,8 @@ not listed.
 * cisco-router-mode [[Link](https://www.emacswiki.org/emacs/download/cisco-router-mode.el)]
 * command-log-mode [[Link](https://github.com/lewang/command-log-mode)]
 * company-mode [[Link](https://github.com/company-mode/company-mode)]
-* diff-hl [[Link](https://github.com/dgutov/diff-hl)
+* diff-hl [[Link](https://github.com/dgutov/diff-hl)]
+* dockerfile-mode  [[Link](https://github.com/spotify/dockerfile-mode)]
 * elpy [[Link](https://elpy.readthedocs.io)]
 * exec-path-from-shell [Link](https://github.com/purcell/exec-path-from-shell)]
 * helm [[Link](https://github.com/emacs-helm/helm)]
