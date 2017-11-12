@@ -702,65 +702,68 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
 This function requires `all-the-icons' package to be installed
 (https://github.com/domtronn/all-the-icons.el)."
   (if (window-system)
-      (setq header-bg "#282C34")
+      (setq drestivo/header-bg "#282C34")
     ;; The background used when Emacs runs in a terminal
-    (setq header-bg "black"))
-  (concat
-   "┌─ "
-   (if (window-system)
-       (all-the-icons-faicon "folder-open-o")
-     "")
-   " "
-   (drestivo/with-face (concat (eshell/pwd) " ") :background header-bg)
-   (if (string= (ignore-errors (vc-responsible-backend default-directory)) "Git")
-       (progn
-         (setq git-status (split-string (vc-git--run-command-string default-directory "status" "-s")))
-         (drestivo/with-face
-          (format "[%s %s %s] "
-                  (if (window-system)
-                      (all-the-icons-faicon "git-square")
-                    "Git")
-                  (if (window-system)
-                      (concat (all-the-icons-octicon  "git-branch") ":" (car (vc-git-branches)))
-                    (concat "branch" ":" (car (vc-git-branches))))
-                  (concat
-                   "status:"
-                   (if (member "A" git-status)  "A" "-")   ;; Added files (not committed)
-                   (if (member "M" git-status)  "M" "-")   ;; Modified files
-                   (if (member "D" git-status)  "D" "-")   ;; Deleted files
-                   (if (member "??" git-status) "U" "-"))) ;; Untracked files
-          :background header-bg :foreground "LightGreen")))
-   (drestivo/with-face
-    (concat
-     "["
-     (if (window-system)
-         (concat
-          (all-the-icons-material "access_time")
-          " "))
-     (format-time-string "%Y-%m-%d %H:%M:%S" (current-time))
-     "]")
-    :background header-bg :foreground "gainsboro")
-   (drestivo/with-face "\n└─> " :background header-bg)
-   (if (not (file-remote-p default-directory))
-       (drestivo/with-face user-login-name :foreground "LightBlue")
-     (let ((shell-file-name "/bin/sh"))
-       (drestivo/with-face (replace-regexp-in-string "\n$" ""
-                                                     (shell-command-to-string "whoami")) :foreground "LightBlue")))
-   "@"
-   (if (not (file-remote-p default-directory))
-       (drestivo/with-face (system-name) :foreground "LightGreen")
-     (let ((shell-file-name "/bin/sh"))
-       (drestivo/with-face (replace-regexp-in-string "\n$" ""
-                                                     (shell-command-to-string "hostname")) :foreground "LightGreen")))
-   (if (not (file-remote-p default-directory))
-       (if (= (user-uid) 0)
+    (setq drestivo/header-bg "black"))
+  ;; In order to set the eshell prompt correctly we need to
+  ;; distinguish between the case where we are in a local folder or
+  ;; the case where we are connected to a remote server via TRAMP
+  ;; (i.e.). The shell need to be temporary restored to the
+  ;; default one.
+  (let ((shell-file-name "/bin/sh"))
+    (progn
+      (if (file-remote-p default-directory)
+          (progn
+            (setq drestivo/user-login-name (replace-regexp-in-string "\n$" ""
+                                                                     (shell-command-to-string "whoami"))
+                  drestivo/system-name (replace-regexp-in-string "\n$" ""
+                                                                 (shell-command-to-string "hostname"))
+                  drestivo/user-uid (string-to-number (replace-regexp-in-string "\n$" ""
+                                                                                (shell-command-to-string "id -u")))))
+        (progn
+          (setq drestivo/user-login-name (user-login-name)
+                drestivo/system-name (system-name)
+                drestivo/user-uid (user-uid))))
+      (concat
+       "┌─ "
+       (if (window-system)
+           (all-the-icons-faicon "folder-open-o")
+         "")
+       " "
+       (drestivo/with-face (concat (eshell/pwd) " ") :background drestivo/header-bg)
+       (if (string= (ignore-errors (vc-responsible-backend default-directory)) "Git")
+           (progn
+             (setq git-status (split-string (vc-git--run-command-string default-directory "status" "-s")))
+             (drestivo/with-face
+              (format "[%s %s %s] "
+                      (if (window-system)
+                          (all-the-icons-faicon "git-square")
+                        "Git")
+                      (if (window-system)
+                          (concat (all-the-icons-octicon  "git-branch") ":" (car (vc-git-branches)))
+                        (concat "branch" ":" (car (vc-git-branches))))
+                      (concat
+                       "status:"
+                       (if (member "A" git-status)  "A" "-")   ;; Added files (not committed)
+                       (if (member "M" git-status)  "M" "-")   ;; Modified files
+                       (if (member "D" git-status)  "D" "-")   ;; Deleted files
+                       (if (member "??" git-status) "U" "-"))) ;; Untracked files
+              :background drestivo/header-bg :foreground "LightGreen")))
+       (drestivo/with-face
+        (concat
+         "["
+         (if (window-system)
+             (concat (all-the-icons-material "access_time") " "))
+         (format-time-string "%Y-%m-%d %H:%M:%S" (current-time))
+         "]") :background drestivo/header-bg :foreground "gainsboro")
+       (drestivo/with-face "\n└─> " :background drestivo/header-bg)
+       (drestivo/with-face drestivo/user-login-name :foreground "LightBlue")
+       "@"
+       (drestivo/with-face drestivo/system-name :foreground "LightGreen")
+       (if (= drestivo/user-uid 0)
            (drestivo/with-face " #" :foreground "LightRed")
          " $")
-     (let ((shell-file-name "/bin/sh"))
-       (if (= (string-to-number (shell-command-to-string "id -u")) 0)
-           (drestivo/with-face " #" :foreground "LightRed")
-         " $")))
-     " "))
+       " "))))
 
 
 ;;; Packages configuration section
