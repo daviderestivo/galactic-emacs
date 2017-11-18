@@ -1268,7 +1268,7 @@ This function requires `all-the-icons' package to be installed
   :config
   (setq whitespace-line-column 80) ;; limit line length
   (setq whitespace-style '(face lines-tail))
-  (setq whitespace-global-modes '(not org-mode))
+  (setq whitespace-global-modes '(not org-mode lisp-interaction-mode))
   (global-whitespace-mode t))
 
 ;; gnutls customization
