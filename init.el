@@ -180,8 +180,13 @@
 ;; Set the initial major mode of newly created buffers to org-mode
 (setq initial-major-mode (quote org-mode))
 
-;; Make *scratch* buffer blank and set major mode to lisp-interaction
-(setq initial-scratch-message nil)
+;; Set initial *scratch* buffer message and set major mode to
+;; lisp-interaction
+(setq initial-scratch-message (with-temp-buffer
+                                (insert-file-contents
+                                 (expand-file-name "scratch-ascii-art.txt"
+                                                  user-emacs-directory))
+                                (buffer-string)))
 (with-current-buffer
     (get-buffer "*scratch*")
   (lisp-interaction-mode))
