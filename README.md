@@ -63,6 +63,7 @@ not listed.
 | Key | Function |
 | :--- | :--- |
 | < f2 > | magit-status |
+| < f4 > | magit-list-repositories |
 | < f6 > | org-directory-search-ag |
 | < f7 > | Create new empty buffer |
 | < f8 > | ispell-word |

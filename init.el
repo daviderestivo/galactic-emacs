@@ -825,9 +825,14 @@ This function requires `all-the-icons' package to be installed
 (use-package magit
   :defer t
   :ensure t
-  :config
+  :init
+  (setq magit-repository-directories
+          (list '("~/.emacs.d" . 1 )
+                '("~/.dotfiles" . 1 )
+                '("~/org" . 1 )))
   :bind
-  ("<f2>" . magit-status))
+  ("<f2>" . magit-status)
+  ("<f4>" . magit-list-repositories))
 
 ;; ORG
 (use-package org
