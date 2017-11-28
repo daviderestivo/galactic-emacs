@@ -760,7 +760,7 @@ This function requires `all-the-icons' package to be installed
         (concat
          "["
          (if (window-system)
-             (concat (all-the-icons-material "access_time") " "))
+             (concat (all-the-icons-faicon "clock-o") " "))
          (format-time-string "%Y-%m-%d %H:%M:%S" (current-time))
          "]") :background drestivo/header-bg :foreground "gainsboro")
        (drestivo/with-face "\n└─> " :background drestivo/header-bg)
