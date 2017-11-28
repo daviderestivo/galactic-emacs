@@ -854,6 +854,7 @@ This function requires `all-the-icons' package to be installed
                      (find-lisp-find-files (concat org-directory "agenda") "\.org$")
                      (find-lisp-find-files (concat org-directory "notebooks") "\.org$")
                      (find-lisp-find-files (concat org-directory "work-projects") "\.org$")
+                     (list (concat org-directory "refile-beorg.org"))
                      (list (concat org-directory "refile.org"))))))
   (setq org-default-notes-file (concat org-directory "refile.org"))
   ;; Additional files to be searched in addition to the default ones
@@ -863,7 +864,7 @@ This function requires `all-the-icons' package to be installed
          (find-lisp-find-files (concat org-directory "home-projects") "\.org$")
          (find-lisp-find-files (concat org-directory "work-projects") "\.org$")
          (find-lisp-find-files (concat org-directory "notebooks") "\.org$")
-         (list (concat org-directory "mobileorg.org"))
+         (list (concat org-directory "refile-beorg.org"))
          (list (concat org-directory "refile.org"))))
   ;; Configure refiling
   (setq org-outline-path-complete-in-steps nil)
