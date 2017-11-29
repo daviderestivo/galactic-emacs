@@ -33,44 +33,45 @@
 ;; This is my Emacs config file. Below you can find the list of the
 ;; packages used:
 ;;
-;; - all-the-icons        [https://github.com/domtronn/all-the-icons.el]
-;; - atom-one-dark-theme  [https://github.com/jonathanchu/atom-one-dark-theme]
-;; - auto-package-update  [https://github.com/rranelli/auto-package-update.el]
-;; - cisco-router-mode    [https://www.emacswiki.org/emacs/download/cisco-router-mode.el]
-;; - command-log-mode     [https://github.com/lewang/command-log-mode]
-;; - company-mode         [https://github.com/company-mode/company-mode]
-;; - diff-hl              [https://github.com/dgutov/diff-hl]
-;; - dockerfile-mode      [https://github.com/spotify/dockerfile-mode]
-;; - elpy                 [https://elpy.readthedocs.io]
-;; - exec-path-from-shell [https://github.com/purcell/exec-path-from-shell]
-;; - helm                 [https://github.com/emacs-helm/helm]
-;; - helm-ag              [https://github.com/syohex/emacs-helm-ag]
-;; - helm-descbinds       [https://github.com/emacs-helm/helm-descbinds]
-;; - helm-projectile      [https://github.com/bbatsov/helm-projectile]
-;; - jinja2-mode          [https://github.com/paradoxxxzero/jinja2-mode]
-;; - magit                [https://magit.vc]
-;; - markdown-mode        [http://jblevins.org/projects/markdown-mode]
-;; - nlinum-hl            [https://github.com/hlissner/emacs-nlinum-hl]
-;; - ob-ipython           [https://github.com/gregsexton/ob-ipython]
-;; - org-beautify-theme   [https://github.com/jonnay/org-beautify-theme]
-;; - org-bullets          [https://github.com/sabof/org-bullets]
-;; - org-download         [https://github.com/abo-abo/org-download]
-;; - org-plus-contrib     [http://orgmode.org]
-;; - projectile           [https://github.com/bbatsov/projectile]
-;; - psession             [https://github.com/thierryvolpiatto/psession]
-;; - py-autopep8          [https://github.com/paetzke/py-autopep8.el]
-;; - rainbow-delimiters   [https://www.emacswiki.org/emacs/RainbowDelimiters]
-;; - smart-mode-line      [https://github.com/Malabarba/smart-mode-line]
-;; - transpose-frame      [https://www.emacswiki.org/emacs/TransposeFrame]
-;; - undo-tree            [https://github.com/emacsmirror/undo-tree]
-;; - use-package          [https://github.com/jwiegley/use-package]
-;; - volatile-highlights  [https://github.com/k-talo/volatile-highlights.el]
-;; - wheatgrass-theme     [https://github.com/jwiegley/emacs-release/blob/master/etc/themes/wheatgrass-theme.el]
-;; - which-key            [https://github.com/justbur/emacs-which-key]
-;; - wttrin               [https://github.com/bcbcarl/emacs-wttrin]
-;; - yaml-mode            [https://github.com/yoshiki/yaml-mode]
-;; - yang-mode            [https://github.com/mbj4668/yang-mode]
-;; - yasnippet            [https://github.com/joaotavora/yasnippet]
+;; - all-the-icons                     [https://github.com/domtronn/all-the-icons.el]
+;; - atom-one-dark-theme               [https://github.com/jonathanchu/atom-one-dark-theme]
+;; - auto-package-update               [https://github.com/rranelli/auto-package-update.el]
+;; - cisco-router-mode                 [https://www.emacswiki.org/emacs/download/cisco-router-mode.el]
+;; - command-log-mode                  [https://github.com/lewang/command-log-mode]
+;; - company-mode                      [https://github.com/company-mode/company-mode]
+;; - diff-hl                           [https://github.com/dgutov/diff-hl]
+;; - dockerfile-mode                   [https://github.com/spotify/dockerfile-mode]
+;; - elpy                              [https://elpy.readthedocs.io]
+;; - exec-path-from-shell              [https://github.com/purcell/exec-path-from-shell]
+;; - helm                              [https://github.com/emacs-helm/helm]
+;; - helm-ag                           [https://github.com/syohex/emacs-helm-ag]
+;; - helm-descbinds                    [https://github.com/emacs-helm/helm-descbinds]
+;; - helm-projectile                   [https://github.com/bbatsov/helm-projectile]
+;; - jinja2-mode                       [https://github.com/paradoxxxzero/jinja2-mode]
+;; - magit                             [https://magit.vc]
+;; - markdown-mode                     [http://jblevins.org/projects/markdown-mode]
+;; - nlinum-hl                         [https://github.com/hlissner/emacs-nlinum-hl]
+;; - ob-ipython                        [https://github.com/gregsexton/ob-ipython]
+;; - org-beautify-theme                [https://github.com/jonnay/org-beautify-theme]
+;; - org-bullets                       [https://github.com/sabof/org-bullets]
+;; - org-download                      [https://github.com/abo-abo/org-download]
+;; - org-plus-contrib                  [http://orgmode.org]
+;; - projectile                        [https://github.com/bbatsov/projectile]
+;; - psession                          [https://github.com/thierryvolpiatto/psession]
+;; - py-autopep8                       [https://github.com/paetzke/py-autopep8.el]
+;; - rainbow-delimiters                [https://www.emacswiki.org/emacs/RainbowDelimiters]
+;; - smart-mode-line                   [https://github.com/Malabarba/smart-mode-line]
+;; - transpose-frame                   [https://www.emacswiki.org/emacs/TransposeFrame]
+;; - undo-tree                         [https://github.com/emacsmirror/undo-tree]
+;; - use-package                       [https://github.com/jwiegley/use-package]
+;; - use-package-ensure-system-package [https://github.com/waymondo/use-package-ensure-system-package]
+;; - volatile-highlights               [https://github.com/k-talo/volatile-highlights.el]
+;; - wheatgrass-theme                  [https://github.com/jwiegley/emacs-release/blob/master/etc/themes/wheatgrass-theme.el]
+;; - which-key                         [https://github.com/justbur/emacs-which-key]
+;; - wttrin                            [https://github.com/bcbcarl/emacs-wttrin]
+;; - yaml-mode                         [https://github.com/yoshiki/yaml-mode]
+;; - yang-mode                         [https://github.com/mbj4668/yang-mode]
+;; - yasnippet                         [https://github.com/joaotavora/yasnippet]
 ;;
 ;; Feel free to drop me an email in case of questions.
 
@@ -782,6 +783,11 @@ This function requires `all-the-icons' package to be installed
 ;; transpose-frame
 ;; https://www.emacswiki.org/emacs/TransposeFrame
 (load-library "transpose-frame")
+
+;; Ensure related system binary packages exist along side of the
+;; use-package declarations
+(use-package use-package-ensure-system-package
+  :ensure t)
 
 ;; atom-one-dark-theme (GUI mode) and wheatgrass-theme (Terminal mode)
 (use-package atom-one-dark-theme
