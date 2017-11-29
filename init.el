@@ -1121,6 +1121,7 @@ This function requires `all-the-icons' package to be installed
 ;; On macOS use: 'brew install the_silver_searcher'
 (use-package helm-ag
   :ensure t
+  :ensure-system-package (ag . "brew install the_silver_searcher")
   :config
   ;; Use .agignore file at project root
   (setq helm-ag-use-agignore t)
@@ -1288,6 +1289,7 @@ This function requires `all-the-icons' package to be installed
 ;; Please look at: https://blogs.fsfe.org/jens.lechtenboerger/2014/03/23/certificate-pinning-for-gnu-emacs/
 (use-package gnutls
   :ensure t
+  :ensure-system-package (gnutls-cli . "brew install gnutls")
   :config
   (setq tls-program '("gnutls-cli --strict-tofu -p %p %h")
         imap-ssl-program '("gnutls-cli --strict-tofu -p %p %s")
