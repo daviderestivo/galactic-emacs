@@ -843,7 +843,7 @@ This function requires `all-the-icons' package to be installed
                 '("~/org" . 1 )))
   :bind
   ("<f2>" . magit-status)
-  ("<f4>" . magit-list-repositories))
+  ("<f5>" . magit-list-repositories))
 
 ;; ORG
 (use-package org
