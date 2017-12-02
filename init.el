@@ -584,16 +584,6 @@ The following %-sequences are provided:
     (setq buffer-offer-save t)))
 (global-set-key (kbd "<f7>") 'drestivo/new-empty-buffer)
 
-;; Open a new terminal window below the current one
-(defun drestivo/tb ()
-  "Add terminal on the bottom"
-  (interactive)
-  (split-window-below)
-  (balance-windows)
-  (other-window 1)
-  (eshell))
-(defalias 'tb 'drestivo/tb)
-
 ;; copy-line - Source https://www.emacswiki.org/emacs/CopyingWholeLines
 (defun drestivo/copy-line (arg)
   "Copy lines (as many as prefix argument) in the kill ring.
