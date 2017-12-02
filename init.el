@@ -60,6 +60,7 @@
 ;; - psession                          [https://github.com/thierryvolpiatto/psession]
 ;; - py-autopep8                       [https://github.com/paetzke/py-autopep8.el]
 ;; - rainbow-delimiters                [https://www.emacswiki.org/emacs/RainbowDelimiters]
+;; - shell-pop-el                      [https://github.com/kyagi/shell-pop-el
 ;; - smart-mode-line                   [https://github.com/Malabarba/smart-mode-line]
 ;; - transpose-frame                   [https://www.emacswiki.org/emacs/TransposeFrame]
 ;; - undo-tree                         [https://github.com/emacsmirror/undo-tree]
@@ -1378,6 +1379,19 @@ This function requires `all-the-icons' package to be installed
   :ensure t
   :config
   (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode)))
+
+;; Pop-up a shell
+(use-package shell-pop
+  :ensure t
+  :config
+  (custom-set-variables
+   '(shell-pop-default-directory "/Users/gutter")
+   '(shell-pop-shell-type '("eshell" "*eshell*" (lambda () (eshell))))
+   '(shell-pop-term-shell "eshell")
+   '(shell-pop-universal-key "C-c C-t")
+   '(shell-pop-window-size 50)
+   '(shell-pop-full-span t)
+   '(shell-pop-window-position "bottom")))
 
 
 ;;; init.el ends here
