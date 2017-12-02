@@ -1385,7 +1385,6 @@ This function requires `all-the-icons' package to be installed
   :ensure t
   :config
   (custom-set-variables
-   '(shell-pop-default-directory "/Users/gutter")
    '(shell-pop-shell-type '("eshell" "*eshell*" (lambda () (eshell))))
    '(shell-pop-term-shell "eshell")
    '(shell-pop-universal-key "C-c C-t")
