@@ -65,7 +65,6 @@
 ;; - transpose-frame                   [https://www.emacswiki.org/emacs/TransposeFrame]
 ;; - undo-tree                         [https://github.com/emacsmirror/undo-tree]
 ;; - use-package                       [https://github.com/jwiegley/use-package]
-;; - use-package-ensure-system-package [https://github.com/waymondo/use-package-ensure-system-package]
 ;; - volatile-highlights               [https://github.com/k-talo/volatile-highlights.el]
 ;; - wheatgrass-theme                  [https://github.com/jwiegley/emacs-release/blob/master/etc/themes/wheatgrass-theme.el]
 ;; - which-key                         [https://github.com/justbur/emacs-which-key]
@@ -101,6 +100,7 @@
   (package-install 'use-package))
 (eval-when-compile
   (require 'use-package))
+(use-package use-package-ensure-system-package)
 (setq package-enable-at-startup nil)
 (require 'diminish)
 (require 'bind-key)
@@ -774,11 +774,6 @@ This function requires `all-the-icons' package to be installed
 ;; transpose-frame
 ;; https://www.emacswiki.org/emacs/TransposeFrame
 (load-library "transpose-frame")
-
-;; Ensure related system binary packages exist along side of the
-;; use-package declarations
-(use-package use-package-ensure-system-package
-  :ensure t)
 
 ;; atom-one-dark-theme (GUI mode) and wheatgrass-theme (Terminal mode)
 (use-package atom-one-dark-theme

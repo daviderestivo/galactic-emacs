@@ -51,7 +51,6 @@ not listed.
 * transpose-frame [[Link](https://www.emacswiki.org/emacs/TransposeFrame)]
 * undo-tree [[Link](https://github.com/emacsmirror/undo-tree)]
 * use-package [[Link](https://github.com/jwiegley/use-package)]
-* use-package-ensure-system-package [[Link](https://github.com/waymondo/use-package-ensure-system-package)]
 * volatile-highlights [[Link](https://github.com/k-talo/volatile-highlights.el)]
 * wheatgrass-theme [[Link](https://github.com/jwiegley/emacs-release/blob/master/etc/themes/wheatgrass-theme.el)]
 * which-key [[Link](https://github.com/justbur/emacs-which-key)]
