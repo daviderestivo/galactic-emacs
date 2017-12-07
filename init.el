@@ -100,7 +100,8 @@
   (package-install 'use-package))
 (eval-when-compile
   (require 'use-package))
-(use-package use-package-ensure-system-package)
+(use-package use-package-ensure-system-package
+  :ensure t)
 (setq package-enable-at-startup nil)
 (require 'diminish)
 (require 'bind-key)
