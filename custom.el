@@ -12,12 +12,6 @@
  '(package-selected-packages
    (quote
     (shell-pop dockerfile-mode command-log-mode yang-mode org-beautify-theme all-the-icons nlin-hl nlinum-hl diff-hl org-bullets which-key wttrin volatile-highlights helm-ag org-download helm-projectile psession undo-tree helm-descbinds org-plus-contrib ob-ipython helm-config py-autopep8 elpy magit markdown-mode atom-one-dark-theme projectile company jinja2-mode helm yaml-mode smart-mode-line auto-package-update rainbow-delimiters exec-path-from-shell diminish use-package)))
- '(shell-pop-full-span t)
- '(shell-pop-shell-type (quote ("eshell" "*eshell*" (lambda nil (eshell)))))
- '(shell-pop-term-shell "eshell")
- '(shell-pop-universal-key "C-c C-t")
- '(shell-pop-window-position "bottom")
- '(shell-pop-window-size 50)
  '(tramp-syntax (quote default) nil (tramp)))
 
 (custom-set-faces

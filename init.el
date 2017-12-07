@@ -1382,7 +1382,7 @@ This function requires `all-the-icons' package to be installed
   (custom-set-variables
    '(shell-pop-shell-type '("eshell" "*eshell*" (lambda () (eshell))))
    '(shell-pop-term-shell "eshell")
-   '(shell-pop-universal-key "C-c C-t")
+   '(shell-pop-universal-key "C-x t")
    '(shell-pop-window-size 50)
    '(shell-pop-full-span t)
    '(shell-pop-window-position "bottom")))

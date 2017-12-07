@@ -79,7 +79,7 @@ not listed.
 | M-s | helm-do-ag-this-file |
 | C-u M-s | helm-do-ag-buffers |
 | C-+ | drestivo/insert-date |
-| C-c C-t | shell-pop-universal-key |
+| C-x t | shell-pop-universal-key |
 
 
 Feel free to drop me an email in case of questions.
