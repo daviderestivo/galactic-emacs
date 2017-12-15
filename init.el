@@ -103,7 +103,14 @@
 (use-package use-package-ensure-system-package
   :ensure t)
 (setq package-enable-at-startup nil)
-(require 'diminish)
+
+ ;; Bootstrap `diminish'
+(unless (package-installed-p 'diminish)
+  (package-refresh-contents)
+  (package-install 'diminish))
+(eval-when-compile
+  (require 'diminish))
+
 (require 'bind-key)
 
 ;; Install `cl-generic' if required
