@@ -512,6 +512,13 @@ backed up."
         'font-lock-face 'calendar-iso-week-face))
 (setq calendar-intermonth-header (propertize "Wk"))
 
+;; Save the cursor position for every file you opened
+(if (version< emacs-version "25.0")
+    (progn
+      (require 'saveplace)
+      (setq-default save-place t))
+  (save-place-mode 1))
+
 
 ;;; Helper functions
 
