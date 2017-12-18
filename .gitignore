@@ -10,8 +10,9 @@ elpa/
 eshell/history
 eshell/lastdir
 projectile-bookmarks.eld
-recentf
 personal.el
+places
+recentf
 tramp
 url/
 # Uncomment the below if you want to ignore backup (autosave) files
