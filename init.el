@@ -908,10 +908,6 @@ This function requires `all-the-icons' package to be installed
   (setq org-startup-truncated nil)
   ;; When in a URL pressing enter key opens it
   (setq org-return-follows-link t)
-  ;; org-mobile configuration: File where mobile captured notes will be stored
-  (setq org-mobile-inbox-for-pull "~/org/agenda/mobileorg.org")
-  ;; org-mobile configuration: Dropbox root directory
-  (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
   ;; Capture templates for: TODO tasks and notes
   (setq org-capture-templates
         (quote (("t" "Todo" entry (file (lambda () (concat org-directory "refile.org")))
