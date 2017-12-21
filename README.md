@@ -78,6 +78,8 @@ not listed.
 | C-x C-r | helm-recentf |
 | M-s | helm-do-ag-this-file |
 | C-u M-s | helm-do-ag-buffers |
+| C-c C-l |  helm-eshell-history |
+| C-c C-; |  helm-eshell-prompts |
 | C-+ | drestivo/insert-date |
 | C-x t | shell-pop-universal-key |
 

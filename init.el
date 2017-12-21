@@ -1354,7 +1354,9 @@ This function requires `all-the-icons' package to be installed
             (lambda ()
               ;; (setq eshell-destroy-buffer-when-process-dies t)
               ;; Programs that need special displays
-              (add-to-list 'eshell-visual-subcommands '("git" "diff" "help" "log" "show")))))
+              (add-to-list 'eshell-visual-subcommands '("git" "diff" "help" "log" "show"))
+              (define-key eshell-mode-map (kbd "C-c C-l")  'helm-eshell-history)
+              (define-key eshell-mode-map (kbd "C-c C-;")  'helm-eshell-prompts))))
 
 ;; All the icons
 (use-package all-the-icons
