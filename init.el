@@ -1400,5 +1400,10 @@ This function requires `all-the-icons' package to be installed
    '(shell-pop-full-span t)
    '(shell-pop-window-position "bottom")))
 
+;; Fish-like autosuggestions in eshell
+(use-package esh-autosuggest
+  :hook (eshell-mode . esh-autosuggest-mode)
+  :ensure t)
+
 
 ;;; init.el ends here
