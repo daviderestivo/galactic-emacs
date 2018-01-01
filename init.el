@@ -42,6 +42,7 @@
 ;; - diff-hl                           [https://github.com/dgutov/diff-hl]
 ;; - dockerfile-mode                   [https://github.com/spotify/dockerfile-mode]
 ;; - elpy                              [https://elpy.readthedocs.io]
+;; - esh-autosuggest                   [https://github.com/dieggsy/esh-autosuggest]
 ;; - exec-path-from-shell              [https://github.com/purcell/exec-path-from-shell]
 ;; - helm                              [https://github.com/emacs-helm/helm]
 ;; - helm-ag                           [https://github.com/syohex/emacs-helm-ag]
