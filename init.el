@@ -781,6 +781,26 @@ This function requires `all-the-icons' package to be installed
        " "))))
 
 
+;;
+;; ORG utility functions
+;; Link: https://stackoverflow.com/questions/25161792/emacs-org-mode-how-can-i-fold-everything-but-the-current-headline
+;;
+(defun drestivo/org-show-current-heading-tidily ()
+  (interactive)
+  "In an org file shows current entry, keeping other entries collapsed."
+  (if (save-excursion (end-of-line) (outline-invisible-p))
+      (progn (org-show-entry) (show-children))
+    (outline-back-to-heading)
+    (unless (and (bolp) (org-on-heading-p))
+      (org-up-heading-safe)
+      (hide-subtree)
+      (error "Boundary reached"))
+    (org-overview)
+    (org-reveal t)
+    (org-show-entry)
+    (show-children)))
+
+
 ;;; Packages configuration section
 
 ;; cisco-router-mode
@@ -936,6 +956,7 @@ This function requires `all-the-icons' package to be installed
   ("\C-ca" . org-agenda)
   ("\C-cc" . org-capture)
   ("\C-cb" . org-iswitchb)
+  ("\C-cj" . drestivo/org-show-current-heading-tidily)
   ("<f6>"  . drestivo/org-directory-search-ag))
 
 ;; ORG Babel: Main section

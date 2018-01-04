@@ -83,6 +83,7 @@ not listed.
 | C-c C-; |  helm-eshell-prompts |
 | C-+ | drestivo/insert-date |
 | C-x t | shell-pop-universal-key |
+| C-c j | drestivo/org-show-current-heading-tidily |
 
 
 Feel free to drop me an email in case of questions.
