@@ -484,6 +484,8 @@ backed up."
 
 ;; copy-line key binding
 (global-set-key (kbd "C-=") 'drestivo/copy-line)
+;; No newline is added when pasting
+(setq drestivo/copy-line-append-newline nil)
 
 ;; Make isearch treat space dash underscore newline as same
 (setq search-whitespace-regexp "[-_ \n]")
@@ -619,7 +621,8 @@ The following %-sequences are provided:
     (if (eq last-command 'drestivo/copy-line)
         (kill-append (buffer-substring beg end) (< end beg))
       (kill-ring-save beg end)))
-  (kill-append "\n" nil)
+  (if drestivo/copy-line-append-newline
+      (kill-append "\n" nil))
   (beginning-of-line (or (and arg (1+ arg)) 2))
   (if (and arg (not (= 1 arg))) (message "%d lines copied" arg)))
 
