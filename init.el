@@ -1313,10 +1313,9 @@ This function requires `all-the-icons' package to be installed
   :ensure t
   :ensure-system-package (gnutls-cli . "brew install gnutls || sudo apt-get install gnutls-bin")
   :config
-  (setq tls-program '("gnutls-cli --strict-tofu -p %p %h")
-        imap-ssl-program '("gnutls-cli --strict-tofu -p %p %s")
-        smtpmail-stream-type 'starttls
-        starttls-extra-arguments '("--strict-tofu")))
+  (setq tls-program '("gnutls-cli -p %p %h")
+        imap-ssl-program '("gnutls-cli -p %p %s")
+        smtpmail-stream-type 'starttls))
 
 ;; dired customization
 (use-package dired
