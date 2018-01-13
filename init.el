@@ -1430,5 +1430,13 @@ This function requires `all-the-icons' package to be installed
   :hook (eshell-mode . esh-autosuggest-mode)
   :ensure t)
 
+;; When find-file and dired-mode try to access a non writable file
+;; auto-sudoedit re-opens the file automatically using sudo in TRAMP
+(use-package auto-sudoedit
+  :ensure t
+  :diminish auto-sudoedit-mode
+  :config
+  (auto-sudoedit-mode 1))
+
 
 ;;; init.el ends here
