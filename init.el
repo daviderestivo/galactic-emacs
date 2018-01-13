@@ -36,6 +36,7 @@
 ;; - all-the-icons                     [https://github.com/domtronn/all-the-icons.el]
 ;; - atom-one-dark-theme               [https://github.com/jonathanchu/atom-one-dark-theme]
 ;; - auto-package-update               [https://github.com/rranelli/auto-package-update.el]
+;; - auto-sudoedit                     [https://github.com/ncaq/auto-sudoedit]
 ;; - cisco-router-mode                 [https://www.emacswiki.org/emacs/download/cisco-router-mode.el]
 ;; - command-log-mode                  [https://github.com/lewang/command-log-mode]
 ;; - company-mode                      [https://github.com/company-mode/company-mode]
