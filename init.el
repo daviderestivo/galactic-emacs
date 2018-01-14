@@ -1438,5 +1438,28 @@ This function requires `all-the-icons' package to be installed
   :config
   (auto-sudoedit-mode 1))
 
+;; Elfeed is an extensible web feed reader for Emacs, supporting both
+;; Atom and RSS
+(use-package elfeed
+  :ensure t
+  :config
+  :bind
+  ("\C-xw" . elfeed))
+
+;; Web interface to Elfeed
+(use-package elfeed-web
+  :ensure t
+  :config
+  ;; Uncomment the following line to enable the elfeed web server
+  ;; (elfeed-web-start)
+  )
+
+;; Configure the Elfeed RSS reader with an Orgmode file
+(use-package elfeed-org
+  :ensure t
+  :config
+  (elfeed-org)
+  (setq rmh-elfeed-org-files (list "~/.emacs.d/elfeed.org")))
+
 
 ;;; init.el ends here

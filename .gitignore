@@ -5,6 +5,7 @@
 .org-id-locations
 auto-save-list/
 bookmarks
+elfeed.org
 elisp-objects/
 elpa/
 eshell/history
