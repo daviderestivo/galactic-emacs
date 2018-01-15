@@ -27,7 +27,10 @@ not listed.
 * command-log-mode [[Link](https://github.com/lewang/command-log-mode)]
 * company-mode [[Link](https://github.com/company-mode/company-mode)]
 * diff-hl [[Link](https://github.com/dgutov/diff-hl)]
-* dockerfile-mode  [[Link](https://github.com/spotify/dockerfile-mode)]
+* dockerfile-mode [[Link](https://github.com/spotify/dockerfile-mode)]
+* elfeed [[Link](https://github.com/skeeto/elfeed)]
+* elfeed-org [[Link](https://github.com/remyhonig/elfeed-org)]
+* elfeed-web [[Link](https://github.com/skeeto/elfeed/tree/master/web)]
 * elpy [[Link](https://elpy.readthedocs.io)]
 * esh-autosuggest [[Link](https://github.com/dieggsy/esh-autosuggest)]
 * exec-path-from-shell [Link](https://github.com/purcell/exec-path-from-shell)]
@@ -48,7 +51,7 @@ not listed.
 * psession [[Link](https://github.com/thierryvolpiatto/psession)]
 * py-autopep8 [[Link](https://github.com/paetzke/py-autopep8.el)]
 * rainbow-delimiters [[Link](https://www.emacswiki.org/emacs/RainbowDelimiters)]
-* shell-pop-el    [[link](https://github.com/kyagi/shell-pop-el)]
+* shell-pop-el [[link](https://github.com/kyagi/shell-pop-el)]
 * smart-mode-line [[Link](https://github.com/Malabarba/smart-mode-line)]
 * transpose-frame [[Link](https://www.emacswiki.org/emacs/TransposeFrame)]
 * undo-tree [[Link](https://github.com/emacsmirror/undo-tree)]
@@ -85,6 +88,7 @@ not listed.
 | C-+ | drestivo/insert-date |
 | C-x t | shell-pop-universal-key |
 | C-c j | drestivo/org-show-current-heading-tidily |
+| C-x w | elfeed |
 
 
 Feel free to drop me an email in case of questions.
