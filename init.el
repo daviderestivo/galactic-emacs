@@ -938,10 +938,12 @@ This function requires `all-the-icons' package to be installed
   (setq org-return-follows-link t)
   ;; Capture templates for: TODO tasks and notes
   (setq org-capture-templates
-        (quote (("t" "Todo" entry (file (lambda () (concat org-directory "refile.org")))
-                 "* TODO %?\n%U\n%a\n")
-                ("n" "Note" entry (file (lambda () (concat org-directory "refile.org")))
-                 "* %? :NOTE:\n%U\n%a\n"))))
+        (quote (("e" "Elfeed" entry (file (lambda () (concat org-directory "refile.org")))
+                 "*  %:description\nLink: %a\n\n")
+                ("n" "Note"   entry (file (lambda () (concat org-directory "refile.org")))
+                 "* %? :NOTE:\n%U\n%a\n")
+                ("t" "Todo"   entry (file (lambda () (concat org-directory "refile.org")))
+                 "* TODO %?\n%U\n%a\n"))))
   ;; ORG tags shortcuts
   (setq org-tag-alist '(("HIGH" . ?h)
                         ("MEDIUM" . ?m)
