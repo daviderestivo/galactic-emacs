@@ -1448,7 +1448,7 @@ This function requires `all-the-icons' package to be installed
   :config
   ;; A snippet for periodic upddate the feeds (3 mins since Emacs start, then every
   ;; 15 mins)
-  (run-at-time 180 900 (lambda () (unless elfeed-waiting (elfeed-update))))
+  (run-at-time 180 900 '(lambda () (unless elfeed-waiting (elfeed-update))))
   :bind
   ("\C-xw" . elfeed))
 
