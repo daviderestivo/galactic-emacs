@@ -789,7 +789,7 @@ This function requires `all-the-icons' package to be installed
 
 
 ;;
-;; ORG utility functions
+;; ORG helper functions
 ;; Link: https://stackoverflow.com/questions/25161792/emacs-org-mode-how-can-i-fold-everything-but-the-current-headline
 ;;
 (defun drestivo/org-show-current-heading-tidily ()
