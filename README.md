@@ -29,6 +29,7 @@ not listed.
 * diff-hl [[Link](https://github.com/dgutov/diff-hl)]
 * dockerfile-mode [[Link](https://github.com/spotify/dockerfile-mode)]
 * elfeed [[Link](https://github.com/skeeto/elfeed)]
+* elfeed-goodies [[Link](https://github.com/algernon/elfeed-goodies)]
 * elfeed-org [[Link](https://github.com/remyhonig/elfeed-org)]
 * elfeed-web [[Link](https://github.com/skeeto/elfeed/tree/master/web)]
 * elpy [[Link](https://elpy.readthedocs.io)]

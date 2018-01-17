@@ -43,6 +43,7 @@
 ;; - diff-hl                           [https://github.com/dgutov/diff-hl]
 ;; - dockerfile-mode                   [https://github.com/spotify/dockerfile-mode]
 ;; - elfeed                            [https://github.com/skeeto/elfeed]
+;; - elfeed-goodies                   [https://github.com/algernon/elfeed-goodies]
 ;; - elfeed-org                        [https://github.com/remyhonig/elfeed-org]
 ;; - elfeed-web                        [https://github.com/skeeto/elfeed/tree/master/web]
 ;; - elpy                              [https://elpy.readthedocs.io]
@@ -1468,6 +1469,14 @@ This function requires `all-the-icons' package to be installed
   :config
   (elfeed-org)
   (setq rmh-elfeed-org-files (list "~/.emacs.d/elfeed.org")))
+
+
+;; Various bits and pieces to enhance the Elfeed user experience
+(use-package elfeed-goodies
+  :ensure t
+  :config
+  (setq elfeed-goodies/entry-pane-position 'bottom)
+  (elfeed-goodies/setup))
 
 
 ;;; init.el ends here
