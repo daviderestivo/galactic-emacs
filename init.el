@@ -808,6 +808,73 @@ This function requires `all-the-icons' package to be installed
     (org-show-entry)
     (show-children)))
 
+;;
+;; Elfeed helper functions
+;;
+;; Functions to support syncing .elfeed between machines
+;; makes sure elfeed reads index from disk before launching
+(defun drestivo/elfeed-load-db-and-open ()
+  "Wrapper to load the elfeed db from disk before opening (to be
+used only for the first time we load elfeed on a new machine)"
+  (interactive)
+  (elfeed-db-load)
+  (elfeed)
+  (elfeed-search-update--force)
+  (elfeed-update))
+
+;; Write elfeed db to disk when quiting
+(defun drestivo/elfeed-save-db-and-bury ()
+  "Wrapper to save the elfeed db to disk before burying buffer"
+  (interactive)
+  (elfeed-db-save)
+  (quit-window))
+
+;; Shortcut functions
+(defun drestivo/elfeed-show-all ()
+  (interactive)
+  (bookmark-maybe-load-default-file)
+  (bookmark-jump "elfeed-all"))
+
+(defun drestivo/elfeed-show-blogs ()
+  (interactive)
+  (bookmark-maybe-load-default-file)
+  (bookmark-jump "elfeed-blogs"))
+
+(defun drestivo/elfeed-show-emacs ()
+  (interactive)
+  (bookmark-maybe-load-default-file)
+  (bookmark-jump "elfeed-emacs"))
+
+(defun drestivo/elfeed-show-funnystuff ()
+  (interactive)
+  (bookmark-maybe-load-default-file)
+  (bookmark-jump "elfeed-funnystuff"))
+
+(defun drestivo/elfeed-show-linux ()
+  (interactive)
+  (bookmark-maybe-load-default-file)
+  (bookmark-jump "elfeed-linux"))
+
+(defun drestivo/elfeed-show-macos ()
+  (interactive)
+  (bookmark-maybe-load-default-file)
+  (bookmark-jump "elfeed-macos"))
+
+(defun drestivo/elfeed-show-networking ()
+  (interactive)
+  (bookmark-maybe-load-default-file)
+  (bookmark-jump "elfeed-networking"))
+
+(defun drestivo/elfeed-show-news ()
+  (interactive)
+  (bookmark-maybe-load-default-file)
+  (bookmark-jump "elfeed-news"))
+
+(defun drestivo/elfeed-show-photo ()
+  (interactive)
+  (bookmark-maybe-load-default-file)
+  (bookmark-jump "elfeed-photo"))
+
 
 ;;; Packages configuration section
 
@@ -1451,9 +1518,20 @@ This function requires `all-the-icons' package to be installed
   :config
   ;; A snippet for periodic upddate the feeds (3 mins since Emacs start, then every
   ;; 15 mins)
-  (run-at-time 180 900 '(lambda () (unless elfeed-waiting (elfeed-update))))
+  (run-at-time 180 900 'elfeed-update)
   :bind
-  ("\C-xw" . elfeed))
+  ("\C-xw" . elfeed)
+  (:map elfeed-search-mode-map
+        ("A" . drestivo/elfeed-show-all)
+        ("B" . drestivo/elfeed-show-blogs)
+        ("E" . drestivo/elfeed-show-emacs)
+        ("F" . drestivo/elfeed-show-funnystuff)
+        ("L" . drestivo/elfeed-show-linux)
+        ("M" . drestivo/elfeed-show-macos)
+        ("N" . drestivo/elfeed-show-networking)
+        ("W" . drestivo/elfeed-show-news)
+        ("P" . drestivo/elfeed-show-photo)
+        ("q" . drestivo/elfeed-save-db-and-bury)))
 
 ;; Web interface to Elfeed
 (use-package elfeed-web
