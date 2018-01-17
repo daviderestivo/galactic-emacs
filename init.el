@@ -829,6 +829,16 @@ used only for the first time we load elfeed on a new machine)"
   (elfeed-db-save)
   (quit-window))
 
+;; Update elfeed feeds in background
+(defun drestivo/elfeed-feeds-updater ()
+  "Elfeed background feeds update"
+  (interactive)
+  (message (concat "[" (current-time-string) "]" " Update Elfeed feeds..."))
+  (elfeed-db-save)
+  (elfeed-db-load)
+  (elfeed-update))
+
+
 ;; Shortcut functions
 (defun drestivo/elfeed-show-all ()
   (interactive)
@@ -1518,7 +1528,7 @@ used only for the first time we load elfeed on a new machine)"
   :config
   ;; A snippet for periodic upddate the feeds (3 mins since Emacs start, then every
   ;; 15 mins)
-  (run-at-time 180 900 'elfeed-update)
+  (run-at-time 180 900 'drestivo/elfeed-feeds-updater)
   :bind
   ("\C-xw" . elfeed)
   (:map elfeed-search-mode-map
