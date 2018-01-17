@@ -1135,13 +1135,13 @@ This function requires `all-the-icons' package to be installed
   :bind
   ;; bind keys because of this commit:
   ;; https://github.com/emacs-helm/helm/commit/1de1701c73b15a86e99ab1c5c53bd0e8659d8ede
-  ("M-x"     . helm-M-x)
-  ("M-y"     . helm-show-kill-ring)
-  ("C-x b"   . helm-mini)
-  ("C-x r b" . helm-filtered-bookmarks)
-  ("C-x C-f" . helm-find-files)
-  ("C-x C-r" . helm-recentf)
-  ("C-c h x" . helm-register)
+  ("M-x"       . helm-M-x)
+  ("M-y"       . helm-show-kill-ring)
+  ("C-x b"     . helm-mini)
+  ("C-x r b"   . helm-filtered-bookmarks)
+  ("C-x C-f"   . helm-find-files)
+  ("C-x C-r"   . helm-recentf)
+  ("C-c h x"   . helm-register)
   ("C-c h SPC" . helm-all-mark-rings))
 
 ;; helm-ag
