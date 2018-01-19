@@ -1527,8 +1527,8 @@ used only for the first time we load elfeed on a new machine)"
   :ensure t
   :config
   ;; A snippet for periodic upddate the feeds (3 mins since Emacs start, then every
-  ;; 15 mins)
-  (run-at-time 180 900 'drestivo/elfeed-feeds-updater)
+  ;; 30 mins)
+  (run-at-time 180 1800 'drestivo/elfeed-feeds-updater)
   :bind
   ("\C-xw" . elfeed)
   (:map elfeed-search-mode-map
