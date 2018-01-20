@@ -812,6 +812,7 @@ This function requires `all-the-icons' package to be installed
 ;;
 ;; Elfeed helper functions
 ;;
+
 ;; Functions to support syncing .elfeed between machines
 ;; makes sure elfeed reads index from disk before launching
 (defun drestivo/elfeed-load-db-and-open ()
@@ -886,6 +887,11 @@ used only for the first time we load elfeed on a new machine)"
   (interactive)
   (bookmark-maybe-load-default-file)
   (bookmark-jump "elfeed-photo"))
+
+(defun drestivo/elfeed-show-starred ()
+  (interactive)
+  (bookmark-maybe-load-default-file)
+  (bookmark-jump "elfeed-starred"))
 
 
 ;;; Packages configuration section
@@ -1536,6 +1542,16 @@ used only for the first time we load elfeed on a new machine)"
   ;; A snippet for periodic upddate the feeds (3 mins since Emacs start, then every
   ;; 30 mins)
   (run-at-time 180 1800 'drestivo/elfeed-feeds-updater)
+  ;;
+  ;; Star/Unstar articles
+  ;;
+  (defalias 'drestivo/elfeed-toggle-star
+    (elfeed-expose #'elfeed-search-toggle-all 'starred))
+  ;; Face for starred articles
+  (defface elfeed-search-starred-title-face
+    '((t :foreground "#f77"))
+    "Marks a starred Elfeed entry.")
+  (push '(starred elfeed-search-starred-title-face) elfeed-search-face-alist)
   :bind
   ("\C-xw" . elfeed)
   (:map elfeed-search-mode-map
@@ -1548,6 +1564,8 @@ used only for the first time we load elfeed on a new machine)"
         ("N" . drestivo/elfeed-show-networking)
         ("W" . drestivo/elfeed-show-news)
         ("P" . drestivo/elfeed-show-photo)
+        ("*" . drestivo/elfeed-show-starred)
+        ("m" . drestivo/elfeed-toggle-star)
         ("q" . drestivo/elfeed-save-db-and-bury)))
 
 ;; Web interface to Elfeed
