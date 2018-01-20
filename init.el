@@ -1526,6 +1526,8 @@ used only for the first time we load elfeed on a new machine)"
 (use-package elfeed
   :ensure t
   :config
+  (add-hook 'elfeed-search-update-hook '(lambda ()
+                                      (setq truncate-lines t)))
   ;; A snippet for periodic upddate the feeds (3 mins since Emacs start, then every
   ;; 30 mins)
   (run-at-time 180 1800 'drestivo/elfeed-feeds-updater)
