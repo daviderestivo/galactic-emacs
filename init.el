@@ -1566,6 +1566,7 @@ used only for the first time we load elfeed on a new machine)"
   :ensure t
   :config
   (setq elfeed-goodies/entry-pane-position 'bottom)
+  (setq elfeed-goodies/powerline-default-separator 'nil)
   (elfeed-goodies/setup))
 
 
