@@ -2,6 +2,7 @@
 *~
 *.elc
 .last-package-update-day
+.mc-lists.el
 .org-id-locations
 auto-save-list/
 bookmarks
@@ -49,4 +50,3 @@ __MACOSX/
 .Spotlight-V100
 .Trashes
 Thumbs.db
-/.mc-lists.el

@@ -42,6 +42,7 @@ not listed.
 * jinja2-mode [[Link](https://github.com/paradoxxxzero/jinja2-mode)]
 * magit [[Link](https://magit.vc)]
 * markdown-mode [[Link](http://jblevins.org/projects/markdown-mode)]
+* multiple-cursors [[Link](https://github.com/magnars/multiple-cursors.el)]
 * nlinum-hl [[Link](https://github.com/hlissner/emacs-nlinum-hl)]
 * ob-ipython [[Link](https://github.com/gregsexton/ob-ipython)]
 * org-beautify-theme [[Link](https://github.com/jonnay/org-beautify-theme)]
@@ -90,6 +91,18 @@ not listed.
 | C-x t | shell-pop-universal-key |
 | C-c j | drestivo/org-show-current-heading-tidily |
 | C-x w | elfeed |
+| C-S-c C-S-c | mc/edit-lines |
+| C-> | mc/mark-next-like-this |
+| C-< | mc/mark-previous-like-this |
+| M-C-> | mc/mark-next-like-this-symbol |
+| M-C-< | mc/mark-previous-like-this-symbol |
+| C-c C-< | mc/mark-all-like-this |
+| C-c C-> | mc/mark-all-like-this-symbol |
+| C-c C-n | mc/insert-numbers |
+| C-c C-r | mc/reverse-regions |
+| C-c C-s | mc/sort-regions |
+| C-S-<mouse-1> | mc/add-cursor-on-click |
+| C-'| mc-hide-unmatched-lines-mode |
 
 
 Feel free to drop me an email in case of questions.

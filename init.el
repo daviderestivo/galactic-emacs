@@ -56,6 +56,7 @@
 ;; - jinja2-mode                       [https://github.com/paradoxxxzero/jinja2-mode]
 ;; - magit                             [https://magit.vc]
 ;; - markdown-mode                     [http://jblevins.org/projects/markdown-mode]
+;; - multiple-cursors                  [https://github.com/magnars/multiple-cursors.el]
 ;; - nlinum-hl                         [https://github.com/hlissner/emacs-nlinum-hl]
 ;; - ob-ipython                        [https://github.com/gregsexton/ob-ipython]
 ;; - org-beautify-theme                [https://github.com/jonnay/org-beautify-theme]
@@ -1568,6 +1569,27 @@ used only for the first time we load elfeed on a new machine)"
   (setq elfeed-goodies/entry-pane-position 'bottom)
   (setq elfeed-goodies/powerline-default-separator 'nil)
   (elfeed-goodies/setup))
+
+;; Multiple cursors support
+(use-package multiple-cursors
+  :ensure t
+  :bind
+  ;; When you have an active region that spans multiple lines
+  ;; mc/edit-lines will add a cursor to each line:
+  ("C-S-c C-S-c"   . mc/edit-lines)
+  ("C->"           . mc/mark-next-like-this)
+  ("C-<"           . mc/mark-previous-like-this)
+  ("M-C->"         . mc/mark-next-like-this-symbol)
+  ("M-C-<"         . mc/mark-previous-like-this-symbol)
+  ("C-c C-<"       . mc/mark-all-like-this)
+  ("C-c C->"       . mc/mark-all-like-this-symbol)
+  ("C-c C-n"       . mc/insert-numbers)
+  ("C-c C-r"       . mc/reverse-regions)
+  ("C-c C-s"       . mc/sort-regions)
+  ("C-S-<mouse-1>" . mc/add-cursor-on-click)
+  (:map mc/keymap
+        ("<return>" . nil)
+        ("C-'"      . mc-hide-unmatched-lines-mode)))
 
 
 ;;; init.el ends here
