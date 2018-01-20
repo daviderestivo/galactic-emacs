@@ -839,8 +839,9 @@ used only for the first time we load elfeed on a new machine)"
   (elfeed-db-load)
   (elfeed-update))
 
-
-;; Shortcut functions
+;;
+;; Elfeed shortcut functions
+;;
 (defun drestivo/elfeed-show-all ()
   (interactive)
   (bookmark-maybe-load-default-file)
