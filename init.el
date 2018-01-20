@@ -43,7 +43,7 @@
 ;; - diff-hl                           [https://github.com/dgutov/diff-hl]
 ;; - dockerfile-mode                   [https://github.com/spotify/dockerfile-mode]
 ;; - elfeed                            [https://github.com/skeeto/elfeed]
-;; - elfeed-goodies                   [https://github.com/algernon/elfeed-goodies]
+;; - elfeed-goodies                    [https://github.com/algernon/elfeed-goodies]
 ;; - elfeed-org                        [https://github.com/remyhonig/elfeed-org]
 ;; - elfeed-web                        [https://github.com/skeeto/elfeed/tree/master/web]
 ;; - elpy                              [https://elpy.readthedocs.io]
@@ -397,8 +397,8 @@ backed up."
 ;; Spell checking configuration
 (setq ispell-program-name "aspell")
 ;; Enable flyspell for text files and enable superword mode
-(dolist (hook '(text-mode-hook))
-  (add-hook hook (lambda ()
+(dolist (mode '(text-mode-hook))
+  (add-hook mode (lambda ()
                    (flyspell-mode 1)
                    (diminish 'flyspell-mode)
                    ;; Enable superword mode, useful for “snake_case”.

@@ -49,3 +49,4 @@ __MACOSX/
 .Spotlight-V100
 .Trashes
 Thumbs.db
+/.mc-lists.el
