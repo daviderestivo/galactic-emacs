@@ -1534,9 +1534,6 @@ used only for the first time we load elfeed on a new machine)"
 (use-package elfeed
   :ensure t
   :config
-  ;; Start elfeed. This is needed for the feed update function
-  ;; (drestivo/elfeed-feeds-updater) to work properly
-  (elfeed)
   (add-hook 'elfeed-search-update-hook '(lambda ()
                                       (setq truncate-lines t)))
   ;; A snippet for periodic upddate the feeds (3 mins since Emacs start, then every
@@ -1580,8 +1577,11 @@ used only for the first time we load elfeed on a new machine)"
 (use-package elfeed-org
   :ensure t
   :config
+  (setq rmh-elfeed-org-files (list "~/.emacs.d/elfeed.org"))
   (elfeed-org)
-  (setq rmh-elfeed-org-files (list "~/.emacs.d/elfeed.org")))
+  ;; Start elfeed. This is needed for the feed update function
+  ;; (drestivo/elfeed-feeds-updater) to work properly
+  (elfeed))
 
 ;; Various bits and pieces to enhance the Elfeed user experience
 (use-package elfeed-goodies
