@@ -1594,6 +1594,8 @@ used only for the first time we load elfeed on a new machine)"
 ;; Multiple cursors support
 (use-package multiple-cursors
   :ensure t
+  :init
+  (require 'mc-hide-unmatched-lines-mode)
   :bind
   ;; When you have an active region that spans multiple lines
   ;; mc/edit-lines will add a cursor to each line:
@@ -1609,8 +1611,7 @@ used only for the first time we load elfeed on a new machine)"
   ("C-c C-s"       . mc/sort-regions)
   ("C-S-<mouse-1>" . mc/add-cursor-on-click)
   (:map mc/keymap
-        ("<return>" . nil)
-        ("C-'"      . mc-hide-unmatched-lines-mode)))
+        ("<return>" . nil)))
 
 
 ;;; init.el ends here
