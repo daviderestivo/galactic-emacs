@@ -96,9 +96,9 @@
 
 ;; Change the below priorities if you prefer melpa-stable packages. Higher is better.
 (setq package-archive-priorities
-      '(("org" . 4)
-        ("melpa" .  3)
-        ("mepla-stable" . 2)
+      '(("melpa" .  4)
+        ("mepla-stable" . 3)
+        ("org" . 2)
         ("gnu" . 1)))
 
 ;; Bootstrap `use-package'
