@@ -97,7 +97,7 @@
 ;; Change the below priorities if you prefer melpa-stable packages. Higher is better.
 (setq package-archive-priorities
       '(("melpa" .  4)
-        ("mepla-stable" . 3)
+        ("melpa-stable" . 3)
         ("org" . 2)
         ("gnu" . 1)))
 
