@@ -835,10 +835,16 @@ used only for the first time we load elfeed on a new machine)"
 (defun drestivo/elfeed-feeds-updater ()
   "Elfeed background feeds update"
   (interactive)
-  (message (concat "[" (current-time-string) "]" " Update Elfeed feeds..."))
-  (elfeed-db-save)
-  (elfeed-db-load)
-  (elfeed-update))
+  (let
+      ((hostname (replace-regexp-in-string "[\.][a-z]*[\n]" ""
+                                               (shell-command-to-string "hostname"))))
+    (if (string= hostname drestivo/elfeed-server)
+        (progn
+          (message (concat "[" (current-time-string) "]" " Update Elfeed feeds..."))
+          (elfeed-db-save)
+          (elfeed-db-load)
+          (elfeed-update))
+      (message (concat "[" (current-time-string) "]" " Elfeed feeds updater will not run on this host. Please set drestivo/elfeed-server variable correctly.")))))
 
 ;;
 ;; Elfeed shortcut functions
@@ -1534,10 +1540,12 @@ used only for the first time we load elfeed on a new machine)"
 (use-package elfeed
   :ensure t
   :config
+  (setq drestivo/elfeed-server "nemesis")
   (add-hook 'elfeed-search-update-hook '(lambda ()
                                       (setq truncate-lines t)))
-  ;; A snippet for periodic upddate the feeds (3 mins since Emacs start, then every
-  ;; 30 mins)
+  ;; A snippet for periodic feeds update (3 mins since Emacs
+  ;; start, then every 30 mins). The updater runs only on the host
+  ;; defined in `drestivo/elfeed-server'
   (run-at-time 180 1800 'drestivo/elfeed-feeds-updater)
   ;;
   ;; Star/Unstar articles
