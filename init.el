@@ -1399,6 +1399,10 @@ used only for the first time we load elfeed on a new machine)"
   :ensure t
   :diminish global-whitespace-mode
   :config
+  ;; whitespace-mode is not compatible with magit.
+  (defun prevent-whitespace-mode-for-magit ()
+    (not (derived-mode-p 'magit-mode)))
+  (add-function :before-while whitespace-enable-predicate 'prevent-whitespace-mode-for-magit)
   (setq whitespace-line-column 80) ;; limit line length
   (setq whitespace-style '(face lines-tail))
   (setq whitespace-global-modes '(not org-mode lisp-interaction-mode))
