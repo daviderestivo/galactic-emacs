@@ -959,9 +959,9 @@ used only for the first time we load elfeed on a new machine)"
   :ensure t
   :init
   (setq magit-repository-directories
-          (list '("~/.emacs.d" . 1 )
-                '("~/.dotfiles" . 1 )
-                '("~/org" . 1 )))
+        (list '("~/.emacs.d" . 1 )
+              '("~/.dotfiles" . 1 )
+              '("~/org" . 1 )))
   :bind
   ("<f2>" . magit-status)
   ("<f5>" . magit-list-repositories))
