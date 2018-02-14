@@ -1399,7 +1399,7 @@ used only for the first time we load elfeed on a new machine)"
   :ensure t
   :diminish global-whitespace-mode
   :config
-  ;; whitespace-mode is not compatible with magit. We disable it on
+  ;; whitespace-mode is not compatible with magit. Disabling it on
   ;; magit-mode.
   (defun prevent-whitespace-mode-for-magit ()
     (not (derived-mode-p 'magit-mode)))
