@@ -53,6 +53,7 @@
 ;; - helm-ag                           [https://github.com/syohex/emacs-helm-ag]
 ;; - helm-descbinds                    [https://github.com/emacs-helm/helm-descbinds]
 ;; - helm-projectile                   [https://github.com/bbatsov/helm-projectile]
+;; - ibuffer-sidebar                   [https://github.com/jojojames/ibuffer-sidebar]
 ;; - jinja2-mode                       [https://github.com/paradoxxxzero/jinja2-mode]
 ;; - magit                             [https://magit.vc]
 ;; - markdown-mode                     [http://jblevins.org/projects/markdown-mode]
@@ -1625,6 +1626,15 @@ used only for the first time we load elfeed on a new machine)"
   ("C-S-<mouse-1>" . mc/add-cursor-on-click)
   (:map mc/keymap
         ("<return>" . nil)))
+
+;; ibuffer-sidebar
+(use-package ibuffer-sidebar
+  :ensure t
+  :commands (ibuffer-sidebar-toggle-sidebar)
+  :config
+  (setq ibuffer-sidebar-use-custom-font nil)
+  :bind
+  ("<f12>"  . ibuffer-sidebar-toggle-sidebar))
 
 
 ;;; init.el ends here

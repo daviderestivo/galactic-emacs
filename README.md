@@ -39,6 +39,7 @@ not listed.
 * helm-ag [[Link](https://github.com/syohex/emacs-helm-ag)]
 * helm-descbinds [[Link](https://github.com/emacs-helm/helm-descbinds)]
 * helm-projectile [[Link](https://github.com/bbatsov/helm-projectile)]
+* ibuffer-sidebar [[Link](https://github.com/jojojames/ibuffer-sidebar)]
 * jinja2-mode [[Link](https://github.com/paradoxxxzero/jinja2-mode)]
 * magit [[Link](https://magit.vc)]
 * markdown-mode [[Link](http://jblevins.org/projects/markdown-mode)]
@@ -75,6 +76,7 @@ not listed.
 | < f6 > | org-directory-search-ag |
 | < f7 > | Create new empty buffer |
 | < f8 > | ispell-word |
+| < f12 > | ibuffer-sidebar-toggle-sidebar |
 | M-< f8 > | flyspell-check-next-highlighted-word |
 | < f9 > | Toggle sroll bar  |
 | C-= | copy-line |
