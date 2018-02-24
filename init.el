@@ -1630,11 +1630,10 @@ used only for the first time we load elfeed on a new machine)"
 ;; ibuffer-sidebar
 (use-package ibuffer-sidebar
   :ensure t
-  :commands (ibuffer-sidebar-toggle-sidebar)
   :config
   (setq ibuffer-sidebar-use-custom-font nil)
   :bind
-  ("<f12>"  . ibuffer-sidebar-toggle-sidebar))
+  ("C-M-<f12>" . ibuffer-sidebar-toggle-sidebar))
 
 
 ;;; init.el ends here

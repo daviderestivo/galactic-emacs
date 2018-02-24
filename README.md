@@ -76,9 +76,9 @@ not listed.
 | < f6 > | org-directory-search-ag |
 | < f7 > | Create new empty buffer |
 | < f8 > | ispell-word |
-| < f12 > | ibuffer-sidebar-toggle-sidebar |
 | M-< f8 > | flyspell-check-next-highlighted-word |
 | < f9 > | Toggle sroll bar  |
+| C-M-< f12 > | ibuffer-sidebar-toggle-sidebar |
 | C-= | copy-line |
 | C-c left  | Winner mode - Undo windows changes  |
 | C-c right  | Winner mode - Redo windows changes  |
