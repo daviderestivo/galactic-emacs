@@ -1641,7 +1641,7 @@ used only for the first time we load elfeed on a new machine)"
       :config
       (setq ibuffer-sidebar-use-custom-font nil)
       :bind
-      ("C-M-<f12>" . ibuffer-sidebar-toggle-sidebar)))
+      ("C-<f12>" . ibuffer-sidebar-toggle-sidebar)))
 
 ;; imenu-list
 (use-package imenu-list

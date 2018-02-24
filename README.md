@@ -82,7 +82,7 @@ not listed.
 | < f9 > | Toggle sroll bar  |
 | < f12 > | imenu-list-smart-toggle |
 | M-<f12> | sr-speedbar-toggle |
-| C-M-< f12 > | ibuffer-sidebar-toggle-sidebar |
+| C-< f12 > | ibuffer-sidebar-toggle-sidebar |
 | C-= | copy-line |
 | C-c left  | Winner mode - Undo windows changes  |
 | C-c right  | Winner mode - Redo windows changes  |
