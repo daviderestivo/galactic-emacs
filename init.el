@@ -114,7 +114,7 @@
   :ensure t)
 (setq package-enable-at-startup nil)
 
- ;; Bootstrap `diminish'
+;; Bootstrap `diminish'
 (unless (package-installed-p 'diminish)
   (package-refresh-contents)
   (package-install 'diminish))
@@ -205,7 +205,7 @@
 (setq initial-scratch-message (with-temp-buffer
                                 (insert-file-contents
                                  (expand-file-name "scratch-ascii-art.txt"
-                                                  user-emacs-directory))
+                                                   user-emacs-directory))
                                 (buffer-string)))
 (with-current-buffer
     (get-buffer "*scratch*")
@@ -251,10 +251,10 @@
 (defvar drestivo/frame-pixel-width
   (* drestivo/frame-width (frame-char-width)))
 (setq initial-frame-alist
-;; Avoid the issue of having Emacs on the middle of two displays.
+      ;; Avoid the issue of having Emacs on the middle of two displays.
       `((left . ,(/ (-
                      (round (* (display-pixel-height) 1.777))
-                       drestivo/frame-pixel-width) 2))
+                     drestivo/frame-pixel-width) 2))
 	(top .  ,(/ (-
                      ;; Remove 100px to take into account the MAC dock
                      (- (display-pixel-height) 100)  drestivo/frame-pixel-height) 2))))
@@ -284,9 +284,9 @@
 (setq backup-by-copying t)    ;; Backup the files by copying it
 (setq delete-old-versions t   ;; Delete excess backup files silently
       kept-old-versions 2     ;; Oldest versions to keep when a new
-			      ;; numbered backup is made (default: 2)
+      ;; numbered backup is made (default: 2)
       kept-new-versions 10    ;; Newest versions to keep when a new
-			      ;; numbered backup is made (default: 2)
+      ;; numbered backup is made (default: 2)
       version-control t)      ;; Version numbers for backup files
 
 ;; By default, Emacs creates a backup only when you save the first
@@ -466,7 +466,7 @@ backed up."
 
 ;; Setup bookmark
 (setq bookmark-save-flag 1) ;; every time bookmark is changed,
-                            ;; automatically save it
+;; automatically save it
 ;; Load bookmarks list at startup
 (require 'bookmark)
 (bookmark-bmenu-list)
@@ -565,7 +565,7 @@ The following %-sequences are provided:
 %m Remaining time in minutes
 %t Remaining time in the form `h:min'"
   (let (power-source load-percentage battery-status battery-status-symbol
-	remaining-time hours minutes)
+	             remaining-time hours minutes)
     (with-temp-buffer
       (ignore-errors (call-process "pmset" nil t nil "-g" "ps"))
       (goto-char (point-min))
@@ -840,7 +840,7 @@ used only for the first time we load elfeed on a new machine)"
   (interactive)
   (let
       ((hostname (replace-regexp-in-string "[\.][a-z]*[\n]" ""
-                                               (shell-command-to-string "hostname"))))
+                                           (shell-command-to-string "hostname"))))
     (if (string= hostname drestivo/elfeed-server)
         (progn
           (message (concat "[" (current-time-string) "]" " Update Elfeed feeds..."))
@@ -940,12 +940,12 @@ used only for the first time we load elfeed on a new machine)"
     ;; Emacs not running in daemon mode
     (if (window-system)
         (progn
-         (load-theme 'atom-one-dark t)
-         ;; Transparent window in Emacs on macOS
-         (set-frame-parameter (selected-frame) 'alpha '(98 98)))
-    (progn
-      (load-theme 'wheatgrass t)
-      (drestivo/customize-wheatgrass-theme)))))
+          (load-theme 'atom-one-dark t)
+          ;; Transparent window in Emacs on macOS
+          (set-frame-parameter (selected-frame) 'alpha '(98 98)))
+      (progn
+        (load-theme 'wheatgrass t)
+        (drestivo/customize-wheatgrass-theme)))))
 
 ;; exec-path-from-shell
 (use-package exec-path-from-shell
@@ -1048,12 +1048,12 @@ used only for the first time we load elfeed on a new machine)"
   ;; Add some useful hooks to org-mode
   (add-hook 'org-mode-hook
             '(lambda ()
-                (setq show-trailing-whitespace t)
-                (flyspell-prog-mode)
-                (org-indent-mode)
-                (superword-mode 1)
-                (if (window-system)
-                    (load-theme 'org-beautify t))))
+               (setq show-trailing-whitespace t)
+               (flyspell-prog-mode)
+               (org-indent-mode)
+               (superword-mode 1)
+               (if (window-system)
+                   (load-theme 'org-beautify t))))
 
   :bind
   ("\C-cl" . org-store-link)
@@ -1109,9 +1109,9 @@ used only for the first time we load elfeed on a new machine)"
 (use-package org-bullets
   :ensure t
   :config
- (add-hook 'org-mode-hook
+  (add-hook 'org-mode-hook
             '(lambda ()
-                (org-bullets-mode 1))))
+               (org-bullets-mode 1))))
 
 ;; rainbow-delimiters
 (use-package rainbow-delimiters
@@ -1159,16 +1159,16 @@ used only for the first time we load elfeed on a new machine)"
   :defer t
   :ensure t
   :config
-   (add-to-list 'auto-mode-alist '("\\.j2\\'" . jinja2-mode))
-   ;; "C-c c" jinja2-close-tag
-   ;; "C-c t" jinja2-insert-tag
-   ;; "C-c v" jinja2-insert-var
-   ;; "C-c #" jinja2-insert-comment
-   (add-hook 'jinja2-mode-hook
-             '(lambda ()
-                 (setq show-trailing-whitespace t)
-                 (flyspell-prog-mode)
-                 (superword-mode 1))))
+  (add-to-list 'auto-mode-alist '("\\.j2\\'" . jinja2-mode))
+  ;; "C-c c" jinja2-close-tag
+  ;; "C-c t" jinja2-insert-tag
+  ;; "C-c v" jinja2-insert-var
+  ;; "C-c #" jinja2-insert-comment
+  (add-hook 'jinja2-mode-hook
+            '(lambda ()
+               (setq show-trailing-whitespace t)
+               (flyspell-prog-mode)
+               (superword-mode 1))))
 
 ;; helm-config
 (use-package helm-config
@@ -1225,8 +1225,8 @@ used only for the first time we load elfeed on a new machine)"
     ;; For helm to recognize correctly the matches we need to enable
     ;; line numbers and columns in its output, something the
     ;; --vimgrep option does.
-   (setq helm-grep-default-command         "ag --vimgrep --nogroup --nocolor -z %p %f"
-         helm-grep-default-recurse-command "ag --vimgrep --nogroup --nocolor -z %p %f"))
+    (setq helm-grep-default-command         "ag --vimgrep --nogroup --nocolor -z %p %f"
+          helm-grep-default-recurse-command "ag --vimgrep --nogroup --nocolor -z %p %f"))
   :bind
   ;; bind keys because of this commit:
   ;; https://github.com/emacs-helm/helm/commit/1de1701c73b15a86e99ab1c5c53bd0e8659d8ede
@@ -1324,9 +1324,9 @@ used only for the first time we load elfeed on a new machine)"
   :config
   (add-hook 'markdown-mode-hook
             '(lambda ()
-                (setq show-trailing-whitespace t)
-                (flyspell-prog-mode)
-                (superword-mode 1)))
+               (setq show-trailing-whitespace t)
+               (flyspell-prog-mode)
+               (superword-mode 1)))
   (set-face-background 'markdown-code-face "#282C34")
   (set-face-foreground 'markdown-code-face "#ABB2BF"))
 
@@ -1466,9 +1466,9 @@ used only for the first time we load elfeed on a new machine)"
         (setq diff-hl-side 'right)
         (global-diff-hl-mode)
         (diff-hl-margin-mode)))
-  ;; Highlight changed files in the fringe of dired
-  (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
-  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)))
+    ;; Highlight changed files in the fringe of dired
+    (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
+    (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)))
 
 ;; Eshell
 (use-package eshell
@@ -1631,17 +1631,17 @@ used only for the first time we load elfeed on a new machine)"
 
 ;; ibuffer-sidebar
 (if (not (version< emacs-version "25.1"))
-(use-package ibuffer-sidebar
-  :ensure t
-  :init
-  (add-hook 'ibuffer-mode-hook '(lambda ()
-                                  (progn
-                                    (visual-line-mode 0)
-                                    (nlinum-mode 0))))
-  :config
-  (setq ibuffer-sidebar-use-custom-font nil)
-  :bind
-  ("C-M-<f12>" . ibuffer-sidebar-toggle-sidebar)))
+    (use-package ibuffer-sidebar
+      :ensure t
+      :init
+      (add-hook 'ibuffer-mode-hook '(lambda ()
+                                      (progn
+                                        (visual-line-mode 0)
+                                        (nlinum-mode 0))))
+      :config
+      (setq ibuffer-sidebar-use-custom-font nil)
+      :bind
+      ("C-M-<f12>" . ibuffer-sidebar-toggle-sidebar)))
 
 ;; imenu-list
 (use-package imenu-list
