@@ -71,6 +71,7 @@
 ;; - rainbow-delimiters                [https://www.emacswiki.org/emacs/RainbowDelimiters]
 ;; - shell-pop-el                      [https://github.com/kyagi/shell-pop-el
 ;; - smart-mode-line                   [https://github.com/Malabarba/smart-mode-line]
+;; - sr-speedbar                       [https://github.com/emacsorphanage/sr-speedbar]
 ;; - transpose-frame                   [https://www.emacswiki.org/emacs/TransposeFrame]
 ;; - undo-tree                         [https://github.com/emacsmirror/undo-tree]
 ;; - use-package                       [https://github.com/jwiegley/use-package]
@@ -1643,6 +1644,14 @@ used only for the first time we load elfeed on a new machine)"
   (setq imenu-list-position 'right)
   :bind
   ("<f12>" . imenu-list-smart-toggle))
+
+;; Same frame speedbar
+(use-package sr-speedbar
+  :ensure t
+  :config
+  (setq sr-speedbar-right-side nil)
+  :bind
+  ("M-<f12>" . sr-speedbar-toggle))
 
 
 ;;; init.el ends here
