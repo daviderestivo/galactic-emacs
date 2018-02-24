@@ -1402,9 +1402,9 @@ used only for the first time we load elfeed on a new machine)"
   :config
   ;; whitespace-mode is not compatible with magit. Disabling it on
   ;; magit-mode.
-  (defun prevent-whitespace-mode-for-magit ()
+  (defun drestivo/prevent-whitespace-mode-for-magit ()
     (not (derived-mode-p 'magit-mode)))
-  (add-function :before-while whitespace-enable-predicate 'prevent-whitespace-mode-for-magit)
+  (add-function :before-while whitespace-enable-predicate 'drestivo/prevent-whitespace-mode-for-magit)
   (setq whitespace-line-column 80) ;; limit line length
   (setq whitespace-style '(face lines-tail))
   (setq whitespace-global-modes '(not org-mode lisp-interaction-mode))
@@ -1559,10 +1559,10 @@ used only for the first time we load elfeed on a new machine)"
   (defalias 'drestivo/elfeed-toggle-star
     (elfeed-expose #'elfeed-search-toggle-all 'starred))
   ;; Face for starred articles
-  (defface elfeed-search-starred-title-face
+  (defface drestivo/elfeed-search-starred-title-face
     '((t :foreground "#f77"))
     "Marks a starred Elfeed entry.")
-  (push '(starred elfeed-search-starred-title-face) elfeed-search-face-alist)
+  (push '(starred drestivo/elfeed-search-starred-title-face) elfeed-search-face-alist)
   :bind
   ("\C-xw" . elfeed)
   (:map elfeed-search-mode-map
