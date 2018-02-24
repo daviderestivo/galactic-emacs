@@ -54,6 +54,7 @@
 ;; - helm-descbinds                    [https://github.com/emacs-helm/helm-descbinds]
 ;; - helm-projectile                   [https://github.com/bbatsov/helm-projectile]
 ;; - ibuffer-sidebar                   [https://github.com/jojojames/ibuffer-sidebar]
+;; - imenu-list                        [https://github.com/bmag/imenu-list]
 ;; - jinja2-mode                       [https://github.com/paradoxxxzero/jinja2-mode]
 ;; - magit                             [https://magit.vc]
 ;; - markdown-mode                     [http://jblevins.org/projects/markdown-mode]
@@ -1634,6 +1635,14 @@ used only for the first time we load elfeed on a new machine)"
   (setq ibuffer-sidebar-use-custom-font nil)
   :bind
   ("C-M-<f12>" . ibuffer-sidebar-toggle-sidebar))
+
+;; imenu-list
+(use-package imenu-list
+  :ensure t
+  :config
+  (setq imenu-list-position 'right)
+  :bind
+  ("<f12>" . imenu-list-smart-toggle))
 
 
 ;;; init.el ends here

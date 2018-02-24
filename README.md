@@ -40,6 +40,7 @@ not listed.
 * helm-descbinds [[Link](https://github.com/emacs-helm/helm-descbinds)]
 * helm-projectile [[Link](https://github.com/bbatsov/helm-projectile)]
 * ibuffer-sidebar [[Link](https://github.com/jojojames/ibuffer-sidebar)]
+* imenu-list [[Link](https://github.com/bmag/imenu-list)]
 * jinja2-mode [[Link](https://github.com/paradoxxxzero/jinja2-mode)]
 * magit [[Link](https://magit.vc)]
 * markdown-mode [[Link](http://jblevins.org/projects/markdown-mode)]
@@ -78,6 +79,7 @@ not listed.
 | < f8 > | ispell-word |
 | M-< f8 > | flyspell-check-next-highlighted-word |
 | < f9 > | Toggle sroll bar  |
+| < f12 > | imenu-list-smart-toggle |
 | C-M-< f12 > | ibuffer-sidebar-toggle-sidebar |
 | C-= | copy-line |
 | C-c left  | Winner mode - Undo windows changes  |
