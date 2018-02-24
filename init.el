@@ -1630,12 +1630,13 @@ used only for the first time we load elfeed on a new machine)"
         ("<return>" . nil)))
 
 ;; ibuffer-sidebar
+(if (not (version< emacs-version "25.1"))
 (use-package ibuffer-sidebar
   :ensure t
   :config
   (setq ibuffer-sidebar-use-custom-font nil)
   :bind
-  ("C-M-<f12>" . ibuffer-sidebar-toggle-sidebar))
+  ("C-M-<f12>" . ibuffer-sidebar-toggle-sidebar)))
 
 ;; imenu-list
 (use-package imenu-list
