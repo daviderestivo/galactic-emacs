@@ -1550,7 +1550,7 @@ used only for the first time we load elfeed on a new machine)"
   :config
   (setq drestivo/elfeed-server "nemesis")
   (add-hook 'elfeed-search-update-hook '(lambda ()
-                                      (setq truncate-lines t)))
+                                          (setq truncate-lines t)))
   ;; A snippet for periodic feeds update (3 mins since Emacs
   ;; start, then every 30 mins). The updater runs only on the host
   ;; defined in `drestivo/elfeed-server'
@@ -1633,6 +1633,11 @@ used only for the first time we load elfeed on a new machine)"
 (if (not (version< emacs-version "25.1"))
 (use-package ibuffer-sidebar
   :ensure t
+  :init
+  (add-hook 'ibuffer-mode-hook '(lambda ()
+                                  (progn
+                                    (visual-line-mode 0)
+                                    (nlinum-mode 0))))
   :config
   (setq ibuffer-sidebar-use-custom-font nil)
   :bind
@@ -1641,6 +1646,11 @@ used only for the first time we load elfeed on a new machine)"
 ;; imenu-list
 (use-package imenu-list
   :ensure t
+  :init
+  (add-hook 'imenu-list-major-mode-hook '(lambda ()
+                                           (progn
+                                             (visual-line-mode 0)
+                                             (nlinum-mode 0))))
   :config
   (setq imenu-list-position 'right)
   :bind
@@ -1649,6 +1659,11 @@ used only for the first time we load elfeed on a new machine)"
 ;; Same frame speedbar
 (use-package sr-speedbar
   :ensure t
+  :init
+  (add-hook 'speedbar-mode-hook '(lambda ()
+                                   (progn
+                                     (visual-line-mode 0)
+                                     (nlinum-mode 0))))
   :config
   (setq sr-speedbar-right-side nil)
   :bind
