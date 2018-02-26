@@ -1045,6 +1045,8 @@ used only for the first time we load elfeed on a new machine)"
                         ("LOW" . ?l)
                         ("NOTE" . ?n)
                         ("REVIEW" . ?r)))
+  ;; The maximum level for Imenu access to Org headlines
+  (setq org-imenu-depth 5)
   ;; Add some useful hooks to org-mode
   (add-hook 'org-mode-hook
             '(lambda ()
