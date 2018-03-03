@@ -1654,7 +1654,8 @@ used only for the first time we load elfeed on a new machine)"
                                              (visual-line-mode 0)
                                              (nlinum-mode 0))))
   :config
-  (setq imenu-list-position 'right)
+  (setq imenu-list-position 'right
+        imenu-list-auto-resize t)
   :bind
   ("<f12>" . imenu-list-smart-toggle))
 
