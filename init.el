@@ -37,6 +37,7 @@
 ;; - atom-one-dark-theme               [https://github.com/jonathanchu/atom-one-dark-theme]
 ;; - auto-package-update               [https://github.com/rranelli/auto-package-update.el]
 ;; - auto-sudoedit                     [https://github.com/ncaq/auto-sudoedit]
+;; - cider                             [https://github.com/clojure-emacs/cider]
 ;; - cisco-router-mode                 [https://www.emacswiki.org/emacs/download/cisco-router-mode.el]
 ;; - command-log-mode                  [https://github.com/lewang/command-log-mode]
 ;; - company-mode                      [https://github.com/company-mode/company-mode]
@@ -1671,6 +1672,10 @@ used only for the first time we load elfeed on a new machine)"
   (setq sr-speedbar-right-side nil)
   :bind
   ("M-<f12>" . sr-speedbar-toggle))
+
+;; cider - The Clojure Interactive Development Environment that Rocks for Emacs
+(use-package cider
+  :ensure t)
 
 
 ;;; init.el ends here

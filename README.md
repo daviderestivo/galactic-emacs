@@ -23,6 +23,7 @@ not listed.
 * atom-one-dark-theme [[Link](https://github.com/jonathanchu/atom-one-dark-theme)]
 * auto-package-update [[Link](https://github.com/rranelli/auto-package-update.el)]
 * auto-sudoedit [[Link](https://github.com/ncaq/auto-sudoedit)]
+* cider [[Link](https://github.com/clojure-emacs/cider)]
 * cisco-router-mode [[Link](https://www.emacswiki.org/emacs/download/cisco-router-mode.el)]
 * command-log-mode [[Link](https://github.com/lewang/command-log-mode)]
 * company-mode [[Link](https://github.com/company-mode/company-mode)]

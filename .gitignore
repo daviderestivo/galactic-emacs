@@ -3,6 +3,7 @@
 *.elc
 .last-package-update-day
 .mc-lists.el
+.nrepl-port
 .org-id-locations
 auto-save-list/
 bookmarks
