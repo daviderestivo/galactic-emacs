@@ -918,9 +918,11 @@ used only for the first time we load elfeed on a new machine)"
 (use-package system-packages
   :ensure t
   :config
-  (setq system-packages-use-sudo nil)
   (when (string= system-type "darwin")
-    (setq system-packages-package-manager 'brew)))
+    (setq system-packages-use-sudo nil)
+    (setq system-packages-package-manager 'brew))
+  (when (string= system-type "gnu/linux")
+    (setq system-packages-use-sudo t)))
 
 ;; atom-one-dark-theme (GUI mode) and wheatgrass-theme (Terminal mode)
 (use-package atom-one-dark-theme
