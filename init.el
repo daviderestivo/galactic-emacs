@@ -1675,7 +1675,8 @@ used only for the first time we load elfeed on a new machine)"
 
 ;; cider - The Clojure Interactive Development Environment that Rocks for Emacs
 (use-package cider
-  :ensure t)
+  :ensure t
+  :ensure-system-package leiningen)
 
 
 ;;; init.el ends here
