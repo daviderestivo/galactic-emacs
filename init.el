@@ -1238,8 +1238,8 @@ used only for the first time we load elfeed on a new machine)"
     ;; For helm to recognize correctly the matches we need to enable
     ;; line numbers and columns in its output, something the
     ;; --vimgrep option does.
-    (setq helm-grep-default-command         "ag --vimgrep --nogroup --nocolor -z %p %f"
-          helm-grep-default-recurse-command "ag --vimgrep --nogroup --nocolor -z %p %f"))
+    (setq helm-grep-default-command         "ag -i --vimgrep --nogroup --nocolor -z %p %f"
+          helm-grep-default-recurse-command "ag -i --vimgrep --nogroup --nocolor -z %p %f"))
   :bind
   ;; bind keys because of this commit:
   ;; https://github.com/emacs-helm/helm/commit/1de1701c73b15a86e99ab1c5c53bd0e8659d8ede
