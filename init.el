@@ -1683,10 +1683,10 @@ used only for the first time we load elfeed on a new machine)"
   :bind
   ("M-<f12>" . sr-speedbar-toggle))
 
-;; cider - The Clojure Interactive Development Environment that Rocks for Emacs
+;; cider - Clojure Interactive Development Environment
 (use-package cider
   :ensure t
-  :ensure-system-package leiningen)
+  :ensure-system-package (lein . leiningen))
 
 
 ;;; init.el ends here
