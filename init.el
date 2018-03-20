@@ -1688,5 +1688,11 @@ used only for the first time we load elfeed on a new machine)"
   :ensure t
   :ensure-system-package (lein . leiningen))
 
+;; magit-org-todos - Get todo.org into your magit status.
+(use-package magit-org-todos
+  :ensure t
+  :config
+  (magit-org-todos-autoinsert))
+
 
 ;;; init.el ends here
