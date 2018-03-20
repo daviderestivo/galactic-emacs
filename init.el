@@ -58,6 +58,7 @@
 ;; - imenu-list                        [https://github.com/bmag/imenu-list]
 ;; - jinja2-mode                       [https://github.com/paradoxxxzero/jinja2-mode]
 ;; - magit                             [https://magit.vc]
+;; - magit-org-todos                   [https://github.com/danielma/magit-org-todos.el]
 ;; - markdown-mode                     [http://jblevins.org/projects/markdown-mode]
 ;; - multiple-cursors                  [https://github.com/magnars/multiple-cursors.el]
 ;; - nlinum-hl                         [https://github.com/hlissner/emacs-nlinum-hl]
