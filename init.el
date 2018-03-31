@@ -1067,8 +1067,15 @@ used only for the first time we load elfeed on a new machine)"
                (org-indent-mode)
                (superword-mode 1)
                (if (window-system)
-                   (load-theme 'org-beautify t))))
-
+                   (progn
+                     (load-theme 'org-beautify t)
+                     (custom-set-faces
+                      ;; Org customization
+                      '(org-agenda-structure ((t (:inherit default
+                                                           :underline nil :slant normal
+                                                           :weight normal :height 1.0
+                                                           :width normal :foundry "nil"
+                                                           :family "Lucida Grande")))))))))
   :bind
   ("\C-cl" . org-store-link)
   ("\C-ca" . org-agenda)
