@@ -1506,15 +1506,16 @@ used only for the first time we load elfeed on a new machine)"
 (use-package all-the-icons
   :ensure t
   :config
-  ;; The below command needs to be run only once manually to install the needed fonts
-  ;; (all-the-icons-install-fonts)
+  ;; The below command needs to be run only once manually to install the
+  ;; needed fonts (all-the-icons-install-fonts)
   )
 
 ;; Beautify org buffers
 (use-package org-beautify-theme
   :ensure t
   :defer t
-  ;; This theme is loaded when entering ORG mode. Please see the above ORG section
+  ;; This theme is loaded when entering ORG mode. Please see the above
+  ;; ORG section.
   )
 
 ;; YANG mode
