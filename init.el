@@ -50,6 +50,7 @@
 ;; - elpy                              [https://elpy.readthedocs.io]
 ;; - esh-autosuggest                   [https://github.com/dieggsy/esh-autosuggest]
 ;; - exec-path-from-shell              [https://github.com/purcell/exec-path-from-shell]
+;; - github-stars                      [https://github.com/xuchunyang/github-stars.el]
 ;; - helm                              [https://github.com/emacs-helm/helm]
 ;; - helm-ag                           [https://github.com/syohex/emacs-helm-ag]
 ;; - helm-descbinds                    [https://github.com/emacs-helm/helm-descbinds]
@@ -1702,6 +1703,10 @@ used only for the first time we load elfeed on a new machine)"
   :ensure t
   :config
   (magit-org-todos-autoinsert))
+
+;; Browse your Github Stars from within Emacs
+(use-package github-stars
+  :ensure t)
 
 
 ;;; init.el ends here
