@@ -1049,9 +1049,9 @@ used only for the first time we load elfeed on a new machine)"
         (quote (("e" "Elfeed" entry (file (lambda () (concat org-directory "refile.org")))
                  "*  %:description\nLink: %a\n\n")
                 ("n" "Note"   entry (file (lambda () (concat org-directory "refile.org")))
-                 "* %? :NOTE:\n%U\n%a\n")
+                 "* %? :NOTE:\n%a\n%U\n")
                 ("t" "Todo"   entry (file (lambda () (concat org-directory "refile.org")))
-                 "* TODO %?\n%U\n%a\n"))))
+                 "* TODO %?\n%a\n%U\n"))))
   ;; ORG tags shortcuts
   (setq org-tag-alist '(("HIGH" . ?h)
                         ("MEDIUM" . ?m)
