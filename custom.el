@@ -11,7 +11,13 @@
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(package-selected-packages
    (quote
-    (github-stars github-stars\.el magit-org-todos cider sr-speedbar imenu-list ibuffer-sidebar multiple-cursors elfeed-goodies elfeed-web elfeed-org elfeed auto-sudoedit esh-autosuggest shell-pop dockerfile-mode command-log-mode yang-mode org-beautify-theme all-the-icons nlin-hl nlinum-hl diff-hl org-bullets which-key wttrin volatile-highlights helm-ag org-download helm-projectile psession undo-tree helm-descbinds org-plus-contrib ob-ipython helm-config py-autopep8 elpy magit markdown-mode atom-one-dark-theme projectile company jinja2-mode helm yaml-mode smart-mode-line auto-package-update rainbow-delimiters exec-path-from-shell diminish use-package-ensure-system-package use-package)))
+    (github-stars magit-org-todos cider sr-speedbar imenu-list ibuffer-sidebar multiple-cursors elfeed-goodies elfeed-web elfeed-org elfeed auto-sudoedit esh-autosuggest shell-pop dockerfile-mode command-log-mode yang-mode org-beautify-theme all-the-icons nlin-hl nlinum-hl diff-hl org-bullets which-key wttrin volatile-highlights helm-ag org-download helm-projectile psession undo-tree helm-descbinds org-plus-contrib ob-ipython helm-config py-autopep8 elpy magit markdown-mode atom-one-dark-theme projectile company jinja2-mode helm yaml-mode smart-mode-line auto-package-update rainbow-delimiters exec-path-from-shell diminish use-package-ensure-system-package use-package)))
+ '(shell-pop-full-span t)
+ '(shell-pop-shell-type (quote ("eshell" "*eshell*" (lambda nil (eshell)))))
+ '(shell-pop-term-shell "eshell")
+ '(shell-pop-universal-key "C-x t")
+ '(shell-pop-window-position "bottom")
+ '(shell-pop-window-size 50)
  '(tramp-syntax (quote default) nil (tramp)))
 
 (custom-set-faces
@@ -20,4 +26,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:height 140 :family "DejaVu Sans Mono"))))
+ '(org-agenda-structure ((t (:inherit default :underline nil :slant normal :weight normal :height 1.0 :width normal :foundry "nil" :family "Lucida Grande"))))
  '(whitespace-line ((t (:background "gray20" :foreground "dark gray")))))
