@@ -1161,7 +1161,10 @@ used only for the first time we load elfeed on a new machine)"
     (setq battery-status-function 'drestivo/battery-pmset
           battery-echo-area-format "Power %L, battery %B (%p%% charged, remaining time %t)"
           battery-mode-line-format " [ %b%p%% ] ")
-    (display-battery-mode)))
+    (display-battery-mode))
+  ;; Temporary workaround for https://github.com/Malabarba/smart-mode-line/issues/198
+  (ad-deactivate 'term-command-hook)
+  (ad-deactivate 'term-handle-ansi-terminal-messages))
 
 ;; yaml-mode
 (use-package yaml-mode
