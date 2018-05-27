@@ -242,25 +242,31 @@
 (when (file-exists-p custom-file)
   (load custom-file 'noerror))
 
-;; Set Emacs frame size and center it on the screen
-(defvar drestivo/frame-height 60)
-(defvar drestivo/frame-width 130)
-(add-to-list 'default-frame-alist
-             `(height . ,drestivo/frame-height))
-(add-to-list 'default-frame-alist
-             `(width . ,drestivo/frame-width))
-(defvar drestivo/frame-pixel-height
-  (* drestivo/frame-height (frame-char-height)))
-(defvar drestivo/frame-pixel-width
-  (* drestivo/frame-width (frame-char-width)))
-(setq initial-frame-alist
-      ;; Avoid the issue of having Emacs on the middle of two displays.
-      `((left . ,(/ (-
-                     (round (* (display-pixel-height) 1.777))
-                     drestivo/frame-pixel-width) 2))
-	(top .  ,(/ (-
-                     ;; Remove 100px to take into account the MAC dock
-                     (- (display-pixel-height) 100)  drestivo/frame-pixel-height) 2))))
+(when (memq window-system '(mac ns))
+  ;; Set Emacs frame size and center it on the screen
+  (defvar drestivo/frame-height 60)
+  (defvar drestivo/frame-width 130)
+  (add-to-list 'default-frame-alist
+               `(height . ,drestivo/frame-height))
+  (add-to-list 'default-frame-alist
+               `(width . ,drestivo/frame-width))
+  (defvar drestivo/frame-pixel-height
+    (* drestivo/frame-height (frame-char-height)))
+  (defvar drestivo/frame-pixel-width
+    (* drestivo/frame-width (frame-char-width)))
+  (setq initial-frame-alist
+        ;; Avoid the issue of having Emacs on the middle of two displays.
+        `((left . ,(/ (-
+                       (round (* (display-pixel-height) 1.777))
+                       drestivo/frame-pixel-width) 2))
+	  (top .  ,(/ (-
+                       ;; Remove 100px to take into account the MAC dock
+                       (- (display-pixel-height) 100)  drestivo/frame-pixel-height) 2))))
+  ;; Natural title bar
+  (add-to-list 'default-frame-alist
+               `(ns-transparent-titlebar . t))
+  (add-to-list 'default-frame-alist
+               `(ns-appearance . dark)))
 
 ;;-------------------------;;
 ;;  Backup files settings  ;;
