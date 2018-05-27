@@ -1061,7 +1061,7 @@ used only for the first time we load elfeed on a new machine)"
   ;; The maximum level for Imenu access to Org headlines
   (setq org-imenu-depth 5)
   ;; org-archive-subtree
-  ;; Archive subtrees under the same hierarchy as original in the archive files.
+  ;; Archive subtrees under the same hierarchy as the original org file.
   ;; Link: https://gist.github.com/Fuco1/e86fb5e0a5bb71ceafccedb5ca22fcfb
   (load-library "org-archive-subtree")
   ;; Add some useful hooks to org-mode
