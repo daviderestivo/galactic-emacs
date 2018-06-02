@@ -179,7 +179,7 @@
               indent-tabs-mode nil)
 
 ;; Line and column numbers
-(if (version< emacs-version "26.0")
+(if (version< emacs-version "26.1")
     (global-linum-mode)
   (global-display-line-numbers-mode))
 (column-number-mode 1)
@@ -968,7 +968,7 @@ used only for the first time we load elfeed on a new machine)"
 
 (defun drestivo/disable-number-and-visual-line ()
   (visual-line-mode 0)
-  (if (version< emacs-version "26.0")
+  (if (version< emacs-version "26.1")
       (linum-mode 0)
     (display-line-numbers-mode 0)))
 
