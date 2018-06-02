@@ -48,7 +48,6 @@ not listed.
 * magit-org-todos [[Link](https://github.com/danielma/magit-org-todos.el)]
 * markdown-mode [[Link](http://jblevins.org/projects/markdown-mode)]
 * multiple-cursors [[Link](https://github.com/magnars/multiple-cursors.el)]
-* nlinum-hl [[Link](https://github.com/hlissner/emacs-nlinum-hl)]
 * ob-ipython [[Link](https://github.com/gregsexton/ob-ipython)]
 * org-beautify-theme [[Link](https://github.com/jonnay/org-beautify-theme)]
 * org-bullets [[Link](https://github.com/sabof/org-bullets)]

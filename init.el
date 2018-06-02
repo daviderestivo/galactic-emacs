@@ -62,7 +62,6 @@
 ;; - magit-org-todos                   [https://github.com/danielma/magit-org-todos.el]
 ;; - markdown-mode                     [http://jblevins.org/projects/markdown-mode]
 ;; - multiple-cursors                  [https://github.com/magnars/multiple-cursors.el]
-;; - nlinum-hl                         [https://github.com/hlissner/emacs-nlinum-hl]
 ;; - ob-ipython                        [https://github.com/gregsexton/ob-ipython]
 ;; - org-beautify-theme                [https://github.com/jonnay/org-beautify-theme]
 ;; - org-bullets                       [https://github.com/sabof/org-bullets]
@@ -178,6 +177,10 @@
 (setq-default left-fringe-width nil
               indicate-empty-lines t
               indent-tabs-mode nil)
+
+;; Line and column numbers
+(global-display-line-numbers-mode)
+(column-number-mode 1)
 
 ;; Datetime format
 (setq display-time-day-and-date t
@@ -1471,14 +1474,6 @@ used only for the first time we load elfeed on a new machine)"
 (use-package eldoc
   :diminish eldoc-mode)
 
-;; nlinum-hl - Line numbering mode
-(use-package nlinum-hl
-  :ensure t
-  :config
-  (global-nlinum-mode)
-  (setq nlinum-format "%d ")
-  (column-number-mode 1))
-
 ;; diff-hl
 (use-package diff-hl
   :ensure t
@@ -1586,7 +1581,8 @@ used only for the first time we load elfeed on a new machine)"
   :config
   (setq drestivo/elfeed-server "nemesis")
   (add-hook 'elfeed-search-update-hook '(lambda ()
-                                          (setq truncate-lines t)))
+                                          (setq truncate-lines t)
+                                          (display-line-numbers-mode 0)))
   ;; A snippet for periodic feeds update (3 mins since Emacs
   ;; start, then every 30 mins). The updater runs only on the host
   ;; defined in `drestivo/elfeed-server'
@@ -1673,7 +1669,7 @@ used only for the first time we load elfeed on a new machine)"
       (add-hook 'ibuffer-mode-hook '(lambda ()
                                       (progn
                                         (visual-line-mode 0)
-                                        (nlinum-mode 0))))
+                                        (display-line-numbers-mode 0))))
       :config
       (setq ibuffer-sidebar-use-custom-font nil)
       :bind
@@ -1686,7 +1682,7 @@ used only for the first time we load elfeed on a new machine)"
   (add-hook 'imenu-list-major-mode-hook '(lambda ()
                                            (progn
                                              (visual-line-mode 0)
-                                             (nlinum-mode 0))))
+                                             (display-line-numbers-mode 0))))
   :config
   (setq imenu-list-position 'right
         imenu-list-auto-resize t)
@@ -1700,7 +1696,7 @@ used only for the first time we load elfeed on a new machine)"
   (add-hook 'speedbar-mode-hook '(lambda ()
                                    (progn
                                      (visual-line-mode 0)
-                                     (nlinum-mode 0))))
+                                     (display-line-numbers-mode 0))))
   :config
   (setq sr-speedbar-right-side nil)
   :bind
