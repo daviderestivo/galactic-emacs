@@ -245,32 +245,6 @@
 (when (file-exists-p custom-file)
   (load custom-file 'noerror))
 
-(when (memq window-system '(mac ns))
-  ;; Set Emacs frame size and center it on the screen
-  (defvar drestivo/frame-height 60)
-  (defvar drestivo/frame-width 130)
-  (add-to-list 'default-frame-alist
-               `(height . ,drestivo/frame-height))
-  (add-to-list 'default-frame-alist
-               `(width . ,drestivo/frame-width))
-  (defvar drestivo/frame-pixel-height
-    (* drestivo/frame-height (frame-char-height)))
-  (defvar drestivo/frame-pixel-width
-    (* drestivo/frame-width (frame-char-width)))
-  (setq initial-frame-alist
-        ;; Avoid the issue of having Emacs on the middle of two displays.
-        `((left . ,(/ (-
-                       (round (* (display-pixel-height) 1.777))
-                       drestivo/frame-pixel-width) 2))
-	  (top .  ,(/ (-
-                       ;; Remove 100px to take into account the MAC dock
-                       (- (display-pixel-height) 100)  drestivo/frame-pixel-height) 2))))
-  ;; Natural title bar
-  (add-to-list 'default-frame-alist
-               `(ns-transparent-titlebar . t))
-  (add-to-list 'default-frame-alist
-               `(ns-appearance . dark)))
-
 ;;-------------------------;;
 ;;  Backup files settings  ;;
 ;;-------------------------;;
@@ -914,6 +888,82 @@ used only for the first time we load elfeed on a new machine)"
   (bookmark-maybe-load-default-file)
   (bookmark-jump "elfeed-starred"))
 
+;; The below function is used when Emacs is started in daemon mode. In
+;; this case it is required to add a hook called during the creation
+;; of every new frame in order to load the configured options like
+;; i.e. the theme.
+(defun drestivo/setup-frame-appearence-daemon-mode (frame)
+  (if (or (daemonp) (window-system))
+      (progn
+        (select-frame frame)
+        ;; Transparent window in Emacs on macOS
+        (set-frame-parameter frame 'alpha '(96 96))
+        (set-frame-parameter frame 'ns-transparent-titlebar 't)
+        (set-frame-parameter frame 'ns-appearance 'dark)
+        (load-theme 'atom-one-dark t)
+        ;; Always bring a newly created frame on top
+        (select-frame-set-input-focus frame)
+        (toggle-scroll-bar -1)
+        ;; Set Emacs frame size and center it on the screen
+        (defvar drestivo/frame-height 60)
+        (defvar drestivo/frame-width 130)
+        (set-frame-parameter frame 'height drestivo/frame-height)
+        (set-frame-parameter frame 'width  drestivo/frame-width)
+        (defvar drestivo/frame-pixel-height
+          (* drestivo/frame-height (frame-char-height)))
+        (defvar drestivo/frame-pixel-width
+          (* drestivo/frame-width (frame-char-width)))
+        ;; Avoid the issue of having Emacs on the middle of two displays.
+        (set-frame-parameter frame 'left
+                             (/ (-
+                                 (round (* (display-pixel-height) 1.777))
+                                 drestivo/frame-pixel-width) 2))
+        (set-frame-parameter frame 'top
+                             (/ (-
+                                 ;; Remove 50px to take into account the MAC dock
+                                 (- (display-pixel-height) 50)  drestivo/frame-pixel-height) 2)))
+    (progn
+      (load-theme 'wheatgrass t)
+      (drestivo/customize-wheatgrass-theme))))
+
+;; The below function is used when Emacs is started not in daemon
+;; mode.
+(defun drestivo/setup-frame-appearence-no-daemon-mode ()
+  (if (window-system)
+      (progn
+        ;; Natural title bar
+        (add-to-list 'default-frame-alist
+                     `(ns-transparent-titlebar . t))
+        (add-to-list 'default-frame-alist
+                     `(ns-appearance . dark))
+        (load-theme 'atom-one-dark t)
+        ;; Transparent window in Emacs on macOS
+        (set-frame-parameter (selected-frame) 'alpha '(96 96))
+        ;; Always bring a newly created frame on top
+        (toggle-scroll-bar -1)
+        ;; Set Emacs frame size and center it on the screen
+        (defvar drestivo/frame-height 60)
+        (defvar drestivo/frame-width 130)
+        (add-to-list 'default-frame-alist
+                     `(height . ,drestivo/frame-height))
+        (add-to-list 'default-frame-alist
+                     `(width . ,drestivo/frame-width))
+        (defvar drestivo/frame-pixel-height
+          (* drestivo/frame-height (frame-char-height)))
+        (defvar drestivo/frame-pixel-width
+          (* drestivo/frame-width (frame-char-width)))
+        (setq initial-frame-alist
+              ;; Avoid the issue of having Emacs on the middle of two displays.
+              `((left . ,(/ (-
+                             (round (* (display-pixel-height) 1.777))
+                             drestivo/frame-pixel-width) 2))
+	        (top .  ,(/ (-
+                             ;; Remove 50px to take into account the MAC dock
+                             (- (display-pixel-height) 50)  drestivo/frame-pixel-height) 2)))))
+    (progn
+      (load-theme 'wheatgrass t)
+      (drestivo/customize-wheatgrass-theme))))
+
 
 ;;; Packages configuration section
 
@@ -939,35 +989,8 @@ used only for the first time we load elfeed on a new machine)"
 (use-package atom-one-dark-theme
   :ensure t
   :config
-  ;; The below hook is needed when Emacs is started in daemon mode.
-  ;; In this case it is required to add a hook called during the
-  ;; creation of every new frame in order to load the configured
-  ;; options like i.e. the theme.
-  (if (daemonp)
-      (add-hook 'after-make-frame-functions
-                (lambda (frame)
-                  (select-frame frame)
-                  (if (window-system)
-                      (progn
-                        (display-graphic-p frame)
-                        (load-theme 'atom-one-dark t)
-                        ;; Transparent window in Emacs on macOS
-                        (set-frame-parameter (selected-frame) 'alpha '(98 98))
-                        ;; Always bring a newly created frame on top
-                        (select-frame-set-input-focus frame)
-                        (toggle-scroll-bar -1))
-                    (progn
-                      (load-theme 'wheatgrass t)
-                      (drestivo/customize-wheatgrass-theme)))))
-    ;; Emacs not running in daemon mode
-    (if (window-system)
-        (progn
-          (load-theme 'atom-one-dark t)
-          ;; Transparent window in Emacs on macOS
-          (set-frame-parameter (selected-frame) 'alpha '(98 98)))
-      (progn
-        (load-theme 'wheatgrass t)
-        (drestivo/customize-wheatgrass-theme)))))
+  (add-hook 'after-make-frame-functions 'drestivo/setup-frame-appearence-daemon-mode)
+  (drestivo/setup-frame-appearence-no-daemon-mode))
 
 ;; exec-path-from-shell
 (use-package exec-path-from-shell
