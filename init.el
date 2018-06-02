@@ -179,7 +179,9 @@
               indent-tabs-mode nil)
 
 ;; Line and column numbers
-(global-display-line-numbers-mode)
+(if (version< emacs-version "26.0")
+    (global-linum-mode)
+  (global-display-line-numbers-mode))
 (column-number-mode 1)
 
 ;; Datetime format
@@ -964,6 +966,12 @@ used only for the first time we load elfeed on a new machine)"
       (load-theme 'wheatgrass t)
       (drestivo/customize-wheatgrass-theme))))
 
+(defun drestivo/disable-number-and-visual-line ()
+  (visual-line-mode 0)
+  (if (version< emacs-version "26.0")
+      (linum-mode 0)
+    (display-line-numbers-mode 0)))
+
 
 ;;; Packages configuration section
 
@@ -1605,7 +1613,7 @@ used only for the first time we load elfeed on a new machine)"
   (setq drestivo/elfeed-server "nemesis")
   (add-hook 'elfeed-search-update-hook '(lambda ()
                                           (setq truncate-lines t)
-                                          (display-line-numbers-mode 0)))
+                                          (drestivo/disable-number-and-visual-line)))
   ;; A snippet for periodic feeds update (3 mins since Emacs
   ;; start, then every 30 mins). The updater runs only on the host
   ;; defined in `drestivo/elfeed-server'
@@ -1690,9 +1698,7 @@ used only for the first time we load elfeed on a new machine)"
       :ensure t
       :init
       (add-hook 'ibuffer-mode-hook '(lambda ()
-                                      (progn
-                                        (visual-line-mode 0)
-                                        (display-line-numbers-mode 0))))
+                                      (drestivo/disable-number-and-visual-line)))
       :config
       (setq ibuffer-sidebar-use-custom-font nil)
       :bind
@@ -1703,9 +1709,7 @@ used only for the first time we load elfeed on a new machine)"
   :ensure t
   :init
   (add-hook 'imenu-list-major-mode-hook '(lambda ()
-                                           (progn
-                                             (visual-line-mode 0)
-                                             (display-line-numbers-mode 0))))
+                                           (drestivo/disable-number-and-visual-line)))
   :config
   (setq imenu-list-position 'right
         imenu-list-auto-resize t)
@@ -1717,9 +1721,7 @@ used only for the first time we load elfeed on a new machine)"
   :ensure t
   :init
   (add-hook 'speedbar-mode-hook '(lambda ()
-                                   (progn
-                                     (visual-line-mode 0)
-                                     (display-line-numbers-mode 0))))
+                                   (drestivo/disable-number-and-visual-line)))
   :config
   (setq sr-speedbar-right-side nil)
   :bind
