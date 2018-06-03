@@ -19,6 +19,8 @@ recentf
 todo.org
 tramp
 url/
+.emacs.desktop
+.emacs.desktop.lock
 # Uncomment the below if you want to ignore backup (autosave) files
 #[#]*[#]
 

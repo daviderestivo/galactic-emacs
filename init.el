@@ -993,7 +993,21 @@ used only for the first time we load elfeed on a new machine)"
   (when (string= system-type "gnu/linux")
     (setq system-packages-use-sudo t)))
 
-;; atom-one-dark-theme (GUI mode) and wheatgrass-theme (Terminal mode)
+;; Emacs session management
+(use-package desktop
+  :ensure t
+  :config
+  (desktop-save-mode 1))
+
+;; All the icons
+(use-package all-the-icons
+  :ensure t
+  :config
+  ;; The below command needs to be run only once manually to install the
+  ;; needed fonts (all-the-icons-install-fonts)
+  )
+
+;; atom-one-dark-theme (GUI mode)
 (use-package atom-one-dark-theme
   :ensure t
   :config
