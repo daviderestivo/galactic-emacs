@@ -1148,19 +1148,24 @@ User Interface (GUI). The function has to be used both:
 ;; smart-mode-line
 (use-package smart-mode-line
   :ensure t
+  :requires all-the-icons
   :config
   (setq sml/theme 'respectful)
   (sml/setup)
   (display-time-mode)
-  ;; The below is a temporary fix for Emacs <= 25.2.1
-  (when (string= system-type "darwin")
-    (setq battery-status-function 'drestivo/battery-pmset
-          battery-echo-area-format "Power %L, battery %B (%p%% charged, remaining time %t)"
-          battery-mode-line-format " [ %b%p%% ] ")
-    (display-battery-mode))
-  ;; Temporary workaround for https://github.com/Malabarba/smart-mode-line/issues/198
-  (ad-deactivate 'term-command-hook)
-  (ad-deactivate 'term-handle-ansi-terminal-messages))
+  (progn
+    ;; Temporary workaround for emacs-version<= 25.2.1 on macOS
+    (when (string= system-type "darwin")
+      (if (version<= emacs-version "25.2.1")
+          (setq battery-status-function 'drestivo/battery-pmset)))
+    (if (or (display-graphic-p) (daemonp))
+        (setq battery-mode-line-format (concat " " (all-the-icons-material "battery_std") "%b%p%%"))
+      (setq battery-mode-line-format " [ %b%p%% ] "))
+    (setq battery-echo-area-format "Power %L, battery %B (%p%% charged, remaining time %t")
+    (display-battery-mode)
+    ;; Temporary workaround for https://github.com/Malabarba/smart-mode-line/issues/198
+    (ad-deactivate 'term-command-hook)
+    (ad-deactivate 'term-handle-ansi-terminal-messages)))
 
 ;; yaml-mode
 (use-package yaml-mode
@@ -1500,14 +1505,6 @@ User Interface (GUI). The function has to be used both:
               (add-to-list 'eshell-visual-subcommands '("git" "diff" "help" "log" "show"))
               (define-key eshell-mode-map (kbd "C-c C-l")  'helm-eshell-history)
               (define-key eshell-mode-map (kbd "C-c C-;")  'helm-eshell-prompts))))
-
-;; All the icons
-(use-package all-the-icons
-  :ensure t
-  :config
-  ;; The below command needs to be run only once manually to install the
-  ;; needed fonts (all-the-icons-install-fonts)
-  )
 
 ;; Beautify org buffers
 (use-package org-beautify-theme
