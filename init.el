@@ -853,54 +853,49 @@ used only for the first time we load elfeed on a new machine)"
 
 (defun drestivo/setup-frame-appearence (&optional frame)
   "This function is used to setup the Emacs frame appearance in a Graphical
-User Interface (GUI). The function has to be used both:
- - as a hook for `after-make-frame-functions'(`frame' actual paramater required)
+User Interface (GUI). This function has to be invoked:
+ - as a hook of `after-make-frame-functions' (`frame' actual paramater required)
    when Emacs is running in daemon mode
- - or for the secondly created frame even if emacs is not run
- - or as a function (drestivo/setup-frame-appearance) when Emacs is not running
-   in daemon mode (`frame' actual parameter not required).
-   In this case the firstly created frame, when Emacs is not running in daemon
-   mode firstly created frame does not have the `frame' actual parameter set."
+ - as a function (drestivo/setup-frame-appearance) when Emacs is not running
+   in daemon mode (`frame' actual parameter not required). In this case, for
+   whatever reason, the first created frame does not have the `frame' actual
+   parameter set."
   (if (or (display-graphic-p) (and (daemonp) (display-graphic-p)))
       (progn
+        ;; Emacs running in daemon mode
         (if frame
             (progn
-              (message "startup frame ... if - TO BE REMOVED")
               (select-frame frame)
-              (display-graphic-p frame)
               ;; Always bring a newly created frame on top
               (select-frame-set-input-focus frame)
-              ;; Dunno why, but even if (global-display-line-numbers-mode) is 't
-              ;; the below is needed when Emacs is running in daemon mode.
+              ;; Dunno why, but even if
+              ;; (global-display-line-numbers-mode) is enabled the
+              ;; below is needed when Emacs is running in daemon mode.
               (display-line-numbers-mode)
-              ;; Transparent window in Emacs on macOS
+              ;; Transparent frame
               (set-frame-parameter frame 'alpha '(96 96))
+              ;; Natural title bar
               (set-frame-parameter frame 'ns-transparent-titlebar 't)
               (set-frame-parameter frame 'ns-appearance 'dark)
-              ;; Set Emacs frame size and center it on the screen
+              ;; Set Emacs frame size
               (defvar drestivo/frame-height 60)
               (defvar drestivo/frame-width 130)
               (set-frame-parameter frame 'height drestivo/frame-height)
               (set-frame-parameter frame 'width  drestivo/frame-width)
-              (defvar drestivo/frame-pixel-height
-                (* drestivo/frame-height (frame-char-height)))
-              (defvar drestivo/frame-pixel-width
-                (* drestivo/frame-width (frame-char-width))))
+          ;; Emacs not running in daemon mode. Used for the first created frame
           (progn
-            (message "startup frame ... else - TO BE REMOVED")
+            ;; Transparent frame
             (add-to-list 'default-frame-alist '(alpha . (96 96)))
+            ;; Natural title bar
             (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
             (add-to-list 'default-frame-alist '(ns-appearance . dark))
+            ;; Set Emacs frame size
             (defvar drestivo/frame-height 60)
             (defvar drestivo/frame-width 130)
             (add-to-list 'default-frame-alist
                          `(height . ,drestivo/frame-height))
             (add-to-list 'default-frame-alist
-                         `(width . ,drestivo/frame-width))
-            (defvar drestivo/frame-pixel-height
-              (* drestivo/frame-height (frame-char-height)))
-            (defvar drestivo/frame-pixel-width
-              (* drestivo/frame-width (frame-char-width))))))))
+                         `(width . ,drestivo/frame-width))))))))
 
 (defun drestivo/disable-number-and-visual-line ()
   (visual-line-mode 0)
