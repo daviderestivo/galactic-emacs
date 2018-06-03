@@ -2,6 +2,8 @@
 
 This are my Emacs configuration files. Below you can find the list of the packages used.
 
+![Emacs frame with natural title bar](https://raw.githubusercontent.com/daviderestivo/emacs-config/master/emacs_with_natural_title_bar.png)
+
 ## Installation
 
 ```
