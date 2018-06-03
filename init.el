@@ -68,6 +68,7 @@
 ;; - org-download                      [https://github.com/abo-abo/org-download]
 ;; - org-plus-contrib                  [http://orgmode.org]
 ;; - projectile                        [https://github.com/bbatsov/projectile]
+;; - psession                          [https://github.com/thierryvolpiatto/psession]
 ;; - py-autopep8                       [https://github.com/paetzke/py-autopep8.el]
 ;; - rainbow-delimiters                [https://www.emacswiki.org/emacs/RainbowDelimiters]
 ;; - shell-pop-el                      [https://github.com/kyagi/shell-pop-el
@@ -923,12 +924,6 @@ User Interface (GUI). This function has to be invoked:
   (when (string= system-type "gnu/linux")
     (setq system-packages-use-sudo t)))
 
-;; Emacs session management
-(use-package desktop
-  :ensure t
-  :config
-  (desktop-save-mode 1))
-
 ;; All the icons
 (use-package all-the-icons
   :ensure t
@@ -1370,6 +1365,12 @@ User Interface (GUI). This function has to be invoked:
   (global-undo-tree-mode 1)
   (setq undo-tree-visualizer-diff 1)
   (setq undo-tree-visualizer-timestamps 1))
+
+;; psession
+(use-package psession
+  :ensure t
+  :config
+  (psession-mode 1))
 
 ;; volatile-highlights
 (use-package volatile-highlights

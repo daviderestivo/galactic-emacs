@@ -8,6 +8,7 @@
 auto-save-list/
 bookmarks
 elfeed.org
+elisp-objects/
 elpa/
 eshell/history
 eshell/lastdir
@@ -18,8 +19,6 @@ recentf
 todo.org
 tramp
 url/
-.emacs.desktop
-.emacs.desktop.lock
 # Uncomment the below if you want to ignore backup (autosave) files
 #[#]*[#]
 
