@@ -677,7 +677,7 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
 
 This function requires `all-the-icons' package to be installed
 (https://github.com/domtronn/all-the-icons.el)."
-  (if (window-system)
+  (if (display-graphic-p)
       (setq drestivo/header-bg "#282C34")
     ;; The background used when Emacs runs in a terminal
     (setq drestivo/header-bg "black"))
@@ -703,7 +703,7 @@ This function requires `all-the-icons' package to be installed
                 drestivo/user-uid (user-uid))))
       (concat
        "┌─ "
-       (if (window-system)
+       (if (display-graphic-p)
            (all-the-icons-faicon "folder-open-o")
          "")
        " "
@@ -713,10 +713,10 @@ This function requires `all-the-icons' package to be installed
              (setq git-status (split-string (vc-git--run-command-string default-directory "status" "-s")))
              (drestivo/with-face
               (format "[%s %s %s] "
-                      (if (window-system)
+                      (if (display-graphic-p)
                           (all-the-icons-faicon "git-square")
                         "Git")
-                      (if (window-system)
+                      (if (display-graphic-p)
                           (concat (all-the-icons-octicon  "git-branch") ":" (car (vc-git-branches)))
                         (concat "branch" ":" (car (vc-git-branches))))
                       (concat
@@ -729,7 +729,7 @@ This function requires `all-the-icons' package to be installed
        (drestivo/with-face
         (concat
          "["
-         (if (window-system)
+         (if (display-graphic-p)
              (concat (all-the-icons-material "schedule") " "))
          (format-time-string "%Y-%m-%d %H:%M:%S" (current-time))
          "]") :background drestivo/header-bg :foreground "gainsboro")
@@ -1063,7 +1063,7 @@ User Interface (GUI). The function has to be used both:
                (flyspell-prog-mode)
                (org-indent-mode)
                (superword-mode 1)
-               (if (window-system)
+               (if (display-graphic-p)
                    (progn
                      (load-theme 'org-beautify t)
                      (custom-set-faces
@@ -1471,14 +1471,14 @@ User Interface (GUI). The function has to be used both:
       (add-hook 'after-make-frame-functions
                 (lambda (frame)
                   (select-frame frame)
-                  (if (window-system)
+                  (if (display-graphic-p)
                       (global-diff-hl-mode)
                     (progn
                       (setq diff-hl-side 'right)
                       (global-diff-hl-mode)
                       (diff-hl-margin-mode)))))
     ;; Emacs not running in daemon mode
-    (if (window-system)
+    (if (display-graphic-p)
         (global-diff-hl-mode)
       (progn
         (setq diff-hl-side 'right)
