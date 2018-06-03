@@ -64,7 +64,6 @@ not listed.
 * undo-tree [[Link](https://github.com/emacsmirror/undo-tree)]
 * use-package [[Link](https://github.com/jwiegley/use-package)]
 * volatile-highlights [[Link](https://github.com/k-talo/volatile-highlights.el)]
-* wheatgrass-theme [[Link](https://github.com/jwiegley/emacs-release/blob/master/etc/themes/wheatgrass-theme.el)]
 * which-key [[Link](https://github.com/justbur/emacs-which-key)]
 * wttrin [[Link](https://github.com/bcbcarl/emacs-wttrin)]
 * yaml-mode [[Link](https://github.com/yoshiki/yaml-mode)]

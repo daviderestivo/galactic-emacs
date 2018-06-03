@@ -78,7 +78,6 @@
 ;; - undo-tree                         [https://github.com/emacsmirror/undo-tree]
 ;; - use-package                       [https://github.com/jwiegley/use-package]
 ;; - volatile-highlights               [https://github.com/k-talo/volatile-highlights.el]
-;; - wheatgrass-theme                  [https://github.com/jwiegley/emacs-release/blob/master/etc/themes/wheatgrass-theme.el]
 ;; - which-key                         [https://github.com/justbur/emacs-which-key]
 ;; - wttrin                            [https://github.com/bcbcarl/emacs-wttrin]
 ;; - yaml-mode                         [https://github.com/yoshiki/yaml-mode]
@@ -664,43 +663,6 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
       (message (format "Image: %s saved!" (expand-file-name filename-with-timestamp dir)))
       (expand-file-name filename-with-timestamp dir))))
 
-(defun drestivo/customize-wheatgrass-theme ()
-  "This is an helper function for customizing the wheatgrass theme"
-  (custom-set-faces
-   ;; Selection highlight customization
-   '(region ((t (:background "gray13"))))
-   ;; company-mode customization
-   '(company-preview ((t (:background "black"))))
-   '(company-preview-common ((t (:background "black" :foreground "#E5C07B"))))
-   '(company-preview-search ((t (:inherit company-preview :background "black"))))
-   '(company-scrollbar-bg ((t (:background "black"))))
-   '(company-tooltip ((t (:background "black"))))
-   '(company-tooltip-annotation ((t (:background "black" :foreground "#828997"))))
-   '(company-tooltip-common ((t (:background "black"))))
-   ;; hl-line customization
-   '(hl-line ((t (:background "gray13"))))
-   ;; Linum customization
-   '(linum ((t (:background "black"))))
-   ;; Helm customization
-   '(helm-candidate-number ((t (:background "color-233" :foreground "#98C379"))))
-   '(helm-ff-directory ((t (:background "black" :foreground "#56B6C2" :weight bold))))
-   '(helm-ff-executable ((t (:background "black" :foreground "#98C379" :weight normal))))
-   '(helm-ff-file ((t (:background "black" :foreground "#ABB2BF" :weight normal))))
-   '(helm-ff-invalid-symlink ((t (:background "black" :foreground "#E06C75" :weight bold))))
-   '(helm-ff-symlink ((t (:background "black" :foreground "#E5C07B" :weight bold))))
-   '(helm-header ((t (:background "color-234" :foreground "#828997" :box (:line-width 6 :color "#282C34") :underline nil))))
-   '(helm-separator ((t (:background "black" :foreground "#E06C75"))))
-   '(helm-source-header ((t (:background "black" :foreground "#E5C07B" :box (:line-width 6 :color "brightblack") :underline nil :weight bold))))
-   ;; Magit customization
-   '(magit-blame-date ((t (:background "black" :foreground "#5C6370"))))
-   '(magit-blame-hash ((t (:background "black" :foreground "#C678DD"))))
-   '(magit-blame-heading ((t (:background "black" :foreground "#828997"))))
-   '(magit-blame-name ((t (:background "black" :foreground "#E5C07B"))))
-   '(magit-blame-summary ((t (:background "black" :foreground "#828997"))))
-   '(magit-diff-context-highlight ((t (:background "black" :foreground "#ABB2BF"))))
-   '(magit-refname ((t (:background "black" :foreground "#ABB2BF" :weight bold))))
-   '(magit-refname-stash ((t (:foreground "#ABB2BF" :weight bold))))))
-
 (defun drestivo/insert-date ()
   (interactive)
   "Insert current datetime into buffer without a newline."
@@ -779,7 +741,6 @@ This function requires `all-the-icons' package to be installed
            (drestivo/with-face " #" :foreground "LightRed")
          " $")
        " "))))
-
 
 ;;
 ;; ORG helper functions
@@ -890,81 +851,56 @@ used only for the first time we load elfeed on a new machine)"
   (bookmark-maybe-load-default-file)
   (bookmark-jump "elfeed-starred"))
 
-;; The below function is used when Emacs is started in daemon mode. In
-;; this case it is required to add a hook called during the creation
-;; of every new frame in order to load the configured options like
-;; i.e. the theme.
-(defun drestivo/setup-frame-appearence-daemon-mode (frame)
-  (if (or (daemonp) (window-system))
+(defun drestivo/setup-frame-appearence (&optional frame)
+  "This function is used to setup the Emacs frame appearance in a Graphical
+User Interface (GUI). The function has to be used both:
+ - as a hook for `after-make-frame-functions'(`frame' actual paramater required)
+   when Emacs is running in daemon mode
+ - or for the secondly created frame even if emacs is not run
+ - or as a function (drestivo/setup-frame-appearance) when Emacs is not running
+   in daemon mode (`frame' actual parameter not required).
+   In this case the firstly created frame, when Emacs is not running in daemon
+   mode firstly created frame does not have the `frame' actual parameter set."
+  (if (or (display-graphic-p) (and (daemonp) (display-graphic-p)))
       (progn
-        (select-frame frame)
-        ;; Transparent window in Emacs on macOS
-        (set-frame-parameter frame 'alpha '(96 96))
-        (set-frame-parameter frame 'ns-transparent-titlebar 't)
-        (set-frame-parameter frame 'ns-appearance 'dark)
-        (load-theme 'atom-one-dark t)
-        ;; Always bring a newly created frame on top
-        (select-frame-set-input-focus frame)
-        (toggle-scroll-bar -1)
-        ;; Set Emacs frame size and center it on the screen
-        (defvar drestivo/frame-height 60)
-        (defvar drestivo/frame-width 130)
-        (set-frame-parameter frame 'height drestivo/frame-height)
-        (set-frame-parameter frame 'width  drestivo/frame-width)
-        (defvar drestivo/frame-pixel-height
-          (* drestivo/frame-height (frame-char-height)))
-        (defvar drestivo/frame-pixel-width
-          (* drestivo/frame-width (frame-char-width)))
-        ;; Avoid the issue of having Emacs on the middle of two displays.
-        (set-frame-parameter frame 'left
-                             (/ (-
-                                 (round (* (display-pixel-height) 1.777))
-                                 drestivo/frame-pixel-width) 2))
-        (set-frame-parameter frame 'top
-                             (/ (-
-                                 ;; Remove 50px to take into account the MAC dock
-                                 (- (display-pixel-height) 50)  drestivo/frame-pixel-height) 2)))
-    (progn
-      (load-theme 'wheatgrass t)
-      (drestivo/customize-wheatgrass-theme))))
-
-;; The below function is used when Emacs is started not in daemon
-;; mode.
-(defun drestivo/setup-frame-appearence-no-daemon-mode ()
-  (if (window-system)
-      (progn
-        ;; Natural title bar
-        (add-to-list 'default-frame-alist
-                     `(ns-transparent-titlebar . t))
-        (add-to-list 'default-frame-alist
-                     `(ns-appearance . dark))
-        (load-theme 'atom-one-dark t)
-        ;; Transparent window in Emacs on macOS
-        (set-frame-parameter (selected-frame) 'alpha '(96 96))
-        ;; Always bring a newly created frame on top
-        (toggle-scroll-bar -1)
-        ;; Set Emacs frame size and center it on the screen
-        (defvar drestivo/frame-height 60)
-        (defvar drestivo/frame-width 130)
-        (add-to-list 'default-frame-alist
-                     `(height . ,drestivo/frame-height))
-        (add-to-list 'default-frame-alist
-                     `(width . ,drestivo/frame-width))
-        (defvar drestivo/frame-pixel-height
-          (* drestivo/frame-height (frame-char-height)))
-        (defvar drestivo/frame-pixel-width
-          (* drestivo/frame-width (frame-char-width)))
-        (setq initial-frame-alist
-              ;; Avoid the issue of having Emacs on the middle of two displays.
-              `((left . ,(/ (-
-                             (round (* (display-pixel-height) 1.777))
-                             drestivo/frame-pixel-width) 2))
-	        (top .  ,(/ (-
-                             ;; Remove 50px to take into account the MAC dock
-                             (- (display-pixel-height) 50)  drestivo/frame-pixel-height) 2)))))
-    (progn
-      (load-theme 'wheatgrass t)
-      (drestivo/customize-wheatgrass-theme))))
+        (if frame
+            (progn
+              (message "startup frame ... if - TO BE REMOVED")
+              (select-frame frame)
+              (display-graphic-p frame)
+              ;; Always bring a newly created frame on top
+              (select-frame-set-input-focus frame)
+              ;; Dunno why, but even if (global-display-line-numbers-mode) is 't
+              ;; the below is needed when Emacs is running in daemon mode.
+              (display-line-numbers-mode)
+              ;; Transparent window in Emacs on macOS
+              (set-frame-parameter frame 'alpha '(96 96))
+              (set-frame-parameter frame 'ns-transparent-titlebar 't)
+              (set-frame-parameter frame 'ns-appearance 'dark)
+              ;; Set Emacs frame size and center it on the screen
+              (defvar drestivo/frame-height 60)
+              (defvar drestivo/frame-width 130)
+              (set-frame-parameter frame 'height drestivo/frame-height)
+              (set-frame-parameter frame 'width  drestivo/frame-width)
+              (defvar drestivo/frame-pixel-height
+                (* drestivo/frame-height (frame-char-height)))
+              (defvar drestivo/frame-pixel-width
+                (* drestivo/frame-width (frame-char-width))))
+          (progn
+            (message "startup frame ... else - TO BE REMOVED")
+            (add-to-list 'default-frame-alist '(alpha . (96 96)))
+            (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+            (add-to-list 'default-frame-alist '(ns-appearance . dark))
+            (defvar drestivo/frame-height 60)
+            (defvar drestivo/frame-width 130)
+            (add-to-list 'default-frame-alist
+                         `(height . ,drestivo/frame-height))
+            (add-to-list 'default-frame-alist
+                         `(width . ,drestivo/frame-width))
+            (defvar drestivo/frame-pixel-height
+              (* drestivo/frame-height (frame-char-height)))
+            (defvar drestivo/frame-pixel-width
+              (* drestivo/frame-width (frame-char-width))))))))
 
 (defun drestivo/disable-number-and-visual-line ()
   (visual-line-mode 0)
@@ -1010,9 +946,11 @@ used only for the first time we load elfeed on a new machine)"
 ;; atom-one-dark-theme (GUI mode)
 (use-package atom-one-dark-theme
   :ensure t
+  :init
+  (add-hook 'after-make-frame-functions 'drestivo/setup-frame-appearence)
+  (drestivo/setup-frame-appearence)
   :config
-  (add-hook 'after-make-frame-functions 'drestivo/setup-frame-appearence-daemon-mode)
-  (drestivo/setup-frame-appearence-no-daemon-mode))
+  (load-theme 'atom-one-dark))
 
 ;; exec-path-from-shell
 (use-package exec-path-from-shell
