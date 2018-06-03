@@ -54,7 +54,6 @@ not listed.
 * org-download [[Link](https://github.com/abo-abo/org-download)]
 * org-plus-contrib [[Link](http://orgmode.org)]
 * projectile [[Link](https://github.com/bbatsov/projectile)]
-* psession [[Link](https://github.com/thierryvolpiatto/psession)]
 * py-autopep8 [[Link](https://github.com/paetzke/py-autopep8.el)]
 * rainbow-delimiters [[Link](https://www.emacswiki.org/emacs/RainbowDelimiters)]
 * shell-pop-el [[link](https://github.com/kyagi/shell-pop-el)]

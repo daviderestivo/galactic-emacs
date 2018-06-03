@@ -68,7 +68,6 @@
 ;; - org-download                      [https://github.com/abo-abo/org-download]
 ;; - org-plus-contrib                  [http://orgmode.org]
 ;; - projectile                        [https://github.com/bbatsov/projectile]
-;; - psession                          [https://github.com/thierryvolpiatto/psession]
 ;; - py-autopep8                       [https://github.com/paetzke/py-autopep8.el]
 ;; - rainbow-delimiters                [https://www.emacswiki.org/emacs/RainbowDelimiters]
 ;; - shell-pop-el                      [https://github.com/kyagi/shell-pop-el
@@ -1371,26 +1370,6 @@ User Interface (GUI). This function has to be invoked:
   (global-undo-tree-mode 1)
   (setq undo-tree-visualizer-diff 1)
   (setq undo-tree-visualizer-timestamps 1))
-
-;; psession
-(use-package psession
-  :ensure t
-  :config
-  (setq psession-object-to-save-alist
-        '(
-          ;;(ioccur-history . "ioccur-history.el")
-          (extended-command-history . "extended-command-history.el")
-          (helm-external-command-history . "helm-external-command-history.el")
-          (helm-surfraw-engines-history . "helm-(setq )urfraw-engines-history.el")
-          (psession--save-buffers-alist . "psession-save-buffers-alist.el")
-          (helm-ff-history . "helm-ff-history.el")
-          (helm-grep-history . "helm-grep-history.el")
-          (kill-ring . "kill-ring.el")
-          (kill-ring-yank-pointer . "kill-ring-yank-pointer.el")
-          (register-alist . "register-alist.el")
-          (psession--winconf-alist . "psession-winconf-alist.el")
-          ))
-  (psession-mode 1))
 
 ;; volatile-highlights
 (use-package volatile-highlights
