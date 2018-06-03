@@ -1740,6 +1740,7 @@ used only for the first time we load elfeed on a new machine)"
 
 ;; Browse your Github Stars from within Emacs
 (use-package github-stars
+  :if (not (version< emacs-version "25.1"))
   :ensure t)
 
 
