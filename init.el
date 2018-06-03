@@ -1370,7 +1370,11 @@ User Interface (GUI). This function has to be invoked:
 (use-package psession
   :ensure t
   :config
-  (psession-mode 1))
+  (psession-mode 1)
+  ;; Save minibuffer history
+  (psession-savehist-mode 1)
+  ;; Save periodically (autosave) the Emacs session
+  (psession-autosave-mode 1))
 
 ;; volatile-highlights
 (use-package volatile-highlights
