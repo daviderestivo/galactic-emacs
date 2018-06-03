@@ -180,8 +180,8 @@
 ;; Line and column numbers
 (if (version< emacs-version "26.1")
     (global-linum-mode)
-  (global-display-line-numbers-mode))
-(column-number-mode 1)
+  (global-display-line-numbers-mode t))
+(column-number-mode t)
 
 ;; Datetime format
 (setq display-time-day-and-date t
@@ -868,10 +868,10 @@ User Interface (GUI). This function has to be invoked:
               (select-frame frame)
               ;; Always bring a newly created frame on top
               (select-frame-set-input-focus frame)
-              ;; Dunno why, but even if
-              ;; (global-display-line-numbers-mode) is enabled the
-              ;; below is needed when Emacs is running in daemon mode.
-              (display-line-numbers-mode)
+              ;; Dunno why, but even if (global-display-line-numbers-mode)
+              ;; is enabled the below is still needed when Emacs is running
+              ;; in daemon mode.
+              (global-display-line-numbers-mode t)
               ;; Transparent frame
               (set-frame-parameter frame 'alpha '(96 96))
               ;; Natural title bar
