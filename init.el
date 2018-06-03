@@ -850,7 +850,7 @@ used only for the first time we load elfeed on a new machine)"
   (bookmark-maybe-load-default-file)
   (bookmark-jump "elfeed-starred"))
 
-(defun drestivo/setup-frame-appearence (&optional frame)
+(defun drestivo/setup-frame-appearance (&optional frame)
   "This function is used to setup the Emacs frame appearance in a Graphical
 User Interface (GUI). This function has to be invoked:
  - as a hook of `after-make-frame-functions' (`frame' actual paramater required)
@@ -880,7 +880,7 @@ User Interface (GUI). This function has to be invoked:
               (defvar drestivo/frame-height 60)
               (defvar drestivo/frame-width 130)
               (set-frame-parameter frame 'height drestivo/frame-height)
-              (set-frame-parameter frame 'width  drestivo/frame-width)
+              (set-frame-parameter frame 'width  drestivo/frame-width))
           ;; Emacs not running in daemon mode. Used for the first created frame
           (progn
             ;; Transparent frame
@@ -894,7 +894,7 @@ User Interface (GUI). This function has to be invoked:
             (add-to-list 'default-frame-alist
                          `(height . ,drestivo/frame-height))
             (add-to-list 'default-frame-alist
-                         `(width . ,drestivo/frame-width))))))))
+                         `(width . ,drestivo/frame-width)))))))
 
 (defun drestivo/disable-number-and-visual-line ()
   (visual-line-mode 0)
@@ -941,8 +941,8 @@ User Interface (GUI). This function has to be invoked:
 (use-package atom-one-dark-theme
   :ensure t
   :init
-  (add-hook 'after-make-frame-functions 'drestivo/setup-frame-appearence)
-  (drestivo/setup-frame-appearence)
+  (add-hook 'after-make-frame-functions 'drestivo/setup-frame-appearance)
+  (drestivo/setup-frame-appearance)
   :config
   (load-theme 'atom-one-dark))
 
