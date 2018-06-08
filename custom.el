@@ -7,7 +7,7 @@
    [default default default italic underline success warning error])
  '(custom-safe-themes
    (quote
-    ("6a23db7bccf6288fd7c80475dc35804c73f9c9769ad527306d2e0eada1f8b466" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" default)))
+    ("c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "78496062ff095da640c6bb59711973c7c66f392e3ac0127e611221d541850de2" default)))
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(package-selected-packages
    (quote
