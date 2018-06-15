@@ -189,6 +189,9 @@
 ;; Blinking cursor
 (blink-cursor-mode t)
 
+;; Change cursor type to vertical bar
+(setq-default cursor-type 'bar)
+
 ;; Use visual bell instead of audio
 (setq visible-bell 1)
 
