@@ -43,10 +43,6 @@
 ;; - company-mode                      [https://github.com/company-mode/company-mode]
 ;; - diff-hl                           [https://github.com/dgutov/diff-hl]
 ;; - dockerfile-mode                   [https://github.com/spotify/dockerfile-mode]
-;; - elfeed                            [https://github.com/skeeto/elfeed]
-;; - elfeed-goodies                    [https://github.com/algernon/elfeed-goodies]
-;; - elfeed-org                        [https://github.com/remyhonig/elfeed-org]
-;; - elfeed-web                        [https://github.com/skeeto/elfeed/tree/master/web]
 ;; - elpy                              [https://elpy.readthedocs.io]
 ;; - esh-autosuggest                   [https://github.com/dieggsy/esh-autosuggest]
 ;; - exec-path-from-shell              [https://github.com/purcell/exec-path-from-shell]
@@ -762,95 +758,8 @@ This function requires `all-the-icons' package to be installed
     (show-children)))
 
 ;;
-;; Elfeed helper functions
+;; Emacs frame appearance
 ;;
-
-;; Functions to support syncing .elfeed between machines
-;; makes sure elfeed reads index from disk before launching
-(defun drestivo/elfeed-load-db-and-open ()
-  "Wrapper to load the elfeed db from disk before opening (to be
-used only for the first time we load elfeed on a new machine)"
-  (interactive)
-  (elfeed-db-load)
-  (elfeed)
-  (elfeed-search-update--force)
-  (elfeed-update))
-
-;; Write elfeed db to disk when quiting
-(defun drestivo/elfeed-save-db-and-bury ()
-  "Wrapper to save the elfeed db to disk before burying buffer"
-  (interactive)
-  (elfeed-db-save)
-  (quit-window))
-
-;; Update elfeed feeds in background
-(defun drestivo/elfeed-feeds-updater ()
-  "Elfeed background feeds update"
-  (interactive)
-  (let
-      ((hostname (replace-regexp-in-string "[\.][a-z]*[\n]" ""
-                                           (shell-command-to-string "hostname"))))
-    (if (string= hostname drestivo/elfeed-server)
-        (progn
-          (message (concat "[" (current-time-string) "]" " Update Elfeed feeds..."))
-          (elfeed-db-save)
-          (elfeed-db-load)
-          (elfeed-update))
-      (message (concat "[" (current-time-string) "]" " Elfeed feeds updater will not run on this host. Please set drestivo/elfeed-server variable correctly.")))))
-
-;;
-;; Elfeed shortcut functions
-;;
-(defun drestivo/elfeed-show-all ()
-  (interactive)
-  (bookmark-maybe-load-default-file)
-  (bookmark-jump "elfeed-all"))
-
-(defun drestivo/elfeed-show-blogs ()
-  (interactive)
-  (bookmark-maybe-load-default-file)
-  (bookmark-jump "elfeed-blogs"))
-
-(defun drestivo/elfeed-show-emacs ()
-  (interactive)
-  (bookmark-maybe-load-default-file)
-  (bookmark-jump "elfeed-emacs"))
-
-(defun drestivo/elfeed-show-funnystuff ()
-  (interactive)
-  (bookmark-maybe-load-default-file)
-  (bookmark-jump "elfeed-funnystuff"))
-
-(defun drestivo/elfeed-show-linux ()
-  (interactive)
-  (bookmark-maybe-load-default-file)
-  (bookmark-jump "elfeed-linux"))
-
-(defun drestivo/elfeed-show-macos ()
-  (interactive)
-  (bookmark-maybe-load-default-file)
-  (bookmark-jump "elfeed-macos"))
-
-(defun drestivo/elfeed-show-networking ()
-  (interactive)
-  (bookmark-maybe-load-default-file)
-  (bookmark-jump "elfeed-networking"))
-
-(defun drestivo/elfeed-show-news ()
-  (interactive)
-  (bookmark-maybe-load-default-file)
-  (bookmark-jump "elfeed-news"))
-
-(defun drestivo/elfeed-show-photo ()
-  (interactive)
-  (bookmark-maybe-load-default-file)
-  (bookmark-jump "elfeed-photo"))
-
-(defun drestivo/elfeed-show-starred ()
-  (interactive)
-  (bookmark-maybe-load-default-file)
-  (bookmark-jump "elfeed-starred"))
-
 (defun drestivo/setup-frame-appearance (&optional frame)
   "This function is used to setup the Emacs frame appearance in a Graphical
 User Interface (GUI). This function has to be invoked:
@@ -1027,9 +936,7 @@ User Interface (GUI). This function has to be invoked:
   (setq org-return-follows-link t)
   ;; Capture templates for: TODO tasks and notes
   (setq org-capture-templates
-        (quote (("e" "Elfeed" entry (file (lambda () (concat org-directory "refile.org")))
-                 "*  %:description\nLink: %a\n\n")
-                ("n" "Note"   entry (file (lambda () (concat org-directory "refile.org")))
+        (quote (("n" "Note"   entry (file (lambda () (concat org-directory "refile.org")))
                  "* %? :NOTE:\n%a\n%U\n")
                 ("t" "Todo"   entry (file (lambda () (concat org-directory "refile.org")))
                  "* TODO %?\n%a\n%U\n"))))
@@ -1532,71 +1439,6 @@ User Interface (GUI). This function has to be invoked:
   :diminish auto-sudoedit-mode
   :config
   (auto-sudoedit-mode 1))
-
-;; Elfeed is an extensible web feed reader for Emacs, supporting both
-;; Atom and RSS
-(use-package elfeed
-  :ensure t
-  :config
-  (setq drestivo/elfeed-server "nemesis")
-  (add-hook 'elfeed-search-update-hook '(lambda ()
-                                          (setq truncate-lines t)
-                                          (drestivo/disable-number-and-visual-line)))
-  ;; A snippet for periodic feeds update (3 mins since Emacs
-  ;; start, then every 30 mins). The updater runs only on the host
-  ;; defined in `drestivo/elfeed-server'
-  (run-at-time 180 1800 'drestivo/elfeed-feeds-updater)
-  ;;
-  ;; Star/Unstar articles
-  ;;
-  (defalias 'drestivo/elfeed-toggle-star
-    (elfeed-expose #'elfeed-search-toggle-all 'starred))
-  ;; Face for starred articles
-  (defface drestivo/elfeed-search-starred-title-face
-    '((t :foreground "#f77"))
-    "Marks a starred Elfeed entry.")
-  (push '(starred drestivo/elfeed-search-starred-title-face) elfeed-search-face-alist)
-  :bind
-  ("\C-xw" . elfeed)
-  (:map elfeed-search-mode-map
-        ("A" . drestivo/elfeed-show-all)
-        ("B" . drestivo/elfeed-show-blogs)
-        ("E" . drestivo/elfeed-show-emacs)
-        ("F" . drestivo/elfeed-show-funnystuff)
-        ("L" . drestivo/elfeed-show-linux)
-        ("M" . drestivo/elfeed-show-macos)
-        ("N" . drestivo/elfeed-show-networking)
-        ("W" . drestivo/elfeed-show-news)
-        ("P" . drestivo/elfeed-show-photo)
-        ("*" . drestivo/elfeed-show-starred)
-        ("m" . drestivo/elfeed-toggle-star)
-        ("q" . drestivo/elfeed-save-db-and-bury)))
-
-;; Web interface to Elfeed
-(use-package elfeed-web
-  :ensure t
-  :config
-  ;; Uncomment the following line to enable the elfeed web server
-  ;; (elfeed-web-start)
-  )
-
-;; Configure the Elfeed RSS reader with an Orgmode file
-(use-package elfeed-org
-  :ensure t
-  :config
-  (setq rmh-elfeed-org-files (list "~/.emacs.d/elfeed.org"))
-  (elfeed-org)
-  ;; Start elfeed. This is needed for the feed update function
-  ;; (drestivo/elfeed-feeds-updater) to work properly
-  (elfeed))
-
-;; Various bits and pieces to enhance the Elfeed user experience
-(use-package elfeed-goodies
-  :ensure t
-  :config
-  (setq elfeed-goodies/entry-pane-position 'bottom)
-  (setq elfeed-goodies/powerline-default-separator 'nil)
-  (elfeed-goodies/setup))
 
 ;; Multiple cursors support
 (use-package multiple-cursors

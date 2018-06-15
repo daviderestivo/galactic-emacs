@@ -31,10 +31,6 @@ not listed.
 * company-mode [[Link](https://github.com/company-mode/company-mode)]
 * diff-hl [[Link](https://github.com/dgutov/diff-hl)]
 * dockerfile-mode [[Link](https://github.com/spotify/dockerfile-mode)]
-* elfeed [[Link](https://github.com/skeeto/elfeed)]
-* elfeed-goodies [[Link](https://github.com/algernon/elfeed-goodies)]
-* elfeed-org [[Link](https://github.com/remyhonig/elfeed-org)]
-* elfeed-web [[Link](https://github.com/skeeto/elfeed/tree/master/web)]
 * elpy [[Link](https://elpy.readthedocs.io)]
 * esh-autosuggest [[Link](https://github.com/dieggsy/esh-autosuggest)]
 * exec-path-from-shell [[Link](https://github.com/purcell/exec-path-from-shell)]
@@ -99,7 +95,6 @@ not listed.
 | C-+ | drestivo/insert-date |
 | C-x t | shell-pop-universal-key |
 | C-c j | drestivo/org-show-current-heading-tidily |
-| C-x w | elfeed |
 | C-S-c C-S-c | mc/edit-lines |
 | C-> | mc/mark-next-like-this |
 | C-< | mc/mark-previous-like-this |
