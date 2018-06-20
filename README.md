@@ -31,6 +31,7 @@ not listed.
 * company-mode [[Link](https://github.com/company-mode/company-mode)]
 * diff-hl [[Link](https://github.com/dgutov/diff-hl)]
 * dockerfile-mode [[Link](https://github.com/spotify/dockerfile-mode)]
+* elisp-bug-hunter [[Link](https://github.com/Malabarba/elisp-bug-hunter)]
 * elpy [[Link](https://elpy.readthedocs.io)]
 * esh-autosuggest [[Link](https://github.com/dieggsy/esh-autosuggest)]
 * exec-path-from-shell [[Link](https://github.com/purcell/exec-path-from-shell)]

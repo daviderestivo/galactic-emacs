@@ -43,6 +43,7 @@
 ;; - company-mode                      [https://github.com/company-mode/company-mode]
 ;; - diff-hl                           [https://github.com/dgutov/diff-hl]
 ;; - dockerfile-mode                   [https://github.com/spotify/dockerfile-mode]
+;; - elisp-bug-hunter                  [https://github.com/Malabarba/elisp-bug-hunter]
 ;; - elpy                              [https://elpy.readthedocs.io]
 ;; - esh-autosuggest                   [https://github.com/dieggsy/esh-autosuggest]
 ;; - exec-path-from-shell              [https://github.com/purcell/exec-path-from-shell]
@@ -1515,6 +1516,11 @@ User Interface (GUI). This function has to be invoked:
 (use-package github-stars
   :if (not (version< emacs-version "25.1"))
   :ensure t)
+
+;; Automatically debug and bisect your init file
+(use-package bug-hunter
+  :ensure t
+  :defer t)
 
 
 ;;; init.el ends here
