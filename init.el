@@ -1230,9 +1230,10 @@ User Interface (GUI). This function has to be invoked:
   :config
   (elpy-enable)
   (setq elpy-rpc-python-command "python3")
-  (elpy-use-ipython "ipython3")
-  ;; Fix IPython5 new prompt behavior (https://github.com/jorgenschaefer/elpy/issues/992)
-  (setenv "IPY_TEST_SIMPLE_PROMPT" "1")
+  (setq python-shell-interpreter "jupyter"
+        python-shell-interpreter-args "console --simple-prompt"
+        python-shell-prompt-detect-failure-warning nil)
+  (add-to-list 'python-shell-completion-native-disabled-interpreters "jupyter")
   (add-hook 'python-mode-hook 'elpy-mode))
 
 ;; highlight-indentation-mode
