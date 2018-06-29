@@ -1220,7 +1220,7 @@ User Interface (GUI). This function has to be invoked:
   :diminish projectile-mode
   :ensure t
   :config
-  (add-hook 'python-mode-hook 'projectile-mode)
+  (projectile-mode)
   (setq projectile-completion-system 'helm))
 
 ;; py-autopep8
