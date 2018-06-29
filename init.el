@@ -845,7 +845,7 @@ User Interface (GUI). This function has to be invoked:
   ;; needed fonts (all-the-icons-install-fonts)
   )
 
-;; atom-one-dark-theme (GUI mode)
+;; atom-one-dark-theme
 (use-package atom-one-dark-theme
   :ensure t
   :init
@@ -1055,11 +1055,13 @@ User Interface (GUI). This function has to be invoked:
   (display-time-mode)
   ;; Customize smart-mode-line
   (progn
-    ;; Customize appearance
-    (set-face-attribute 'mode-line          nil :box        '(:line-width 3 :color "#2C323C"))
-    (set-face-attribute 'mode-line-inactive nil :box        '(:line-width 3 :color "#282C34"))
-    (set-face-attribute 'mode-line          nil :background "#2C323C")
-    (set-face-attribute 'mode-line-inactive nil :background "#282C34")
+    ;; Customize appearance in GUI mode
+    (if (display-graphic-p)
+        (progn
+          (set-face-attribute 'mode-line          nil :box        '(:line-width 3 :color "#2C323C"))
+          (set-face-attribute 'mode-line-inactive nil :box        '(:line-width 3 :color "#282C34"))
+          (set-face-attribute 'mode-line          nil :background "#2C323C")
+          (set-face-attribute 'mode-line-inactive nil :background "#282C34")))
     ;; Temporary workaround for display-battery-mode for emacs-version<= 25.2.1 on macOS
     (when (string= system-type "darwin")
       (if (version<= emacs-version "25.2.1")
