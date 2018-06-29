@@ -1150,7 +1150,7 @@ User Interface (GUI). This function has to be invoked:
   (setq helm-autoresize-min-height 40)
   (helm-autoresize-mode 1)
   (add-hook 'helm-minibuffer-set-up-hook
-            'helm-hide-minibuffer-maybe)
+            #'drestivo/helm-hide-minibuffer-maybe)
   (define-key minibuffer-local-map (kbd "C-c C-l") 'helm-minibuffer-history)
   ;; Replace the default helm grep command with ag.
   ;; Requires "The Silver Searcher" (ag) to be installed.
