@@ -1053,8 +1053,14 @@ User Interface (GUI). This function has to be invoked:
   (setq sml/theme 'respectful)
   (sml/setup)
   (display-time-mode)
+  ;; Customize smart-mode-line
   (progn
-    ;; Temporary workaround for emacs-version<= 25.2.1 on macOS
+    ;; Customize appearance
+    (set-face-attribute 'mode-line          nil :box        '(:line-width 3 :color "#2C323C"))
+    (set-face-attribute 'mode-line-inactive nil :box        '(:line-width 3 :color "#282C34"))
+    (set-face-attribute 'mode-line          nil :background "#2C323C")
+    (set-face-attribute 'mode-line-inactive nil :background "#282C34")
+    ;; Temporary workaround for display-battery-mode for emacs-version<= 25.2.1 on macOS
     (when (string= system-type "darwin")
       (if (version<= emacs-version "25.2.1")
           (setq battery-status-function 'drestivo/battery-pmset)))
@@ -1063,7 +1069,7 @@ User Interface (GUI). This function has to be invoked:
       (setq battery-mode-line-format " [ %b%p%% ] "))
     (setq battery-echo-area-format "Power %L, battery %B (%p%% charged, remaining time %t")
     (display-battery-mode)
-    ;; Temporary workaround for https://github.com/Malabarba/smart-mode-line/issues/198
+    ;; Temporary workaround. Please look at https://github.com/Malabarba/smart-mode-line/issues/198
     (ad-deactivate 'term-command-hook)
     (ad-deactivate 'term-handle-ansi-terminal-messages)))
 
