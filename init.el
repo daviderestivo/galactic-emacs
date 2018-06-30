@@ -1343,7 +1343,7 @@ User Interface (GUI). This function has to be invoked:
   :init
   :config
   (which-key-mode)
-  (which-key-setup-side-window-right))
+  (which-key-setup-side-window-bottom))
 
 ;; whitespace - Highlight lines that exceed 80 chars length
 (use-package whitespace
