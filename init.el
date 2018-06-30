@@ -963,6 +963,7 @@ User Interface (GUI). This function has to be invoked:
                (setq show-trailing-whitespace t)
                (flyspell-prog-mode)
                (org-indent-mode)
+               (diminish 'org-indent-mode)
                (superword-mode 1)
                (if (display-graphic-p)
                    (progn
