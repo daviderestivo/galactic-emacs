@@ -6,7 +6,7 @@
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
 ;; URL: https://github.com/daviderestivo/emacs-config
-;; Version: 4.3.0
+;; Version: 5.0.0
 ;; Keywords: emacs config dotemacs
 
 
