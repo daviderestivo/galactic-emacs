@@ -1049,15 +1049,20 @@ User Interface (GUI). This function has to be invoked:
   (setq sml/theme 'respectful)
   (sml/setup)
   (display-time-mode)
-  ;; Customize smart-mode-line
+  ;; Customize smart-mode-line appearance in GUI mode.
+  ;;
+  ;; The below hook is really ugly but I didn't a better way to avoid
+  ;; that the mode-line is reverted back to the original colors after
+  ;; for example calling org-agenda (C-c a t) command is invoked.
+  (add-hook 'post-command-hook
+            (lambda ()
+              (if (display-graphic-p)
+                  (progn
+                    (set-face-attribute 'mode-line          nil :box        '(:line-width 3 :color "#2C323C"))
+                    (set-face-attribute 'mode-line-inactive nil :box        '(:line-width 3 :color "#282C34"))
+                    (set-face-attribute 'mode-line          nil :background "#2C323C")
+                    (set-face-attribute 'mode-line-inactive nil :background "#282C34")))))
   (progn
-    ;; Customize appearance in GUI mode
-    (if (display-graphic-p)
-        (progn
-          (set-face-attribute 'mode-line          nil :box        '(:line-width 3 :color "#2C323C"))
-          (set-face-attribute 'mode-line-inactive nil :box        '(:line-width 3 :color "#282C34"))
-          (set-face-attribute 'mode-line          nil :background "#2C323C")
-          (set-face-attribute 'mode-line-inactive nil :background "#282C34")))
     ;; Temporary workaround for display-battery-mode for emacs-version<= 25.2.1 on macOS
     (when (string= system-type "darwin")
       (if (version<= emacs-version "25.2.1")
