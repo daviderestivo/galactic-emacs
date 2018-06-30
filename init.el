@@ -1456,12 +1456,12 @@ User Interface (GUI). This function has to be invoked:
 (use-package shell-pop
   :ensure t
   :init
-   (setq shell-pop-shell-type '("eshell" "*eshell*" (lambda () (eshell)))
-         shell-pop-term-shell "eshell"
-         shell-pop-universal-key (kbd "C-x t")
-         shell-pop-window-size 50
-         shell-pop-full-span t
-         shell-pop-window-position "bottom"))
+  (setq shell-pop-shell-type '("eshell" "*eshell*" (lambda () (eshell)))
+        shell-pop-term-shell "eshell"
+        shell-pop-universal-key (kbd "C-x t")
+        shell-pop-window-size 50
+        shell-pop-full-span t
+        shell-pop-window-position "bottom"))
 
 ;; Fish-like autosuggestions in eshell
 (use-package esh-autosuggest
