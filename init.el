@@ -1124,7 +1124,8 @@ User Interface (GUI). This function has to be invoked:
   :commands helm-mode
   :config
   (helm-mode 1)
-  (set-face-attribute 'helm-candidate-number nil :background "#2C323C")
+  (if (display-graphic-p)
+      (set-face-attribute 'helm-candidate-number nil :background "#2C323C"))
   ;; Enable fuzzy matching
   (setq helm-buffers-fuzzy-matching t)
   (setq helm-recentf-fuzzy-match t)
