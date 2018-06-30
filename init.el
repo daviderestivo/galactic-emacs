@@ -1292,10 +1292,25 @@ User Interface (GUI). This function has to be invoked:
   :ensure t
   :config
   (psession-mode 1)
-  ;; Save minibuffer history
-  (psession-savehist-mode 1)
   ;; Save periodically (autosave) the Emacs session
-  (psession-autosave-mode 1))
+  (psession-autosave-mode 1)
+  (setq psession-object-to-save-alist
+        '((helm-M-x-input-history        . "helm-M-x-input-history.el")
+          (minibuffer-history            . "minibuffer-history.el")
+          (extended-command-history      . "extended-command-history.el")
+          (helm-external-command-history . "helm-external-command-history.el")
+          (helm-surfraw-engines-history  . "helm-surfraw-engines-history.el")
+          (psession--save-buffers-alist  . "psession-save-buffers-alist.el")
+          (helm-ff-history               . "helm-ff-history.el")
+          (regexp-search-ring            . "regexp-search-ring.el")
+          (search-ring                   . "search-ring.el")
+          (file-name-history             . "file-name-history.el")
+          (kill-ring                     . "kill-ring.el")
+          (kill-ring-yank-pointer        . "kill-ring-yank-pointer.el")
+          (register-alist                . "register-alist.el")
+          ;; No need to save the windows configuration since this is handled by persp-mode
+          ;;(psession--winconf-alist     . "psession-winconf-alist.el")
+          )))
 
 ;; volatile-highlights
 (use-package volatile-highlights
