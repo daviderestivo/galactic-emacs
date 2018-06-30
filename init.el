@@ -1431,14 +1431,13 @@ User Interface (GUI). This function has to be invoked:
 ;; Pop-up a shell
 (use-package shell-pop
   :ensure t
-  :config
-  (custom-set-variables
-   '(shell-pop-shell-type '("eshell" "*eshell*" (lambda () (eshell))))
-   '(shell-pop-term-shell "eshell")
-   '(shell-pop-universal-key "C-x t")
-   '(shell-pop-window-size 50)
-   '(shell-pop-full-span t)
-   '(shell-pop-window-position "bottom")))
+  :init
+   (setq shell-pop-shell-type '("eshell" "*eshell*" (lambda () (eshell)))
+         shell-pop-term-shell "eshell"
+         shell-pop-universal-key (kbd "C-x t")
+         shell-pop-window-size 50
+         shell-pop-full-span t
+         shell-pop-window-position "bottom"))
 
 ;; Fish-like autosuggestions in eshell
 (use-package esh-autosuggest
