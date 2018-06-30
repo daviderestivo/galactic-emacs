@@ -967,13 +967,8 @@ User Interface (GUI). This function has to be invoked:
                (if (display-graphic-p)
                    (progn
                      (load-theme 'org-beautify t)
-                     (custom-set-faces
-                      ;; Org customization
-                      '(org-agenda-structure ((t (:inherit default
-                                                           :underline nil :slant normal
-                                                           :weight normal :height 1.0
-                                                           :width normal :foundry "nil"
-                                                           :family "Lucida Grande")))))))))
+                     (set-face-attribute 'org-agenda-structure nil :height 1.0 :family "Lucida Grande")))))
+
   :bind
   ("\C-cl" . org-store-link)
   ("\C-ca" . org-agenda)
