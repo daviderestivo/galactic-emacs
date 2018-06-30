@@ -1250,8 +1250,10 @@ User Interface (GUI). This function has to be invoked:
   :diminish highlight-indentation-mode
   :ensure t
   :config
-  (set-face-background 'highlight-indentation-face "gray18")
-  (set-face-background 'highlight-indentation-current-column-face "gray18"))
+  (set-face-attribute 'highlight-indentation-face nil
+                      :background "gray18")
+  (set-face-attribute 'highlight-indentation-current-column-face nil
+                      :background "gray18"))
 
 ;; markdown-mode
 (use-package markdown-mode
