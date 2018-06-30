@@ -1054,7 +1054,9 @@ User Interface (GUI). This function has to be invoked:
   :ensure t
   :requires all-the-icons
   :config
-  (setq sml/theme 'atom-one-dark)
+  (if (display-graphic-p)
+      (setq sml/theme 'atom-one-dark)
+    (setq sml/theme 'respectful))
   (sml/setup)
   (display-time-mode)
   (progn
