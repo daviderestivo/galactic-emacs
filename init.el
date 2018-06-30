@@ -1328,6 +1328,7 @@ User Interface (GUI). This function has to be invoked:
   :ensure t
   :diminish global-whitespace-mode
   :config
+  (set-face-attribute 'whitespace-line nil :background "gray20" :foreground "dark gray")
   ;; whitespace-mode is not compatible with magit. Disabling it on
   ;; magit-mode.
   (defun drestivo/prevent-whitespace-mode-for-magit ()
