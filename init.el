@@ -241,6 +241,10 @@
 ;; Tell Emacs where is your personal elisp lib directory
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
+;; Tell Emacs where is your personal theme directory
+(add-to-list 'custom-theme-load-path (expand-file-name "themes"
+                                                       user-emacs-directory))
+
 ;; Save custom variables to custom.el
 (setq custom-file (expand-file-name "custom.el"
                                     user-emacs-directory))
@@ -1050,22 +1054,9 @@ User Interface (GUI). This function has to be invoked:
   :ensure t
   :requires all-the-icons
   :config
-  (setq sml/theme 'respectful)
+  (setq sml/theme 'atom-one-dark)
   (sml/setup)
   (display-time-mode)
-  ;; Customize smart-mode-line appearance in GUI mode.
-  ;;
-  ;; The below hook is really ugly but I didn't a better way to avoid
-  ;; that the mode-line is reverted back to the original colors after
-  ;; for example calling org-agenda (C-c a t) command is invoked.
-  (add-hook 'post-command-hook
-            (lambda ()
-              (if (display-graphic-p)
-                  (progn
-                    (set-face-attribute 'mode-line          nil :box        '(:line-width 3 :color "#2C323C"))
-                    (set-face-attribute 'mode-line-inactive nil :box        '(:line-width 3 :color "#282C34"))
-                    (set-face-attribute 'mode-line          nil :background "#2C323C")
-                    (set-face-attribute 'mode-line-inactive nil :background "#282C34")))))
   (progn
     ;; Temporary workaround for display-battery-mode for emacs-version<= 25.2.1 on macOS
     (when (string= system-type "darwin")
