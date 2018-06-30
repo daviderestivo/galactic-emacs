@@ -1263,8 +1263,8 @@ User Interface (GUI). This function has to be invoked:
                (setq show-trailing-whitespace t)
                (flyspell-prog-mode)
                (superword-mode 1)))
-  (set-face-background 'markdown-code-face "#282C34")
-  (set-face-foreground 'markdown-code-face "#ABB2BF"))
+  (set-face-attribute 'markdown-code-face nil :background "#282C34")
+  (set-face-attribute 'markdown-code-face nil :foreground "#ABB2BF"))
 
 ;; yasnippet
 (use-package yasnippet
