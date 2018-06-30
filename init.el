@@ -433,21 +433,24 @@ backed up."
 ;; Ediff settings
 ;; Split horizontally and avoid floating ediff window
 (setq ediff-split-window-function 'split-window-horizontally)
+(setq ediff-window-setup-function (quote ediff-setup-windows-plain))
+
+;; Customize ediff background colors
 ;; Customize ediff background colors
 (add-hook 'ediff-load-hook
           (lambda ()
             (set-face-background
-             ediff-even-diff-face-A "SlateGray4")
+             ediff-even-diff-face-A "grey20")
             (set-face-background
-             ediff-even-diff-face-B "SlateGray4")
+             ediff-even-diff-face-B "grey20")
             (set-face-background
-             ediff-even-diff-face-C "SlateGray4")
+             ediff-even-diff-face-C "grey20")
             (set-face-background
-             ediff-odd-diff-face-A "SlateGray4")
+             ediff-odd-diff-face-A  "grey20")
             (set-face-background
-             ediff-odd-diff-face-B "SlateGray4")
+             ediff-odd-diff-face-B  "grey20")
             (set-face-background
-             ediff-odd-diff-face-C "SlateGray4")))
+             ediff-odd-diff-face-C  "grey20")))
 
 ;; Enable octave-mode for .m files
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
