@@ -64,6 +64,7 @@
 ;; - org-bullets                       [https://github.com/sabof/org-bullets]
 ;; - org-download                      [https://github.com/abo-abo/org-download]
 ;; - org-plus-contrib                  [http://orgmode.org]
+;; - persp-mode                        [https://github.com/Bad-ptr/persp-mode.el]
 ;; - projectile                        [https://github.com/bbatsov/projectile]
 ;; - psession                          [https://github.com/thierryvolpiatto/psession]
 ;; - py-autopep8                       [https://github.com/paetzke/py-autopep8.el]
@@ -1529,6 +1530,14 @@ User Interface (GUI). This function has to be invoked:
 (use-package bug-hunter
   :ensure t
   :defer t)
+
+;; Named workspaces similar to workspaces in a windows managers.
+(use-package persp-mode
+  :ensure t
+  :init
+  (setq persp-keymap-prefix (kbd "C-x x"))
+  :config
+  (persp-mode))
 
 
 ;;; init.el ends here

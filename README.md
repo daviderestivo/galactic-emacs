@@ -52,6 +52,7 @@ not listed.
 * org-bullets [[Link](https://github.com/sabof/org-bullets)]
 * org-download [[Link](https://github.com/abo-abo/org-download)]
 * org-plus-contrib [[Link](http://orgmode.org)]
+* persp-mode [[Link](https://github.com/Bad-ptr/persp-mode.el)]
 * projectile [[Link](https://github.com/bbatsov/projectile)]
 * psession [[Link](https://github.com/thierryvolpiatto/psession)]
 * py-autopep8 [[Link](https://github.com/paetzke/py-autopep8.el)]

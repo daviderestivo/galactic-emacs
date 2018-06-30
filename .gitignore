@@ -11,9 +11,10 @@ elisp-objects/
 elpa/
 eshell/history
 eshell/lastdir
-projectile-bookmarks.eld
 personal.el
+persp-confs/
 places
+projectile-bookmarks.eld
 recentf
 todo.org
 tramp
