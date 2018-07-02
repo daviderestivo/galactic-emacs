@@ -8,7 +8,7 @@
     ("2e6e7375c006befb82fcb1efee602a63e070c979d3b7a9c68572431b27b8401b" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "78496062ff095da640c6bb59711973c7c66f392e3ac0127e611221d541850de2" default)))
  '(package-selected-packages
    (quote
-    (persp-mode bug-hunter github-stars magit-org-todos cider sr-speedbar imenu-list ibuffer-sidebar multiple-cursors auto-sudoedit esh-autosuggest shell-pop dockerfile-mode command-log-mode yang-mode org-beautify-theme all-the-icons nlin-hl nlinum-hl diff-hl org-bullets which-key wttrin volatile-highlights helm-ag org-download helm-projectile psession undo-tree helm-descbinds org-plus-contrib ob-ipython helm-config py-autopep8 elpy magit markdown-mode atom-one-dark-theme projectile company jinja2-mode helm yaml-mode smart-mode-line auto-package-update rainbow-delimiters exec-path-from-shell diminish use-package-ensure-system-package use-package))))
+    (dashboard persp-mode bug-hunter github-stars magit-org-todos cider sr-speedbar imenu-list ibuffer-sidebar multiple-cursors auto-sudoedit esh-autosuggest shell-pop dockerfile-mode command-log-mode yang-mode org-beautify-theme all-the-icons nlin-hl nlinum-hl diff-hl org-bullets which-key wttrin volatile-highlights helm-ag org-download helm-projectile psession undo-tree helm-descbinds org-plus-contrib ob-ipython helm-config py-autopep8 elpy magit markdown-mode atom-one-dark-theme projectile company jinja2-mode helm yaml-mode smart-mode-line auto-package-update rainbow-delimiters exec-path-from-shell diminish use-package-ensure-system-package use-package))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

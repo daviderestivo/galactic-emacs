@@ -45,6 +45,7 @@
 ;; - dockerfile-mode                   [https://github.com/spotify/dockerfile-mode]
 ;; - elisp-bug-hunter                  [https://github.com/Malabarba/elisp-bug-hunter]
 ;; - elpy                              [https://elpy.readthedocs.io]
+;; - emacs-dashboard                   [https://github.com/rakanalh/emacs-dashboard]
 ;; - esh-autosuggest                   [https://github.com/dieggsy/esh-autosuggest]
 ;; - exec-path-from-shell              [https://github.com/purcell/exec-path-from-shell]
 ;; - github-stars                      [https://github.com/xuchunyang/github-stars.el]
@@ -1301,7 +1302,8 @@ User Interface (GUI). This function has to be invoked:
           (extended-command-history      . "extended-command-history.el")
           (helm-external-command-history . "helm-external-command-history.el")
           (helm-surfraw-engines-history  . "helm-surfraw-engines-history.el")
-          (psession--save-buffers-alist  . "psession-save-buffers-alist.el")
+          ;; No need to save the buffer list since this is handled by persp-mode
+          ;;(psession--save-buffers-alist  . "psession-save-buffers-alist.el")
           (helm-ff-history               . "helm-ff-history.el")
           (regexp-search-ring            . "regexp-search-ring.el")
           (search-ring                   . "search-ring.el")
@@ -1555,6 +1557,19 @@ User Interface (GUI). This function has to be invoked:
   (setq persp-keymap-prefix (kbd "C-x x"))
   :config
   (persp-mode))
+
+;; An extensible Emacs startup screen showing you what’s most important
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook)
+  (diminish 'page-break-lines-mode)
+  ;; Set the title
+  (setq dashboard-banner-logo-title "“Patience you must have, my young padawan” (Yoda)")
+  (setq dashboard-items '((recents  . 5)
+                          (bookmarks . 5)
+                          (projects . 5)
+                          (agenda . 5))))
 
 
 ;;; init.el ends here

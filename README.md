@@ -33,6 +33,7 @@ not listed.
 * dockerfile-mode [[Link](https://github.com/spotify/dockerfile-mode)]
 * elisp-bug-hunter [[Link](https://github.com/Malabarba/elisp-bug-hunter)]
 * elpy [[Link](https://elpy.readthedocs.io)]
+* emacs-dashboard [[Link](https://github.com/rakanalh/emacs-dashboard)]
 * esh-autosuggest [[Link](https://github.com/dieggsy/esh-autosuggest)]
 * exec-path-from-shell [[Link](https://github.com/purcell/exec-path-from-shell)]
 * github-stars [[Link](https://github.com/xuchunyang/github-stars.el)]
