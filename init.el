@@ -1562,22 +1562,19 @@ User Interface (GUI). This function has to be invoked:
 ;; An extensible Emacs startup screen showing you what’s most important
 (use-package dashboard
   :ensure t
-  :init
-  ;; Set banner logo text face family
-  (set-face-attribute 'dashboard-banner-logo-title-face nil :height 1.2 :family "Helvetica Light")
   :config
   (dashboard-setup-startup-hook)
   (diminish 'page-break-lines-mode)
   ;; Configure initial-buffer-choice to show the dashboard in frames
   ;; created with `emacsclient -c'
   (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
+  ;; Set banner logo text face family
+  (set-face-attribute 'dashboard-banner-logo-title-face nil :height 1.2 :family "Helvetica Light")
   ;; Set the banner text
   (setq dashboard-banner-logo-title "“Patience you must have, my young padawan” (Yoda)")
   ;; Set an alternate Emacs logo
-  (if (display-graphic-p)
-      (setq dashboard-startup-banner (expand-file-name "emacs-logo.png"
-                                                       user-emacs-directory))
-    (setq dashboard-startup-banner '3))
+  (setq dashboard-startup-banner (expand-file-name "emacs-logo.png"
+                                                   user-emacs-directory))
   ;; Customize banner font
   (setq dashboard-items '((recents  . 5)
                           (bookmarks . 5)
