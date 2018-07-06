@@ -898,8 +898,9 @@ User Interface (GUI). This function has to be invoked:
               (setq org-agenda-files
                     (append
                      (find-lisp-find-files (concat org-directory "agenda") "\.org$")
-                     (find-lisp-find-files (concat org-directory "notebooks") "\.org$")
+                     (find-lisp-find-files (concat org-directory "home-projects") "\.org$")
                      (find-lisp-find-files (concat org-directory "work-projects") "\.org$")
+                     (find-lisp-find-files (concat org-directory "notebooks") "\.org$")
                      (list (concat org-directory "refile-beorg.org"))
                      (list (concat org-directory "refile.org"))))))
   (setq org-default-notes-file (concat org-directory "refile.org"))
