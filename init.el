@@ -48,6 +48,7 @@
 ;; - emacs-dashboard                   [https://github.com/rakanalh/emacs-dashboard]
 ;; - esh-autosuggest                   [https://github.com/dieggsy/esh-autosuggest]
 ;; - exec-path-from-shell              [https://github.com/purcell/exec-path-from-shell]
+;; - eyebrowse                         [https://github.com/wasamasa/eyebrowse]
 ;; - github-stars                      [https://github.com/xuchunyang/github-stars.el]
 ;; - helm                              [https://github.com/emacs-helm/helm]
 ;; - helm-ag                           [https://github.com/syohex/emacs-helm-ag]
@@ -65,7 +66,6 @@
 ;; - org-bullets                       [https://github.com/sabof/org-bullets]
 ;; - org-download                      [https://github.com/abo-abo/org-download]
 ;; - org-plus-contrib                  [http://orgmode.org]
-;; - persp-mode                        [https://github.com/Bad-ptr/persp-mode.el]
 ;; - projectile                        [https://github.com/bbatsov/projectile]
 ;; - psession                          [https://github.com/thierryvolpiatto/psession]
 ;; - py-autopep8                       [https://github.com/paetzke/py-autopep8.el]
@@ -980,7 +980,8 @@ User Interface (GUI). This function has to be invoked:
                      (set-face-attribute 'org-agenda-structure nil :height 1.0 :family "Lucida Grande")))))
   ;; Load org agenda at startup if running in daemon mode
   (if (daemonp)
-      (add-hook 'after-init-hook 'org-agenda-list))
+      (add-hook 'after-init-hook 'org-agenda-list)
+    (setq org-agenda-inhibit-startup nil))
   :bind
   ("\C-cl" . org-store-link)
   ("\C-ca" . org-agenda)
@@ -1297,26 +1298,10 @@ User Interface (GUI). This function has to be invoked:
   :ensure t
   :config
   (psession-mode 1)
+  ;; Save minibuffer history
+  (psession-savehist-mode 1)
   ;; Save periodically (autosave) the Emacs session
-  (psession-autosave-mode 1)
-  (setq psession-object-to-save-alist
-        '((helm-M-x-input-history        . "helm-M-x-input-history.el")
-          (minibuffer-history            . "minibuffer-history.el")
-          (extended-command-history      . "extended-command-history.el")
-          (helm-external-command-history . "helm-external-command-history.el")
-          (helm-surfraw-engines-history  . "helm-surfraw-engines-history.el")
-          ;; No need to save the buffer list since this is handled by persp-mode
-          ;;(psession--save-buffers-alist  . "psession-save-buffers-alist.el")
-          (helm-ff-history               . "helm-ff-history.el")
-          (regexp-search-ring            . "regexp-search-ring.el")
-          (search-ring                   . "search-ring.el")
-          (file-name-history             . "file-name-history.el")
-          (kill-ring                     . "kill-ring.el")
-          (kill-ring-yank-pointer        . "kill-ring-yank-pointer.el")
-          (register-alist                . "register-alist.el")
-          ;; No need to save the windows configuration since this is handled by persp-mode
-          ;;(psession--winconf-alist     . "psession-winconf-alist.el")
-          )))
+  (psession-autosave-mode 1))
 
 ;; volatile-highlights
 (use-package volatile-highlights
@@ -1553,13 +1538,12 @@ User Interface (GUI). This function has to be invoked:
   :ensure t
   :defer t)
 
-;; Named workspaces similar to workspaces in a windows managers.
-(use-package persp-mode
+;; Global minor mode for Emacs that allows you to manage your window
+;; configurations in a simple manner, just like tiling window managers.
+(use-package eyebrowse
   :ensure t
-  :init
-  (setq persp-keymap-prefix (kbd "C-x x"))
   :config
-  (persp-mode))
+  (eyebrowse-mode))
 
 ;; An extensible Emacs startup screen showing you what’s most important
 (use-package dashboard
