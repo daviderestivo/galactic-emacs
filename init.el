@@ -978,7 +978,9 @@ User Interface (GUI). This function has to be invoked:
                    (progn
                      (load-theme 'org-beautify t)
                      (set-face-attribute 'org-agenda-structure nil :height 1.0 :family "Lucida Grande")))))
-
+  ;; Load org agenda at startup if running in daemon mode
+  (if (daemonp)
+      (add-hook 'after-init-hook 'org-agenda-list))
   :bind
   ("\C-cl" . org-store-link)
   ("\C-ca" . org-agenda)
