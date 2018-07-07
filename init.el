@@ -135,10 +135,12 @@
         (package-install 'cl-generic))
       (require 'cl-generic)))
 
-;; Print Emacs server utpime every half an hour
-(run-at-time "00:00" 1800 '(lambda () (message
-                                       (concat "[" (current-time-string) "]" " GNU Emacs server uptime: "
-                                               (emacs-uptime)))))
+;; If Emacs is running in daemon mode, print Emacs server utpime every
+;; half an hour
+(if (daemonp)
+    (run-at-time "00:00" 1800 '(lambda () (message
+                                           (concat "[" (current-time-string) "]" " GNU Emacs server uptime: "
+                                                   (emacs-uptime))))))
 
 ;; Personal Information
 (setq drestivo/personal-file (expand-file-name "personal.el"
