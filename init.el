@@ -1543,7 +1543,9 @@ User Interface (GUI). This function has to be invoked:
 (use-package eyebrowse
   :ensure t
   :config
-  (eyebrowse-mode))
+  (eyebrowse-mode)
+  ;; Display the *scratch* buffer for every newly created workspace
+  (setq eyebrowse-new-workspace t))
 
 ;; An extensible Emacs startup screen showing you what’s most important
 (use-package dashboard
