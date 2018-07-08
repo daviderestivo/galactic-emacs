@@ -805,7 +805,14 @@ User Interface (GUI). This function has to be invoked:
               (defvar drestivo/frame-height 60)
               (defvar drestivo/frame-width 130)
               (set-frame-parameter frame 'height drestivo/frame-height)
-              (set-frame-parameter frame 'width  drestivo/frame-width))
+              (set-frame-parameter frame 'width  drestivo/frame-width)
+              (require 'helm)
+              (set-face-attribute 'helm-candidate-number nil :background "#2C323C")
+              (setq sml/theme 'atom-one-dark)
+              (sml/setup)
+              ;; Temporary workaround. Please look at https://github.com/Malabarba/smart-mode-line/issues/198
+              (ad-deactivate 'term-command-hook)
+              (ad-deactivate 'term-handle-ansi-terminal-messages))
           ;; Emacs not running in daemon mode. Used for the first created frame
           (progn
             ;; Transparent frame
@@ -819,7 +826,14 @@ User Interface (GUI). This function has to be invoked:
             (add-to-list 'default-frame-alist
                          `(height . ,drestivo/frame-height))
             (add-to-list 'default-frame-alist
-                         `(width . ,drestivo/frame-width)))))))
+                         `(width . ,drestivo/frame-width))
+            (require 'helm)
+            (set-face-attribute 'helm-candidate-number nil :background "#2C323C")
+            (setq sml/theme 'atom-one-dark)
+            (sml/setup)
+            ;; Temporary workaround. Please look at https://github.com/Malabarba/smart-mode-line/issues/198
+            (ad-deactivate 'term-command-hook)
+            (ad-deactivate 'term-handle-ansi-terminal-messages))))))
 
 (defun drestivo/disable-number-and-visual-line ()
   (visual-line-mode 0)
@@ -1061,10 +1075,14 @@ User Interface (GUI). This function has to be invoked:
   :ensure t
   :requires all-the-icons
   :config
-  (if (display-graphic-p)
-      (setq sml/theme 'atom-one-dark)
-    (setq sml/theme 'respectful))
-  (sml/setup)
+  ;; The below elisp code configures the sml `respectful' theme when
+  ;; Emacs is running in console. Please look at
+  ;; `drestivo/setup-frame-appearance' for the case when Emacs runs in
+  ;; GUI mode.
+  (if (not (display-graphic-p))
+      (progn
+        (setq sml/theme 'respectful)
+        (sml/setup)))
   (display-time-mode)
   (progn
     ;; Temporary workaround for display-battery-mode for emacs-version<= 25.2.1 on macOS
@@ -1075,10 +1093,7 @@ User Interface (GUI). This function has to be invoked:
         (setq battery-mode-line-format (concat " " (all-the-icons-material "battery_std") "%b%p%%"))
       (setq battery-mode-line-format " [ %b%p%% ] "))
     (setq battery-echo-area-format "Power %L, battery %B (%p%% charged, remaining time %t")
-    (display-battery-mode)
-    ;; Temporary workaround. Please look at https://github.com/Malabarba/smart-mode-line/issues/198
-    (ad-deactivate 'term-command-hook)
-    (ad-deactivate 'term-handle-ansi-terminal-messages)))
+    (display-battery-mode)))
 
 ;; yaml-mode
 (use-package yaml-mode
@@ -1124,8 +1139,6 @@ User Interface (GUI). This function has to be invoked:
   :commands helm-mode
   :config
   (helm-mode 1)
-  (if (display-graphic-p)
-      (set-face-attribute 'helm-candidate-number nil :background "#2C323C"))
   ;; Enable fuzzy matching
   (setq helm-buffers-fuzzy-matching t)
   (setq helm-recentf-fuzzy-match t)
