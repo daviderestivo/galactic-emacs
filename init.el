@@ -806,13 +806,8 @@ User Interface (GUI). This function has to be invoked:
               (defvar drestivo/frame-width 130)
               (set-frame-parameter frame 'height drestivo/frame-height)
               (set-frame-parameter frame 'width  drestivo/frame-width)
-              (require 'helm)
-              (set-face-attribute 'helm-candidate-number nil :background "#2C323C")
               (setq sml/theme 'atom-one-dark)
-              (sml/setup)
-              ;; Temporary workaround. Please look at https://github.com/Malabarba/smart-mode-line/issues/198
-              (ad-deactivate 'term-command-hook)
-              (ad-deactivate 'term-handle-ansi-terminal-messages))
+              (sml/setup))
           ;; Emacs not running in daemon mode. Used for the first created frame
           (progn
             ;; Transparent frame
@@ -827,13 +822,8 @@ User Interface (GUI). This function has to be invoked:
                          `(height . ,drestivo/frame-height))
             (add-to-list 'default-frame-alist
                          `(width . ,drestivo/frame-width))
-            (require 'helm)
-            (set-face-attribute 'helm-candidate-number nil :background "#2C323C")
             (setq sml/theme 'atom-one-dark)
-            (sml/setup)
-            ;; Temporary workaround. Please look at https://github.com/Malabarba/smart-mode-line/issues/198
-            (ad-deactivate 'term-command-hook)
-            (ad-deactivate 'term-handle-ansi-terminal-messages))))))
+            (sml/setup))))))
 
 (defun drestivo/disable-number-and-visual-line ()
   (visual-line-mode 0)
@@ -1093,7 +1083,10 @@ User Interface (GUI). This function has to be invoked:
         (setq battery-mode-line-format (concat " " (all-the-icons-material "battery_std") "%b%p%%"))
       (setq battery-mode-line-format " [ %b%p%% ] "))
     (setq battery-echo-area-format "Power %L, battery %B (%p%% charged, remaining time %t")
-    (display-battery-mode)))
+    (display-battery-mode)
+    ;; Temporary workaround. Please look at https://github.com/Malabarba/smart-mode-line/issues/198
+    (ad-deactivate 'term-command-hook)
+    (ad-deactivate 'term-handle-ansi-terminal-messages)))
 
 ;; yaml-mode
 (use-package yaml-mode

@@ -35,7 +35,9 @@
  '(sml/filename  ((t :inherit mode-line-buffer-id)))
  '(sml/prefix    ((t :inherit (font-lock-variable-name-face sml/global))))
  '(sml/read-only ((t :inherit (font-lock-type-face sml/not-modified))))
- '(sml/modes     ((t :foreground nil :inherit sml/filename :weight normal))))
+ '(sml/modes     ((t :foreground nil :inherit sml/filename :weight normal)))
+ ;; Helm
+ '(helm-candidate-number ((t :background "#2C323C"))))
 
 ;;;###autoload
 (when load-file-name
