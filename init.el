@@ -807,7 +807,8 @@ User Interface (GUI). This function has to be invoked:
               (set-frame-parameter frame 'height drestivo/frame-height)
               (set-frame-parameter frame 'width  drestivo/frame-width)
               (setq sml/theme 'atom-one-dark)
-              (sml/setup))
+              (sml/setup)
+              (setq battery-mode-line-format (concat " [" (all-the-icons-material "battery_std") "%b%p%%" "]")))
           ;; Emacs not running in daemon mode. Used for the first created frame
           (progn
             ;; Transparent frame
@@ -823,7 +824,8 @@ User Interface (GUI). This function has to be invoked:
             (add-to-list 'default-frame-alist
                          `(width . ,drestivo/frame-width))
             (setq sml/theme 'atom-one-dark)
-            (sml/setup))))))
+            (sml/setup)
+            (setq battery-mode-line-format (concat " [" (all-the-icons-material "battery_std") "%b%p%%" "]")))))))
 
 (defun drestivo/disable-number-and-visual-line ()
   (visual-line-mode 0)
@@ -1079,9 +1081,8 @@ User Interface (GUI). This function has to be invoked:
     (when (string= system-type "darwin")
       (if (version<= emacs-version "25.2.1")
           (setq battery-status-function 'drestivo/battery-pmset)))
-    (if (or (display-graphic-p) (daemonp))
-        (setq battery-mode-line-format (concat " " (all-the-icons-material "battery_std") "%b%p%%"))
-      (setq battery-mode-line-format " [ %b%p%% ] "))
+    (if (not (display-graphic-p))
+        (setq battery-mode-line-format " [%b%p%%]"))
     (setq battery-echo-area-format "Power %L, battery %B (%p%% charged, remaining time %t")
     (display-battery-mode)
     ;; Temporary workaround. Please look at https://github.com/Malabarba/smart-mode-line/issues/198
