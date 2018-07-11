@@ -871,6 +871,8 @@ User Interface (GUI). This function has to be invoked:
   (add-hook 'after-make-frame-functions 'drestivo/setup-frame-appearance)
   (drestivo/setup-frame-appearance)
   :config
+  ;; The below theme is used both for the case of Emacs running in
+  ;; console or GUI mode
   (load-theme 'atom-one-dark))
 
 ;; exec-path-from-shell
@@ -1083,6 +1085,10 @@ User Interface (GUI). This function has to be invoked:
     (when (string= system-type "darwin")
       (if (version<= emacs-version "25.2.1")
           (setq battery-status-function 'drestivo/battery-pmset)))
+    ;; The below elisp code setup the battery modeline format when
+    ;; Emacs is running in console. Please look at
+    ;; `drestivo/setup-frame-appearance' for the case when Emacs runs
+    ;; in GUI mode.
     (if (not (display-graphic-p))
         (setq battery-mode-line-format " [%b%p%%]"))
     (setq battery-echo-area-format "Power %L, battery %B (%p%% charged, remaining time %t")
