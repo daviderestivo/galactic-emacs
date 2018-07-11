@@ -806,6 +806,7 @@ User Interface (GUI). This function has to be invoked:
               (defvar drestivo/frame-width 130)
               (set-frame-parameter frame 'height drestivo/frame-height)
               (set-frame-parameter frame 'width  drestivo/frame-width)
+              ;; Setup sml theme
               (setq sml/theme 'atom-one-dark)
               (sml/setup)
               (setq battery-mode-line-format (concat " [" (all-the-icons-material "battery_std") "%b%p%%" "]")))
@@ -823,6 +824,7 @@ User Interface (GUI). This function has to be invoked:
                          `(height . ,drestivo/frame-height))
             (add-to-list 'default-frame-alist
                          `(width . ,drestivo/frame-width))
+            ;; Setup sml theme
             (setq sml/theme 'atom-one-dark)
             (sml/setup)
             (setq battery-mode-line-format (concat " [" (all-the-icons-material "battery_std") "%b%p%%" "]")))))))
