@@ -437,6 +437,15 @@ backed up."
      (define-key flyspell-mouse-map [mouse-3]
        #'undefined)))
 
+;; When prettify-symbols-mode and font-locking are enabled,
+;; symbols are prettified (displayed as composed characters)
+;; according to the rules in `prettify-symbols-alist'
+(add-hook 'emacs-lisp-mode-hook
+          (lambda ()
+            (progn
+              (setq prettify-symbols-unprettify-at-point 'right-edge)
+              (prettify-symbols-mode))))
+
 ;; Ediff settings
 ;; Split horizontally and avoid floating ediff window
 (setq ediff-split-window-function 'split-window-horizontally)
