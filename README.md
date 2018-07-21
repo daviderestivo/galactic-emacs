@@ -110,6 +110,7 @@ not listed.
 | C-c C-s       | mc/sort-regions                          |
 | C-S-<mouse-1> | mc/add-cursor-on-click                   |
 | C-'           | mc-hide-unmatched-lines-mode             |
+| M-o           | other-window                             |
 
 
 Feel free to drop me an email in case of questions.

@@ -538,6 +538,9 @@ backed up."
       (setq-default save-place t))
   (save-place-mode 1))
 
+;; Rebind `other-window' to "M-o"
+(global-set-key (kbd "M-o") 'other-window)
+
 
 ;;; Helper functions
 
