@@ -369,7 +369,7 @@ backed up."
 ;;  END Backup files settings  ;;
 ;;-----------------------------;;
 
-;; Enable word wrap
+;; Enable visual-line-mode globally
 (global-visual-line-mode t)
 (diminish 'visual-line-mode)
 
