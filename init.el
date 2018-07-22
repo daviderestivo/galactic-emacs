@@ -230,7 +230,7 @@
 ;; Enable show-paren-mode. paren-mode allows one to see
 ;; matching pairs of parentheses and other characters.
 (show-paren-mode 1)
-(setq show-paren-delay 0)
+(setq show-paren-delay 0.5)
 
 ;; Enable winner mode
 ;; Winner Mode is a global minor mode. When activated, it allows
