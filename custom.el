@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "78496062ff095da640c6bb59711973c7c66f392e3ac0127e611221d541850de2" "fbf6bf3032ec03381442d4464fd7bcf417fbae012990ecdfef56e8d0a5dabc54" default)))
+    ("57f95012730e3a03ebddb7f2925861ade87f53d5bbb255398357731a7b1ac0e0" "fbf6bf3032ec03381442d4464fd7bcf417fbae012990ecdfef56e8d0a5dabc54" default)))
  '(package-selected-packages
    (quote
     (eyebrowse dashboard bug-hunter github-stars magit-org-todos cider sr-speedbar imenu-list ibuffer-sidebar multiple-cursors auto-sudoedit esh-autosuggest shell-pop dockerfile-mode command-log-mode yang-mode org-beautify-theme all-the-icons nlin-hl nlinum-hl diff-hl org-bullets which-key wttrin volatile-highlights helm-ag org-download helm-projectile psession undo-tree helm-descbinds org-plus-contrib ob-ipython helm-config py-autopep8 elpy magit markdown-mode atom-one-dark-theme projectile company jinja2-mode helm yaml-mode smart-mode-line auto-package-update rainbow-delimiters exec-path-from-shell diminish use-package-ensure-system-package use-package))))
