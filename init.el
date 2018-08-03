@@ -1104,10 +1104,7 @@ User Interface (GUI). This function has to be invoked:
     (if (not (display-graphic-p))
         (setq battery-mode-line-format " [%b%p%%]"))
     (setq battery-echo-area-format "Power %L, battery %B (%p%% charged, remaining time %t")
-    (display-battery-mode)
-    ;; Temporary workaround. Please look at https://github.com/Malabarba/smart-mode-line/issues/198
-    (ad-deactivate 'term-command-hook)
-    (ad-deactivate 'term-handle-ansi-terminal-messages)))
+    (display-battery-mode)))
 
 ;; yaml-mode
 (use-package yaml-mode
