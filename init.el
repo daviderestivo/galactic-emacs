@@ -1083,6 +1083,7 @@ User Interface (GUI). This function has to be invoked:
   :ensure t
   :requires all-the-icons
   :config
+  (setq sml/no-confirm-load-theme t)
   ;; The below elisp code configures the sml `respectful' theme when
   ;; Emacs is running in console. Please look at
   ;; `drestivo/setup-frame-appearance' for the case when Emacs runs in
