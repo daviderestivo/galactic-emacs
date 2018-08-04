@@ -397,13 +397,13 @@ backed up."
 (setq ispell-program-name "aspell")
 ;; Enable flyspell for text files and enable superword mode
 (dolist (mode '(text-mode-hook))
-  (add-hook mode (lambda ()
-                   (flyspell-mode 1)
-                   (diminish 'flyspell-mode)
-                   ;; Enable superword mode, useful for “snake_case”.
-                   (superword-mode 1)
-                   (diminish 'superword-mode)
-                   )))
+  (add-hook mode '(lambda ()
+                    (flyspell-mode 1)
+                    (diminish 'flyspell-mode)
+                    ;; Enable superword mode, useful for “snake_case”.
+                    (superword-mode 1)
+                    (diminish 'superword-mode)
+                    )))
 ;; Enable flyspell for code and enable superword mode
 (dolist (mode '(emacs-lisp-mode-hook
                 inferior-lisp-mode-hook
@@ -441,10 +441,10 @@ backed up."
 ;; symbols are prettified (displayed as composed characters)
 ;; according to the rules in `prettify-symbols-alist'
 (add-hook 'emacs-lisp-mode-hook
-          (lambda ()
-            (progn
-              (setq prettify-symbols-unprettify-at-point 'right-edge)
-              (prettify-symbols-mode))))
+          '(lambda ()
+             (progn
+               (setq prettify-symbols-unprettify-at-point 'right-edge)
+               (prettify-symbols-mode))))
 
 ;; Ediff settings
 ;; Split horizontally and avoid floating ediff window
@@ -454,19 +454,19 @@ backed up."
 ;; Customize ediff background colors
 ;; Customize ediff background colors
 (add-hook 'ediff-load-hook
-          (lambda ()
-            (set-face-background
-             ediff-even-diff-face-A "grey20")
-            (set-face-background
-             ediff-even-diff-face-B "grey20")
-            (set-face-background
-             ediff-even-diff-face-C "grey20")
-            (set-face-background
-             ediff-odd-diff-face-A  "grey20")
-            (set-face-background
-             ediff-odd-diff-face-B  "grey20")
-            (set-face-background
-             ediff-odd-diff-face-C  "grey20")))
+          '(lambda ()
+             (set-face-background
+              ediff-even-diff-face-A "grey20")
+             (set-face-background
+              ediff-even-diff-face-B "grey20")
+             (set-face-background
+              ediff-even-diff-face-C "grey20")
+             (set-face-background
+              ediff-odd-diff-face-A  "grey20")
+             (set-face-background
+              ediff-odd-diff-face-B  "grey20")
+             (set-face-background
+              ediff-odd-diff-face-C  "grey20")))
 
 ;; Enable octave-mode for .m files
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
@@ -918,15 +918,15 @@ User Interface (GUI). This function has to be invoked:
   ;; ORG directories and files
   (setq org-directory "~/org/")
   (add-hook 'org-agenda-mode-hook
-            (lambda ()
-              (setq org-agenda-files
-                    (append
-                     (find-lisp-find-files (concat org-directory "agenda") "\.org$")
-                     (find-lisp-find-files (concat org-directory "home-projects") "\.org$")
-                     (find-lisp-find-files (concat org-directory "work-projects") "\.org$")
-                     (find-lisp-find-files (concat org-directory "notebooks") "\.org$")
-                     (list (concat org-directory "refile-beorg.org"))
-                     (list (concat org-directory "refile.org"))))))
+            '(lambda ()
+               (setq org-agenda-files
+                     (append
+                      (find-lisp-find-files (concat org-directory "agenda") "\.org$")
+                      (find-lisp-find-files (concat org-directory "home-projects") "\.org$")
+                      (find-lisp-find-files (concat org-directory "work-projects") "\.org$")
+                      (find-lisp-find-files (concat org-directory "notebooks") "\.org$")
+                      (list (concat org-directory "refile-beorg.org"))
+                      (list (concat org-directory "refile.org"))))))
   (setq org-default-notes-file (concat org-directory "refile.org"))
   ;; Additional files to be searched in addition to the default ones
   ;; contained in the agenda folder
@@ -1389,8 +1389,8 @@ User Interface (GUI). This function has to be invoked:
   :config
   (setq dired-dwim-target nil)
   (add-hook 'dired-mode-hook
-            (lambda ()
-              (dired-hide-details-mode 1))))
+            '(lambda ()
+               (dired-hide-details-mode 1))))
 
 ;; ElDoc
 (use-package eldoc
@@ -1403,14 +1403,14 @@ User Interface (GUI). This function has to be invoked:
   :config
   (if (daemonp)
       (add-hook 'after-make-frame-functions
-                (lambda (frame)
-                  (select-frame frame)
-                  (if (display-graphic-p)
-                      (global-diff-hl-mode)
-                    (progn
-                      (setq diff-hl-side 'right)
-                      (global-diff-hl-mode)
-                      (diff-hl-margin-mode)))))
+                '(lambda (frame)
+                   (select-frame frame)
+                   (if (display-graphic-p)
+                       (global-diff-hl-mode)
+                     (progn
+                       (setq diff-hl-side 'right)
+                       (global-diff-hl-mode)
+                       (diff-hl-margin-mode)))))
     ;; Emacs not running in daemon mode
     (if (display-graphic-p)
         (global-diff-hl-mode)
@@ -1430,15 +1430,15 @@ User Interface (GUI). This function has to be invoked:
   (setq eshell-highlight-prompt nil)
   (setq eshell-prompt-function 'drestivo/eshell-prompt)
   (add-hook 'eshell-exit-hook
-            (lambda ()
-              (delete-window)))
+            '(lambda ()
+               (delete-window)))
   (add-hook 'eshell-mode-hook
-            (lambda ()
-              ;; (setq eshell-destroy-buffer-when-process-dies t)
-              ;; Programs that need special displays
-              (add-to-list 'eshell-visual-subcommands '("git" "diff" "help" "log" "show"))
-              (define-key eshell-mode-map (kbd "C-c C-l")  'helm-eshell-history)
-              (define-key eshell-mode-map (kbd "C-c C-;")  'helm-eshell-prompts))))
+            '(lambda ()
+               ;; (setq eshell-destroy-buffer-when-process-dies t)
+               ;; Programs that need special displays
+               (add-to-list 'eshell-visual-subcommands '("git" "diff" "help" "log" "show"))
+               (define-key eshell-mode-map (kbd "C-c C-l")  'helm-eshell-history)
+               (define-key eshell-mode-map (kbd "C-c C-;")  'helm-eshell-prompts))))
 
 ;; Beautify org buffers
 (use-package org-beautify-theme
