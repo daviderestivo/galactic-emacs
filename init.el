@@ -49,10 +49,10 @@
 ;; - esh-autosuggest                   [https://github.com/dieggsy/esh-autosuggest]
 ;; - exec-path-from-shell              [https://github.com/purcell/exec-path-from-shell]
 ;; - eyebrowse                         [https://github.com/wasamasa/eyebrowse]
-;; - github-stars                      [https://github.com/xuchunyang/github-stars.el]
 ;; - helm                              [https://github.com/emacs-helm/helm]
 ;; - helm-ag                           [https://github.com/syohex/emacs-helm-ag]
 ;; - helm-descbinds                    [https://github.com/emacs-helm/helm-descbinds]
+;; - helm-github-stars                 [https://github.com/Sliim/helm-github-stars]
 ;; - helm-projectile                   [https://github.com/bbatsov/helm-projectile]
 ;; - ibuffer-sidebar                   [https://github.com/jojojames/ibuffer-sidebar]
 ;; - imenu-list                        [https://github.com/bmag/imenu-list]
@@ -1574,11 +1574,6 @@ User Interface (GUI). This function has to be invoked:
   :config
   (magit-org-todos-autoinsert))
 
-;; Browse your Github Stars from within Emacs
-(use-package github-stars
-  :if (not (version< emacs-version "25.1"))
-  :ensure t)
-
 ;; Automatically debug and bisect your init file
 (use-package bug-hunter
   :ensure t
@@ -1614,6 +1609,14 @@ User Interface (GUI). This function has to be invoked:
                           (bookmarks . 5)
                           (projects . 5)
                           (agenda . 5))))
+
+;; Provides capabilities to fetch your starred repositories from
+;; github and select one for browsing
+(use-package helm-github-stars
+  :ensure t
+  :config
+  (setq helm-github-stars-username "daviderestivo")
+  (setq helm-github-stars-refetch-time 0.5))
 
 
 ;;; init.el ends here
