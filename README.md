@@ -25,6 +25,7 @@ not listed.
 * atom-one-dark-theme [[Link](https://github.com/jonathanchu/atom-one-dark-theme)]
 * auto-package-update [[Link](https://github.com/rranelli/auto-package-update.el)]
 * auto-sudoedit [[Link](https://github.com/ncaq/auto-sudoedit)]
+* avy [[Link](https://github.com/abo-abo/avy)]
 * cider [[Link](https://github.com/clojure-emacs/cider)]
 * cisco-router-mode [[Link](https://www.emacswiki.org/emacs/download/cisco-router-mode.el)]
 * command-log-mode [[Link](https://github.com/lewang/command-log-mode)]
@@ -85,6 +86,7 @@ not listed.
 | < f12 >       | imenu-list-smart-toggle                  |
 | M-<f12>       | sr-speedbar-toggle                       |
 | C-< f12 >     | ibuffer-sidebar-toggle-sidebar           |
+| C-:           | avy-got-char                             |
 | C-=           | copy-line                                |
 | C-c left      | Winner mode - Undo windows changes       |
 | C-c right     | Winner mode - Redo windows changes       |

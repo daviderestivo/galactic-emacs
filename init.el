@@ -37,6 +37,7 @@
 ;; - atom-one-dark-theme               [https://github.com/jonathanchu/atom-one-dark-theme]
 ;; - auto-package-update               [https://github.com/rranelli/auto-package-update.el]
 ;; - auto-sudoedit                     [https://github.com/ncaq/auto-sudoedit]
+;; - avy                               [https://github.com/abo-abo/avy]
 ;; - cider                             [https://github.com/clojure-emacs/cider]
 ;; - cisco-router-mode                 [https://www.emacswiki.org/emacs/download/cisco-router-mode.el]
 ;; - command-log-mode                  [https://github.com/lewang/command-log-mode]
@@ -1617,6 +1618,18 @@ User Interface (GUI). This function has to be invoked:
   :config
   (setq helm-github-stars-username "daviderestivo")
   (setq helm-github-stars-refetch-time 0.5))
+
+;; A GNU Emacs package for jumping to visible text using a char-based
+;; decision tree
+(use-package avy
+  :ensure t
+  :config
+  ;; Full path before target, leaving all original text
+  (setq avy-styles-alist '((avy-goto-char . pre)))
+  ;; When nil, the searches does not ignore case
+  (setq avy-case-fold-search nil)
+  :bind
+  ("C-:" . avy-goto-char))
 
 
 ;;; init.el ends here
