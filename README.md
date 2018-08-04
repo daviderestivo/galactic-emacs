@@ -86,7 +86,7 @@ not listed.
 | < f12 >       | imenu-list-smart-toggle                  |
 | M-<f12>       | sr-speedbar-toggle                       |
 | C-< f12 >     | ibuffer-sidebar-toggle-sidebar           |
-| C-:           | avy-got-char                             |
+| C-c m         | avy-got-char                             |
 | C-=           | copy-line                                |
 | C-c left      | Winner mode - Undo windows changes       |
 | C-c right     | Winner mode - Redo windows changes       |

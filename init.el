@@ -1629,7 +1629,7 @@ User Interface (GUI). This function has to be invoked:
   ;; When nil, the searches does not ignore case
   (setq avy-case-fold-search nil)
   :bind
-  ("C-:" . avy-goto-char))
+  ("C-c m" . avy-goto-char))
 
 
 ;;; init.el ends here
