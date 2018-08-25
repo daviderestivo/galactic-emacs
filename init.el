@@ -159,8 +159,8 @@
 ;; half an hour
 (if (daemonp)
     (run-at-time "00:00" 1800 '(lambda () (message
-                                           (concat "[" (current-time-string) "]" " GNU Emacs server uptime: "
-                                                   (emacs-uptime))))))
+                                      (concat "[" (current-time-string) "]" " GNU Emacs server uptime: "
+                                              (emacs-uptime))))))
 
 ;; Personal Information
 (setq drestivo/personal-file (expand-file-name "personal.el"
@@ -933,20 +933,29 @@ User Interface (GUI). This function has to be invoked:
 (use-package org
   :defer t
   :ensure org-plus-contrib
+  :hook ((org-agenda-mode . (lambda ()
+                              (setq org-agenda-files
+                                    (append
+                                     (find-lisp-find-files (concat org-directory "agenda") "\.org$")
+                                     (find-lisp-find-files (concat org-directory "home-projects") "\.org$")
+                                     (find-lisp-find-files (concat org-directory "work-projects") "\.org$")
+                                     (find-lisp-find-files (concat org-directory "notebooks") "\.org$")
+                                     (list (concat org-directory "refile-beorg.org"))
+                                     (list (concat org-directory "refile.org"))))))
+         (org-mode . (lambda ()
+                       (setq show-trailing-whitespace t)
+                       (flyspell-prog-mode)
+                       (org-indent-mode)
+                       (diminish 'org-indent-mode)
+                       (superword-mode 1)
+                       (if (display-graphic-p)
+                           (progn
+                             (load-theme 'org-beautify t)
+                             (set-face-attribute 'org-agenda-structure nil :height 1.0 :family "Lucida Grande"))))))
   :config
   (load-library "find-lisp")
   ;; ORG directories and files
   (setq org-directory "~/org/")
-  (add-hook 'org-agenda-mode-hook
-            '(lambda ()
-               (setq org-agenda-files
-                     (append
-                      (find-lisp-find-files (concat org-directory "agenda") "\.org$")
-                      (find-lisp-find-files (concat org-directory "home-projects") "\.org$")
-                      (find-lisp-find-files (concat org-directory "work-projects") "\.org$")
-                      (find-lisp-find-files (concat org-directory "notebooks") "\.org$")
-                      (list (concat org-directory "refile-beorg.org"))
-                      (list (concat org-directory "refile.org"))))))
   (setq org-default-notes-file (concat org-directory "refile.org"))
   ;; Additional files to be searched in addition to the default ones
   ;; contained in the agenda folder
@@ -1010,22 +1019,10 @@ User Interface (GUI). This function has to be invoked:
   ;; Archive subtrees under the same hierarchy as the original org file.
   ;; Link: https://gist.github.com/Fuco1/e86fb5e0a5bb71ceafccedb5ca22fcfb
   (load-library "org-archive-subtree")
-  ;; Add some useful hooks to org-mode
-  (add-hook 'org-mode-hook
-            '(lambda ()
-               (setq show-trailing-whitespace t)
-               (flyspell-prog-mode)
-               (org-indent-mode)
-               (diminish 'org-indent-mode)
-               (superword-mode 1)
-               (if (display-graphic-p)
-                   (progn
-                     (load-theme 'org-beautify t)
-                     (set-face-attribute 'org-agenda-structure nil :height 1.0 :family "Lucida Grande")))))
   ;; Load org agenda at startup if running in daemon mode
   (if (daemonp)
       (add-hook 'after-init-hook 'org-agenda-list)
-    (setq org-agenda-inhibit-startup nil))
+    (setq org-agenda-inhibit-startup t))
   :bind
   ("\C-cl" . org-store-link)
   ("\C-ca" . org-agenda)
@@ -1055,13 +1052,14 @@ User Interface (GUI). This function has to be invoked:
 (use-package ob-ipython
   :defer t
   :ensure t
+  :hook
+  ;; Display images inline in the same buffer
+  (org-babel-after-execute . org-display-inline-images)
   :config
   (setq ob-ipython-command "ipython3")
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '((ipython . t)))
-  ;; Display images inline in the same buffer
-  (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append))
+   '((ipython . t))))
 
 ;; org-download
 (use-package org-download
@@ -1079,16 +1077,15 @@ User Interface (GUI). This function has to be invoked:
 ;; org-bullets
 (use-package org-bullets
   :ensure t
-  :config
-  (add-hook 'org-mode-hook
-            '(lambda ()
-               (org-bullets-mode 1))))
+  :hook
+  (org-mode . (lambda ()
+                (org-bullets-mode 1))))
 
 ;; rainbow-delimiters
 (use-package rainbow-delimiters
   :ensure t
-  :config
-  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
+  :hook
+  (prog-mode . rainbow-delimiters-mode))
 
 ;; auto-package-update
 (use-package auto-package-update
@@ -1131,30 +1128,26 @@ User Interface (GUI). This function has to be invoked:
 (use-package yaml-mode
   :defer t
   :ensure t
+  :hook
+  (yaml-mode . (lambda ()
+                 (define-key yaml-mode-map "\C-m" 'newline-and-indent)
+                 (setq show-trailing-whitespace t)
+                 (flyspell-prog-mode)
+                 (superword-mode 1)))
   :config
-  (add-to-list 'auto-mode-alist '("\\.\\(yml\\|knd)\\)\\'" . yaml-mode))
-  (add-hook 'yaml-mode-hook
-            '(lambda ()
-               (define-key yaml-mode-map "\C-m" 'newline-and-indent)
-               (setq show-trailing-whitespace t)
-               (flyspell-prog-mode)
-               (superword-mode 1))))
+  (add-to-list 'auto-mode-alist '("\\.\\(yml\\|knd)\\)\\'" . yaml-mode)))
 
 ;; jinja2-mode
 (use-package jinja2-mode
   :defer t
   :ensure t
+  :hook
+  (jinja2-mode . (lambda ()
+                   (setq show-trailing-whitespace t)
+                   (flyspell-prog-mode)
+                   (superword-mode 1)))
   :config
-  (add-to-list 'auto-mode-alist '("\\.j2\\'" . jinja2-mode))
-  ;; "C-c c" jinja2-close-tag
-  ;; "C-c t" jinja2-insert-tag
-  ;; "C-c v" jinja2-insert-var
-  ;; "C-c #" jinja2-insert-comment
-  (add-hook 'jinja2-mode-hook
-            '(lambda ()
-               (setq show-trailing-whitespace t)
-               (flyspell-prog-mode)
-               (superword-mode 1))))
+  (add-to-list 'auto-mode-alist '("\\.j2\\'" . jinja2-mode)))
 
 ;; helm-config
 (use-package helm-config
@@ -1167,6 +1160,8 @@ User Interface (GUI). This function has to be invoked:
 (use-package helm
   :defer t
   :ensure t
+  :hook
+  (helm-minibuffer-set-up . drestivo/helm-hide-minibuffer-maybe)
   :diminish helm-mode
   :commands helm-mode
   :config
@@ -1201,8 +1196,6 @@ User Interface (GUI). This function has to be invoked:
   (setq helm-autoresize-max-height 0)
   (setq helm-autoresize-min-height 40)
   (helm-autoresize-mode 1)
-  (add-hook 'helm-minibuffer-set-up-hook
-            #'drestivo/helm-hide-minibuffer-maybe)
   (define-key minibuffer-local-map (kbd "C-c C-l") 'helm-minibuffer-history)
   ;; Replace the default helm grep command with ag.
   ;; Requires "The Silver Searcher" (ag) to be installed.
@@ -1278,23 +1271,24 @@ User Interface (GUI). This function has to be invoked:
 ;; py-autopep8
 (use-package py-autopep8
   :ensure t
-  :config
+  :hook
   ;; Configure elpy autopep8 support
-  (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save))
+  (elpy-mode . py-autopep8-enable-on-save))
 
 ;; elpy
 (use-package elpy
   :diminish elpy-mode
   :defer t
   :ensure t
+  :hook
+  (python-mode . elpy-mode)
   :config
   (elpy-enable)
   (setq elpy-rpc-python-command "python3")
   (setq python-shell-interpreter "jupyter"
         python-shell-interpreter-args "console --simple-prompt"
         python-shell-prompt-detect-failure-warning nil)
-  (add-to-list 'python-shell-completion-native-disabled-interpreters "jupyter")
-  (add-hook 'python-mode-hook 'elpy-mode))
+  (add-to-list 'python-shell-completion-native-disabled-interpreters "jupyter"))
 
 ;; highlight-indentation-mode
 (use-package highlight-indentation
@@ -1310,12 +1304,12 @@ User Interface (GUI). This function has to be invoked:
 (use-package markdown-mode
   :defer t
   :ensure t
+  :hook
+  (markdown-mode . (lambda ()
+                     (setq show-trailing-whitespace t)
+                     (flyspell-prog-mode)
+                     (superword-mode 1)))
   :config
-  (add-hook 'markdown-mode-hook
-            '(lambda ()
-               (setq show-trailing-whitespace t)
-               (flyspell-prog-mode)
-               (superword-mode 1)))
   (set-face-attribute 'markdown-code-face nil :background "#282C34")
   (set-face-attribute 'markdown-code-face nil :foreground "#ABB2BF"))
 
@@ -1406,11 +1400,11 @@ User Interface (GUI). This function has to be invoked:
 ;; dired customization
 (use-package dired
   :defer t
+  :hook
+  (dired-mode . (lambda ()
+                  (dired-hide-details-mode 1)))
   :config
-  (setq dired-dwim-target nil)
-  (add-hook 'dired-mode-hook
-            '(lambda ()
-               (dired-hide-details-mode 1))))
+  (setq dired-dwim-target nil))
 
 ;; ElDoc
 (use-package eldoc
@@ -1419,6 +1413,10 @@ User Interface (GUI). This function has to be invoked:
 ;; diff-hl
 (use-package diff-hl
   :ensure t
+  :hook
+  ;; Highlight changed files in the fringe of dired
+  ((dired-mode . diff-hl-dired-mode)
+   (magit-post-refresh . diff-hl-magit-post-refresh))
   :diminish diff-hl-mode
   :config
   (if (daemonp)
@@ -1437,28 +1435,25 @@ User Interface (GUI). This function has to be invoked:
       (progn
         (setq diff-hl-side 'right)
         (global-diff-hl-mode)
-        (diff-hl-margin-mode)))
-    ;; Highlight changed files in the fringe of dired
-    (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
-    (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)))
+        (diff-hl-margin-mode)))))
 
 ;; Eshell
 (use-package eshell
   :ensure t
+  :hook
+  (eshell-exit . (lambda ()
+                   (delete-window)))
+  (eshell-mode . (lambda ()
+                   ;; (setq eshell-destroy-buffer-when-process-dies t)
+                   ;; Programs that need special displays
+                   (add-to-list 'eshell-visual-subcommands '("git" "diff" "help" "log" "show"))
+                   (define-key eshell-mode-map (kbd "C-c C-l")  'helm-eshell-history)
+                   (define-key eshell-mode-map (kbd "C-c C-;")  'helm-eshell-prompts)))
+
   :config
   ;; Eshell prompt customization
   (setq eshell-highlight-prompt nil)
-  (setq eshell-prompt-function 'drestivo/eshell-prompt)
-  (add-hook 'eshell-exit-hook
-            '(lambda ()
-               (delete-window)))
-  (add-hook 'eshell-mode-hook
-            '(lambda ()
-               ;; (setq eshell-destroy-buffer-when-process-dies t)
-               ;; Programs that need special displays
-               (add-to-list 'eshell-visual-subcommands '("git" "diff" "help" "log" "show"))
-               (define-key eshell-mode-map (kbd "C-c C-l")  'helm-eshell-history)
-               (define-key eshell-mode-map (kbd "C-c C-;")  'helm-eshell-prompts))))
+  (setq eshell-prompt-function 'drestivo/eshell-prompt))
 
 ;; Beautify org buffers
 (use-package org-beautify-theme
@@ -1533,9 +1528,9 @@ User Interface (GUI). This function has to be invoked:
 (if (not (version< emacs-version "25.1"))
     (use-package ibuffer-sidebar
       :ensure t
-      :init
-      (add-hook 'ibuffer-mode-hook '(lambda ()
-                                      (drestivo/disable-number-and-visual-line)))
+      :hook
+      (ibuffer-mode . (lambda ()
+                        (drestivo/disable-number-and-visual-line)))
       :config
       (setq ibuffer-sidebar-use-custom-font nil)
       :bind
@@ -1544,9 +1539,9 @@ User Interface (GUI). This function has to be invoked:
 ;; imenu-list
 (use-package imenu-list
   :ensure t
-  :init
-  (add-hook 'imenu-list-major-mode-hook '(lambda ()
-                                           (drestivo/disable-number-and-visual-line)))
+  :hook
+  (imenu-list-major-mode . (lambda ()
+                             (drestivo/disable-number-and-visual-line)))
   :config
   (setq imenu-list-position 'right
         imenu-list-auto-resize t)
@@ -1556,9 +1551,9 @@ User Interface (GUI). This function has to be invoked:
 ;; Same frame speedbar
 (use-package sr-speedbar
   :ensure t
-  :init
-  (add-hook 'speedbar-mode-hook '(lambda ()
-                                   (drestivo/disable-number-and-visual-line)))
+  :hook
+  (speedbar-mode . (lambda ()
+                     (drestivo/disable-number-and-visual-line)))
   :config
   (setq sr-speedbar-right-side nil)
   :bind
