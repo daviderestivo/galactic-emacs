@@ -1004,7 +1004,7 @@ User Interface (GUI). This function has to be invoked:
   ;; Capture templates for: TODO tasks and notes
   (setq org-capture-templates
         (quote (("n" "Note"   entry (file (lambda () (concat org-directory "refile.org")))
-                 "* %? :NOTE:\n%a\n%U\n")
+                 "* %?\n%a\n%U\n")
                 ("t" "Todo"   entry (file (lambda () (concat org-directory "refile.org")))
                  "* TODO %?\n%a\n%U\n"))))
   ;; ORG tags shortcuts
