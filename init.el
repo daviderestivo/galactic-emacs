@@ -79,6 +79,7 @@
 ;; - undo-tree                         [https://github.com/emacsmirror/undo-tree]
 ;; - use-package                       [https://github.com/jwiegley/use-package]
 ;; - volatile-highlights               [https://github.com/k-talo/volatile-highlights.el]
+;; - vscode-icons                      [https://github.com/jojojames/vscode-icon-emacs]
 ;; - which-key                         [https://github.com/justbur/emacs-which-key]
 ;; - wttrin                            [https://github.com/bcbcarl/emacs-wttrin]
 ;; - yaml-mode                         [https://github.com/yoshiki/yaml-mode]
@@ -1638,6 +1639,11 @@ User Interface (GUI). This function has to be invoked:
   (setq avy-case-fold-search nil)
   :bind
   ("C-c m" . avy-goto-char))
+
+;; Utility package that return vscode icons for Emacs
+(use-package vscode-icon
+  :ensure t
+  :commands (vscode-icon-for-file))
 
 
 ;;; init.el ends here

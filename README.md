@@ -67,6 +67,7 @@ not listed.
 * undo-tree [[Link](https://github.com/emacsmirror/undo-tree)]
 * use-package [[Link](https://github.com/jwiegley/use-package)]
 * volatile-highlights [[Link](https://github.com/k-talo/volatile-highlights.el)]
+* vscode-icons [[Link](https://github.com/jojojames/vscode-icon-emacs)]
 * which-key [[Link](https://github.com/justbur/emacs-which-key)]
 * wttrin [[Link](https://github.com/bcbcarl/emacs-wttrin)]
 * yaml-mode [[Link](https://github.com/yoshiki/yaml-mode)]
