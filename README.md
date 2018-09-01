@@ -53,6 +53,7 @@ not listed.
 * ob-ipython [[Link](https://github.com/gregsexton/ob-ipython)]
 * org-beautify-theme [[Link](https://github.com/jonnay/org-beautify-theme)]
 * org-bullets [[Link](https://github.com/sabof/org-bullets)]
+* org-mind-map [[Link](https://github.com/theodorewiles/org-mind-map)
 * org-download [[Link](https://github.com/abo-abo/org-download)]
 * org-plus-contrib [[Link](http://orgmode.org)]
 * projectile [[Link](https://github.com/bbatsov/projectile)]

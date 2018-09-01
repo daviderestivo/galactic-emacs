@@ -66,6 +66,7 @@
 ;; - org-beautify-theme                [https://github.com/jonnay/org-beautify-theme]
 ;; - org-bullets                       [https://github.com/sabof/org-bullets]
 ;; - org-download                      [https://github.com/abo-abo/org-download]
+;; - org-mind-map                      [https://github.com/theodorewiles/org-mind-map]
 ;; - org-plus-contrib                  [http://orgmode.org]
 ;; - projectile                        [https://github.com/bbatsov/projectile]
 ;; - psession                          [https://github.com/thierryvolpiatto/psession]
@@ -929,6 +930,12 @@ User Interface (GUI). This function has to be invoked:
   ("<f2>" . magit-status)
   ("<f5>" . magit-list-repositories))
 
+;; magit-org-todos - Get todo.org into your magit status.
+(use-package magit-org-todos
+  :ensure t
+  :config
+  (magit-org-todos-autoinsert))
+
 ;; ORG
 (use-package org
   :defer t
@@ -1080,6 +1087,31 @@ User Interface (GUI). This function has to be invoked:
   :hook
   (org-mode . (lambda ()
                 (org-bullets-mode 1))))
+
+;; Beautify org buffers
+(use-package org-beautify-theme
+  :ensure t
+  :defer t
+  ;; This theme is loaded when entering ORG mode. Please see the above
+  ;; ORG section.
+  )
+
+;; This is an Emacs package that creates graphviz directed graphs from
+;; the headings of an org file
+(use-package org-mind-map
+  :init
+  (require 'ox-org)
+  :ensure t
+  :ensure-system-package (gvgen . graphviz)
+  :config
+    (setq org-mind-map-engine "dot")       ; Default; Directed Graph
+    ;; (setq org-mind-map-engine "neato")  ; Undirected Spring Graph"
+    ;; (setq org-mind-map-engine "twopi")  ; Radial Layout"
+    ;; (setq org-mind-map-engine "fdp")    ; Undirected Spring Force-Directed"
+    ;; (setq org-mind-map-engine "sfdp")   ; Multiscale version of fdp for the layout of large graphs
+    ;; (setq org-mind-map-engine "twopi")  ; Radial layouts
+    ;; (setq org-mind-map-engine "circo")  ; Circular Layout"
+    )
 
 ;; rainbow-delimiters
 (use-package rainbow-delimiters
@@ -1455,14 +1487,6 @@ User Interface (GUI). This function has to be invoked:
   (setq eshell-highlight-prompt nil)
   (setq eshell-prompt-function 'drestivo/eshell-prompt))
 
-;; Beautify org buffers
-(use-package org-beautify-theme
-  :ensure t
-  :defer t
-  ;; This theme is loaded when entering ORG mode. Please see the above
-  ;; ORG section.
-  )
-
 ;; YANG mode
 (use-package yang-mode
   :ensure t)
@@ -1563,12 +1587,6 @@ User Interface (GUI). This function has to be invoked:
 (use-package cider
   :ensure t
   :ensure-system-package (lein . leiningen))
-
-;; magit-org-todos - Get todo.org into your magit status.
-(use-package magit-org-todos
-  :ensure t
-  :config
-  (magit-org-todos-autoinsert))
 
 ;; Automatically debug and bisect your init file
 (use-package bug-hunter
