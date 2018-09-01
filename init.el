@@ -414,7 +414,7 @@ backed up."
             '(lambda ()
                (setq show-trailing-whitespace t))))
 
-;; Spell checking configuration
+;; Flyspell - Spell checking configuration
 (setq ispell-program-name "aspell")
 ;; Enable flyspell for text files and enable superword mode
 (dolist (mode '(text-mode-hook))
@@ -442,12 +442,7 @@ backed up."
 ;; - press <f8> to check a word
 ;; - press M-<f8> to check the next one
 (global-set-key (kbd "<f8>") 'ispell-word)
-(defun drestivo/flyspell-check-next-highlighted-word ()
-  "Custom function to spell check next highlighted word"
-  (interactive)
-  (flyspell-goto-next-error)
-  (ispell-word))
-(global-set-key (kbd "M-<f8>") 'drestivo/flyspell-check-next-highlighted-word)
+(global-set-key (kbd "M-<f8>") 'flyspell-goto-next-error)
 ;; In Mac OS X the right mouse button does not seem to trigger
 ;; [mouse-2], so you cannot right click a word to get a suggestion.
 ;; This can be fixed with the below:

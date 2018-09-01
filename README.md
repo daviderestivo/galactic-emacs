@@ -82,12 +82,12 @@ not listed.
 | < f6 >        | org-directory-search-ag                  |
 | < f7 >        | Create new empty buffer                  |
 | < f8 >        | ispell-word                              |
-| M-< f8 >      | flyspell-check-next-highlighted-word     |
+| M-< f8 >      | flyspell-goto-next-error                 |
 | < f9 >        | Toggle sroll bar                         |
 | < f12 >       | imenu-list-smart-toggle                  |
 | M-<f12>       | sr-speedbar-toggle                       |
 | C-< f12 >     | ibuffer-sidebar-toggle-sidebar           |
-| C-c m         | avy-got-char                             |
+| C-c m         | avy-goto-char                            |
 | C-=           | copy-line                                |
 | C-c left      | Winner mode - Undo windows changes       |
 | C-c right     | Winner mode - Redo windows changes       |
