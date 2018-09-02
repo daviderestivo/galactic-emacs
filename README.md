@@ -9,7 +9,6 @@ atom-one-dark-theme with some minor changes:
 ![Emacs frame with natural title bar](https://raw.githubusercontent.com/daviderestivo/emacs-config/master/emacs_with_natural_title_bar.png)
 
 ## Installation
-
 ### Emacs Installation
 
 This configuration is mainly tested on the HEAD version of Emacs
@@ -115,8 +114,8 @@ not listed.
 | C-x C-r       | helm-recentf                             |
 | M-s           | helm-do-ag-this-file                     |
 | C-u M-s       | helm-do-ag-buffers                       |
-| C-c C-l       | helm-eshell-history                      |
 | C-c C-;       | helm-eshell-prompts                      |
+| C-c C-l       | helm-eshell-history                      |
 | C-+           | drestivo/insert-date                     |
 | C-x t         | shell-pop-universal-key                  |
 | C-c j         | drestivo/org-show-current-heading-tidily |
