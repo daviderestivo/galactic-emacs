@@ -62,7 +62,6 @@ not listed.
 * rainbow-delimiters [[Link](https://www.emacswiki.org/emacs/RainbowDelimiters)]
 * shell-pop-el [[link](https://github.com/kyagi/shell-pop-el)]
 * smart-mode-line [[Link](https://github.com/Malabarba/smart-mode-line)]
-* sr-speedbar [[Link](https://github.com/emacsorphanage/sr-speedbar)]
 * transpose-frame [[Link](https://www.emacswiki.org/emacs/TransposeFrame)]
 * undo-tree [[Link](https://github.com/emacsmirror/undo-tree)]
 * use-package [[Link](https://github.com/jwiegley/use-package)]
@@ -86,7 +85,6 @@ not listed.
 | M-< f8 >      | flyspell-goto-next-error                 |
 | < f9 >        | Toggle sroll bar                         |
 | < f12 >       | imenu-list-smart-toggle                  |
-| M-<f12>       | sr-speedbar-toggle                       |
 | C-< f12 >     | ibuffer-sidebar-toggle-sidebar           |
 | C-c m         | avy-goto-char                            |
 | C-=           | copy-line                                |

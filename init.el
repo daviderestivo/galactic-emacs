@@ -74,7 +74,6 @@
 ;; - rainbow-delimiters                [https://www.emacswiki.org/emacs/RainbowDelimiters]
 ;; - shell-pop-el                      [https://github.com/kyagi/shell-pop-el
 ;; - smart-mode-line                   [https://github.com/Malabarba/smart-mode-line]
-;; - sr-speedbar                       [https://github.com/emacsorphanage/sr-speedbar]
 ;; - transpose-frame                   [https://www.emacswiki.org/emacs/TransposeFrame]
 ;; - undo-tree                         [https://github.com/emacsmirror/undo-tree]
 ;; - use-package                       [https://github.com/jwiegley/use-package]
@@ -1567,17 +1566,6 @@ User Interface (GUI). This function has to be invoked:
         imenu-list-auto-resize t)
   :bind
   ("<f12>" . imenu-list-smart-toggle))
-
-;; Same frame speedbar
-(use-package sr-speedbar
-  :ensure t
-  :hook
-  (speedbar-mode . (lambda ()
-                     (drestivo/disable-number-and-visual-line)))
-  :config
-  (setq sr-speedbar-right-side nil)
-  :bind
-  ("M-<f12>" . sr-speedbar-toggle))
 
 ;; cider - Clojure Interactive Development Environment
 (use-package cider
