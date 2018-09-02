@@ -904,7 +904,7 @@ User Interface (GUI). This function has to be invoked:
 (use-package atom-one-dark-theme
   :ensure t
   :init
-  (add-hook 'after-make-frame-functions 'drestivo/setup-frame-appearance)
+  (add-hook 'after-make-frame-functions 'drestivo/setup-frame-appearance 'append)
   (drestivo/setup-frame-appearance)
   :config
   ;; The below theme is used both for the case of Emacs running in
