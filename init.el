@@ -1453,7 +1453,7 @@ User Interface (GUI). This function has to be invoked:
   ((dired-mode . diff-hl-dired-mode)
    (magit-post-refresh . diff-hl-magit-post-refresh))
   :diminish diff-hl-mode
-  :config
+  :init
   (if (daemonp)
       (add-hook 'after-make-frame-functions
                 '(lambda (frame)
