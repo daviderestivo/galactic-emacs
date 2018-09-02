@@ -1473,6 +1473,8 @@ User Interface (GUI). This function has to be invoked:
   (eshell-mode . (lambda ()
                    ;; (setq eshell-destroy-buffer-when-process-dies t)
                    ;; Programs that need special displays
+                   (eshell-cmpl-initialize)
+                   (define-key eshell-mode-map [remap eshell-pcomplete] 'helm-esh-pcomplete)
                    (add-to-list 'eshell-visual-subcommands '("git" "diff" "help" "log" "show"))
                    (define-key eshell-mode-map (kbd "C-c C-l")  'helm-eshell-history)
                    (define-key eshell-mode-map (kbd "C-c C-;")  'helm-eshell-prompts)))
