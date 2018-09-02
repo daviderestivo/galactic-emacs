@@ -812,17 +812,17 @@ This function requires `all-the-icons' package to be installed
 ;; Emacs frame appearance
 ;;
 (defun drestivo/setup-frame-appearance (&optional frame)
-  "This function is used to setup the Emacs frame appearance in a Graphical
-User Interface (GUI). This function has to be invoked:
- - as a hook of `after-make-frame-functions' (`frame' actual paramater required)
-   when Emacs is running in daemon mode
- - as a function (drestivo/setup-frame-appearance) when Emacs is not running
-   in daemon mode (`frame' actual parameter not required). In this case, for
-   whatever reason, the first created frame does not have the `frame' actual
-   parameter set."
+  "This function is used to setup the Emacs frame appearance in a
+Graphical User Interface (GUI), not in a terminal.
+This function has to be invoked twice:
+ - as a hook of `after-make-frame-functions'
+   (FRAME actual parameter required)
+ - as a function (drestivo/setup-frame-appearance) (FRAME
+   actual parameter not required) inside your emacs configuration file.
+   In this case, for whatever reason, the first created frame does not
+   have the FRAME actual parameter set."
   (if (or (display-graphic-p) (and (daemonp) (display-graphic-p)))
       (progn
-        ;; Emacs running in daemon mode
         (if frame
             (progn
               (select-frame frame)
@@ -846,7 +846,7 @@ User Interface (GUI). This function has to be invoked:
               (setq sml/theme 'atom-one-dark)
               (sml/setup)
               (setq battery-mode-line-format (concat " [" (all-the-icons-material "battery_std") "%b%p%%" "]")))
-          ;; Emacs not running in daemon mode. Used for the first created frame
+          ;; Used for the first created frame. See description above.
           (progn
             ;; Transparent frame
             (add-to-list 'default-frame-alist '(alpha . (96 96)))
