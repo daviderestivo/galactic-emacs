@@ -31,6 +31,7 @@ not listed.
 * command-log-mode [[Link](https://github.com/lewang/command-log-mode)]
 * company-mode [[Link](https://github.com/company-mode/company-mode)]
 * diff-hl [[Link](https://github.com/dgutov/diff-hl)]
+* dired-sidebar [[Link](https://github.com/jojojames/dired-sidebar)]
 * dockerfile-mode [[Link](https://github.com/spotify/dockerfile-mode)]
 * elisp-bug-hunter [[Link](https://github.com/Malabarba/elisp-bug-hunter)]
 * elpy [[Link](https://elpy.readthedocs.io)]
@@ -85,6 +86,7 @@ not listed.
 | M-< f8 >      | flyspell-goto-next-error                 |
 | < f9 >        | Toggle sroll bar                         |
 | < f12 >       | imenu-list-smart-toggle                  |
+| M-<f12>       | dired-sidebar-toggle-sidebar             |
 | C-< f12 >     | ibuffer-sidebar-toggle-sidebar           |
 | C-c m         | avy-goto-char                            |
 | C-=           | copy-line                                |

@@ -43,6 +43,7 @@
 ;; - command-log-mode                  [https://github.com/lewang/command-log-mode]
 ;; - company-mode                      [https://github.com/company-mode/company-mode]
 ;; - diff-hl                           [https://github.com/dgutov/diff-hl]
+;; - dired-sidebar                     [https://github.com/jojojames/dired-sidebar]
 ;; - dockerfile-mode                   [https://github.com/spotify/dockerfile-mode]
 ;; - elisp-bug-hunter                  [https://github.com/Malabarba/elisp-bug-hunter]
 ;; - elpy                              [https://elpy.readthedocs.io]
@@ -1634,7 +1635,29 @@ User Interface (GUI). This function has to be invoked:
 ;; Utility package that return vscode icons for Emacs
 (use-package vscode-icon
   :ensure t
-  :commands (vscode-icon-for-file))
+  :commands
+  (vscode-icon-for-file))
+
+;; Sidebar for Emacs leveraging dired
+(use-package dired-sidebar
+  :ensure t
+  :hook
+  (dired-sidebar-mode .
+                      (lambda ()
+                        (unless (file-remote-p default-directory)
+                          (auto-revert-mode))
+                        (drestivo/disable-number-and-visual-line)))
+  :bind
+  (("M-<f12>" . dired-sidebar-toggle-sidebar))
+  :commands
+  (dired-sidebar-toggle-sidebar)
+  :config
+  (push 'toggle-window-split dired-sidebar-toggle-hidden-commands)
+  (push 'rotate-windows dired-sidebar-toggle-hidden-commands)
+  (setq dired-sidebar-subtree-line-prefix "__")
+  (setq dired-sidebar-theme 'vscode)
+  (setq dired-sidebar-use-term-integration t)
+  (setq dired-sidebar-use-custom-font t))
 
 
 ;;; init.el ends here
