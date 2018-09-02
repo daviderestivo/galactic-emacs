@@ -108,6 +108,12 @@
              (setq gc-cons-threshold (* 16 1024 1024)
                    gc-cons-percentage 0.1)))
 
+;; Log Emacs startup time in *Messages*
+(add-hook 'emacs-startup-hook
+          '(lambda ()
+             (message (format "Emacs startup time: %s" (emacs-init-time)))))
+
+
 ;;; General configuration section
 
 ;; Configure Emacs package manager. Not required anymore on Emacs 27
