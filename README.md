@@ -1,12 +1,30 @@
-# emacs-config
+# Emacs-config
 
-This are my Emacs configuration files. Below you can find the list of the packages used.
+This repository contains my Emacs configuration. You can clone it as
+it comes or simply use whatever part you might need/like.
+
+The look and feel of the Emacs frame is based on the
+atom-one-dark-theme with some minor changes:
 
 ![Emacs frame with natural title bar](https://raw.githubusercontent.com/daviderestivo/emacs-config/master/emacs_with_natural_title_bar.png)
 
 ## Installation
 
+### Emacs Installation
+
+This configuration is mainly tested on the HEAD version of Emacs
+(currently 27.x) running on macOS. If your're using brew, as a package
+manager on macOS, please install Emacs with the below command:
+
+``` bash
+brew install emacs --HEAD --with-librsvg --with-cocoa --with-imagemagick@6
 ```
+
+### Repository Clone
+
+Please run the below commands to backup your current Emacs config and clone this repo:
+
+``` bash
 cd ~
 mv .emacs.d .emacs.d.bak
 git clone https://github.com/daviderestivo/emacs-config.git .emacs.d
