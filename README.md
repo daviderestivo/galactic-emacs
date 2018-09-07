@@ -30,7 +30,8 @@ git clone https://github.com/daviderestivo/emacs-config.git .emacs.d
 cd .emacs.d
 git submodule init
 git submodule update
-git submodule foreach --recursive git checkout master
+git submodule foreach --recursive
+git checkout master
 ```
 
 ## Included packages
