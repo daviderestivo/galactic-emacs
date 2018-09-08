@@ -1483,7 +1483,8 @@ This function has to be invoked twice:
                    ;; Programs that need special displays
                    (setq helm-eshell-fuzzy-match t)
                    (eshell-cmpl-initialize)
-                   (define-key eshell-mode-map [remap eshell-pcomplete] 'helm-esh-pcomplete)
+                   ;; Date: Sat Sep  8 08:33:37 CEST 2018 - Comment it out because it's buggy in Emacs 27
+                   ;;(define-key eshell-mode-map [remap eshell-pcomplete] 'helm-esh-pcomplete)
                    (add-to-list 'eshell-visual-subcommands '("git" "diff" "help" "log" "show"))
                    (define-key eshell-mode-map (kbd "C-c C-l")  'helm-eshell-history)
                    (define-key eshell-mode-map (kbd "C-c C-;")  'helm-eshell-prompts)))
