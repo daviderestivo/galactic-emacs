@@ -12,7 +12,7 @@ atom-one-dark-theme with some minor changes:
 ## Emacs Dashboard
 ![Emacs dashboard](https://raw.githubusercontent.com/daviderestivo/emacs-config/master/screenshots/emacs_dashboard.png)
 
-## Emcs sidebars
+## Emacs sidebars
 ![Emacs sidebars](https://raw.githubusercontent.com/daviderestivo/emacs-config/master/screenshots/emacs_sidebars.png)
 
 ## Installation
