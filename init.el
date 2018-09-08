@@ -927,6 +927,7 @@ This function has to be invoked twice:
   :init
   (setq magit-repository-directories
         (list '("~/.emacs.d" . 1 )
+              '("~/.emacs.d/elpa" . 1 )
               '("~/.dotfiles" . 1 )
               '("~/org" . 1 )))
   :bind
