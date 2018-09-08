@@ -7,13 +7,13 @@ The look and feel of the Emacs frame is based on the
 atom-one-dark-theme with some minor changes:
 
 ## Emacs scratch buffer
-![Emacs scracth buffer](https://raw.githubusercontent.com/daviderestivo/emacs-config/master/emacs_scratch_buffer.png)
+![Emacs scracth buffer](https://raw.githubusercontent.com/daviderestivo/emacs-config/master/screenshots/emacs_scratch_buffer.png)
 
 ## Emacs Dashboard
-![Emacs dashboard](https://raw.githubusercontent.com/daviderestivo/emacs-config/master/emacs_dashboard.png)
+![Emacs dashboard](https://raw.githubusercontent.com/daviderestivo/emacs-config/master/screenshots/emacs_dashboard.png)
 
 ## Emcs sidebars
-![Emacs sidebars](https://raw.githubusercontent.com/daviderestivo/emacs-config/master/emacs_sidebars.png)
+![Emacs sidebars](https://raw.githubusercontent.com/daviderestivo/emacs-config/master/screenshots/emacs_sidebars.png)
 
 ## Installation
 ### Emacs Installation
