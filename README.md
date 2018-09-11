@@ -6,13 +6,13 @@ it comes or simply use whatever part you might need/like.
 The look and feel of the Emacs frame is based on the
 atom-one-dark-theme with some minor changes:
 
-## Emacs scratch buffer
+## Emacs Scratch Buffer
 ![Emacs scracth buffer](https://raw.githubusercontent.com/daviderestivo/emacs-config/master/screenshots/emacs_scratch_buffer.png)
 
 ## Emacs Dashboard
 ![Emacs dashboard](https://raw.githubusercontent.com/daviderestivo/emacs-config/master/screenshots/emacs_dashboard.png)
 
-## Emcs sidebars
+## Emcs Sidebars
 ![Emacs sidebars](https://raw.githubusercontent.com/daviderestivo/emacs-config/master/screenshots/emacs_sidebars.png)
 
 ## Installation
