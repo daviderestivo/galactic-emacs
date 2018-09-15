@@ -931,6 +931,9 @@ This function has to be invoked twice:
               '("~/.emacs.d/elpa" . 1 )
               '("~/.dotfiles" . 1 )
               '("~/org" . 1 )))
+  :config
+  ;; Expand "unpushed to upstream or recent" magit section
+  (push (cons [unpushed status] 'show) magit-section-initial-visibility-alist)
   :bind
   ("<f2>" . magit-status)
   ("<f5>" . magit-list-repositories))
