@@ -88,6 +88,7 @@ not listed.
 * rainbow-delimiters [[Link](https://www.emacswiki.org/emacs/RainbowDelimiters)]
 * shell-pop-el [[link](https://github.com/kyagi/shell-pop-el)]
 * smart-mode-line [[Link](https://github.com/Malabarba/smart-mode-line)]
+* smart-mode-line-atom-one-dark-theme [[Link](https://github.com/daviderestivo/smart-mode-line-atom-one-dark-theme)]
 * transpose-frame [[Link](https://www.emacswiki.org/emacs/TransposeFrame)]
 * undo-tree [[Link](https://github.com/emacsmirror/undo-tree)]
 * use-package [[Link](https://github.com/jwiegley/use-package)]
