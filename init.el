@@ -1302,7 +1302,8 @@ This function has to be invoked twice:
   :ensure t
   :config
   (projectile-mode)
-  (setq projectile-completion-system 'helm))
+  (setq projectile-completion-system 'helm)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
 ;; py-autopep8
 (use-package py-autopep8
