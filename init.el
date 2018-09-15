@@ -1669,5 +1669,10 @@ This function has to be invoked twice:
   (setq dired-sidebar-use-term-integration t)
   (setq dired-sidebar-use-custom-font t))
 
+;; A linter for the metadata in Emacs Lisp files which are intended to
+;; be packages
+(use-package package-lint
+  :ensure t)
+
 
 ;;; init.el ends here
