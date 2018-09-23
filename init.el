@@ -33,58 +33,59 @@
 ;; This is my Emacs config file. Below you can find the list of the
 ;; packages used:
 ;;
-;; - all-the-icons                     [https://github.com/domtronn/all-the-icons.el]
-;; - atom-one-dark-theme               [https://github.com/jonathanchu/atom-one-dark-theme]
-;; - auto-package-update               [https://github.com/rranelli/auto-package-update.el]
-;; - auto-sudoedit                     [https://github.com/ncaq/auto-sudoedit]
-;; - avy                               [https://github.com/abo-abo/avy]
-;; - cider                             [https://github.com/clojure-emacs/cider]
-;; - cisco-router-mode                 [https://www.emacswiki.org/emacs/download/cisco-router-mode.el]
-;; - command-log-mode                  [https://github.com/lewang/command-log-mode]
-;; - company-mode                      [https://github.com/company-mode/company-mode]
-;; - diff-hl                           [https://github.com/dgutov/diff-hl]
-;; - dired-sidebar                     [https://github.com/jojojames/dired-sidebar]
-;; - dockerfile-mode                   [https://github.com/spotify/dockerfile-mode]
-;; - elisp-bug-hunter                  [https://github.com/Malabarba/elisp-bug-hunter]
-;; - elpy                              [https://elpy.readthedocs.io]
-;; - emacs-dashboard                   [https://github.com/rakanalh/emacs-dashboard]
-;; - esh-autosuggest                   [https://github.com/dieggsy/esh-autosuggest]
-;; - exec-path-from-shell              [https://github.com/purcell/exec-path-from-shell]
-;; - eyebrowse                         [https://github.com/wasamasa/eyebrowse]
-;; - helm                              [https://github.com/emacs-helm/helm]
-;; - helm-ag                           [https://github.com/syohex/emacs-helm-ag]
-;; - helm-descbinds                    [https://github.com/emacs-helm/helm-descbinds]
-;; - helm-github-stars                 [https://github.com/Sliim/helm-github-stars]
-;; - helm-projectile                   [https://github.com/bbatsov/helm-projectile]
-;; - ibuffer-sidebar                   [https://github.com/jojojames/ibuffer-sidebar]
-;; - imenu-list                        [https://github.com/bmag/imenu-list]
-;; - jinja2-mode                       [https://github.com/paradoxxxzero/jinja2-mode]
-;; - magit                             [https://magit.vc]
-;; - magit-org-todos                   [https://github.com/danielma/magit-org-todos.el]
-;; - markdown-mode                     [http://jblevins.org/projects/markdown-mode]
-;; - multiple-cursors                  [https://github.com/magnars/multiple-cursors.el]
-;; - ob-ipython                        [https://github.com/gregsexton/ob-ipython]
-;; - org-beautify-theme                [https://github.com/jonnay/org-beautify-theme]
-;; - org-bullets                       [https://github.com/sabof/org-bullets]
-;; - org-download                      [https://github.com/abo-abo/org-download]
-;; - org-mind-map                      [https://github.com/theodorewiles/org-mind-map]
-;; - org-plus-contrib                  [http://orgmode.org]
-;; - projectile                        [https://github.com/bbatsov/projectile]
-;; - psession                          [https://github.com/thierryvolpiatto/psession]
-;; - py-autopep8                       [https://github.com/paetzke/py-autopep8.el]
-;; - rainbow-delimiters                [https://www.emacswiki.org/emacs/RainbowDelimiters]
-;; - shell-pop-el                      [https://github.com/kyagi/shell-pop-el
-;; - smart-mode-line                   [https://github.com/Malabarba/smart-mode-line]
-;; - transpose-frame                   [https://www.emacswiki.org/emacs/TransposeFrame]
-;; - undo-tree                         [https://github.com/emacsmirror/undo-tree]
-;; - use-package                       [https://github.com/jwiegley/use-package]
-;; - volatile-highlights               [https://github.com/k-talo/volatile-highlights.el]
-;; - vscode-icons                      [https://github.com/jojojames/vscode-icon-emacs]
-;; - which-key                         [https://github.com/justbur/emacs-which-key]
-;; - wttrin                            [https://github.com/bcbcarl/emacs-wttrin]
-;; - yaml-mode                         [https://github.com/yoshiki/yaml-mode]
-;; - yang-mode                         [https://github.com/mbj4668/yang-mode]
-;; - yasnippet                         [https://github.com/joaotavora/yasnippet]
+;; - all-the-icons                       [https://github.com/domtronn/all-the-icons.el]
+;; - atom-one-dark-theme                 [https://github.com/jonathanchu/atom-one-dark-theme]
+;; - auto-package-update                 [https://github.com/rranelli/auto-package-update.el]
+;; - auto-sudoedit                       [https://github.com/ncaq/auto-sudoedit]
+;; - avy                                 [https://github.com/abo-abo/avy]
+;; - cider                               [https://github.com/clojure-emacs/cider]
+;; - cisco-router-mode                   [https://www.emacswiki.org/emacs/download/cisco-router-mode.el]
+;; - command-log-mode                    [https://github.com/lewang/command-log-mode]
+;; - company-mode                        [https://github.com/company-mode/company-mode]
+;; - diff-hl                             [https://github.com/dgutov/diff-hl]
+;; - dired-sidebar                       [https://github.com/jojojames/dired-sidebar]
+;; - dockerfile-mode                     [https://github.com/spotify/dockerfile-mode]
+;; - elisp-bug-hunter                    [https://github.com/Malabarba/elisp-bug-hunter]
+;; - elpy                                [https://elpy.readthedocs.io]
+;; - emacs-dashboard                     [https://github.com/rakanalh/emacs-dashboard]
+;; - esh-autosuggest                     [https://github.com/dieggsy/esh-autosuggest]
+;; - exec-path-from-shell                [https://github.com/purcell/exec-path-from-shell]
+;; - eyebrowse                           [https://github.com/wasamasa/eyebrowse]
+;; - helm                                [https://github.com/emacs-helm/helm]
+;; - helm-ag                             [https://github.com/syohex/emacs-helm-ag]
+;; - helm-descbinds                      [https://github.com/emacs-helm/helm-descbinds]
+;; - helm-github-stars                   [https://github.com/Sliim/helm-github-stars]
+;; - helm-projectile                     [https://github.com/bbatsov/helm-projectile]
+;; - ibuffer-sidebar                     [https://github.com/jojojames/ibuffer-sidebar]
+;; - imenu-list                          [https://github.com/bmag/imenu-list]
+;; - jinja2-mode                         [https://github.com/paradoxxxzero/jinja2-mode]
+;; - magit                               [https://magit.vc]
+;; - magit-org-todos                     [https://github.com/danielma/magit-org-todos.el]
+;; - markdown-mode                       [http://jblevins.org/projects/markdown-mode]
+;; - multiple-cursors                    [https://github.com/magnars/multiple-cursors.el]
+;; - ob-ipython                          [https://github.com/gregsexton/ob-ipython]
+;; - org-beautify-theme                  [https://github.com/jonnay/org-beautify-theme]
+;; - org-bullets                         [https://github.com/sabof/org-bullets]
+;; - org-download                        [https://github.com/abo-abo/org-download]
+;; - org-mind-map                        [https://github.com/theodorewiles/org-mind-map]
+;; - org-plus-contrib                    [http://orgmode.org]
+;; - projectile                          [https://github.com/bbatsov/projectile]
+;; - psession                            [https://github.com/thierryvolpiatto/psession]
+;; - py-autopep8                         [https://github.com/paetzke/py-autopep8.el]
+;; - rainbow-delimiters                  [https://www.emacswiki.org/emacs/RainbowDelimiters]
+;; - shell-pop-el                        [https://github.com/kyagi/shell-pop-el
+;; - smart-mode-line                     [https://github.com/Malabarba/smart-mode-line]
+;; - smart-mode-line-atom-one-dark-theme [https://github.com/daviderestivo/smart-mode-line-atom-one-dark-theme]
+;; - transpose-frame                     [https://www.emacswiki.org/emacs/TransposeFrame]
+;; - undo-tree                           [https://github.com/emacsmirror/undo-tree]
+;; - use-package                         [https://github.com/jwiegley/use-package]
+;; - volatile-highlights                 [https://github.com/k-talo/volatile-highlights.el]
+;; - vscode-icons                        [https://github.com/jojojames/vscode-icon-emacs]
+;; - which-key                           [https://github.com/justbur/emacs-which-key]
+;; - wttrin                              [https://github.com/bcbcarl/emacs-wttrin]
+;; - yaml-mode                           [https://github.com/yoshiki/yaml-mode]
+;; - yang-mode                           [https://github.com/mbj4668/yang-mode]
+;; - yasnippet                           [https://github.com/joaotavora/yasnippet]
 ;;
 ;; Feel free to drop me an email in case of questions.
 
@@ -930,6 +931,9 @@ This function has to be invoked twice:
               '("~/.emacs.d/elpa" . 1 )
               '("~/.dotfiles" . 1 )
               '("~/org" . 1 )))
+  :config
+  ;; Expand "unpushed to upstream or recent" magit section
+  (push (cons [unpushed status] 'show) magit-section-initial-visibility-alist)
   :bind
   ("<f2>" . magit-status)
   ("<f5>" . magit-list-repositories))
@@ -1001,7 +1005,7 @@ This function has to be invoked twice:
   ;; ORG default TODO keywords
   ;; The below can be customized per file using:
   ;;
-  ;; #+TODO: "TODO(t)" "DOING(d)" "WAIT OTHERS(w)" "DELEGATED(g)" "REVIEW(r)" "|" "DONE(D)" "CANCELED(C)" " REVIEWED(R)")
+  ;; #+TODO: "TODO(t)" "DOING(d)" "WAIT OTHERS(w)" "DELEGATED(g)" "REVIEW(r)" "|" "DONE(D)" "CANCELED(C)" "REVIEWED(R)")
   ;;
   (setq org-todo-keywords
         '((sequence "TODO(t)" "DOING(d)" "WAIT OTHERS(w)" "DELEGATED(g)" "REVIEW(r)" "|" "DONE(D)" "CANCELED(C)" " REVIEWED(R)")))
@@ -1160,6 +1164,10 @@ This function has to be invoked twice:
     (setq battery-echo-area-format "Power %L, battery %B (%p%% charged, remaining time %t")
     (display-battery-mode)))
 
+;; An atom-one-dark theme for smart-mode-line
+(use-package smart-mode-line-atom-one-dark-theme
+  :ensure t)
+
 ;; yaml-mode
 (use-package yaml-mode
   :defer t
@@ -1302,7 +1310,8 @@ This function has to be invoked twice:
   :ensure t
   :config
   (projectile-mode)
-  (setq projectile-completion-system 'helm))
+  (setq projectile-completion-system 'helm)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
 ;; py-autopep8
 (use-package py-autopep8
@@ -1667,6 +1676,11 @@ This function has to be invoked twice:
   (setq dired-sidebar-theme 'vscode)
   (setq dired-sidebar-use-term-integration t)
   (setq dired-sidebar-use-custom-font t))
+
+;; A linter for the metadata in Emacs Lisp files which are intended to
+;; be packages
+(use-package package-lint
+  :ensure t)
 
 
 ;;; init.el ends here

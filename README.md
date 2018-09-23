@@ -6,11 +6,12 @@ it comes or simply use whatever part you might need/like.
 The look and feel of the Emacs frame is based on the
 atom-one-dark-theme with some minor changes:
 
-## Emacs scratch buffer
+## Emacs Scratch Buffer
 ![Emacs scracth buffer](https://raw.githubusercontent.com/daviderestivo/emacs-config/master/screenshots/emacs_scratch_buffer.png)
 
 ## Emacs Dashboard
 ![Emacs dashboard](https://raw.githubusercontent.com/daviderestivo/emacs-config/master/screenshots/emacs_dashboard.png)
+
 
 ## Emacs sidebars
 ![Emacs sidebars](https://raw.githubusercontent.com/daviderestivo/emacs-config/master/screenshots/emacs_sidebars.png)
@@ -88,6 +89,7 @@ not listed.
 * rainbow-delimiters [[Link](https://www.emacswiki.org/emacs/RainbowDelimiters)]
 * shell-pop-el [[link](https://github.com/kyagi/shell-pop-el)]
 * smart-mode-line [[Link](https://github.com/Malabarba/smart-mode-line)]
+* smart-mode-line-atom-one-dark-theme [[Link](https://github.com/daviderestivo/smart-mode-line-atom-one-dark-theme)]
 * transpose-frame [[Link](https://www.emacswiki.org/emacs/TransposeFrame)]
 * undo-tree [[Link](https://github.com/emacsmirror/undo-tree)]
 * use-package [[Link](https://github.com/jwiegley/use-package)]
@@ -124,6 +126,7 @@ not listed.
 | C-u M-s       | helm-do-ag-buffers                       |
 | C-c C-;       | helm-eshell-prompts                      |
 | C-c C-l       | helm-eshell-history                      |
+| C-c p         | projectile keymap                        |
 | C-+           | drestivo/insert-date                     |
 | C-x t         | shell-pop-universal-key                  |
 | C-c j         | drestivo/org-show-current-heading-tidily |
