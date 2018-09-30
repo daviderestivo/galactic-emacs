@@ -34,15 +34,15 @@
 
 (require 'seq)
 
-(setq drestivo/bashrc-file "~/.bashrc")
+(setq lbsa/bashrc-file "~/.bashrc")
 
-(defun drestivo/read-lines-from-file (FILEPATH)
+(defun lbsa/read-lines-from-file (FILEPATH)
   "Return a list of lines of a file at FILEPATH."
   (with-temp-buffer
     (insert-file-contents FILEPATH)
     (split-string (buffer-string) "\n" t)))
 
-(defun drestivo/extract-bash-aliases (LIST)
+(defun lbsa/extract-bash-aliases (LIST)
   "Takes a LIST of strings, and transforms it into a LIST of shell aliases."
   (seq-filter (lambda (element)
 	    (and
@@ -50,16 +50,16 @@
 	     (not (string-match-p "^#" element))))
 	  LIST))
 
-(defun drestivo/load-bash-aliases-into-eshell ()
+(defun lbsa/load-bash-aliases-into-eshell ()
   "Takes a BASHFILE, trims it to a list of alias commands, and
 convert it to a list of eshell aliases."
   (let ((aliases (list)))
-    (dolist (element (drestivo/extract-bash-aliases (drestivo/read-lines-from-file drestivo/bash-to-eshell-file)))
+    (dolist (element (lbsa/extract-bash-aliases (lbsa/read-lines-from-file lbsa/bash-to-eshell-file)))
       (push (split-string (replace-regexp-in-string "alias " "" element) "=")
             eshell-command-aliases-list))))
 
 
-(defun drestivo/bash-to-eshell-aliases (BASHFILE)
+(defun lbsa/bash-to-eshell-aliases (BASHFILE)
   "Takes a BASHFILE, trims it to a list of alias commands, and inserts them as eshell aliases."
   (interactive "f")
   (eshell)
@@ -69,5 +69,5 @@ convert it to a list of eshell aliases."
       (insert trimmed)
       (eshell-send-input))))
 
-(provide 'drestivo/load-bash-aliases-into-eshell)
+(provide 'lbsa/load-bash-aliases-into-eshell)
 ;;; load-bash-aliases-into-eshell.el ends here
