@@ -63,7 +63,7 @@ convert it to a list of eshell aliases."
   "Takes a BASHFILE, trims it to a list of alias commands, and inserts them as eshell aliases."
   (interactive "f")
   (eshell)
-  (dolist (element (extract-bash-aliases (read-lines BASHFILE)))
+  (dolist (element (lbsa/extract-bash-aliases (lbsa/read-lines-from-file BASHFILE)))
     (let ((trimmed (replace-regexp-in-string "=" " " element)))
       (goto-char (point-max))
       (insert trimmed)
