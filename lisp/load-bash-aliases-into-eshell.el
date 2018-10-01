@@ -58,7 +58,6 @@ convert it to a list of eshell aliases."
       (push (split-string (replace-regexp-in-string "alias " "" element) "=")
             eshell-command-aliases-list))))
 
-
 (defun lbsa/bash-to-eshell-aliases (BASHFILE)
   "Takes a BASHFILE, trims it to a list of alias commands, and inserts them as eshell aliases."
   (interactive "f")
