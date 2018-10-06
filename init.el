@@ -1648,7 +1648,7 @@ This function has to be invoked twice:
   ;; When nil, the searches does not ignore case
   (setq avy-case-fold-search nil)
   :bind
-  ("C-c m" . avy-goto-char))
+  ("s-/" . avy-goto-char))
 
 ;; Utility package that return vscode icons for Emacs
 (use-package vscode-icon

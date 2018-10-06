@@ -117,7 +117,7 @@ not listed.
 | < f12 >       | imenu-list-smart-toggle                  |
 | M-<f12>       | dired-sidebar-toggle-sidebar             |
 | C-< f12 >     | ibuffer-sidebar-toggle-sidebar           |
-| C-c m         | avy-goto-char                            |
+| s-/           | avy-goto-char                            |
 | C-=           | copy-line                                |
 | C-c left      | Winner mode - Undo windows changes       |
 | C-c right     | Winner mode - Redo windows changes       |
