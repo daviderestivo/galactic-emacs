@@ -1210,6 +1210,9 @@ This function has to be invoked twice:
   :commands helm-mode
   :config
   (helm-mode 1)
+  ;; Increase max length of buffer names (default 20) to the longest
+  ;; buffer-name length found.
+  (setq helm-buffer-max-length nil)
   ;; Enable fuzzy matching
   (setq helm-buffers-fuzzy-matching t)
   (setq helm-recentf-fuzzy-match t)
