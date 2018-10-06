@@ -129,7 +129,7 @@ not listed.
 | C-c C-;       | helm-eshell-prompts                      |
 | C-c C-l       | helm-eshell-history                      |
 | C-c p         | projectile keymap                        |
-| C-+           | drestivo/insert-date                     |
+| M-+           | drestivo/insert-date                     |
 | C-x t         | shell-pop-universal-key                  |
 | C-c j         | drestivo/org-show-current-heading-tidily |
 | C-S-c C-S-c   | mc/edit-lines                            |
