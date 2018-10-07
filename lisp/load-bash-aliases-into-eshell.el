@@ -1,16 +1,13 @@
-;;; load-bash-aliases-into-eshell.el - Convert bash aliases into eshell ones
+;;; load-bash-aliases-into-eshell.el - Convert bash aliases into eshell ones -*- lexical-binding: t; -*-
 
-;;
 ;; Copyright (C) 2018 Davide Restivo
-;;
+
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
-;; URL: https://github.com/daviderestivo/emacs-config/blob/master/lisp/bash-to-eshell-aliases.el
 ;; Version: 0.0.1
+;; URL: https://github.com/daviderestivo/emacs-config/blob/master/lisp/bash-to-eshell-aliases.el
+;; Package-Requires: ((emacs "24.1"))
 ;; Keywords: emacs bash eshell alias
-
-
-;;; License:
 
 ;; This program is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License
@@ -34,7 +31,15 @@
 
 (require 'seq)
 
-(setq lbsa/bashrc-file "~/.bashrc")
+;;* Customization
+(defgroup lbsa nil
+  "Convert bash aliases into eshell ones"
+  :group 'emacs
+  :prefix "lbsa-")
+
+(defcustom lbsa-bashrc-file "~/.bashrc"
+  "Bash alias file"
+  :type 'string)
 
 (defun lbsa/read-lines-from-file (FILEPATH)
   "Return a list of lines of a file at FILEPATH."
