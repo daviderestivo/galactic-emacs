@@ -291,6 +291,20 @@
 ;; Save every 20 characters typed (this is the minimum)
 (setq auto-save-interval 20)
 ;;
+;; An explanation of `kept-old-versions' and `kept-new-versions'
+;; variables (taken from the GNU/Emacs manual):
+;;
+;; "The two variables kept-old-versions and kept-new-versions
+;; control this deletion. Their values are, respectively, the number
+;; of oldest (lowest-numbered) backups to keep and the number of
+;; newest (highest-numbered) ones to keep, each time a new backup is
+;; made. The backups in the middle (excluding those oldest and newest)
+;; are the excess middle versions—those backups are deleted. These
+;; variables' values are used when it is time to delete excess
+;; versions, just after a new backup version is made; the newly made
+;; backup is included in the count in kept-new-versions. By default,
+;; both variables are 2."
+;;
 ;; An example to understand Emacs backup retention logic. Let's assume
 ;; kept-new-versions and kept-old-versions are both set to 2. Here’s a
 ;; simulation in Emacs Lisp of 8 saves using lists, showing what
@@ -366,8 +380,7 @@ backed up."
   (when (not buffer-backed-up)
     ;; Override the default parameters for per-session backups.
     (let ((backup-directory-alist
-           `(("." . ,(expand-file-name "per-session" drestivo/backup-location))))
-          (kept-new-versions 10))
+           `(("." . ,(expand-file-name "per-session" drestivo/backup-location)))))
       ;; Add trash directory if needed
       (if drestivo/backup-exclude-regexp
           (add-to-list
