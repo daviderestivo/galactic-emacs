@@ -59,6 +59,7 @@
 ;; - ibuffer-sidebar                     [https://github.com/jojojames/ibuffer-sidebar]
 ;; - imenu-list                          [https://github.com/bmag/imenu-list]
 ;; - jinja2-mode                         [https://github.com/paradoxxxzero/jinja2-mode]
+;; - json-mode                           [https://github.com/joshwnj/json-mode]
 ;; - magit                               [https://magit.vc]
 ;; - magit-org-todos                     [https://github.com/danielma/magit-org-todos.el]
 ;; - markdown-mode                       [http://jblevins.org/projects/markdown-mode]
@@ -1696,6 +1697,10 @@ This function has to be invoked twice:
 ;; A linter for the metadata in Emacs Lisp files which are intended to
 ;; be packages
 (use-package package-lint
+  :ensure t)
+
+;; Major mode for editing JSON files
+(use-package json-mode
   :ensure t)
 
 

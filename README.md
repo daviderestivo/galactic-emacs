@@ -75,6 +75,7 @@ not listed.
 * ibuffer-sidebar [[Link](https://github.com/jojojames/ibuffer-sidebar)]
 * imenu-list [[Link](https://github.com/bmag/imenu-list)]
 * jinja2-mode [[Link](https://github.com/paradoxxxzero/jinja2-mode)]
+* json-mode   [[Link](https://github.com/joshwnj/json-mode)]
 * magit [[Link](https://magit.vc)]
 * magit-org-todos [[Link](https://github.com/danielma/magit-org-todos.el)]
 * markdown-mode [[Link](http://jblevins.org/projects/markdown-mode)]
