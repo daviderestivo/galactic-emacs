@@ -1179,8 +1179,13 @@ This function has to be invoked twice:
     (display-battery-mode)))
 
 ;; An atom-one-dark theme for smart-mode-line
-(use-package smart-mode-line-atom-one-dark-theme
-  :ensure t)
+;;
+;; TODO: uncomment the below section and remove
+;; ~/.emacs.d/themes/smart-mode-line-atom-one-dark-theme.el once
+;; available in Melpa
+;;
+;;(use-package sml-atom-one-dark-theme
+;;  :ensure t)
 
 ;; yaml-mode
 (use-package yaml-mode
