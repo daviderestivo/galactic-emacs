@@ -1699,8 +1699,17 @@ This function has to be invoked twice:
 (use-package package-lint
   :ensure t)
 
+;; A reformat tool for JSON (required by json-mode)
+(use-package json-reformat
+  :ensure t)
+
+;; Get the path to a JSON element in Emacs (required by json-mode)
+(use-package json-snatcher
+  :ensure t)
+
 ;; Major mode for editing JSON files
 (use-package json-mode
+  :requires (json-reformat json-snatcher)
   :ensure t)
 
 
