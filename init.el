@@ -60,6 +60,7 @@
 ;; - imenu-list                          [https://github.com/bmag/imenu-list]
 ;; - jinja2-mode                         [https://github.com/paradoxxxzero/jinja2-mode]
 ;; - json-mode                           [https://github.com/joshwnj/json-mode]
+;; - load-bash-shell-aliases             [https://github.com/daviderestivo/load-bash-shell-aliases]
 ;; - magit                               [https://magit.vc]
 ;; - magit-org-todos                     [https://github.com/danielma/magit-org-todos.el]
 ;; - markdown-mode                       [http://jblevins.org/projects/markdown-mode]
@@ -895,6 +896,10 @@ This function has to be invoked twice:
 ;; cisco-router-mode
 ;; https://github.com/emacsmirror/cisco-router-mode/blob/master/cisco-router-mode.el
 (load-library "cisco-router-mode")
+
+;; load-bash-shell-aliases
+;; https://github.com/daviderestivo/load-bash-shell-aliases
+(load-library "load-bash-shell-aliases")
 
 ;; transpose-frame
 ;; https://www.emacswiki.org/emacs/TransposeFrame
