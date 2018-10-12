@@ -894,11 +894,9 @@ This function has to be invoked twice:
 ;;; Packages configuration section
 
 ;; cisco-router-mode
-;; https://github.com/emacsmirror/cisco-router-mode/blob/master/cisco-router-mode.el
 (load-library "cisco-router-mode")
 
 ;; load-bash-shell-aliases
-;; https://github.com/daviderestivo/load-bash-shell-aliases
 (load-library "load-bash-shell-aliases")
 
 ;; transpose-frame
