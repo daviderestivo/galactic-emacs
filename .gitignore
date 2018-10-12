@@ -9,6 +9,7 @@ auto-save-list/
 bookmarks
 elisp-objects/
 elpa/
+eshell/alias
 eshell/history
 eshell/lastdir
 hgs-cache
