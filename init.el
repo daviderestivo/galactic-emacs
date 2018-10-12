@@ -580,6 +580,9 @@ backed up."
 ;; Rebind `other-window' to "M-o"
 (global-set-key (kbd "M-o") 'other-window)
 
+;; Automatically follow symlinks but displays a warning
+(setq vc-follow-symlinks nil)
+
 
 ;;; Helper functions
 
