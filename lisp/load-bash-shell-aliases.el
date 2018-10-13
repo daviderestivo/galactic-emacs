@@ -46,7 +46,9 @@ continuation lines."
   (with-temp-buffer
     (progn
       (insert-file-contents BASHFILE)
-      ;; Merge continuation lines into single line
+      ;; Merge continuation lines into single line. The below regexp
+      ;; matches a '\' at the end of a line followed by one or
+      ;; multiple TAB or spaces.
       (while (re-search-forward "\\\\[ \t]*\n" nil t)
         (replace-match ""))
       ;; Return a list of lines
