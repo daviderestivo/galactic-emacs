@@ -898,6 +898,8 @@ This function has to be invoked twice:
 
 ;; load-bash-shell-aliases
 (load-library "load-bash-shell-aliases")
+(setq lbsa/bashrc-file "~/.bashrc")
+(setq lbsa/exclude-aliases-regexp "^alias magit\\|^alias oc")
 
 ;; transpose-frame
 ;; https://www.emacswiki.org/emacs/TransposeFrame

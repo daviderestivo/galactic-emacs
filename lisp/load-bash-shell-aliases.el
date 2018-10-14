@@ -4,7 +4,7 @@
 
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
-;; Version: 0.0.1
+;; Version: 0.0.2
 ;; URL: https://github.com/daviderestivo/load-bash-shell-aliases
 ;; Package-Requires: ((emacs "24.1"))
 ;; Keywords: emacs bash eshell alias
@@ -40,6 +40,10 @@
   "Bash alias file"
   :type 'string)
 
+(defcustom lbsa/exclude-aliases-regexp "^alias magit\\|^alias oc"
+  "Regexp to exclude Bash aliases to be converted into eshell ones"
+  :type 'string)
+
 (defun lbsa/read-bash-file (BASHFILE)
   "Reads BASHFILE and return a list of lines after merging
 continuation lines."
@@ -59,7 +63,8 @@ continuation lines."
   (seq-filter (lambda (element)
 	        (and
 	         (string-match-p "alias" element)
-	         (not (string-match-p "^#" element))))
+	         (not (string-match-p "^#" element))
+                 (not (string-match-p lbsa/exclude-aliases-regexp element))))
 	      LIST))
 
 (defun lbsa/load-bash-aliases-into-eshell ()
@@ -72,7 +77,10 @@ list of alias commands, and inserts them as eshell aliases."
         (dolist
             (element
              (lbsa/extract-bash-aliases (lbsa/read-bash-file lbsa/bashrc-file)))
-             (let ((trimmed (replace-regexp-in-string "=" " " element)))
+             ;; After multiple withespaces and tabs into single
+             ;; withespace convert a bash alias into an eshell one by
+             ;; removing the "=" sign.
+             (let ((trimmed (replace-regexp-in-string "=\\|[ \t]+" " " element)))
                (goto-char (point-max))
                (insert trimmed)
                (eshell-send-input))))
