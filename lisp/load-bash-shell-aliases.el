@@ -77,14 +77,14 @@ list of alias commands, and inserts them as eshell aliases."
         (dolist
             (element
              (lbsa/extract-bash-aliases (lbsa/read-bash-file lbsa/bashrc-file)))
-             ;; After multiple withespaces and tabs into single
-             ;; withespace convert a bash alias into an eshell one by
-             ;; removing the "=" sign.
-             (let ((trimmed (replace-regexp-in-string "=\\|[ \t]+" " " element)))
-               (goto-char (point-max))
-               (insert trimmed)
-               (eshell-send-input))))
-        (message "The Bash file set on lbsa/bashrc-file does not exists!")))
+          ;; After multiple withespaces and tabs into single
+          ;; withespace convert a bash alias into an eshell one by
+          ;; removing the "=" sign.
+          (let ((trimmed (replace-regexp-in-string "=\\|[ \t]+" " " element)))
+            (goto-char (point-max))
+            (insert trimmed)
+            (eshell-send-input))))
+    (message "The Bash file set on lbsa/bashrc-file does not exists!")))
 
 (provide 'lbsa/load-bash-aliases-into-eshell)
 ;;; load-bash-shell-aliases.el ends here
