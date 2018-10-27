@@ -198,6 +198,9 @@
 ;; Sort apropos results by relevancy
 (setq apropos-sort-by-scores t)
 
+;; Set the frame title
+(setq frame-title-format '("" "%b @ Emacs " emacs-version))
+
 ;; Inhibit startup screen, splash screen and startup message
 (setq inhibit-startup-screen t
       inhibit-splash-screen t
