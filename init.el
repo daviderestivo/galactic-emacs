@@ -948,8 +948,8 @@ This function has to be invoked twice:
 
 ;; magit
 (use-package magit
-  :defer t
   :ensure t
+  :defer t
   :init
   (setq magit-repository-directories
         (list '("~/.emacs.d" . 1 )
@@ -971,8 +971,8 @@ This function has to be invoked twice:
 
 ;; ORG
 (use-package org
-  :defer t
   :ensure org-plus-contrib
+  :defer t
   :hook ((org-agenda-mode . (lambda ()
                               (setq org-agenda-files
                                     (append
@@ -1090,8 +1090,8 @@ This function has to be invoked twice:
 
 ;; ORG Babel: Ipython section
 (use-package ob-ipython
-  :defer t
   :ensure t
+  :defer t
   :hook
   ;; Display images inline in the same buffer
   (org-babel-after-execute . org-display-inline-images)
@@ -1104,6 +1104,7 @@ This function has to be invoked twice:
 ;; org-download
 (use-package org-download
   :ensure t
+  :defer t
   :config
   ;; Change screen capture command only for macOS
   (when (string= system-type "darwin")
@@ -1117,6 +1118,7 @@ This function has to be invoked twice:
 ;; org-bullets
 (use-package org-bullets
   :ensure t
+  :defer t
   :hook
   (org-mode . (lambda ()
                 (org-bullets-mode 1))))
@@ -1124,6 +1126,7 @@ This function has to be invoked twice:
 ;; Beautify org buffers
 (use-package org-beautify-theme
   :ensure t
+  :defer t
   :defer t
   ;; This theme is loaded when entering ORG mode. Please see the above
   ;; ORG section.
@@ -1135,6 +1138,7 @@ This function has to be invoked twice:
   :init
   (require 'ox-org)
   :ensure t
+  :defer t
   :ensure-system-package (gvgen . graphviz)
   :config
   (setq org-mind-map-engine "dot")       ; Default. Directed Graph
@@ -1154,8 +1158,8 @@ This function has to be invoked twice:
 
 ;; auto-package-update
 (use-package auto-package-update
-  :defer t
   :ensure t
+  :defer t
   :config
   ;; Automatically delete old packages
   (setq auto-package-update-delete-old-versions t))
@@ -1195,8 +1199,8 @@ This function has to be invoked twice:
 
 ;; yaml-mode
 (use-package yaml-mode
-  :defer t
   :ensure t
+  :defer t
   :hook
   (yaml-mode . (lambda ()
                  (define-key yaml-mode-map "\C-m" 'newline-and-indent)
@@ -1208,8 +1212,8 @@ This function has to be invoked twice:
 
 ;; jinja2-mode
 (use-package jinja2-mode
-  :defer t
   :ensure t
+  :defer t
   :hook
   (jinja2-mode . (lambda ()
                    (setq show-trailing-whitespace t)
@@ -1227,7 +1231,6 @@ This function has to be invoked twice:
 ;; helm - Helm is an incremental completion and selection narrowing
 ;; framework for Emacs.
 (use-package helm
-  :defer t
   :ensure t
   :hook
   (helm-minibuffer-set-up . drestivo/helm-hide-minibuffer-maybe)
@@ -1311,19 +1314,21 @@ This function has to be invoked twice:
 ;; helm-descbinds
 (use-package helm-descbinds
   :ensure t
+  :defer t
   :config
   (helm-descbinds-mode))
 
 ;; helm-projectile
 (use-package helm-projectile
   :ensure t
+  :defer t
   :config
   (helm-projectile-on))
 
 ;; company
 (use-package company
-  :diminish company-mode
   :ensure t
+  :diminish company-mode
   :config
   (global-company-mode)
   (setq company-idle-delay 0.2)
@@ -1334,8 +1339,9 @@ This function has to be invoked twice:
 
 ;; projectile
 (use-package projectile
-  :diminish projectile-mode
   :ensure t
+  :defer t
+  :diminish projectile-mode
   :config
   (projectile-mode)
   (setq projectile-completion-system 'helm)
@@ -1344,15 +1350,16 @@ This function has to be invoked twice:
 ;; py-autopep8
 (use-package py-autopep8
   :ensure t
+  :defer t
   :hook
   ;; Configure elpy autopep8 support
   (elpy-mode . py-autopep8-enable-on-save))
 
 ;; elpy
 (use-package elpy
-  :diminish elpy-mode
-  :defer t
   :ensure t
+  :defer t
+  :diminish elpy-mode
   :hook
   (python-mode . elpy-mode)
   :config
@@ -1365,8 +1372,8 @@ This function has to be invoked twice:
 
 ;; highlight-indentation-mode
 (use-package highlight-indentation
-  :diminish highlight-indentation-mode
   :ensure t
+  :diminish highlight-indentation-mode
   :config
   (set-face-attribute 'highlight-indentation-face nil
                       :background "gray18")
@@ -1375,8 +1382,8 @@ This function has to be invoked twice:
 
 ;; markdown-mode
 (use-package markdown-mode
-  :defer t
   :ensure t
+  :defer t
   :hook
   (markdown-mode . (lambda ()
                      (setq show-trailing-whitespace t)
@@ -1427,6 +1434,7 @@ This function has to be invoked twice:
 ;; wttrin - Weather application
 (use-package wttrin
   :ensure t
+  :defer t
   :commands (wttrin)
   :init
   (setq wttrin-default-accept-language '("Accept-Language" . "en-US"))
@@ -1464,6 +1472,7 @@ This function has to be invoked twice:
 ;; Please look at: https://blogs.fsfe.org/jens.lechtenboerger/2014/03/23/certificate-pinning-for-gnu-emacs/
 (use-package gnutls
   :ensure t
+  :defer t
   :ensure-system-package (gnutls-cli . "brew install gnutls || sudo apt-get install gnutls-bin")
   :config
   (setq tls-program '("gnutls-cli -p %p %h")
@@ -1481,6 +1490,7 @@ This function has to be invoked twice:
 
 ;; ElDoc
 (use-package eldoc
+  :defer t
   :diminish eldoc-mode)
 
 ;; diff-hl
@@ -1534,7 +1544,8 @@ This function has to be invoked twice:
 
 ;; YANG mode
 (use-package yang-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;; Display the keys you typed in a special buffer: *command-log*
 (use-package command-log-mode
@@ -1544,6 +1555,7 @@ This function has to be invoked twice:
 ;; A Dockerfile mode for Emacs
 (use-package dockerfile-mode
   :ensure t
+  :defer t
   :config
   (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode)))
 
@@ -1560,8 +1572,8 @@ This function has to be invoked twice:
 
 ;; Fish-like autosuggestions in eshell
 (use-package esh-autosuggest
-  :hook (eshell-mode . esh-autosuggest-mode)
-  :ensure t)
+  :ensure t
+  :hook (eshell-mode . esh-autosuggest-mode))
 
 ;; When find-file and dired-mode try to access a non writable file
 ;; auto-sudoedit re-opens the file automatically using sudo in TRAMP
@@ -1574,6 +1586,7 @@ This function has to be invoked twice:
 ;; Multiple cursors support
 (use-package multiple-cursors
   :ensure t
+  :defer t
   :init
   (require 'mc-hide-unmatched-lines-mode)
   :bind
@@ -1597,6 +1610,7 @@ This function has to be invoked twice:
 (if (not (version< emacs-version "25.1"))
     (use-package ibuffer-sidebar
       :ensure t
+      :defer t
       :hook
       (ibuffer-mode . (lambda ()
                         (drestivo/disable-number-and-visual-line)))
@@ -1608,6 +1622,7 @@ This function has to be invoked twice:
 ;; imenu-list
 (use-package imenu-list
   :ensure t
+  :defer t
   :hook
   (imenu-list-major-mode . (lambda ()
                              (drestivo/disable-number-and-visual-line)))
@@ -1620,6 +1635,7 @@ This function has to be invoked twice:
 ;; cider - Clojure Interactive Development Environment
 (use-package cider
   :ensure t
+  :defer t
   :ensure-system-package (lein . leiningen))
 
 ;; Automatically debug and bisect your init file
@@ -1662,6 +1678,7 @@ This function has to be invoked twice:
 ;; github and select one for browsing
 (use-package helm-github-stars
   :ensure t
+  :defer t
   :config
   (setq helm-github-stars-username "daviderestivo")
   (setq helm-github-stars-refetch-time 0.5))
@@ -1681,12 +1698,14 @@ This function has to be invoked twice:
 ;; Utility package that return vscode icons for Emacs
 (use-package vscode-icon
   :ensure t
+  :defer t
   :commands
   (vscode-icon-for-file))
 
 ;; Sidebar for Emacs leveraging dired
 (use-package dired-sidebar
   :ensure t
+  :defer t
   :hook
   (dired-sidebar-mode .
                       (lambda ()
@@ -1708,20 +1727,24 @@ This function has to be invoked twice:
 ;; A linter for the metadata in Emacs Lisp files which are intended to
 ;; be packages
 (use-package package-lint
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;; A reformat tool for JSON (required by json-mode)
 (use-package json-reformat
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;; Get the path to a JSON element in Emacs (required by json-mode)
 (use-package json-snatcher
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;; Major mode for editing JSON files
 (use-package json-mode
-  :requires (json-reformat json-snatcher)
-  :ensure t)
+  :ensure t
+  :defer t
+  :requires (json-reformat json-snatcher))
 
 
 ;;; init.el ends here
