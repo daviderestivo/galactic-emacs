@@ -5,7 +5,7 @@
 ;;
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
-;; URL: https://github.com/daviderestivo/emacs-config/conf/flyspell.el
+;; URL: https://github.com/daviderestivo/emacs-config/blob/master/conf/flyspell.el
 ;; Version: 0.1
 ;; Keywords: emacs config
 

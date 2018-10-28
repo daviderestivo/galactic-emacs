@@ -5,7 +5,7 @@
 ;;
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
-;; URL: https://github.com/daviderestivo/emacs-config/conf/helper-functions.el
+;; URL: https://github.com/daviderestivo/emacs-config/blob/master/conf/helper-functions.el
 ;; Version: 0.1
 ;; Keywords: emacs config
 

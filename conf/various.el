@@ -5,7 +5,7 @@
 ;;
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
-;; URL: https://github.com/daviderestivo/emacs-config/conf/various.el
+;; URL: https://github.com/daviderestivo/emacs-config/blob/master/conf/various.el
 ;; Version: 0.1
 ;; Keywords: emacs config
 
