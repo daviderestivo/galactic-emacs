@@ -1,10 +1,10 @@
-;;; load-bash-shell-aliases.el - Convert bash aliases into eshell ones -*- lexical-binding: t; -*-
+;;; load-bash-shell-aliases.el --- Convert bash aliases into eshell ones -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2018 Davide Restivo
 
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
-;; Version: 0.0.2
+;; Version: 0.0.3
 ;; URL: https://github.com/daviderestivo/load-bash-shell-aliases
 ;; Package-Requires: ((emacs "24.1"))
 ;; Keywords: emacs bash eshell alias
@@ -31,22 +31,22 @@
 
 (require 'seq)
 
-;;* Customization
+;;; Code:
+
 (defgroup lbsa nil
   "Convert bash aliases into eshell ones"
   :group 'emacs)
 
 (defcustom lbsa/bashrc-file "~/.bashrc"
-  "Bash alias file"
+  "Bash alias file."
   :type 'string)
 
 (defcustom lbsa/exclude-aliases-regexp "^alias magit\\|^alias oc"
-  "Regexp to exclude Bash aliases to be converted into eshell ones"
+  "Regexp to exclude Bash aliases to be converted into eshell ones."
   :type 'string)
 
 (defun lbsa/read-bash-file (BASHFILE)
-  "Reads BASHFILE and return a list of lines after merging
-continuation lines."
+  "Read BASHFILE and return a list of lines after merging continuation lines."
   (with-temp-buffer
     (progn
       (insert-file-contents BASHFILE)
@@ -59,7 +59,7 @@ continuation lines."
       (split-string (buffer-string) "\n" t))))
 
 (defun lbsa/extract-bash-aliases (LIST)
-  "Takes a LIST of strings and extract Bash aliases from it."
+  "Take a LIST of strings and extract Bash aliases from it."
   (seq-filter (lambda (element)
 	        (and
 	         (string-match-p "alias" element)
@@ -68,7 +68,9 @@ continuation lines."
 	      LIST))
 
 (defun lbsa/load-bash-aliases-into-eshell ()
-  "Takes the file specified in `lbsa/bashrc-file', trims it to a
+  "Convert bash aliases into eshell ones.
+
+Take the file specified in `lbsa/bashrc-file', trims it to a
 list of alias commands, and inserts them as eshell aliases."
   (interactive)
   (if (file-exists-p lbsa/bashrc-file)
