@@ -171,25 +171,25 @@
 
 ;; Load helper functions
 (load-file (expand-file-name "conf/helper-functions.el"
-                                    user-emacs-directory))
+                             user-emacs-directory))
 
-;; Load backup configuration
+;; Load auto-backup settings
 (load-file (expand-file-name "conf/backup.el"
-                                    user-emacs-directory))
+                             user-emacs-directory))
 
-;; Load flyspell configuration
+;; Load flyspell settings
 (load-file (expand-file-name "conf/flyspell.el"
-                                    user-emacs-directory))
+                             user-emacs-directory))
 
-;; Load visual configuration
+;; Load visual settings
 (load-file (expand-file-name "conf/visual.el"
                              user-emacs-directory))
 
-;; Load various configuration
+;; Load various settings
 (load-file (expand-file-name "conf/various.el"
                              user-emacs-directory))
 
-;; Load packages configuration
+;; Load packages
 (load-file (expand-file-name "conf/packages.el"
                              user-emacs-directory))
 
