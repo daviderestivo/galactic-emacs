@@ -1,4 +1,4 @@
-;;; flyspell.el - Flyspell settings
+;;; flyspell.el --- Flyspell settings
 
 ;;
 ;; Copyright (C) 2016-2018 Davide Restivo

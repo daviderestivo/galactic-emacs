@@ -1,4 +1,4 @@
-;;; visual.el - Visual settings
+;;; visual.el --- Visual settings
 
 ;;
 ;; Copyright (C) 2016-2018 Davide Restivo

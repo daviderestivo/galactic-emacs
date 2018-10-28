@@ -1,4 +1,4 @@
-;;; packages.el - Packages settings
+;;; packages.el --- Packages settings
 
 ;;
 ;; Copyright (C) 2016-2018 Davide Restivo

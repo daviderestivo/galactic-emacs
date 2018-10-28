@@ -1,4 +1,4 @@
-;;; helper-functions.el - Helper functions
+;;; helper-functions.el --- Helper functions
 
 ;;
 ;; Copyright (C) 2016-2018 Davide Restivo

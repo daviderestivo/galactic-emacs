@@ -1,4 +1,4 @@
-;;; various.el - Various settings
+;;; various.el --- Various settings
 
 ;;
 ;; Copyright (C) 2016-2018 Davide Restivo

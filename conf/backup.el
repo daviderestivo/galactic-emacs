@@ -1,4 +1,4 @@
-;;; backup.el - Auto-backup settings
+;;; backup.el --- Auto-backup settings
 
 ;;
 ;; Copyright (C) 2016-2018 Davide Restivo
