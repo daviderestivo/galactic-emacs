@@ -112,5 +112,8 @@
              (set-face-background
               ediff-odd-diff-face-C  "grey20")))
 
+;; Unset the frame title and remove the icon
+(setq frame-title-format nil)
+(setq ns-use-proxy-icon nil)
 
 ;;; visual.el ends here

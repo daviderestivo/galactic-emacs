@@ -73,9 +73,6 @@
 ;; Sort apropos results by relevancy
 (setq apropos-sort-by-scores t)
 
-;; Set the frame title
-(setq frame-title-format '("" "%b @ Emacs " emacs-version))
-
 ;; Datetime format
 (setq display-time-day-and-date t
       display-time-24hr-format t)
