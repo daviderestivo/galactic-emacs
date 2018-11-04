@@ -238,7 +238,6 @@
 ;; org-download
 (use-package org-download
   :ensure t
-  :defer t
   :config
   ;; Change screen capture command only for macOS
   (when (string= system-type "darwin")
