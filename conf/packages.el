@@ -33,10 +33,10 @@
 ;; cisco-router-mode
 (load-library "cisco-router-mode")
 
-;; load-bash-shell-aliases
-(load-library "load-bash-shell-aliases")
-(setq lbsa/bashrc-file "~/.bashrc")
-(setq lbsa/exclude-aliases-regexp "^alias magit\\|^alias oc")
+;; load-bash-alias
+(load-library "load-bash-alias")
+(setq load-bash-alias-bashrc-file "~/.bashrc")
+(setq load-bash-alias-exclude-aliases-regexp "^alias magit\\|^alias oc")
 
 ;; transpose-frame
 ;; https://www.emacswiki.org/emacs/TransposeFrame

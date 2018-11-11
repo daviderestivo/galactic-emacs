@@ -1,12 +1,12 @@
-;;; load-bash-shell-aliases.el --- Convert bash aliases into eshell ones -*- lexical-binding: t; -*-
+;;; load-bash-alias.el --- Convert bash aliases into eshell ones -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2018 Davide Restivo
 
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
 ;; Version: 0.0.3
-;; URL: https://github.com/daviderestivo/load-bash-shell-aliases
-;; Package-Requires: ((emacs "24.1"))
+;; URL: https://github.com/daviderestivo/load-bash-alias
+;; Package-Requires: ((emacs "24.1") (seq "2.16"))
 ;; Keywords: emacs bash eshell alias
 
 ;; This program is free software; you can redistribute it and/or
@@ -33,19 +33,19 @@
 
 ;;; Code:
 
-(defgroup lbsa nil
+(defgroup load-bash-alias nil
   "Convert bash aliases into eshell ones"
   :group 'emacs)
 
-(defcustom lbsa/bashrc-file "~/.bashrc"
+(defcustom load-bash-alias-bashrc-file "~/.bashrc"
   "Bash alias file."
   :type 'string)
 
-(defcustom lbsa/exclude-aliases-regexp "^alias magit\\|^alias oc"
+(defcustom load-bash-alias-exclude-aliases-regexp "^alias magit\\|^alias oc"
   "Regexp to exclude Bash aliases to be converted into eshell ones."
   :type 'string)
 
-(defun lbsa/read-bash-file (BASHFILE)
+(defun load-bash-alias-read-bash-file (BASHFILE)
   "Read BASHFILE and return a list of lines after merging continuation lines."
   (with-temp-buffer
     (progn
@@ -58,27 +58,27 @@
       ;; Return a list of lines
       (split-string (buffer-string) "\n" t))))
 
-(defun lbsa/extract-bash-aliases (LIST)
+(defun load-bash-alias-extract-bash-aliases (LIST)
   "Take a LIST of strings and extract Bash aliases from it."
   (seq-filter (lambda (element)
 	        (and
 	         (string-match-p "alias" element)
 	         (not (string-match-p "^#" element))
-                 (not (string-match-p lbsa/exclude-aliases-regexp element))))
+                 (not (string-match-p load-bash-alias-exclude-aliases-regexp element))))
 	      LIST))
 
-(defun lbsa/load-bash-aliases-into-eshell ()
+(defun load-bash-alias-load-bash-aliases-into-eshell ()
   "Convert bash aliases into eshell ones.
 
-Take the file specified in `lbsa/bashrc-file', trims it to a
+Take the file specified in `load-bash-alias-bashrc-file', trims it to a
 list of alias commands, and inserts them as eshell aliases."
   (interactive)
-  (if (file-exists-p lbsa/bashrc-file)
+  (if (file-exists-p load-bash-alias-bashrc-file)
       (progn
         (eshell)
         (dolist
             (element
-             (lbsa/extract-bash-aliases (lbsa/read-bash-file lbsa/bashrc-file)))
+             (load-bash-alias-extract-bash-aliases (load-bash-alias-read-bash-file load-bash-alias-bashrc-file)))
           ;; After multiple withespaces and tabs into single
           ;; withespace convert a bash alias into an eshell one by
           ;; removing the "=" sign.
@@ -86,7 +86,7 @@ list of alias commands, and inserts them as eshell aliases."
             (goto-char (point-max))
             (insert trimmed)
             (eshell-send-input))))
-    (message "The Bash file set on lbsa/bashrc-file does not exists!")))
+    (message "The Bash file set on load-bash-alias-bashrc-file does not exists!")))
 
-(provide 'lbsa/load-bash-aliases-into-eshell)
-;;; load-bash-shell-aliases.el ends here
+(provide 'load-bash-alias-load-bash-aliases-into-eshell)
+;;; load-bash-alias.el ends here
