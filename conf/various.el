@@ -50,10 +50,10 @@
                                               (emacs-uptime))))))
 
 ;; Personal Information
-(setq drestivo/personal-file (expand-file-name "personal.el"
+(setq drestivo-personal-file (expand-file-name "personal.el"
                                                user-emacs-directory))
-(when (file-exists-p drestivo/personal-file)
-  (load drestivo/personal-file))
+(when (file-exists-p drestivo-personal-file)
+  (load drestivo-personal-file))
 
 ;; UTF-8 as default encoding
 (set-language-environment "UTF-8")
@@ -154,9 +154,9 @@
 (setq scroll-step 1)
 
 ;; copy-line key binding
-(global-set-key (kbd "C-=") 'drestivo/copy-line)
+(global-set-key (kbd "C-=") 'drestivo-copy-line)
 ;; No newline is added when pasting
-(setq drestivo/copy-line-append-newline nil)
+(setq drestivo-copy-line-append-newline nil)
 
 ;; Make isearch treat space dash underscore newline as same
 (setq search-whitespace-regexp "[-_ \n]")

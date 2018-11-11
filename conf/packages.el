@@ -64,8 +64,8 @@
 (use-package atom-one-dark-theme
   :ensure t
   :init
-  (add-hook 'after-make-frame-functions 'drestivo/setup-frame-appearance 'append)
-  (drestivo/setup-frame-appearance)
+  (add-hook 'after-make-frame-functions 'drestivo-setup-frame-appearance 'append)
+  (drestivo-setup-frame-appearance)
   :config
   ;; The below theme is used both for the case of Emacs running in
   ;; console or GUI mode
@@ -202,8 +202,8 @@
   ("\C-ca" . org-agenda)
   ("\C-cc" . org-capture)
   ("\C-cb" . org-iswitchb)
-  ("\C-cj" . drestivo/org-show-current-heading-tidily)
-  ("<f6>"  . drestivo/org-directory-search-ag))
+  ("\C-cj" . drestivo-org-show-current-heading-tidily)
+  ("<f6>"  . drestivo-org-directory-search-ag))
 
 ;; ORG Babel: Main section
 (use-package ob
@@ -242,7 +242,7 @@
   ;; Change screen capture command only for macOS
   (when (string= system-type "darwin")
     (setq org-download-screenshot-method "screencapture -s -x %s"))
-  (setq org-download-method  'drestivo/org-download-method)
+  (setq org-download-method  'drestivo-org-download-method)
   (setq org-download-heading-lvl 0)
   ;; org-download default directory
   ;; (setq-default org-download-image-dir "./images")
@@ -305,7 +305,7 @@
   (setq sml/no-confirm-load-theme t)
   ;; The below elisp code configures the sml `respectful' theme when
   ;; Emacs is running in console. Please look at
-  ;; `drestivo/setup-frame-appearance' for the case when Emacs runs in
+  ;; `drestivo-setup-frame-appearance' for the case when Emacs runs in
   ;; GUI mode.
   (if (not (display-graphic-p))
       (progn
@@ -316,10 +316,10 @@
     ;; Temporary workaround for display-battery-mode for emacs-version<= 25.2.1 on macOS
     (when (string= system-type "darwin")
       (if (version<= emacs-version "25.2.1")
-          (setq battery-status-function 'drestivo/battery-pmset)))
+          (setq battery-status-function 'drestivo-battery-pmset)))
     ;; The below elisp code setup the battery modeline format when
     ;; Emacs is running in console. Please look at
-    ;; `drestivo/setup-frame-appearance' for the case when Emacs runs
+    ;; `drestivo-setup-frame-appearance' for the case when Emacs runs
     ;; in GUI mode.
     (if (not (display-graphic-p))
         (setq battery-mode-line-format " [%b%p%%]"))
@@ -366,7 +366,7 @@
 (use-package helm
   :ensure t
   :hook
-  (helm-minibuffer-set-up . drestivo/helm-hide-minibuffer-maybe)
+  (helm-minibuffer-set-up . drestivo-helm-hide-minibuffer-maybe)
   :diminish helm-mode
   :commands helm-mode
   :config
@@ -383,13 +383,13 @@
   ;;--------------------------------------------------------------------------;;
   (if (string= system-type "darwin")
       (progn
-        (setq drestivo/helm-locate-spotlight-command "mdfind -name -onlyin ~ %s %s")
-        (setq drestivo/helm-locate-exclude-dirs "~/Library")
-        (setq drestivo/helm-locate-exclude-command " | egrep -v ")
+        (setq drestivo-helm-locate-spotlight-command "mdfind -name -onlyin ~ %s %s")
+        (setq drestivo-helm-locate-exclude-dirs "~/Library")
+        (setq drestivo-helm-locate-exclude-command " | egrep -v ")
         (setq helm-locate-command
-              (concat drestivo/helm-locate-spotlight-command
-                      drestivo/helm-locate-exclude-command
-                      drestivo/helm-locate-exclude-dirs))
+              (concat drestivo-helm-locate-spotlight-command
+                      drestivo-helm-locate-exclude-command
+                      drestivo-helm-locate-exclude-dirs))
         (setq helm-locate-fuzzy-match nil))
     (setq helm-locate-fuzzy-match t))
   ;;--------------------------------------------------------------------------;;
@@ -592,9 +592,9 @@
   (set-face-attribute 'whitespace-line nil :background "gray20" :foreground "dark gray")
   ;; whitespace-mode is not compatible with magit. Disabling it on
   ;; magit-mode.
-  (defun drestivo/prevent-whitespace-mode-for-magit ()
+  (defun drestivo-prevent-whitespace-mode-for-magit ()
     (not (derived-mode-p 'magit-mode)))
-  (add-function :before-while whitespace-enable-predicate 'drestivo/prevent-whitespace-mode-for-magit)
+  (add-function :before-while whitespace-enable-predicate 'drestivo-prevent-whitespace-mode-for-magit)
   (setq whitespace-line-column 80) ;; limit line length
   (setq whitespace-style '(face lines-tail))
   (setq whitespace-global-modes '(not org-mode lisp-interaction-mode))
@@ -673,7 +673,7 @@
   :config
   ;; Eshell prompt customization
   (setq eshell-highlight-prompt nil)
-  (setq eshell-prompt-function 'drestivo/eshell-prompt))
+  (setq eshell-prompt-function 'drestivo-eshell-prompt))
 
 ;; YANG mode
 (use-package yang-mode
@@ -746,7 +746,7 @@
       :defer t
       :hook
       (ibuffer-mode . (lambda ()
-                        (drestivo/disable-number-and-visual-line)))
+                        (drestivo-disable-number-and-visual-line)))
       :config
       (setq ibuffer-sidebar-use-custom-font nil)
       :bind
@@ -758,7 +758,7 @@
   :defer t
   :hook
   (imenu-list-major-mode . (lambda ()
-                             (drestivo/disable-number-and-visual-line)))
+                             (drestivo-disable-number-and-visual-line)))
   :config
   (setq imenu-list-position 'right
         imenu-list-auto-resize t)
@@ -844,7 +844,7 @@
                       (lambda ()
                         (unless (file-remote-p default-directory)
                           (auto-revert-mode))
-                        (drestivo/disable-number-and-visual-line)))
+                        (drestivo-disable-number-and-visual-line)))
   :bind
   (("M-<f12>" . dired-sidebar-toggle-sidebar))
   :commands

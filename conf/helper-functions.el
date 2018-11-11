@@ -34,7 +34,7 @@
 ;; Requires "The Silver Searcher" (ag) to be installed:
 ;; On macOS use: 'brew install the_silver_searcher'
 ;; On a Debian based GNU/Linux distro use: 'apt-get install silversearcher-ag'
-(defun drestivo/org-directory-search-ag ()
+(defun drestivo-org-directory-search-ag ()
   "Search for a keyword in the ORG folder using ag"
   (interactive)
   (if (not (eq org-directory nil))
@@ -42,13 +42,13 @@
     (message "error: org-directory not set.")))
 
 ;; Reload Emacs init file
-(defun drestivo/reload-dotemacs-file ()
+(defun drestivo-reload-dotemacs-file ()
   "Reload your init.el file without restarting Emacs"
   (interactive)
   (load-file "~/.emacs.d/init.el"))
 
 ;; Redefine battery-pmset because of https://lists.gnu.org/archive/html/bug-gnu-emacs/2016-09/msg00952.html
-(defun drestivo/battery-pmset ()
+(defun drestivo-battery-pmset ()
   "Get battery status information using `pmset'.
 
 The following %-sequences are provided:
@@ -98,7 +98,7 @@ The following %-sequences are provided:
 	  (cons ?t (or remaining-time "N/A")))))
 
 ;; Create a new buffer without prompting for the name. Bound to F7
-(defun drestivo/new-empty-buffer ()
+(defun drestivo-new-empty-buffer ()
   "Create a new empty buffer. New buffer will be named “untitled” or
 “untitled<2>”, “untitled<3>”, ..."
   (interactive)
@@ -106,10 +106,10 @@ The following %-sequences are provided:
     (switch-to-buffer new-buf)
     (funcall initial-major-mode)
     (setq buffer-offer-save t)))
-(global-set-key (kbd "<f7>") 'drestivo/new-empty-buffer)
+(global-set-key (kbd "<f7>") 'drestivo-new-empty-buffer)
 
 ;; copy-line - Source https://www.emacswiki.org/emacs/CopyingWholeLines
-(defun drestivo/copy-line (arg)
+(defun drestivo-copy-line (arg)
   "Copy lines (as many as prefix argument) in the kill ring.
     Ease of use features:
      - Move to start of next line.
@@ -123,15 +123,15 @@ The following %-sequences are provided:
       (if (> (point) (mark))
           (setq beg (save-excursion (goto-char (mark)) (line-beginning-position)))
         (setq end (save-excursion (goto-char (mark)) (line-end-position)))))
-    (if (eq last-command 'drestivo/copy-line)
+    (if (eq last-command 'drestivo-copy-line)
         (kill-append (buffer-substring beg end) (< end beg))
       (kill-ring-save beg end)))
-  (if drestivo/copy-line-append-newline
+  (if drestivo-copy-line-append-newline
       (kill-append "\n" nil))
   (beginning-of-line (or (and arg (1+ arg)) 2))
   (if (and arg (not (= 1 arg))) (message "%d lines copied" arg)))
 
-(defun drestivo/helm-hide-minibuffer-maybe ()
+(defun drestivo-helm-hide-minibuffer-maybe ()
   "Hide minibuffer in Helm session if we use the header line as input field."
   (when (with-helm-buffer helm-echo-input-in-header-line)
     (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
@@ -141,7 +141,7 @@ The following %-sequences are provided:
                      `(:background ,bg-color :foreground ,bg-color)))
       (setq-local cursor-type nil))))
 
-(defun drestivo/org-download-method (link)
+(defun drestivo-org-download-method (link)
   "This is an helper function for org-download.
 
 It creates an \"./image\" folder within the same directory of the ORG file.
@@ -172,24 +172,24 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
       (message (format "Image: %s saved!" (expand-file-name filename-with-timestamp dir)))
       (expand-file-name filename-with-timestamp dir))))
 
-(defun drestivo/insert-date ()
+(defun drestivo-insert-date ()
   (interactive)
   "Insert current datetime into buffer without a newline."
   (insert (concat "Date: " (shell-command-to-string "printf %s \"$(date)\""))))
-(global-set-key (kbd "M-+") 'drestivo/insert-date)
+(global-set-key (kbd "M-+") 'drestivo-insert-date)
 
-(defmacro drestivo/with-face (str &rest properties)
+(defmacro drestivo-with-face (str &rest properties)
   `(propertize ,str 'face (list ,@properties)))
 
-(defun drestivo/eshell-prompt ()
+(defun drestivo-eshell-prompt ()
   "Customize eshell prompt.
 
 This function requires `all-the-icons' package to be installed
 (https://github.com/domtronn/all-the-icons.el)."
   (if (display-graphic-p)
-      (setq drestivo/header-bg "#282C34")
+      (setq drestivo-header-bg "#282C34")
     ;; The background used when Emacs runs in a terminal
-    (setq drestivo/header-bg "black"))
+    (setq drestivo-header-bg "black"))
   ;; In order to set the eshell prompt correctly we need to
   ;; distinguish between the case where we are in a local folder or
   ;; the case where we are connected to a remote server via TRAMP
@@ -199,28 +199,28 @@ This function requires `all-the-icons' package to be installed
     (progn
       (if (file-remote-p default-directory)
           (progn
-            (setq drestivo/user-login-name (replace-regexp-in-string "\n$" ""
+            (setq drestivo-user-login-name (replace-regexp-in-string "\n$" ""
                                                                      (shell-command-to-string "whoami"))
-                  drestivo/system-name (replace-regexp-in-string "\n$" ""
+                  drestivo-system-name (replace-regexp-in-string "\n$" ""
                                                                  (shell-command-to-string "hostname"))
-                  drestivo/user-uid (string-to-number (replace-regexp-in-string "\n$" ""
+                  drestivo-user-uid (string-to-number (replace-regexp-in-string "\n$" ""
                                                                                 (shell-command-to-string "id -u")))))
         (progn
-          (setq drestivo/user-login-name (user-login-name)
+          (setq drestivo-user-login-name (user-login-name)
                 ;; Remove the domain name from the local eshell prompt
-                drestivo/system-name (car (split-string (system-name) "\\."))
-                drestivo/user-uid (user-uid))))
+                drestivo-system-name (car (split-string (system-name) "\\."))
+                drestivo-user-uid (user-uid))))
       (concat
        "┌─ "
        (if (display-graphic-p)
            (all-the-icons-faicon "folder-open-o")
          "")
        " "
-       (drestivo/with-face (concat (eshell/pwd) " ") :background drestivo/header-bg)
+       (drestivo-with-face (concat (eshell/pwd) " ") :background drestivo-header-bg)
        (if (string= (ignore-errors (vc-responsible-backend default-directory)) "Git")
            (progn
              (setq git-status (split-string (vc-git--run-command-string default-directory "status" "-s")))
-             (drestivo/with-face
+             (drestivo-with-face
               (format "[%s %s %s] "
                       (if (display-graphic-p)
                           (all-the-icons-faicon "git-square")
@@ -234,20 +234,20 @@ This function requires `all-the-icons' package to be installed
                        (if (member "M" git-status)  "M" "-")   ;; Modified files
                        (if (member "D" git-status)  "D" "-")   ;; Deleted files
                        (if (member "??" git-status) "U" "-"))) ;; Untracked files
-              :background drestivo/header-bg :foreground "LightGreen")))
-       (drestivo/with-face
+              :background drestivo-header-bg :foreground "LightGreen")))
+       (drestivo-with-face
         (concat
          "["
          (if (display-graphic-p)
              (concat (all-the-icons-material "schedule") " "))
          (format-time-string "%Y-%m-%d %H:%M:%S" (current-time))
-         "]") :background drestivo/header-bg :foreground "gainsboro")
-       (drestivo/with-face "\n└─> " :background drestivo/header-bg)
-       (drestivo/with-face drestivo/user-login-name :foreground "LightBlue")
+         "]") :background drestivo-header-bg :foreground "gainsboro")
+       (drestivo-with-face "\n└─> " :background drestivo-header-bg)
+       (drestivo-with-face drestivo-user-login-name :foreground "LightBlue")
        "@"
-       (drestivo/with-face drestivo/system-name :foreground "LightGreen")
-       (if (= drestivo/user-uid 0)
-           (drestivo/with-face " #" :foreground "LightRed")
+       (drestivo-with-face drestivo-system-name :foreground "LightGreen")
+       (if (= drestivo-user-uid 0)
+           (drestivo-with-face " #" :foreground "LightRed")
          " $")
        " "))))
 
@@ -255,7 +255,7 @@ This function requires `all-the-icons' package to be installed
 ;; ORG helper functions
 ;; Link: https://stackoverflow.com/questions/25161792/emacs-org-mode-how-can-i-fold-everything-but-the-current-headline
 ;;
-(defun drestivo/org-show-current-heading-tidily ()
+(defun drestivo-org-show-current-heading-tidily ()
   (interactive)
   "In an org file shows current entry, keeping other entries collapsed."
   (if (save-excursion (end-of-line) (outline-invisible-p))
@@ -273,13 +273,13 @@ This function requires `all-the-icons' package to be installed
 ;;
 ;; Emacs frame appearance
 ;;
-(defun drestivo/setup-frame-appearance (&optional frame)
+(defun drestivo-setup-frame-appearance (&optional frame)
   "This function is used to setup the Emacs frame appearance in a
 Graphical User Interface (GUI), not in a terminal.
 This function has to be invoked twice:
  - as a hook of `after-make-frame-functions'
    (FRAME actual parameter required)
- - as a function (drestivo/setup-frame-appearance) (FRAME
+ - as a function (drestivo-setup-frame-appearance) (FRAME
    actual parameter not required) inside your emacs configuration file.
    In this case, for whatever reason, the first created frame does not
    have the FRAME actual parameter set."
@@ -300,10 +300,10 @@ This function has to be invoked twice:
               (set-frame-parameter frame 'ns-transparent-titlebar 't)
               (set-frame-parameter frame 'ns-appearance 'dark)
               ;; Set Emacs frame size
-              (defvar drestivo/frame-height 60)
-              (defvar drestivo/frame-width 130)
-              (set-frame-parameter frame 'height drestivo/frame-height)
-              (set-frame-parameter frame 'width  drestivo/frame-width)
+              (defvar drestivo-frame-height 60)
+              (defvar drestivo-frame-width 130)
+              (set-frame-parameter frame 'height drestivo-frame-height)
+              (set-frame-parameter frame 'width  drestivo-frame-width)
               ;; Setup sml theme
               (setq sml/theme 'atom-one-dark)
               (sml/setup)
@@ -316,18 +316,18 @@ This function has to be invoked twice:
             (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
             (add-to-list 'default-frame-alist '(ns-appearance . dark))
             ;; Set Emacs frame size
-            (defvar drestivo/frame-height 60)
-            (defvar drestivo/frame-width 130)
+            (defvar drestivo-frame-height 60)
+            (defvar drestivo-frame-width 130)
             (add-to-list 'default-frame-alist
-                         `(height . ,drestivo/frame-height))
+                         `(height . ,drestivo-frame-height))
             (add-to-list 'default-frame-alist
-                         `(width . ,drestivo/frame-width))
+                         `(width . ,drestivo-frame-width))
             ;; Setup sml theme
             (setq sml/theme 'atom-one-dark)
             (sml/setup)
             (setq battery-mode-line-format (concat " [" (all-the-icons-material "battery_std") "%b%p%%" "]")))))))
 
-(defun drestivo/disable-number-and-visual-line ()
+(defun drestivo-disable-number-and-visual-line ()
   (visual-line-mode 0)
   (if (version< emacs-version "26.1")
       (linum-mode 0)
