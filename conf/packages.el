@@ -33,11 +33,6 @@
 ;; cisco-router-mode
 (load-library "cisco-router-mode")
 
-;; load-bash-alias
-(load-library "load-bash-alias")
-(setq load-bash-alias-bashrc-file "~/.bashrc")
-(setq load-bash-alias-exclude-aliases-regexp "^alias magit\\|^alias oc")
-
 ;; transpose-frame
 ;; https://www.emacswiki.org/emacs/TransposeFrame
 (load-library "transpose-frame")
@@ -878,6 +873,14 @@
   :ensure t
   :defer t
   :requires (json-reformat json-snatcher))
+
+;; Convert bash aliases into eshell ones
+(use-package load-bash-alias
+  :ensure t
+  :defer t
+  :config
+  (setq load-bash-alias-bashrc-file "~/.bashrc")
+  (setq load-bash-alias-exclude-aliases-regexp "^alias magit\\|^alias oc"))
 
 
 ;;; packages.el ends here
