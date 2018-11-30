@@ -6,7 +6,8 @@
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
 ;; URL: https://github.com/daviderestivo/emacs-config/blob/master/conf/helper-functions.el
-;; Version: 0.1
+;; Version: 0.2
+;; Package-Requires: ((dash "2.14.1"))
 ;; Keywords: emacs config
 
 
@@ -332,6 +333,49 @@ This function has to be invoked twice:
   (if (version< emacs-version "26.1")
       (linum-mode 0)
     (display-line-numbers-mode 0)))
+
+(defun drestivo-outdated-packages-get ()
+  "Return a list of outdated packages.
+
+The returned list has the following structure:
+((\"yang-mode\" \"yang-mode-20180306.1206\" \"yang-mode-20180306.1207\")
+ (\"yasnippet\" \"yasnippet-20181015.1211\" \"yasnippet-20181015.1212\"))
+
+Each element of the list is itself a list where the CAR is the name of
+the outdated package and the CDR is the list of all the installed versions"
+  (--> (directory-files (expand-file-name package-user-dir))
+       (-group-by (lambda (ele) (replace-regexp-in-string "-[0-9.]+" "" ele)) it)
+       (-filter (lambda (ele) (> (length ele) 2)) it)))
+
+(defun drestivo-outdated-packages-print ()
+  "Print outdated packages."
+  (interactive)
+  (let ((outdated-package-list (drestivo-outdated-packages-get)))
+    (message
+     (format "%s"
+             (if outdated-package-list
+                 outdated-package-list
+               "No outdated packages found.")))))
+
+(defun drestivo-outdated-packages-purge ()
+  "Remove all except the latest version of the installed packages."
+  (interactive)
+  (let ((packages-purge-list (--> (drestivo-outdated-packages-get)
+                                  (mapcar (lambda (ele) (-sort #'string> (cdr ele))) it))))
+    ;; packages-to-be-purged is a list of lists, so we nest two mapcar
+    ;; functions
+    (if packages-purge-list
+        (progn
+          (dolist (nested-list packages-purge-list)
+            ;; the packages are ordered from newer to
+            ;; oldest. We need to remove everything except
+            ;; the newer (car nested-list)
+            (dolist (ele (cdr nested-list))
+              (progn
+                (message (format "Deleting: %s ..." ele))
+                (delete-directory (concat (expand-file-name package-user-dir) "/" ele) t))))
+          (message "... all outdated packages have been deleted."))
+      (message "No outdated packages to be deleted found."))))
 
 
 ;;; helper-functions.el ends here
