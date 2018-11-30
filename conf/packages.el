@@ -881,5 +881,10 @@
   (setq load-bash-alias-bashrc-file "~/.bashrc")
   (setq load-bash-alias-exclude-aliases-regexp "^alias magit\\|^alias oc"))
 
+;; Geiser is a generic Emacs/Scheme interaction mode, featuring an
+;; enhanced REPL
+(use-package geiser
+  :ensure t)
+
 
 ;;; packages.el ends here

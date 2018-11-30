@@ -67,6 +67,7 @@ not listed.
 * esh-autosuggest [[Link](https://github.com/dieggsy/esh-autosuggest)]
 * exec-path-from-shell [[Link](https://github.com/purcell/exec-path-from-shell)]
 * eyebrowse [[Link](https://github.com/wasamasa/eyebrowse)]
+* geiser [https://gitlab.com/jaor/geiser]
 * helm [[Link](https://github.com/emacs-helm/helm)]
 * helm-ag [[Link](https://github.com/syohex/emacs-helm-ag)]
 * helm-descbinds [[Link](https://github.com/emacs-helm/helm-descbinds)]
