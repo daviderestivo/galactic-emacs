@@ -79,6 +79,7 @@
 ;; - shell-pop-el                        [https://github.com/kyagi/shell-pop-el
 ;; - smart-mode-line                     [https://github.com/Malabarba/smart-mode-line]
 ;; - smart-mode-line-atom-one-dark-theme [https://github.com/daviderestivo/smart-mode-line-atom-one-dark-theme]
+;; - smartparens                         [https://github.com/Fuco1/smartparens]
 ;; - transpose-frame                     [https://www.emacswiki.org/emacs/TransposeFrame]
 ;; - undo-tree                           [https://github.com/emacsmirror/undo-tree]
 ;; - use-package                         [https://github.com/jwiegley/use-package]

@@ -886,5 +886,21 @@
 (use-package geiser
   :ensure t)
 
+;; Minor mode for Emacs that deals with parens pairs and tries to be
+;; smart about it.
+(use-package smartparens
+  :ensure t
+  :defer t
+  :diminish smartparens-mode
+  :init
+  (require 'smartparens-config)
+  :hook
+  (emacs-lisp-mode .  (lambda ()
+                        (smartparens-mode)))
+  (clojure-mode    .  (lambda ()
+                        (smartparens-mode)))
+  (cider-repl-mode .  (lambda ()
+                        (smartparens-mode))))
+
 
 ;;; packages.el ends here
