@@ -47,6 +47,14 @@
   (when (string= system-type "gnu/linux")
     (setq system-packages-use-sudo t)))
 
+;; Enable use-package statistics
+;;
+;;Before exiting call `use-package-report'. This will display a buffer
+;; with all the packages you've declared with use-package and whether
+;; or not they've been loaded this session (along with some other
+;; useful info.
+(setq use-package-compute-statistics t)
+
 ;; All the icons
 (use-package all-the-icons
   :ensure t
