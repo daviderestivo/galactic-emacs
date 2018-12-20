@@ -110,25 +110,25 @@
 (use-package org
   :ensure org-plus-contrib
   :defer t
-  :hook ((org-agenda-mode . (lambda ()
-                              (setq org-agenda-files
-                                    (append
-                                     (find-lisp-find-files (concat org-directory "agenda") "\.org$")
-                                     (find-lisp-find-files (concat org-directory "home-projects") "\.org$")
-                                     (find-lisp-find-files (concat org-directory "work-projects") "\.org$")
-                                     (find-lisp-find-files (concat org-directory "notebooks") "\.org$")
-                                     (list (concat org-directory "refile-beorg.org"))
-                                     (list (concat org-directory "refile.org"))))))
-         (org-mode . (lambda ()
-                       (setq show-trailing-whitespace t)
-                       (flyspell-prog-mode)
-                       (org-indent-mode)
-                       (diminish 'org-indent-mode)
-                       (superword-mode 1)
-                       (if (display-graphic-p)
-                           (progn
-                             (load-theme 'org-beautify t)
-                             (set-face-attribute 'org-agenda-structure nil :height 1.0 :family "Lucida Grande"))))))
+  :hook (org-agenda-mode . (lambda ()
+                             (setq org-agenda-files
+                                   (append
+                                    (find-lisp-find-files (concat org-directory "agenda") "\.org$")
+                                    (find-lisp-find-files (concat org-directory "home-projects") "\.org$")
+                                    (find-lisp-find-files (concat org-directory "work-projects") "\.org$")
+                                    (find-lisp-find-files (concat org-directory "notebooks") "\.org$")
+                                    (list (concat org-directory "refile-beorg.org"))
+                                    (list (concat org-directory "refile.org"))))))
+  (org-mode . (lambda ()
+                (setq show-trailing-whitespace t)
+                (flyspell-prog-mode)
+                (org-indent-mode)
+                (diminish 'org-indent-mode)
+                (superword-mode 1)
+                (if (display-graphic-p)
+                    (progn
+                      (load-theme 'org-beautify t)
+                      (set-face-attribute 'org-agenda-structure nil :height 1.0 :family "Lucida Grande")))))
   :config
   (load-library "find-lisp")
   ;; ORG directories and files
@@ -635,8 +635,8 @@
   :ensure t
   :hook
   ;; Highlight changed files in the fringe of dired
-  ((dired-mode . diff-hl-dired-mode)
-   (magit-post-refresh . diff-hl-magit-post-refresh))
+  (dired-mode . diff-hl-dired-mode)
+  (magit-post-refresh . diff-hl-magit-post-refresh)
   :diminish diff-hl-mode
   :init
   (if (daemonp)
@@ -661,8 +661,7 @@
 (use-package eshell
   :ensure t
   :hook
-  (eshell-exit . (lambda ()
-                   (delete-window)))
+  (eshell-exit . delete-window)
   (eshell-mode . (lambda ()
                    ;; (setq eshell-destroy-buffer-when-process-dies t)
                    ;; Programs that need special displays
@@ -710,7 +709,8 @@
 ;; Fish-like autosuggestions in eshell
 (use-package esh-autosuggest
   :ensure t
-  :hook (eshell-mode . esh-autosuggest-mode))
+  :hook
+  (eshell-mode . esh-autosuggest-mode))
 
 ;; When find-file and dired-mode try to access a non writable file
 ;; auto-sudoedit re-opens the file automatically using sudo in TRAMP
@@ -749,8 +749,7 @@
       :ensure t
       :defer t
       :hook
-      (ibuffer-mode . (lambda ()
-                        (drestivo-disable-number-and-visual-line)))
+      (ibuffer-mode . drestivo-disable-number-and-visual-line)
       :config
       (setq ibuffer-sidebar-use-custom-font nil)
       :bind
@@ -761,8 +760,7 @@
   :ensure t
   :defer t
   :hook
-  (imenu-list-major-mode . (lambda ()
-                             (drestivo-disable-number-and-visual-line)))
+  (imenu-list-major-mode . drestivo-disable-number-and-visual-line)
   :config
   (setq imenu-list-position 'right
         imenu-list-auto-resize t)
