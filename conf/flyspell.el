@@ -1,7 +1,7 @@
 ;;; flyspell.el --- Flyspell settings
 
 ;;
-;; Copyright (C) 2016-2018 Davide Restivo
+;; Copyright (C) 2016-2019 Davide Restivo
 ;;
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
