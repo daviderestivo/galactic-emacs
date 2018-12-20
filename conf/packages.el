@@ -641,14 +641,14 @@
   :init
   (if (daemonp)
       (add-hook 'after-make-frame-functions
-                '(lambda (frame)
-                   (select-frame frame)
-                   (if (display-graphic-p)
-                       (global-diff-hl-mode)
-                     (progn
-                       (setq diff-hl-side 'right)
-                       (global-diff-hl-mode)
-                       (diff-hl-margin-mode)))))
+                (lambda (frame)
+                  (select-frame frame)
+                  (if (display-graphic-p)
+                      (global-diff-hl-mode)
+                    (progn
+                      (setq diff-hl-side 'right)
+                      (global-diff-hl-mode)
+                      (diff-hl-margin-mode)))))
     ;; Emacs not running in daemon mode
     (if (display-graphic-p)
         (global-diff-hl-mode)

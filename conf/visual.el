@@ -71,8 +71,8 @@
                 python-mode-hook
                 js-mode-hook))
   (add-hook mode
-            '(lambda ()
-               (setq show-trailing-whitespace t))))
+            (lambda ()
+              (setq show-trailing-whitespace t))))
 
 ;; Turn on highlighting current line
 (global-hl-line-mode 1)
@@ -91,26 +91,26 @@
 ;; symbols are prettified (displayed as composed characters)
 ;; according to the rules in `prettify-symbols-alist'
 (add-hook 'emacs-lisp-mode-hook
-          '(lambda ()
-             (progn
-               (setq prettify-symbols-unprettify-at-point 'right-edge)
-               (prettify-symbols-mode))))
+          (lambda ()
+            (progn
+              (setq prettify-symbols-unprettify-at-point 'right-edge)
+              (prettify-symbols-mode))))
 
 ;; Customize ediff background colors
 (add-hook 'ediff-load-hook
-          '(lambda ()
-             (set-face-background
-              ediff-even-diff-face-A "grey20")
-             (set-face-background
-              ediff-even-diff-face-B "grey20")
-             (set-face-background
-              ediff-even-diff-face-C "grey20")
-             (set-face-background
-              ediff-odd-diff-face-A  "grey20")
-             (set-face-background
-              ediff-odd-diff-face-B  "grey20")
-             (set-face-background
-              ediff-odd-diff-face-C  "grey20")))
+          (lambda ()
+            (set-face-background
+             ediff-even-diff-face-A "grey20")
+            (set-face-background
+             ediff-even-diff-face-B "grey20")
+            (set-face-background
+             ediff-even-diff-face-C "grey20")
+            (set-face-background
+             ediff-odd-diff-face-A  "grey20")
+            (set-face-background
+             ediff-odd-diff-face-B  "grey20")
+            (set-face-background
+             ediff-odd-diff-face-C  "grey20")))
 
 ;; Unset the frame title and remove the icon
 (setq frame-title-format nil)

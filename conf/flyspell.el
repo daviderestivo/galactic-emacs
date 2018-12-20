@@ -35,26 +35,25 @@
 (setq ispell-program-name "aspell")
 ;; Enable flyspell for text files and enable superword mode
 (dolist (mode '(text-mode-hook))
-  (add-hook mode '(lambda ()
-                    (flyspell-mode 1)
-                    (diminish 'flyspell-mode)
-                    ;; Enable superword mode, useful for “snake_case”.
-                    (superword-mode 1)
-                    (diminish 'superword-mode)
-                    )))
+  (add-hook mode (lambda ()
+                   (flyspell-mode 1)
+                   (diminish 'flyspell-mode)
+                   ;; Enable superword mode, useful for “snake_case”.
+                   (superword-mode 1)
+                   (diminish 'superword-mode)
+                   )))
 ;; Enable flyspell for code and enable superword mode
 (dolist (mode '(emacs-lisp-mode-hook
                 inferior-lisp-mode-hook
                 python-mode-hook
                 js-mode-hook))
-  (add-hook mode
-            '(lambda ()
-               (flyspell-prog-mode)
-               (diminish 'flyspell-mode)
-               ;; Enable superword mode, useful for “snake_case”.
-               (superword-mode 1)
-               (diminish 'superword-mode)
-               )))
+  (add-hook mode (lambda ()
+                   (flyspell-prog-mode)
+                   (diminish 'flyspell-mode)
+                   ;; Enable superword mode, useful for “snake_case”.
+                   (superword-mode 1)
+                   (diminish 'superword-mode)
+                   )))
 ;; Add some of the ispell shortcuts:
 ;; - press <f8> to check a word
 ;; - press M-<f8> to check the next one
