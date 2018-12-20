@@ -847,7 +847,7 @@
                           (auto-revert-mode))
                         (drestivo-disable-number-and-visual-line)))
   :bind
-  (("M-<f12>" . dired-sidebar-toggle-sidebar))
+  ("M-<f12>" . dired-sidebar-toggle-sidebar)
   :commands
   (dired-sidebar-toggle-sidebar)
   :config
@@ -903,7 +903,42 @@
   :hook
   (emacs-lisp-mode . smartparens-mode)
   (clojure-mode    . smartparens-mode)
-  (cider-repl-mode . smartparens-mode))
+  (cider-repl-mode . smartparens-mode)
+  :bind (
+         :map smartparens-mode-map
+         ("C-M-f"            . sp-forward-sexp)
+         ("C-M-b"            . sp-backward-sexp)
+         ("C-M-d"            . sp-down-sexp)
+         ("C-M-a"            . sp-backward-down-sexp)
+         ("C-S-d"            . sp-beginning-of-sexp)
+         ("C-S-a"            . sp-end-of-sexp)
+         ("C-M-e"            . sp-up-sexp)
+         ("C-M-u"            . sp-backward-up-sexp)
+         ("C-M-t"            . sp-transpose-sexp)
+         ("C-M-n"            . sp-forward-hybrid-sexp)
+         ("C-M-p"            . sp-backward-hybrid-sexp)
+         ("C-M-k"            . sp-kill-sexp)
+         ("C-M-w"            . sp-copy-sexp)
+         ("M-<delete>"       . sp-unwrap-sexp)
+         ("M-<backspace>"    . sp-backward-unwrap-sexp)
+         ("C-<right>"        . sp-forward-slurp-sexp)
+         ("C-<left>"         . sp-forward-barf-sexp)
+         ("C-M-<left>"       . sp-backward-slurp-sexp)
+         ("C-M-<right>"      . sp-backward-barf-sexp)
+         ("M-D"              . sp-splice-sexp)
+         ("C-M-<delete>"     . sp-splice-sexp-killing-forward)
+         ("C-M-<backspace>"  . sp-splice-sexp-killing-backward)
+         ("C-S-<backspace>"  . sp-splice-sexp-killing-around)
+         ("C-]"              . sp-select-next-thing-exchange)
+         ("C-<left_bracket>" . sp-select-previous-thing)
+         ("C-M-]"            . sp-select-next-thing)
+         ("M-F"              . sp-forward-symbol)
+         ("M-B"              . sp-backward-symbol)
+         ("C-\""             . sp-change-inner)
+         ("M-i"              . sp-change-enclosing)
+         ("M-("              . sp-wrap-round)
+         ("M-["              . sp-wrap-square)
+         ("M-{"              . sp-wrap-curly)))
 
 
 ;;; packages.el ends here
