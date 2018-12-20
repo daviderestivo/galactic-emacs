@@ -903,12 +903,9 @@
   :init
   (require 'smartparens-config)
   :hook
-  (emacs-lisp-mode .  (lambda ()
-                        (smartparens-mode)))
-  (clojure-mode    .  (lambda ()
-                        (smartparens-mode)))
-  (cider-repl-mode .  (lambda ()
-                        (smartparens-mode))))
+  (emacs-lisp-mode . smartparens-mode)
+  (clojure-mode    . smartparens-mode)
+  (cider-repl-mode . smartparens-mode))
 
 
 ;;; packages.el ends here
