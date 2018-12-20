@@ -385,10 +385,10 @@ the outdated package and the CDR is the list of all the installed versions."
             (dolist (ele (cdr nested-list))
               (progn
                 (setq log-message (concat log-message
-                               (format "Deleting: %s ...\n" ele)))
+                                          (format "Deleting: %s ...\n" ele)))
                 (delete-directory (concat (expand-file-name package-user-dir) "/" ele) t))))
           (setq log-message (concat log-message
-                                "... all outdated packages have been deleted.\n"))
+                                    "... all outdated packages have been deleted.\n"))
           (drestivo--outdated-packages-write-results-buffer log-message))
       (drestivo--outdated-packages-write-results-buffer "No outdated packages to be deleted found.\n"))))
 

@@ -538,8 +538,7 @@
   (yas-global-mode 1)
   (setq yas-snippet-dirs
         '("~/.emacs.d/snippets"           ;; AndreaCrotti/yasnippet-snippets
-          "~/.emacs.d/snippets-addons"    ;; Personal snippets
-          ))
+          "~/.emacs.d/snippets-addons"))  ;; Personal snippets
   (yas-reload-all))
 
 ;; undo-tree
