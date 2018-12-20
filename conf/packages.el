@@ -290,7 +290,8 @@
 (use-package rainbow-delimiters
   :ensure t
   :hook
-  (prog-mode . rainbow-delimiters-mode))
+  (prog-mode       . rainbow-delimiters-mode)
+  (cider-repl-mode . rainbow-delimiters-mode))
 
 ;; auto-package-update
 (use-package auto-package-update
