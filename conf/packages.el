@@ -770,7 +770,9 @@
 (use-package cider
   :ensure t
   :defer t
-  :ensure-system-package (lein . leiningen))
+  :ensure-system-package (lein . leiningen)
+  :init
+  (setq cider-allow-jack-in-without-project t))
 
 ;; Automatically debug and bisect your init file
 (use-package bug-hunter
