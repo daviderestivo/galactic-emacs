@@ -218,6 +218,7 @@
    '((emacs-lisp . t)
      (clojure . t)
      (python . t)
+     (ipython . t)
      (ruby . t)))
   ;; Stop Emacs asking for confirmation when evaluating a code block
   (setq org-confirm-babel-evaluate nil)
@@ -242,10 +243,7 @@
   ;; Display images inline in the same buffer
   (org-babel-after-execute . org-display-inline-images)
   :config
-  (setq ob-ipython-command "ipython3")
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((ipython . t))))
+  (setq ob-ipython-command "ipython3"))
 
 ;; org-download
 (use-package org-download
