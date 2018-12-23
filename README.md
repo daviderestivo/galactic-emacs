@@ -1,12 +1,11 @@
-# Emacs-config
+# emacs-config
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 This repository contains my Emacs configuration. You can clone it as
-it comes or simply use whatever part you might need/like.
-
-The look and feel of the Emacs frame is based on the
-atom-one-dark-theme with some minor changes:
+it comes or simply use whatever part you might need/like. The look and
+feel of the Emacs frame is based on the atom-one-dark-theme with some
+minor changes.
 
 ## Emacs Scratch Buffer
 ![Emacs scracth buffer](https://raw.githubusercontent.com/daviderestivo/emacs-config/master/screenshots/emacs_scratch_buffer.png)
@@ -40,8 +39,7 @@ git clone https://github.com/daviderestivo/emacs-config.git .emacs.d
 cd .emacs.d
 git submodule init
 git submodule update
-git submodule foreach --recursive
-git checkout master
+git submodule foreach --recursive git checkout master
 ```
 
 ## Included packages
