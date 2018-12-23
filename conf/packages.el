@@ -216,6 +216,7 @@
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((emacs-lisp . t)
+     (clojure . t)
      (python . t)
      (ruby . t)))
   ;; Stop Emacs asking for confirmation when evaluating a code block
@@ -224,6 +225,14 @@
   (setq org-src-fontify-natively t)
   ;; Set python3 as default python interpreter
   (setq org-babel-python-command "python3"))
+
+;; ORG Babel: Clojure section
+(use-package ob-clojure
+  :defer t
+  :config
+  ;; To compile and run Clojure code, you will need to connect to a
+  ;; REPL: M-x cider-jack-in RET
+  (setq org-babel-clojure-backend 'cider))
 
 ;; ORG Babel: Ipython section
 (use-package ob-ipython
