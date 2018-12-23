@@ -165,27 +165,27 @@ not listed.
 | C-'           | mc-hide-unmatched-lines-mode      |
 
 ### Smartparens
-| Key           | Function               |
-| :---          | :---                   |
-| C-M-f         | sp-forward-sexp        |
-| C-M-b         | sp-backward-sexp       |
-| C-M-u         | sp-up-sexp             |
-| C-M-d         | sp-down-sexp           |
-| C-M-a         | sp-beginning-of-sexp   |
-| C-M-e         | sp-end-of-sexp         |
-| C-M-n         | sp-next-sexp           |
-| C-M-p         | sp-previous-sexp       |
-| C-M-t         | sp-transpose-sexp      |
-| C-M-k         | sp-kill-sexp           |
-| C-M-w         | sp-copy-sexp           |
-| M-<backspace> | sp-unwrap-sexp         |
-| C-s-<right>   | sp-forward-slurp-sexp  |
-| C-s-<left>    | sp-forward-barf-sexp   |
-| C-M-<left>    | sp-backward-slurp-sexp |
-| C-M-<right>   | sp-backward-barf-sexp  |
-| M-(           | sp-wrap-round          |
-| M-[           | sp-wrap-square         |
-| M-{           | sp-wrap-curly          |
+| Key             | Function               |
+| :---            | :---                   |
+| C-M-f           | sp-forward-sexp        |
+| C-M-b           | sp-backward-sexp       |
+| C-M-u           | sp-up-sexp             |
+| C-M-d           | sp-down-sexp           |
+| C-M-a           | sp-beginning-of-sexp   |
+| C-M-e           | sp-end-of-sexp         |
+| C-M-n           | sp-next-sexp           |
+| C-M-p           | sp-previous-sexp       |
+| C-M-t           | sp-transpose-sexp      |
+| C-M-k           | sp-kill-sexp           |
+| C-M-w           | sp-copy-sexp           |
+| M-\<backspace\> | sp-unwrap-sexp         |
+| C-s-\<right\>   | sp-forward-slurp-sexp  |
+| C-s-\<left\>    | sp-forward-barf-sexp   |
+| C-M-\<left\>    | sp-backward-slurp-sexp |
+| C-M-\<right\>   | sp-backward-barf-sexp  |
+| M-(             | sp-wrap-round          |
+| M-[             | sp-wrap-square         |
+| M-{             | sp-wrap-curly          |
 
 
 Feel free to drop me an email in case of questions.
