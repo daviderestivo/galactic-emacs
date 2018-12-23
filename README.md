@@ -111,28 +111,28 @@ not listed.
 
 ### General
 
-| Key       | Function                                 |
-| :---      | :---                                     |
-| < f2 >    | magit-status                             |
-| < f5 >    | magit-list-repositories                  |
-| < f6 >    | org-directory-search-ag                  |
-| < f7 >    | create new empty buffer (org-mode)       |
-| < f8 >    | ispell-word                              |
-| M-< f8 >  | flyspell-goto-next-error                 |
-| < f9 >    | toggle sroll bar                         |
-| < f12 >   | imenu-list-smart-toggle                  |
-| M-<f12>   | dired-sidebar-toggle-sidebar             |
-| C-< f12 > | ibuffer-sidebar-toggle-sidebar           |
-| s-/       | avy-goto-char                            |
-| C-=       | copy-line                                |
-| C-c left  | Winner mode - Undo windows changes       |
-| C-c right | Winner mode - Redo windows changes       |
-| C-m       | YAML mode - New line and indent          |
-| C-c p     | projectile keymap                        |
-| M-+       | drestivo-insert-date                     |
-| C-x t     | shell-pop-universal-key                  |
-| C-c j     | drestivo-org-show-current-heading-tidily |
-| M-o       | other-window                             |
+| Key           | Function                                 |
+| :---          | :---                                     |
+| \<f2\>        | magit-status                             |
+| \<f5\>        | magit-list-repositories                  |
+| \<f6\>        | org-directory-search-ag                  |
+| \<f7\>        | create new empty buffer (org-mode)       |
+| \<f8\>        | ispell-word                              |
+| M-\<f8\>      | flyspell-goto-next-error                 |
+| \<f9\>        | toggle sroll bar                         |
+| \<f12\>       | imenu-list-smart-toggle                  |
+| M-\<f12\>     | dired-sidebar-toggle-sidebar             |
+| C-\<f12\>     | ibuffer-sidebar-toggle-sidebar           |
+| s-/           | avy-goto-char                            |
+| C-=           | copy-line                                |
+| C-c \<left\>  | Winner mode - Undo windows changes       |
+| C-c \<right\> | Winner mode - Redo windows changes       |
+| C-m           | YAML mode - New line and indent          |
+| C-c p         | projectile keymap                        |
+| M-+           | drestivo-insert-date                     |
+| C-x t         | shell-pop-universal-key                  |
+| C-c j         | drestivo-org-show-current-heading-tidily |
+| M-o           | other-window                             |
 
 
 ### Helm
@@ -149,20 +149,20 @@ not listed.
 
 ### Multiple Cursors
 
-| Key           | Function                          |
-| :---          | :---                              |
-| C-S-c C-S-c   | mc/edit-lines                     |
-| C->           | mc/mark-next-like-this            |
-| C-<           | mc/mark-previous-like-this        |
-| M-C->         | mc/mark-next-like-this-symbol     |
-| M-C-<         | mc/mark-previous-like-this-symbol |
-| C-c C-<       | mc/mark-all-like-this             |
-| C-c C->       | mc/mark-all-like-this-symbol      |
-| C-c C-n       | mc/insert-numbers                 |
-| C-c C-r       | mc/reverse-regions                |
-| C-c C-s       | mc/sort-regions                   |
-| C-S-<mouse-1> | mc/add-cursor-on-click            |
-| C-'           | mc-hide-unmatched-lines-mode      |
+| Key             | Function                          |
+| :---            | :---                              |
+| C-S-c C-S-c     | mc/edit-lines                     |
+| C->             | mc/mark-next-like-this            |
+| C-<             | mc/mark-previous-like-this        |
+| M-C->           | mc/mark-next-like-this-symbol     |
+| M-C-<           | mc/mark-previous-like-this-symbol |
+| C-c C-<         | mc/mark-all-like-this             |
+| C-c C->         | mc/mark-all-like-this-symbol      |
+| C-c C-n         | mc/insert-numbers                 |
+| C-c C-r         | mc/reverse-regions                |
+| C-c C-s         | mc/sort-regions                   |
+| C-S-\<mouse-1\> | mc/add-cursor-on-click            |
+| C-'             | mc-hide-unmatched-lines-mode      |
 
 ### Smartparens
 | Key             | Function               |
