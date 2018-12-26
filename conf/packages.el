@@ -218,7 +218,9 @@
    '((emacs-lisp . t)
      (clojure . t)
      (python . t)
-     (ipython . t)
+     ;; Disable ob-ipython because of:
+     ;; https://github.com/gregsexton/ob-ipython/issues/135
+     ;;(ipython . t)
      (ruby . t)))
   ;; Stop Emacs asking for confirmation when evaluating a code block
   (setq org-confirm-babel-evaluate nil)
