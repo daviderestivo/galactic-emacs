@@ -110,6 +110,11 @@
 (use-package org
   :ensure org-plus-contrib
   :defer t
+  :init
+  ;; Org 9.2 comes with a new template expansion mechanism [C-c C-,]
+  ;; The previous behavior, e.g. <s, is still available and activated
+  ;; by requiring Org Tempo library.
+  (require 'org-tempo)
   :hook (org-agenda-mode . (lambda ()
                              (setq org-agenda-files
                                    (append
