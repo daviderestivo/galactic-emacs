@@ -68,6 +68,7 @@
 ;; - org-beautify-theme                  [https://github.com/jonnay/org-beautify-theme]
 ;; - org-bullets                         [https://github.com/sabof/org-bullets]
 ;; - org-download                        [https://github.com/abo-abo/org-download]
+;; - idle-org-agenda                     [https://github.com/enisozgen/idle-org-agenda]
 ;; - org-mind-map                        [https://github.com/theodorewiles/org-mind-ma]
 ;; - org-plus-contrib                    [http://orgmode.org]
 ;;

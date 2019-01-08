@@ -300,6 +300,12 @@
   ;; (setq org-mind-map-engine "circo")  ; Circular Layout
   )
 
+;; A package that shows your agenda when Emacs is idle
+(use-package idle-org-agenda
+  :after org-agenda
+  :ensure t
+  :config (idle-org-agenda-mode))
+
 ;; rainbow-delimiters
 (use-package rainbow-delimiters
   :ensure t

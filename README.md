@@ -82,6 +82,7 @@ not listed.
 * org-beautify-theme [[Link](https://github.com/jonnay/org-beautify-theme)]
 * org-bullets [[Link](https://github.com/sabof/org-bullets)]
 * org-download [[Link](https://github.com/abo-abo/org-download)]
+* idle-org-agenda [[Link](https://github.com/enisozgen/idle-org-agenda)]
 * org-mind-map [[Link](https://github.com/theodorewiles/org-mind-map)
 * org-plus-contrib [[Link](http://orgmode.org)]
 
