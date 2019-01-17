@@ -191,10 +191,6 @@
 (load-file (expand-file-name "conf/backup.el"
                              user-emacs-directory))
 
-;; Load flyspell settings
-(load-file (expand-file-name "conf/flyspell.el"
-                             user-emacs-directory))
-
 ;; Load visual settings
 (load-file (expand-file-name "conf/visual.el"
                              user-emacs-directory))
@@ -205,6 +201,10 @@
 
 ;; Load packages
 (load-file (expand-file-name "conf/packages.el"
+                             user-emacs-directory))
+
+;; Load flyspell settings
+(load-file (expand-file-name "conf/flyspell.el"
                              user-emacs-directory))
 
 
