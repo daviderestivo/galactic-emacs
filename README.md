@@ -25,7 +25,8 @@ This configuration is mainly tested on the HEAD version of Emacs
 manager on macOS, please install Emacs with the below command:
 
 ``` bash
-brew install emacs --HEAD --with-librsvg --with-cocoa --with-imagemagick@6
+brew tap daviderestivo/emacs-head 
+brew install emacs-head --HEAD --with-librsvg --with-cocoa --with-imagemagick@6
 ```
 
 ### Repository Clone
