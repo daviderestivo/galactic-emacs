@@ -173,7 +173,7 @@
 
 ;; Customize Emacs calendar to start a week on Monday and to show the week number
 (setq calendar-week-start-day 1)
-(copy-face font-lock-constant-face 'calendar-iso-week-face)
+(copy-face 'default 'calendar-iso-week-face)
 (set-face-attribute 'calendar-iso-week-face nil :foreground "light green")
 (setq calendar-intermonth-text
       '(propertize
