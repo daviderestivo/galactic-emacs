@@ -609,7 +609,6 @@
 
 ;; whitespace - Highlight lines that exceed 80 chars length
 (use-package whitespace
-  :ensure t
   :diminish global-whitespace-mode
   :config
   (set-face-attribute 'whitespace-line nil :background "gray20" :foreground "dark gray")
@@ -627,7 +626,6 @@
 ;;
 ;; Please look at: https://blogs.fsfe.org/jens.lechtenboerger/2014/03/23/certificate-pinning-for-gnu-emacs/
 (use-package gnutls
-  :ensure t
   :defer t
   :ensure-system-package (gnutls-cli . "brew install gnutls || sudo apt-get install gnutls-bin")
   :config
@@ -678,7 +676,6 @@
 
 ;; Eshell
 (use-package eshell
-  :ensure t
   :hook
   (eshell-exit . delete-window)
   (eshell-mode . (lambda ()
