@@ -59,6 +59,7 @@
 ;; - projectile                          [https://github.com/bbatsov/projectile]
 ;; - py-autopep8                         [https://github.com/paetzke/py-autopep8.el]
 ;; - smartparens                         [https://github.com/Fuco1/smartparens]
+;; - treemacs-projectile                 [https://github.com/Alexander-Miller/treemacs]
 ;; - yaml-mode                           [https://github.com/yoshiki/yaml-mode]
 ;; - yang-mode                           [https://github.com/mbj4668/yang-mode]
 ;; - yasnippet                           [https://github.com/joaotavora/yasnippet]
@@ -83,6 +84,7 @@
 ;; - smart-mode-line                     [https://github.com/Malabarba/smart-mode-line]
 ;; - smart-mode-line-atom-one-dark-theme [https://github.com/daviderestivo/smart-mode-line-atom-one-dark-theme]
 ;; - transpose-frame                     [https://www.emacswiki.org/emacs/TransposeFrame]
+;; - treemacs-icons-dired                [https://github.com/Alexander-Miller/treemacs]
 ;; - volatile-highlights                 [https://github.com/k-talo/volatile-highlights.el]
 ;;
 ;;  `Various'
@@ -96,6 +98,7 @@
 ;; - multiple-cursors                    [https://github.com/magnars/multiple-cursors.el]
 ;; - psession                            [https://github.com/thierryvolpiatto/psession]
 ;; - shell-pop-el                        [https://github.com/kyagi/shell-pop-el]
+;; - treemacs                            [https://github.com/Alexander-Miller/treemacs]
 ;; - undo-tree                           [https://github.com/emacsmirror/undo-tree]
 ;; - use-package                         [https://github.com/jwiegley/use-package]
 ;; - which-key                           [https://github.com/justbur/emacs-which-key]

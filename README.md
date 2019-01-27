@@ -74,6 +74,7 @@ not listed.
 * projectile [[Link](https://github.com/bbatsov/projectile)]
 * py-autopep8 [[Link](https://github.com/paetzke/py-autopep8.el)]
 * smartparens  [[Link](https://github.com/Fuco1/smartparens)]
+* treemacs-projectile [[Link](https://github.com/Alexander-Miller/treemacs)]
 * yaml-mode [[Link](https://github.com/yoshiki/yaml-mode)]
 * yang-mode [[Link](https://github.com/mbj4668/yang-mode)]
 * yasnippet [[Link](https://github.com/joaotavora/yasnippet)]
@@ -98,6 +99,7 @@ not listed.
 * smart-mode-line [[Link](https://github.com/Malabarba/smart-mode-line)]
 * smart-mode-line-atom-one-dark-theme [[Link](https://github.com/daviderestivo/smart-mode-line-atom-one-dark-theme)]
 * transpose-frame [[Link](https://www.emacswiki.org/emacs/TransposeFrame)]
+* treemacs-icons-dired [[Link](https://github.com/Alexander-Miller/treemacs)]
 * volatile-highlights [[Link](https://github.com/k-talo/volatile-highlights.el)]
 
 ### Various
@@ -111,6 +113,7 @@ not listed.
 * multiple-cursors [[Link](https://github.com/magnars/multiple-cursors.el)]
 * psession [[Link](https://github.com/thierryvolpiatto/psession)]
 * shell-pop-el [[Link](https://github.com/kyagi/shell-pop-el)]
+* treemacs [[Link](https://github.com/Alexander-Miller/treemacs)]
 * undo-tree [[Link](https://github.com/emacsmirror/undo-tree)]
 * use-package [[Link](https://github.com/jwiegley/use-package)]
 * which-key [[Link](https://github.com/justbur/emacs-which-key)]
