@@ -423,6 +423,8 @@
   (setq helm-imenu-fuzzy-match t)
   (setq helm-ff-file-name-history-use-recentf t)
   (setq helm-autoresize-mode t)
+  ;; The below makes helm behaving nicely together with treemacs
+  (setq helm-split-window-inside-p t)
   (setq helm-echo-input-in-header-line t)
   (setq helm-follow-mode-persistent t)
   (setq helm-autoresize-max-height 0)
