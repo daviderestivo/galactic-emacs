@@ -962,13 +962,13 @@
   (:map global-map
         ("M-0"       . treemacs-select-window)
         ("C-c t 1"   . treemacs-delete-other-windows)
-        ("C-c t t"   . treemacs)
+        ("M-<f12>"   . treemacs)
         ("C-c t B"   . treemacs-bookmark)
         ("C-c t C-t" . treemacs-find-file)
         ("C-c t M-t" . treemacs-find-tag)))
 
 ;; Allows to quickly add your projectile projects to the treemacs
-;; workspace by calling treemacs-projectile.
+;; workspace by calling `treemacs-projectile'
 (use-package treemacs-projectile
   :after treemacs projectile
   :ensure t)

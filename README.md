@@ -133,7 +133,7 @@ not listed.
 | M-\<f8\>      | flyspell-goto-next-error                 |
 | \<f9\>        | toggle sroll bar                         |
 | \<f12\>       | imenu-list-smart-toggle                  |
-| M-\<f12\>     | dired-sidebar-toggle-sidebar             |
+| M-\<f12\>     | treemacs                                 |
 | C-\<f12\>     | ibuffer-sidebar-toggle-sidebar           |
 | s-/           | avy-goto-char                            |
 | C-=           | copy-line                                |
