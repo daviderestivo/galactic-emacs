@@ -29,6 +29,13 @@ brew tap daviderestivo/emacs-head
 brew install emacs-head --HEAD --with-librsvg --with-cocoa --with-imagemagick@6
 ```
 
+or if you prefer Emacs 26.x:
+
+``` bash
+brew tap daviderestivo/emacs-head
+brew install emacs-head --with-librsvg --with-cocoa --with-imagemagick@6
+```
+
 ### Repository Clone
 
 Please run the below commands to backup your current Emacs config and clone this repo:
