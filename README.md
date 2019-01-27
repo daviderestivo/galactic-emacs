@@ -25,7 +25,7 @@ This configuration is mainly tested on the HEAD version of Emacs
 manager on macOS, please install Emacs with the below command:
 
 ``` bash
-brew tap daviderestivo/emacs-head 
+brew tap daviderestivo/emacs-head
 brew install emacs-head --HEAD --with-librsvg --with-cocoa --with-imagemagick@6
 ```
 
@@ -90,7 +90,6 @@ not listed.
 ### Visual
 * all-the-icons [[Link](https://github.com/domtronn/all-the-icons.el)]
 * atom-one-dark-theme [[Link](https://github.com/jonathanchu/atom-one-dark-theme)]
-* dired-sidebar [[Link](https://github.com/jojojames/dired-sidebar)]
 * emacs-dashboard [[Link](https://github.com/rakanalh/emacs-dashboard)]
 * eyebrowse [[Link](https://github.com/wasamasa/eyebrowse)]
 * ibuffer-sidebar [[Link](https://github.com/jojojames/ibuffer-sidebar)]
@@ -100,7 +99,6 @@ not listed.
 * smart-mode-line-atom-one-dark-theme [[Link](https://github.com/daviderestivo/smart-mode-line-atom-one-dark-theme)]
 * transpose-frame [[Link](https://www.emacswiki.org/emacs/TransposeFrame)]
 * volatile-highlights [[Link](https://github.com/k-talo/volatile-highlights.el)]
-* vscode-icons [[Link](https://github.com/jojojames/vscode-icon-emacs)]
 
 ### Various
 * auto-package-update [[Link](https://github.com/rranelli/auto-package-update.el)]

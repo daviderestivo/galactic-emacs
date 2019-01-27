@@ -75,7 +75,6 @@
 ;;  `Visual'
 ;; - all-the-icons                       [https://github.com/domtronn/all-the-icons.el]
 ;; - atom-one-dark-theme                 [https://github.com/jonathanchu/atom-one-dark-theme]
-;; - dired-sidebar                       [https://github.com/jojojames/dired-sidebar]
 ;; - emacs-dashboard                     [https://github.com/rakanalh/emacs-dashboard]
 ;; - eyebrowse                           [https://github.com/wasamasa/eyebrowse]
 ;; - ibuffer-sidebar                     [https://github.com/jojojames/ibuffer-sidebar]
@@ -85,7 +84,6 @@
 ;; - smart-mode-line-atom-one-dark-theme [https://github.com/daviderestivo/smart-mode-line-atom-one-dark-theme]
 ;; - transpose-frame                     [https://www.emacswiki.org/emacs/TransposeFrame]
 ;; - volatile-highlights                 [https://github.com/k-talo/volatile-highlights.el]
-;; - vscode-icons                        [https://github.com/jojojames/vscode-icon-emacs]
 ;;
 ;;  `Various'
 ;; - auto-package-update                 [https://github.com/rranelli/auto-package-update.el]

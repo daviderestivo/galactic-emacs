@@ -633,15 +633,6 @@
         imap-ssl-program '("gnutls-cli -p %p %s")
         smtpmail-stream-type 'starttls))
 
-;; dired customization
-(use-package dired
-  :defer t
-  :hook
-  (dired-mode . (lambda ()
-                  (dired-hide-details-mode 1)))
-  :config
-  (setq dired-dwim-target nil))
-
 ;; ElDoc
 (use-package eldoc
   :defer t
@@ -847,35 +838,6 @@
   (setq avy-case-fold-search nil)
   :bind
   ("s-/" . avy-goto-char))
-
-;; Utility package that return vscode icons for Emacs
-(use-package vscode-icon
-  :ensure t
-  :defer t
-  :commands
-  (vscode-icon-for-file))
-
-;; Sidebar for Emacs leveraging dired
-(use-package dired-sidebar
-  :ensure t
-  :defer t
-  :hook
-  (dired-sidebar-mode .
-                      (lambda ()
-                        (unless (file-remote-p default-directory)
-                          (auto-revert-mode))
-                        (drestivo-disable-number-and-visual-line)))
-  :bind
-  ("M-<f12>" . dired-sidebar-toggle-sidebar)
-  :commands
-  (dired-sidebar-toggle-sidebar)
-  :config
-  (push 'toggle-window-split dired-sidebar-toggle-hidden-commands)
-  (push 'rotate-windows dired-sidebar-toggle-hidden-commands)
-  (setq dired-sidebar-subtree-line-prefix "__")
-  (setq dired-sidebar-theme 'vscode)
-  (setq dired-sidebar-use-term-integration t)
-  (setq dired-sidebar-use-custom-font t))
 
 ;; A linter for the metadata in Emacs Lisp files which are intended to
 ;; be packages
