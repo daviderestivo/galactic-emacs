@@ -980,5 +980,39 @@
   :ensure t
   :config (treemacs-icons-dired-mode))
 
+;; Emacs client/library for the Language Server Protocol
+(use-package lsp-mode
+  :ensure t)
+
+;; Company completion backend for lsp-mode
+(use-package company-lsp
+  :ensure t)
+
+;; Higher level UI modules of lsp-mode, like flycheck support and code
+;; lenses.
+(use-package lsp-ui
+  :ensure t)
+
+;; Emacs Java IDE using Eclipse JDT Language Server
+(use-package lsp-java
+  :ensure t
+  :after lsp
+  :config (add-hook 'java-mode-hook 'lsp))
+
+;; Debug Adapter Protocol for Emacs
+(use-package dap-mode
+  :ensure t :after lsp-mode
+  :config
+  (dap-mode t)
+  (dap-ui-mode t))
+
+;; DAP Adapter for java
+(use-package dap-java
+  :after (lsp-java))
+
+;; Provides integration between lsp-java and treemacs
+(use-package lsp-java-treemacs
+  :after (treemacs))
+
 
 ;;; packages.el ends here

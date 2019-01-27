@@ -1,12 +1,15 @@
 #--- Emacs ---
 *~
 *.elc
+.cache/
 .last-package-update-day
+.lsp-session-v1
 .mc-lists.el
 .nrepl-port
 .org-id-locations
 auto-save-list/
 bookmarks
+eclipse.jdt.ls/
 elisp-objects/
 elpa/
 eshell/alias
@@ -19,6 +22,7 @@ projectile-bookmarks.eld
 recentf
 tramp
 url/
+workspace/
 # Uncomment the below if you want to ignore backup (autosave) files
 #[#]*[#]
 
