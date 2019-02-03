@@ -712,7 +712,7 @@
         shell-pop-term-shell "eshell"
         shell-pop-universal-key (kbd "C-x t")
         shell-pop-window-size 50
-        shell-pop-full-span t
+        shell-pop-full-span nil
         shell-pop-window-position "bottom"))
 
 ;; Fish-like autosuggestions in eshell
