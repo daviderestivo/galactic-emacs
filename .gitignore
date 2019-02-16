@@ -2,6 +2,7 @@
 *~
 *.elc
 .cache/
+.dap-breakpoints
 .last-package-update-day
 .lsp-session-v1
 .mc-lists.el
@@ -21,6 +22,7 @@ places
 projectile-bookmarks.eld
 recentf
 tramp
+transient/
 url/
 workspace/
 # Uncomment the below if you want to ignore backup (autosave) files
