@@ -916,6 +916,9 @@
   :init
   (with-eval-after-load 'winum
     (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
+  ;; Allow treemacs window to be resized
+  (add-hook ' treemacs-mode-hook
+              (lambda () (treemacs-toggle-fixed-width)))
   :config
   (progn
     (setq treemacs-collapse-dirs              (if (executable-find "python") 3 0)
