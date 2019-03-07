@@ -101,6 +101,7 @@
 ;; - command-log-mode                    [https://github.com/lewang/command-log-mode]
 ;; - esh-autosuggest                     [https://github.com/dieggsy/esh-autosuggest]
 ;; - exec-path-from-shell                [https://github.com/purcell/exec-path-from-shell]
+;; - string-inflection                   [https://github.com/akicho8/string-inflection]
 ;; - load-bash-alias                     [https://github.com/daviderestivo/load-bash-alias]
 ;; - multiple-cursors                    [https://github.com/magnars/multiple-cursors.el]
 ;; - psession                            [https://github.com/thierryvolpiatto/psession]

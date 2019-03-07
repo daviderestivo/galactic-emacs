@@ -1019,5 +1019,9 @@
 (use-package lsp-java-treemacs
   :after (treemacs))
 
+; underscore -> UPCASE -> CamelCase -> lowerCamelCase conversion of
+; names
+(use-package string-inflection
+  :ensure t)
 
 ;;; packages.el ends here

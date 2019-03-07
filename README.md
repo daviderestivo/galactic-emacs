@@ -123,6 +123,7 @@ not listed.
 * command-log-mode [[Link](https://github.com/lewang/command-log-mode)]
 * esh-autosuggest [[Link](https://github.com/dieggsy/esh-autosuggest)]
 * exec-path-from-shell [[Link](https://github.com/purcell/exec-path-from-shell)]
+* string-inflection [[Link](https://github.com/akicho8/string-inflection)]
 * load-bash-alias [[Link](https://github.com/daviderestivo/load-bash-alias)]
 * multiple-cursors [[Link](https://github.com/magnars/multiple-cursors.el)]
 * psession [[Link](https://github.com/thierryvolpiatto/psession)]
