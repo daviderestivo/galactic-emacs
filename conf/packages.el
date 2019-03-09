@@ -1019,9 +1019,16 @@
 (use-package lsp-java-treemacs
   :after (treemacs))
 
-; underscore -> UPCASE -> CamelCase -> lowerCamelCase conversion of
-; names
+;; underscore -> UPCASE -> CamelCase -> lowerCamelCase conversion of
+;; names
 (use-package string-inflection
   :ensure t)
+
+;; Preview line when executing goto-line command
+(use-package goto-line-preview
+  :ensure t
+  :config
+  (global-set-key [remap goto-line] 'goto-line-preview))
+
 
 ;;; packages.el ends here

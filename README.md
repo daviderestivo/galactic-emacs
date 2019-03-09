@@ -107,6 +107,7 @@ not listed.
 * atom-one-dark-theme [[Link](https://github.com/jonathanchu/atom-one-dark-theme)]
 * emacs-dashboard [[Link](https://github.com/rakanalh/emacs-dashboard)]
 * eyebrowse [[Link](https://github.com/wasamasa/eyebrowse)]
+* goto-line-preview [[Link](https://github.com/jcs090218/goto-line-preview)]
 * ibuffer-sidebar [[Link](https://github.com/jojojames/ibuffer-sidebar)]
 * imenu-list [[Link](https://github.com/bmag/imenu-list)]
 * rainbow-delimiters [[Link](https://www.emacswiki.org/emacs/RainbowDelimiters)]

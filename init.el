@@ -85,6 +85,7 @@
 ;; - atom-one-dark-theme                 [https://github.com/jonathanchu/atom-one-dark-theme]
 ;; - emacs-dashboard                     [https://github.com/rakanalh/emacs-dashboard]
 ;; - eyebrowse                           [https://github.com/wasamasa/eyebrowse]
+;; - goto-line-preview                   [https://github.com/jcs090218/goto-line-preview]
 ;; - ibuffer-sidebar                     [https://github.com/jojojames/ibuffer-sidebar]
 ;; - imenu-list                          [https://github.com/bmag/imenu-list]
 ;; - rainbow-delimiters                  [https://www.emacswiki.org/emacs/RainbowDelimiters]
