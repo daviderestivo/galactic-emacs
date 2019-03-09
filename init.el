@@ -86,6 +86,7 @@
 ;; - emacs-dashboard                     [https://github.com/rakanalh/emacs-dashboard]
 ;; - eyebrowse                           [https://github.com/wasamasa/eyebrowse]
 ;; - goto-line-preview                   [https://github.com/jcs090218/goto-line-preview]
+;; - highlight-indent-guides             [https://github.com/DarthFennec/highlight-indent-guides]
 ;; - ibuffer-sidebar                     [https://github.com/jojojames/ibuffer-sidebar]
 ;; - imenu-list                          [https://github.com/bmag/imenu-list]
 ;; - rainbow-delimiters                  [https://www.emacswiki.org/emacs/RainbowDelimiters]

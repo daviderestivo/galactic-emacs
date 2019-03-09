@@ -1030,5 +1030,17 @@
   :config
   (global-set-key [remap goto-line] 'goto-line-preview))
 
+;; This minor mode highlights indentation levels via font-lock
+(use-package highlight-indent-guides
+  :ensure t
+  :init
+  (setq highlight-indent-guides-method 'column)
+  :config
+  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+  (setq highlight-indent-guides-auto-odd-face-perc 2)
+  (setq highlight-indent-guides-auto-even-face-perc 1)
+  (setq highlight-indent-guides-auto-character-face-perc 4)
+  :diminish highlight-indent-guides-mode)
+
 
 ;;; packages.el ends here
