@@ -104,6 +104,7 @@
 ;; - esh-autosuggest                     [https://github.com/dieggsy/esh-autosuggest]
 ;; - exec-path-from-shell                [https://github.com/purcell/exec-path-from-shell]
 ;; - load-bash-alias                     [https://github.com/daviderestivo/load-bash-alias]
+;; - move-text                           [https://github.com/emacsfodder/move-text]
 ;; - multiple-cursors                    [https://github.com/magnars/multiple-cursors.el]
 ;; - psession                            [https://github.com/thierryvolpiatto/psession]
 ;; - shell-pop-el                        [https://github.com/kyagi/shell-pop-el]

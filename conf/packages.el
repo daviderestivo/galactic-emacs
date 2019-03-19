@@ -1042,5 +1042,13 @@
   (setq highlight-indent-guides-auto-character-face-perc 4)
   :diminish highlight-indent-guides-mode)
 
+;; MoveText allows you to move the current line using M-up / M-down
+;; (or any other bindings you choose) if a region is marked, it will
+;; move the region instead.
+(use-package move-text
+  :ensure t
+  :config
+  (move-text-default-bindings))
+
 
 ;;; packages.el ends here

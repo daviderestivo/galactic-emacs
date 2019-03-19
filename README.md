@@ -126,6 +126,7 @@ not listed.
 * esh-autosuggest [[Link](https://github.com/dieggsy/esh-autosuggest)]
 * exec-path-from-shell [[Link](https://github.com/purcell/exec-path-from-shell)]
 * load-bash-alias [[Link](https://github.com/daviderestivo/load-bash-alias)]
+* move-text [[Link](https://github.com/emacsfodder/move-text)]
 * multiple-cursors [[Link](https://github.com/magnars/multiple-cursors.el)]
 * psession [[Link](https://github.com/thierryvolpiatto/psession)]
 * shell-pop-el [[Link](https://github.com/kyagi/shell-pop-el)]
