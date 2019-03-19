@@ -163,7 +163,8 @@ not listed.
 | C-x t         | shell-pop-universal-key                  |
 | C-c j         | drestivo-org-show-current-heading-tidily |
 | M-o           | other-window                             |
-
+| M-up          | move-text-up                             |
+| M-down        | move-text-down                           |
 
 ### Helm
 
