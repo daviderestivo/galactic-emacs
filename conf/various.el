@@ -196,5 +196,13 @@
 ;; Automatically follow symlinks but displays a warning
 (setq vc-follow-symlinks nil)
 
+;; M-SPACE binds to `just-one-space' that delete all but one white
+;; space at a point. The `cycle-spacing' when called multiple times,
+;; cycles through:
+;; - replacing all spaces with a single space
+;; - removing all spaces
+;; - restoring the original spacing
+(global-set-key [remap just-one-space] 'cycle-spacing)
+
 
 ;;; various.el ends here
