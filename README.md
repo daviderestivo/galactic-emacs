@@ -177,7 +177,6 @@ not listed.
 | C-c C-; | helm-eshell-prompts     |
 | C-c C-l | helm-eshell-history     |
 
-
 ### Multiple Cursors
 
 | Key             | Function                          |
@@ -195,7 +194,22 @@ not listed.
 | C-S-\<mouse-1\> | mc/add-cursor-on-click            |
 | C-'             | mc-hide-unmatched-lines-mode      |
 
+### Org-mode
+
+| Key   | Function                                 |
+| :---  | :---                                     |
+| C-c e | org-encrypt-entry                        |
+| C-c d | org-decrypt-entry                        |
+| C-c l | org-store-link                           |
+| C-c a | org-agenda                               |
+| C-c c | org-capture                              |
+| C-c b | org-iswitch                              |
+| C-c j | drestivo-org-show-current-heading-tidily |
+| <F6>  | drestivo-org-directory-search-ag         |
+
+
 ### Smartparens
+
 | Key             | Function               |
 | :---            | :---                   |
 | C-M-f           | sp-forward-sexp        |
