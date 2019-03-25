@@ -115,6 +115,8 @@
   ;; The previous behavior, e.g. <s, is still available and activated
   ;; by requiring Org Tempo library.
   (require 'org-tempo)
+  ;; `org-crypt' allows to encrypt subtrees using GPG
+  (require 'org-crypt)
   :hook (org-agenda-mode . (lambda ()
                              (setq org-agenda-files
                                    (append
@@ -205,7 +207,28 @@
   (if (daemonp)
       (add-hook 'after-init-hook 'org-agenda-list)
     (setq org-agenda-inhibit-startup t))
+  ;;
+  ;; org-crypt configuration
+  ;;
+  ;; Prevent the crypt tag from using inheritance so that there is no
+  ;; encrypted data inside encrypted data
+  (setq org-tags-exclude-from-inheritance (quote ("crypt")))
+  ;; GPG key to use for encryption
+  ;; Either the Key ID or set to nil to use symmetric encryption.
+  ;; The `gpg-key' variable is defined in personal.el
+  (setq org-crypt-key gpg-key)
+  ;; Auto-saving does not cooperate with org-crypt.el: so you need
+  ;; to turn it off if you plan to use org-crypt.el quite often.
+  ;; Otherwise, you'll get an (annoying) message each time you
+  ;; start Org.
+  ;; To turn it off only locally, you can insert this:
+  ;; # -*- buffer-auto-save-file-name: nil; -*-
+  (setq auto-save-default nil)
+  ;; Set crypt as default tag available in Org files.
+  (setq org-tag-alist '(("crypt" . ?c)))
   :bind
+  ("\C-ce" . org-encrypt-entry)
+  ("\C-cd" . org-decrypt-entry)
   ("\C-cl" . org-store-link)
   ("\C-ca" . org-agenda)
   ("\C-cc" . org-capture)
