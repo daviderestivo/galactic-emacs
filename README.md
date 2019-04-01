@@ -128,6 +128,7 @@ not listed.
 * load-bash-alias [[Link](https://github.com/daviderestivo/load-bash-alias)]
 * move-text [[Link](https://github.com/emacsfodder/move-text)]
 * multiple-cursors [[Link](https://github.com/magnars/multiple-cursors.el)]
+* open-junk-file [[Link](https://github.com/rubikitch/open-junk-file)]
 * psession [[Link](https://github.com/thierryvolpiatto/psession)]
 * shell-pop-el [[Link](https://github.com/kyagi/shell-pop-el)]
 * string-inflection [[Link](https://github.com/akicho8/string-inflection)]

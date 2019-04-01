@@ -1073,5 +1073,11 @@
   :config
   (move-text-default-bindings))
 
+;; Open a junk (memo) file to try-and-error
+(use-package open-junk-file
+  :ensure t
+  :config
+  (setq open-junk-file-format "~/Dropbox/emacs/junk/%Y/%m/%d-%H%M%S."))
+
 
 ;;; packages.el ends here

@@ -63,6 +63,7 @@
 ;; - magit                               [https://magit.vc]
 ;; - magit-org-todos                     [https://github.com/danielma/magit-org-todos.el]
 ;; - markdown-mode                       [http://jblevins.org/projects/markdown-mode]
+;; - open-junk-file                      [https://github.com/rubikitch/open-junk-file]
 ;; - projectile                          [https://github.com/bbatsov/projectile]
 ;; - py-autopep8                         [https://github.com/paetzke/py-autopep8.el]
 ;; - smartparens                         [https://github.com/Fuco1/smartparens]
