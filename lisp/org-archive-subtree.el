@@ -5,7 +5,8 @@
 (defadvice org-archive-subtree (around fix-hierarchy activate)
   (let* ((fix-archive-p (and (not current-prefix-arg)
                              (not (use-region-p))))
-         (afile (org-extract-archive-file (org-get-local-archive-location)))
+         (afile  (car (org-archive--compute-location
+		       (or (org-entry-get nil "ARCHIVE" 'inherit) org-archive-location))))
          (buffer (or (find-buffer-visiting afile) (find-file-noselect afile))))
     ad-do-it
     (when fix-archive-p
