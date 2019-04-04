@@ -84,6 +84,7 @@
 ;;  `Visual'
 ;; - all-the-icons                       [https://github.com/domtronn/all-the-icons.el]
 ;; - atom-one-dark-theme                 [https://github.com/jonathanchu/atom-one-dark-theme]
+;; - beacon                              [https://github.com/Malabarba/beacon]
 ;; - emacs-dashboard                     [https://github.com/rakanalh/emacs-dashboard]
 ;; - eyebrowse                           [https://github.com/wasamasa/eyebrowse]
 ;; - goto-line-preview                   [https://github.com/jcs090218/goto-line-preview]

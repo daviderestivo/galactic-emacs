@@ -1079,5 +1079,11 @@
   :config
   (setq open-junk-file-format "~/Dropbox/emacs/junk/%Y/%m/%d-%H%M%S."))
 
+;; Never lose your cursor again
+(use-package beacon
+  :ensure t
+  :config
+  (beacon-mode 1))
+
 
 ;;; packages.el ends here
