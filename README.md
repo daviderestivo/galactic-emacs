@@ -105,6 +105,7 @@ not listed.
 ### Visual
 * all-the-icons [[Link](https://github.com/domtronn/all-the-icons.el)]
 * atom-one-dark-theme [[Link](https://github.com/jonathanchu/atom-one-dark-theme)]
+* auto-highlight-symbol [[Link](https://github.com/gennad/auto-highlight-symbol)]
 * beacon [[Link](https://github.com/Malabarba/beacon)]
 * emacs-dashboard [[Link](https://github.com/rakanalh/emacs-dashboard)]
 * eyebrowse [[Link](https://github.com/wasamasa/eyebrowse)]

@@ -1085,5 +1085,12 @@
   :config
   (beacon-mode 1))
 
+;; Automatic highlighting current symbol minor mode
+(use-package auto-highlight-symbol
+  :ensure t
+  :config
+  (global-auto-highlight-symbol-mode t)
+  (setq ahs-idle-interval 0.5))
+
 
 ;;; packages.el ends here
