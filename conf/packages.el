@@ -1082,12 +1082,14 @@
 ;; Never lose your cursor again
 (use-package beacon
   :ensure t
+  :diminish beacon-mode
   :config
   (beacon-mode 1))
 
 ;; Automatic highlighting current symbol minor mode
 (use-package auto-highlight-symbol
   :ensure t
+  :diminish auto-highlight-symbol-mode
   :config
   (global-auto-highlight-symbol-mode t)
   (setq ahs-idle-interval 0.5))
