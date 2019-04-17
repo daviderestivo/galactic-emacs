@@ -199,17 +199,17 @@ not listed.
 
 ### Org-mode
 
-| Key   | Function                                 |
-| :---  | :---                                     |
-| C-c e | org-encrypt-entry                        |
-| C-c d | org-decrypt-entry                        |
-| C-c l | org-store-link                           |
-| C-c a | org-agenda                               |
-| C-c c | org-capture                              |
-| C-c b | org-iswitch                              |
-| C-c j | drestivo-org-show-current-heading-tidily |
-| <F6>  | drestivo-org-directory-search-ag         |
-
+| Key    | Function                                 |
+| :---   | :---                                     |
+| C-c e  | org-encrypt-entry                        |
+| C-c d  | org-decrypt-entry                        |
+| C-c l  | org-store-link                           |
+| C-c a  | org-agenda                               |
+| C-c c  | org-capture                              |
+| C-c b  | org-iswitch                              |
+| C-c j  | drestivo-org-show-current-heading-tidily |
+| <F6>   | drestivo-org-directory-search-ag         |
+| M-<F6> | helm-do-ag                               |
 
 ### Smartparens
 

@@ -227,14 +227,15 @@
   ;; Set crypt as default tag available in Org files.
   (setq org-tag-alist '(("crypt" . ?c)))
   :bind
-  ("\C-ce" . org-encrypt-entry)
-  ("\C-cd" . org-decrypt-entry)
-  ("\C-cl" . org-store-link)
-  ("\C-ca" . org-agenda)
-  ("\C-cc" . org-capture)
-  ("\C-cb" . org-iswitchb)
-  ("\C-cj" . drestivo-org-show-current-heading-tidily)
-  ("<f6>"  . drestivo-org-directory-search-ag))
+  ("\C-ce"  . org-encrypt-entry)
+  ("\C-cd"  . org-decrypt-entry)
+  ("\C-cl"  . org-store-link)
+  ("\C-ca"  . org-agenda)
+  ("\C-cc"  . org-capture)
+  ("\C-cb"  . org-iswitchb)
+  ("\C-cj"  . drestivo-org-show-current-heading-tidily)
+  ("M-<f6>" . helm-do-ag)
+  ("<f6>"   . drestivo-org-directory-search-ag))
 
 ;; ORG Babel: Main section
 (use-package ob
