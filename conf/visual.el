@@ -116,4 +116,10 @@
 (setq frame-title-format nil)
 (setq ns-use-proxy-icon nil)
 
+;; Avoid gaps between windows when tiling, unless the currently used
+;; typeface is exactly aligned with the effective display area.
+;; Link: https://github.com/d12frosted/homebrew-emacs-plus/issues/130
+(setq frame-resize-pixelwise t)
+
+
 ;;; visual.el ends here
