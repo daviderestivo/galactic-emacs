@@ -234,7 +234,6 @@
   ("\C-cc"  . org-capture)
   ("\C-cb"  . org-iswitchb)
   ("\C-cj"  . drestivo-org-show-current-heading-tidily)
-  ("M-<f6>" . helm-do-ag)
   ("<f6>"   . drestivo-org-directory-search-ag))
 
 ;; ORG Babel: Main section
@@ -492,7 +491,9 @@
                                  (interactive "P")
                                  (if (eq P nil)
                                      (helm-do-ag-this-file)
-                                   (helm-do-ag-buffers)))))
+                                   (helm-do-ag-buffers))))
+  :bind
+  ("M-<f6>" . helm-do-ag))
 
 ;; helm-descbinds
 (use-package helm-descbinds
