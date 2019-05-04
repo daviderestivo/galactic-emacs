@@ -732,6 +732,7 @@
 ;; Pop-up a shell
 (use-package shell-pop
   :ensure t
+  :defer t
   :init
   (setq shell-pop-shell-type '("eshell" "*eshell*" (lambda () (eshell)))
         shell-pop-term-shell "eshell"
@@ -743,6 +744,7 @@
 ;; Fish-like autosuggestions in eshell
 (use-package esh-autosuggest
   :ensure t
+  :defer t
   :hook
   (eshell-mode . esh-autosuggest-mode))
 
@@ -818,6 +820,7 @@
 ;; configurations in a simple manner, just like tiling window managers.
 (use-package eyebrowse
   :ensure t
+  :defer t
   :config
   (eyebrowse-mode)
   ;; Display the *scratch* buffer for every newly created workspace
@@ -891,6 +894,7 @@
 ;; Convert bash aliases into eshell ones
 (use-package load-bash-alias
   :ensure t
+  :defer t
   :config
   (setq load-bash-alias-bashrc-file "~/.bashrc")
   (setq load-bash-alias-exclude-aliases-regexp "^alias magit\\|^alias oc"))
@@ -898,7 +902,8 @@
 ;; Geiser is a generic Emacs/Scheme interaction mode, featuring an
 ;; enhanced REPL
 (use-package geiser
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;; Minor mode for Emacs that deals with parens pairs and tries to be
 ;; smart about it.
@@ -1012,16 +1017,19 @@
 
 ;; Emacs client/library for the Language Server Protocol
 (use-package lsp-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;; Company completion backend for lsp-mode
 (use-package company-lsp
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;; Higher level UI modules of lsp-mode, like flycheck support and code
 ;; lenses.
 (use-package lsp-ui
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;; Emacs Java IDE using Eclipse JDT Language Server
 (use-package lsp-java
@@ -1047,7 +1055,8 @@
 ;; underscore -> UPCASE -> CamelCase -> lowerCamelCase conversion of
 ;; names
 (use-package string-inflection
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;; Preview line when executing goto-line command
 (use-package goto-line-preview
@@ -1078,6 +1087,7 @@
 ;; Open a junk (memo) file to try-and-error
 (use-package open-junk-file
   :ensure t
+  :defer t
   :config
   (setq open-junk-file-format "~/Dropbox/emacs/junk/%Y/%m/%d-%H%M%S."))
 
