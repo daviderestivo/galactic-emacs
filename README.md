@@ -26,14 +26,14 @@ manager on macOS, please install Emacs with the below command:
 
 ``` bash
 brew tap daviderestivo/emacs-head
-brew install emacs-head --HEAD --with-cocoa --with-no-frame-refocus --with-imagemagick@7 --with-jansson
+brew install emacs-head --HEAD --with-cocoa --with-no-frame-refocus --with-imagemagick --with-jansson
 ```
 
 or if you prefer Emacs 26.x:
 
 ``` bash
 brew tap daviderestivo/emacs-head
-brew install emacs-head --with-cocoa --with-no-frame-refocus --with-imagemagick@6 --with-multicolor-fonts
+brew install emacs-head --with-cocoa --with-no-frame-refocus --with-imagemagick --with-multicolor-fonts
 ```
 
 ### Repository Clone
