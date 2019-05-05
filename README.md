@@ -1,6 +1,7 @@
 # emacs-config
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Build Status](https://travis-ci.com/daviderestivo/emacs-config.svg?branch=master)](https://travis-ci.com/daviderestivo/emacs-config)
 
 This repository contains my Emacs configuration. You can clone it as
 it comes or simply use whatever part you might need/like. The look and

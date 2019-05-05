@@ -1,0 +1,31 @@
+language: emacs-lisp
+
+os:
+  - osx
+
+matrix:
+  include:
+    # Emacs 26.x on Mojave (10.14)
+    - env:
+        - BUILD_OPTIONS=""
+        - TEST_OPTIONS=""
+      osx_image: xcode10.2
+    # Emacs 27.x on Mojave (10.14)
+    - env:
+        - BUILD_OPTIONS="--HEAD --with-cocoa --with-no-frame-refocus --with-imagemagick --with-jansson"
+        - TEST_OPTIONS="--HEAD"
+      osx_image: xcode10.2
+
+  fast_finish: true
+
+before_script:
+  - mv ../emacs-config ~/.emacs.d
+  - brew update
+  - brew tap daviderestivo/emacs-head
+  - brew install emacs-head
+
+script:
+  - echo "Attempting startup..."
+  - emacs -nw --eval="(kill-emacs)"
+
+
