@@ -50,6 +50,8 @@ git submodule update
 git submodule foreach --recursive git checkout master
 ```
 
+Before you start emacs please edit `~/.emacs.d/conf/personal.el` and add your personal informations.
+
 ## Included packages
 
 The following is the list of the included packages. Packages dependencies are
