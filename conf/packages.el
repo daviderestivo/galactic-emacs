@@ -732,7 +732,6 @@
 ;; Pop-up a shell
 (use-package shell-pop
   :ensure t
-  :defer t
   :init
   (setq shell-pop-shell-type '("eshell" "*eshell*" (lambda () (eshell)))
         shell-pop-term-shell "eshell"
