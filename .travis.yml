@@ -22,7 +22,7 @@ before_script:
   - mv ../emacs-config ~/.emacs.d
   - brew update
   - brew tap daviderestivo/emacs-head
-  - brew install emacs-head
+  - brew install emacs-head $BUILD_OPTIONS
 
 script:
   - echo "Attempting startup..."
