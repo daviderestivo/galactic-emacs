@@ -209,7 +209,8 @@ This function requires `all-the-icons' package to be installed
         (progn
           (setq drestivo-user-login-name (user-login-name)
                 ;; Remove the domain name from the local eshell prompt
-                drestivo-system-name (car (split-string (system-name) "\\."))
+                drestivo-system-name (when (string-match-p (regexp-quote ".") system-name)
+                                       (car (split-string (system-name) "\\.")))
                 drestivo-user-uid (user-uid))))
       (concat
        "┌─ "
@@ -219,23 +220,24 @@ This function requires `all-the-icons' package to be installed
        " "
        (drestivo-with-face (concat (eshell/pwd) " ") :background drestivo-header-bg)
        (if (string= (ignore-errors (vc-responsible-backend default-directory)) "Git")
-           (progn
-             (setq git-status (split-string (vc-git--run-command-string default-directory "status" "-s")))
-             (drestivo-with-face
-              (format "[%s %s %s] "
-                      (if (display-graphic-p)
-                          (all-the-icons-faicon "git-square")
-                        "Git")
-                      (if (display-graphic-p)
-                          (concat (all-the-icons-octicon  "git-branch") ":" (car (vc-git-branches)))
-                        (concat "branch" ":" (car (vc-git-branches))))
-                      (concat
-                       "status:"
-                       (if (member "A" git-status)  "A" "-")   ;; Added files (not committed)
-                       (if (member "M" git-status)  "M" "-")   ;; Modified files
-                       (if (member "D" git-status)  "D" "-")   ;; Deleted files
-                       (if (member "??" git-status) "U" "-"))) ;; Untracked files
-              :background drestivo-header-bg :foreground "LightGreen")))
+           (when (ignore-errors (vc-git--run-command-string default-directory "status" "-s"))
+             (progn
+               (setq git-status (split-string (vc-git--run-command-string default-directory "status" "-s")))
+               (drestivo-with-face
+                (format "[%s %s %s] "
+                        (if (display-graphic-p)
+                            (all-the-icons-faicon "git-square")
+                          "Git")
+                        (if (display-graphic-p)
+                            (concat (all-the-icons-octicon  "git-branch") ":" (car (vc-git-branches)))
+                          (concat "branch" ":" (car (vc-git-branches))))
+                        (concat
+                         "status:"
+                         (if (member "A" git-status)  "A" "-")   ;; Added files (not committed)
+                         (if (member "M" git-status)  "M" "-")   ;; Modified files
+                         (if (member "D" git-status)  "D" "-")   ;; Deleted files
+                         (if (member "??" git-status) "U" "-"))) ;; Untracked files
+                :background drestivo-header-bg :foreground "LightGreen"))))
        (drestivo-with-face
         (concat
          "["
