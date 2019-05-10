@@ -13,9 +13,7 @@ bookmarks
 eclipse.jdt.ls/
 elisp-objects/
 elpa/
-eshell/alias
-eshell/history
-eshell/lastdir
+eshell/
 hgs-cache
 personal.el
 places
