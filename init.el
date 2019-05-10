@@ -199,10 +199,8 @@
   (load custom-file 'noerror))
 
 ;; Personal Information
-(setq drestivo-personal-file (expand-file-name "personal.el"
-                                               user-emacs-directory))
-(when (file-exists-p drestivo-personal-file)
-  (load-file drestivo-personal-file))
+(load-file (expand-file-name "personal.el"
+                             user-emacs-directory))
 
 ;; Load helper functions
 (load-file (expand-file-name "conf/helper-functions.el"
