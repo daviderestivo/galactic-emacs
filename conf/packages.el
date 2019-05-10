@@ -119,13 +119,14 @@
   (require 'org-crypt)
   :hook (org-agenda-mode . (lambda ()
                              (setq org-agenda-files
-                                   (append
-                                    (find-lisp-find-files (concat org-directory "agenda") "\.org$")
-                                    (find-lisp-find-files (concat org-directory "home-projects") "\.org$")
-                                    (find-lisp-find-files (concat org-directory "work-projects") "\.org$")
-                                    (find-lisp-find-files (concat org-directory "notebooks") "\.org$")
-                                    (list (concat org-directory "refile-beorg.org"))
-                                    (list (concat org-directory "refile.org"))))))
+                                   (when (file-directory-p org-directory)
+                                     (append
+                                      (find-lisp-find-files (concat org-directory "agenda") "\.org$")
+                                      (find-lisp-find-files (concat org-directory "home-projects") "\.org$")
+                                      (find-lisp-find-files (concat org-directory "work-projects") "\.org$")
+                                      (find-lisp-find-files (concat org-directory "notebooks") "\.org$")
+                                      (list (concat org-directory "refile-beorg.org"))
+                                      (list (concat org-directory "refile.org")))))))
   (org-mode . (lambda ()
                 (setq show-trailing-whitespace t)
                 (flyspell-prog-mode)
@@ -140,16 +141,18 @@
   (load-library "find-lisp")
   ;; ORG directories and files
   (setq org-directory "~/org/")
-  (setq org-default-notes-file (concat org-directory "refile.org"))
+  (when (file-directory-p org-directory)
+    (setq org-default-notes-file (concat org-directory "refile.org")))
   ;; Additional files to be searched in addition to the default ones
   ;; contained in the agenda folder
   (setq org-agenda-text-search-extra-files
-        (append
-         (find-lisp-find-files (concat org-directory "home-projects") "\.org$")
-         (find-lisp-find-files (concat org-directory "work-projects") "\.org$")
-         (find-lisp-find-files (concat org-directory "notebooks") "\.org$")
-         (list (concat org-directory "refile-beorg.org"))
-         (list (concat org-directory "refile.org"))))
+        (when (file-directory-p org-directory)
+          (append
+           (find-lisp-find-files (concat org-directory "home-projects") "\.org$")
+           (find-lisp-find-files (concat org-directory "work-projects") "\.org$")
+           (find-lisp-find-files (concat org-directory "notebooks") "\.org$")
+           (list (concat org-directory "refile-beorg.org"))
+           (list (concat org-directory "refile.org")))))
   ;; Configure refiling
   (setq org-outline-path-complete-in-steps nil)
   (setq org-refile-targets '((org-agenda-files :maxlevel . 1)))

@@ -198,6 +198,10 @@
 (when (file-exists-p custom-file)
   (load custom-file 'noerror))
 
+;; Personal Information
+(load-file (expand-file-name "personal.el"
+                             user-emacs-directory))
+
 ;; Load helper functions
 (load-file (expand-file-name "conf/helper-functions.el"
                              user-emacs-directory))

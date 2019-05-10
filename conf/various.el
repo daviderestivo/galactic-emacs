@@ -49,12 +49,6 @@
                                      (concat "[" (current-time-string) "]" " GNU Emacs server uptime: "
                                              (emacs-uptime))))))
 
-;; Personal Information
-(setq drestivo-personal-file (expand-file-name "personal.el"
-                                               user-emacs-directory))
-(when (file-exists-p drestivo-personal-file)
-  (load drestivo-personal-file))
-
 ;; UTF-8 as default encoding
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
