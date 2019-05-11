@@ -49,21 +49,30 @@
 
 ;; Enable use-package statistics
 ;;
-;;Before exiting call `use-package-report'. This will display a buffer
+;; Before exiting call `use-package-report'. This will display a buffer
 ;; with all the packages you've declared with use-package and whether
 ;; or not they've been loaded this session (along with some other
 ;; useful info.
 (setq use-package-compute-statistics t)
 
 ;; All the icons
+;;
+;; Runs only the first time all-the-icons is downloaded
+(progn
+  (setq drestivo-all-the-icons-first-run t)
+  ;; Check if this is the first run
+  (when (car (file-expand-wildcards
+              (concat user-emacs-directory "elpa/all-the-icons-*")))
+    (setq drestivo-all-the-icons-first-run nil))
+  ;; If this is the first run we download all-the-icons package and
+  ;; the related fonts
+  (when drestivo-all-the-icons-first-run
+    (use-package all-the-icons
+      :ensure t
+      :init
+      (all-the-icons-install-fonts t))))
 (use-package all-the-icons
-  :ensure t
-  :config
-  ;; Runs only the first time all-the-icons is downloaded
-  (unless (file-directory-p (car
-                             (file-expand-wildcards
-                              (concat user-emacs-directory "elpa/all-the-icons-*"))))
-    (all-the-icons-install-fonts t)))
+  :ensure t)
 
 ;; atom-one-dark-theme
 (use-package atom-one-dark-theme
