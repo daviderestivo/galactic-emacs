@@ -59,9 +59,11 @@
 (use-package all-the-icons
   :ensure t
   :config
-  ;; The below command needs to be run only once manually to install the
-  ;; needed fonts (all-the-icons-install-fonts)
-  )
+  ;; Runs only the first time all-the-icons is downloaded
+  (unless (file-directory-p (car
+                             (file-expand-wildcards
+                              (concat user-emacs-directory "elpa/all-the-icons-*"))))
+    (all-the-icons-install-fonts t)))
 
 ;; atom-one-dark-theme
 (use-package atom-one-dark-theme
