@@ -20,6 +20,7 @@ matrix:
 
 before_script:
   - mv ../emacs-config ~/.emacs.d
+  - mv ~/.emacs.d/personal.el.example ~/.emacs.d/personal.el
   - brew update
   - brew tap daviderestivo/emacs-head
   - brew install emacs-head $BUILD_OPTIONS
