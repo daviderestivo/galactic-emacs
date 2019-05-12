@@ -57,20 +57,26 @@
 
 ;; All the icons
 ;;
-;; Runs only the first time all-the-icons is downloaded
-(progn
-  (setq drestivo-all-the-icons-first-run t)
-  ;; Check if this is the first run
-  (when (car (file-expand-wildcards
-              (concat user-emacs-directory "elpa/all-the-icons-*")))
-    (setq drestivo-all-the-icons-first-run nil))
-  ;; If this is the first run we download all-the-icons package and
-  ;; the related fonts
-  (when drestivo-all-the-icons-first-run
-    (use-package all-the-icons
-      :ensure t
-      :init
-      (all-the-icons-install-fonts t))))
+;; The fonts installation runs only the first time all-the-icons is
+;; downloaded.
+;;
+;; Temporary disabled when running on travis-ci because of an unknown
+;; issue when installing the fonts.
+(unless (string-equal (getenv "USER") "travis")
+  (progn
+    (setq drestivo-all-the-icons-first-run t)
+    ;; Check if this is the first run
+    (when (car (file-expand-wildcards
+                (concat user-emacs-directory "elpa/all-the-icons-*")))
+      (setq drestivo-all-the-icons-first-run nil))
+    ;; If this is the first run we download all-the-icons package and
+    ;; the related fonts
+    (when drestivo-all-the-icons-first-run
+      (use-package all-the-icons
+        :ensure t
+        :init
+        (all-the-icons-install-fonts t)))))
+;;
 (use-package all-the-icons
   :ensure t)
 
