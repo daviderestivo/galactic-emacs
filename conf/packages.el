@@ -113,6 +113,9 @@
   :config
   ;; Expand "unpushed to upstream or recent" magit section
   (push (cons [unpushed status] 'show) magit-section-initial-visibility-alist)
+  ;; Displaying more detailed information about your Git stashes
+  (setq magit-status-margin
+        '(t "%Y-%m-%d %H:%M " magit-log-margin-width t 18))
   :bind
   ("<f2>" . magit-status)
   ("<f5>" . magit-list-repositories))
