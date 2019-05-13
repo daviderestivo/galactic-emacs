@@ -842,7 +842,6 @@
 ;; configurations in a simple manner, just like tiling window managers.
 (use-package eyebrowse
   :ensure t
-  :defer t
   :config
   (eyebrowse-mode)
   ;; Display the *scratch* buffer for every newly created workspace
