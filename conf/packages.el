@@ -349,6 +349,7 @@
 ;; A package that shows your agenda when Emacs is idle
 (use-package idle-org-agenda
   :after org-agenda
+  :disabled t
   :ensure t
   :config (idle-org-agenda-mode))
 
