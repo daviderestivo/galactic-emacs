@@ -209,8 +209,9 @@ This function requires `all-the-icons' package to be installed
         (progn
           (setq drestivo-user-login-name (user-login-name)
                 ;; Remove the domain name from the local eshell prompt
-                drestivo-system-name (when (string-match-p (regexp-quote ".") system-name)
-                                       (car (split-string (system-name) "\\.")))
+                drestivo-system-name (if (string-match-p (regexp-quote ".") system-name)
+                                         (car (split-string (system-name) "\\."))
+                                       (system-name))
                 drestivo-user-uid (user-uid))))
       (concat
        "┌─ "
