@@ -77,7 +77,8 @@
 ;; Turn on highlighting current line
 (global-hl-line-mode 1)
 
-;; Disable the toolbar and the scroll-bar. Press F9 to enable the scroll-bar
+;; Disable the toolbar and the scroll-bar. Press F9 to enable the
+;; scroll-bar
 (if (display-graphic-p)
     (progn
       (tool-bar-mode -1)
