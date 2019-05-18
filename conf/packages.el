@@ -1037,6 +1037,12 @@
   :ensure t
   :config (treemacs-icons-dired-mode))
 
+;; A small utility package to fill the small gaps left by using
+;; filewatch-mode and git-mode in conjunction with magit.
+(use-package treemacs-magit
+  :after treemacs magit
+  :ensure t)
+
 ;; Emacs client/library for the Language Server Protocol
 (use-package lsp-mode
   :ensure t
