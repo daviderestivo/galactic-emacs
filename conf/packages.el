@@ -968,9 +968,14 @@
   :init
   (with-eval-after-load 'winum
     (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
-  ;; Allow treemacs window to be resized
-  (add-hook ' treemacs-mode-hook
-              (lambda () (treemacs-toggle-fixed-width)))
+  ;; Allow treemacs window to be resized and disable line numbers
+  (add-hook 'treemacs-mode-hook
+            (lambda () (progn
+                    (treemacs-toggle-fixed-width)
+                    (if (version< emacs-version "26.1")
+                        (linum-mode)
+                      (display-line-numbers-mode))
+                    (setq display-line-numbers nil))))
   :config
   (progn
     (setq treemacs-collapse-dirs              (if (executable-find "python") 3 0)
