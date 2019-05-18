@@ -82,8 +82,8 @@
 (if (display-graphic-p)
     (progn
       (tool-bar-mode -1)
-      (scroll-bar-mode -1)))
-(global-set-key (kbd "<f9>") #'toggle-scroll-bar)
+      (scroll-bar-mode -1)
+      (global-set-key (kbd "<f9>") #'toggle-scroll-bar)))
 
 ;; Enable show-paren-mode. paren-mode allows one to see
 ;; matching pairs of parentheses and other characters.
