@@ -2,3 +2,4 @@
 ob-ipython support is currently disabled because of
 https://github.com/gregsexton/ob-ipython/issues/135
 * TODO Fix all-the-icons fonts installation in travis-ci
+* TODO Re-factor (drestivo-setup-frame-appearance)
