@@ -411,8 +411,8 @@
                  (setq show-trailing-whitespace t)
                  (flyspell-prog-mode)
                  (superword-mode 1)))
-  :config
-  (add-to-list 'auto-mode-alist '("\\.\\(yml\\|knd)\\)\\'" . yaml-mode)))
+  :mode
+  (("\\.\\(yml\\|knd)\\)\\'" . yaml-mode)))
 
 ;; jinja2-mode
 (use-package jinja2-mode
@@ -423,8 +423,8 @@
                    (setq show-trailing-whitespace t)
                    (flyspell-prog-mode)
                    (superword-mode 1)))
-  :config
-  (add-to-list 'auto-mode-alist '("\\.j2\\'" . jinja2-mode)))
+  :mode
+  (("\\.j2\\'" . jinja2-mode)))
 
 ;; helm-config
 (use-package helm-config
@@ -750,8 +750,8 @@
 (use-package dockerfile-mode
   :ensure t
   :defer t
-  :config
-  (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode)))
+  :mode
+  (("Dockerfile\\'" . dockerfile-mode)))
 
 ;; Pop-up a shell
 (use-package shell-pop
