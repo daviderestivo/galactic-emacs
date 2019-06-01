@@ -298,6 +298,11 @@ This function has to be invoked:
 
   (if (or (display-graphic-p) (daemonp))
       (progn
+        ;; Setup sml theme and modeline battery format
+        (setq sml/theme 'atom-one-dark)
+        (sml/setup)
+        (setq battery-mode-line-format (concat " [" (all-the-icons-material "battery_std") "%b%p%%" "]"))
+        ;; Setup other fame attributes, width, height, alpha, ...
         (if frame
             (progn
               (select-frame frame)
@@ -323,11 +328,7 @@ This function has to be invoked:
             (add-to-list 'default-frame-alist
                          `(height . ,drestivo-frame-height))
             (add-to-list 'default-frame-alist
-                         `(width . ,drestivo-frame-width))))
-            ;; Setup sml theme and modeline battery format
-            (setq sml/theme 'atom-one-dark)
-            (sml/setup)
-            (setq battery-mode-line-format (concat " [" (all-the-icons-material "battery_std") "%b%p%%" "]")))))
+                         `(width . ,drestivo-frame-width)))))))
 
 (defun drestivo-disable-number-and-visual-line ()
   (visual-line-mode 0)
