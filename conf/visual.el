@@ -61,6 +61,11 @@
 (global-visual-line-mode t)
 (diminish 'visual-line-mode)
 
+;; Set Emacs frame size and transparency
+(setq drestivo-frame-height 60)
+(setq drestivo-frame-width 130)
+(setq drestivo-frame-alpha '(96 96))
+
 ;; Show trailing white-spaces
 ;; Type M-x delete-trailing-whitespace to delete all trailing
 ;; white-space. This command deletes all extra spaces at the
@@ -79,7 +84,7 @@
 
 ;; Disable the toolbar and the scroll-bar. Press F9 to enable the
 ;; scroll-bar
-(if (display-graphic-p)
+(if (or (display-graphic-p) (daemonp))
     (progn
       (tool-bar-mode -1)
       (scroll-bar-mode -1)

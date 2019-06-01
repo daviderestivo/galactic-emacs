@@ -278,58 +278,56 @@ This function requires `all-the-icons' package to be installed
 ;; Emacs frame appearance
 ;;
 (defun drestivo-setup-frame-appearance (&optional frame)
-  "This function is used to setup the Emacs frame appearance in a
-Graphical User Interface (GUI), not in a terminal.
-This function has to be invoked twice:
- - as a hook of `after-make-frame-functions'
-   (FRAME actual parameter required)
- - as a function (drestivo-setup-frame-appearance) (FRAME
-   actual parameter not required) inside your emacs configuration file.
-   In this case, for whatever reason, the first created frame does not
-   have the FRAME actual parameter set."
-  (if (or (display-graphic-p) (and (daemonp) (display-graphic-p)))
+  "This function is used to setup the Emacs frame appearance in
+Graphical User Interface (GUI) mode.
+
+This function has to be invoked:
+ - as a hook of `after-make-frame-functions' in order to
+   run on every newly created frame. In this case the FRAME
+   actual parameter is used
+ - as a function `drestivo-setup-frame-appearance' called
+   inside your init.el file:
+
+   (drestivo-setup-frame-appearance)
+
+   In this case the FRAME actual parameter is not needed.
+   Call `drestivo-setup-frame-appearance' inside init.el is
+   required because the first created frame, when emacs is not
+   running in daemon mode, does not have the FRAME actual
+   parameter set."
+
+  (if (or (display-graphic-p) (daemonp))
       (progn
         (if frame
             (progn
               (select-frame frame)
               ;; Always bring a newly created frame on top
               (select-frame-set-input-focus frame)
-              ;; Dunno why, but even if (global-display-line-numbers-mode)
-              ;; is enabled the below is still needed when Emacs is running
-              ;; in daemon mode.
-              (global-display-line-numbers-mode t)
               ;; Transparent frame
-              (set-frame-parameter frame 'alpha '(96 96))
+              (set-frame-parameter frame
+                                   `(alpha . ,drestivo-frame-alpha))
               ;; Natural title bar
               (set-frame-parameter frame 'ns-transparent-titlebar 't)
               (set-frame-parameter frame 'ns-appearance 'dark)
-              ;; Set Emacs frame size
-              (defvar drestivo-frame-height 60)
-              (defvar drestivo-frame-width 130)
               (set-frame-parameter frame 'height drestivo-frame-height)
-              (set-frame-parameter frame 'width  drestivo-frame-width)
-              ;; Setup sml theme
-              (setq sml/theme 'atom-one-dark)
-              (sml/setup)
-              (setq battery-mode-line-format (concat " [" (all-the-icons-material "battery_std") "%b%p%%" "]")))
-          ;; Used for the first created frame. See description above.
+              (set-frame-parameter frame 'width  drestivo-frame-width))
+              ;; Used for the first created frame when emacs is not
+              ;; running in daemon mode. See description above.
           (progn
             ;; Transparent frame
-            (add-to-list 'default-frame-alist '(alpha . (96 96)))
+            (add-to-list 'default-frame-alist
+                         `(alpha . ,drestivo-frame-alpha))
             ;; Natural title bar
             (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
             (add-to-list 'default-frame-alist '(ns-appearance . dark))
-            ;; Set Emacs frame size
-            (defvar drestivo-frame-height 60)
-            (defvar drestivo-frame-width 130)
             (add-to-list 'default-frame-alist
                          `(height . ,drestivo-frame-height))
             (add-to-list 'default-frame-alist
-                         `(width . ,drestivo-frame-width))
-            ;; Setup sml theme
+                         `(width . ,drestivo-frame-width))))
+            ;; Setup sml theme and modeline battery format
             (setq sml/theme 'atom-one-dark)
             (sml/setup)
-            (setq battery-mode-line-format (concat " [" (all-the-icons-material "battery_std") "%b%p%%" "]")))))))
+            (setq battery-mode-line-format (concat " [" (all-the-icons-material "battery_std") "%b%p%%" "]")))))
 
 (defun drestivo-disable-number-and-visual-line ()
   (visual-line-mode 0)
