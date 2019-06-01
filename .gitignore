@@ -40,6 +40,8 @@ workspace/
 *.gz
 *.iso
 *.jar
+# But not the plantuml jar file:
+!lib/plantuml.jar
 *.rar
 *.tar
 *.zip

@@ -262,6 +262,9 @@
 ;; ORG Babel: Main section
 (use-package ob
   :defer t
+  :hook
+  ;; Display images inline in the same buffer
+  (org-babel-after-execute . org-display-inline-images)
   :config
   ;; Make ORG mode allow eval elisp, python and ruby
   (org-babel-do-load-languages
@@ -272,7 +275,8 @@
      ;; Disable ob-ipython because of:
      ;; https://github.com/gregsexton/ob-ipython/issues/135
      ;;(ipython . t)
-     (ruby . t)))
+     (ruby . t)
+     (plantuml . t)))
   ;; Stop Emacs asking for confirmation when evaluating a code block
   (setq org-confirm-babel-evaluate nil)
   ;; Turn on syntax highlight
@@ -292,11 +296,15 @@
 (use-package ob-ipython
   :ensure t
   :defer t
-  :hook
-  ;; Display images inline in the same buffer
-  (org-babel-after-execute . org-display-inline-images)
   :config
   (setq ob-ipython-command "ipython3"))
+
+;; ORG Babel: Plantuml section
+(use-package ob-plantuml
+  :defer t
+  :config
+  (setq org-plantuml-jar-path
+        (concat user-emacs-directory "lib/" "plantuml.jar")))
 
 ;; org-download
 (use-package org-download
