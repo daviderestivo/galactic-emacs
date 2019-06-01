@@ -572,9 +572,17 @@
   (elpy-mode . py-autopep8-enable-on-save))
 
 ;; elpy
+;;
+;; Please install the following packages before running elpy:
+;;
+;; Python2: pip2 install jedi flake8 autopep8
+;; Python3: pip3 install jedi flake8 autopep8
+;;
 (use-package elpy
   :ensure t
   :defer t
+  :init
+  (advice-add 'python-mode :before 'elpy-enable)
   :diminish elpy-mode
   :hook
   (python-mode . elpy-mode)
