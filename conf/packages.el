@@ -884,7 +884,14 @@
   (setq dashboard-items '((recents  . 5)
                           (bookmarks . 5)
                           (projects . 5)
-                          (agenda . 5))))
+                          (agenda . 5)))
+  ;; Show info about the packages loaded and the init time
+  (setq dashboard-set-init-info t)
+  ;; Add icons to the widget headings and their items
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-set-file-icons t)
+  ;; Content is not centered by default. To center, set
+  (setq dashboard-center-content t))
 
 ;; Provides capabilities to fetch your starred repositories from
 ;; github and select one for browsing
