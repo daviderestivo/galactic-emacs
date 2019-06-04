@@ -2,6 +2,8 @@
 ;; Archive subtrees under the same hierarchy as the original org file.
 ;; Link: https://gist.github.com/Fuco1/e86fb5e0a5bb71ceafccedb5ca22fcfb
 ;;
+(require 'dash)
+
 (defadvice org-archive-subtree (around fix-hierarchy activate)
   (let* ((fix-archive-p (and (not current-prefix-arg)
                              (not (use-region-p))))
