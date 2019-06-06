@@ -114,8 +114,8 @@
   ;; Expand "unpushed to upstream or recent" magit section
   (push (cons [unpushed status] 'show) magit-section-initial-visibility-alist)
   ;; Displaying commit date and time in magit status
-  (setq magit-status-margin
-        '(t "%Y-%m-%d %H:%M " magit-log-margin-width t 18))
+  ;; (setq magit-status-margin
+  ;;    '(t "%Y-%m-%d %H:%M " magit-log-margin-width t 18))
   :bind
   ("<f2>" . magit-status)
   ("<f5>" . magit-list-repositories))
