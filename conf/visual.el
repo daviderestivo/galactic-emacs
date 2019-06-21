@@ -66,6 +66,11 @@
 (setq drestivo-frame-width 130)
 (setq drestivo-frame-alpha '(96 96))
 
+;; Set default font
+(set-face-attribute 'default nil
+                    :family "DejaVu Sans Mono"
+                    :height 140)
+
 ;; Show trailing white-spaces
 ;; Type M-x delete-trailing-whitespace to delete all trailing
 ;; white-space. This command deletes all extra spaces at the

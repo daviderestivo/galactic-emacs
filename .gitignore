@@ -16,6 +16,7 @@ elpa/
 eshell/
 hgs-cache
 personal.el
+custom.el
 places
 projectile-bookmarks.eld
 recentf
