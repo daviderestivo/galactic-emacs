@@ -141,12 +141,7 @@
                              (setq org-agenda-files
                                    (when (file-directory-p org-directory)
                                      (append
-                                      (find-lisp-find-files (concat org-directory "agenda") "\.org$")
-                                      (find-lisp-find-files (concat org-directory "home-projects") "\.org$")
-                                      (find-lisp-find-files (concat org-directory "work-projects") "\.org$")
-                                      (find-lisp-find-files (concat org-directory "notebooks") "\.org$")
-                                      (list (concat org-directory "refile-beorg.org"))
-                                      (list (concat org-directory "refile.org")))))))
+                                      (find-lisp-find-files org-directory "\.org$"))))))
   (org-mode . (lambda ()
                 (setq show-trailing-whitespace t)
                 (flyspell-prog-mode)
