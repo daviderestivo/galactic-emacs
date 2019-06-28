@@ -162,6 +162,9 @@
 (if (not (daemonp))
     (setq confirm-kill-emacs 'y-or-n-p))
 
+;; Kill process buffer without confirmation
+(setq kill-buffer-query-functions nil)
+
 ;; Make typing delete/overwrites selected text
 (delete-selection-mode 1)
 
