@@ -1079,15 +1079,20 @@
   :ensure t
   :defer t)
 
+;; Provides integration between lsp-java and treemacs
+(use-package lsp-java-treemacs
+  :after (treemacs))
+
 ;; Emacs Java IDE using Eclipse JDT Language Server
 (use-package lsp-java
   :ensure t
-  :after lsp
+  :after lsp-mode lsp-java-treemacs
   :config (add-hook 'java-mode-hook 'lsp))
 
 ;; Debug Adapter Protocol for Emacs
 (use-package dap-mode
-  :ensure t :after lsp-mode
+  :ensure t
+  :after lsp-mode
   :config
   (dap-mode t)
   (dap-ui-mode t))
@@ -1095,10 +1100,6 @@
 ;; DAP Adapter for java
 (use-package dap-java
   :after (lsp-java))
-
-;; Provides integration between lsp-java and treemacs
-(use-package lsp-java-treemacs
-  :after (treemacs))
 
 ;; underscore -> UPCASE -> CamelCase -> lowerCamelCase conversion of
 ;; names
