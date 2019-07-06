@@ -55,14 +55,11 @@
 ;; useful info.
 (setq use-package-compute-statistics t)
 
-;; All the icons
+;; All the icons (available only in GUI mode)
 ;;
 ;; The fonts installation runs only the first time all-the-icons is
 ;; downloaded.
-;;
-;; Temporary disabled when running on travis-ci because of an unknown
-;; issue when installing the fonts.
-(unless (string-equal (getenv "USER") "travis")
+(when (window-system)
   (progn
     (setq drestivo-all-the-icons-first-run t)
     ;; Check if this is the first run
@@ -75,10 +72,10 @@
       (use-package all-the-icons
         :ensure t
         :init
-        (all-the-icons-install-fonts t)))))
-;;
-(use-package all-the-icons
-  :ensure t)
+        (all-the-icons-install-fonts t))))
+  ;;
+  (use-package all-the-icons
+    :ensure t))
 
 ;; atom-one-dark-theme
 (use-package atom-one-dark-theme
