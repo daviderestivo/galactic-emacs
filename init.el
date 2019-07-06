@@ -166,8 +166,11 @@
         ("org" . 2)
         ("gnu" . 1)))
 
-;; Enable signature verification only if GPG is installed
-(setq package-check-signature (when (executable-find "gpg") 'allow-unsigned))
+;; Enable packages signature verification only if GPG is installed
+;; (setq package-check-signature (when (executable-find "gpg") 'allow-unsigned))
+;;
+;; Temporary `disable' packages signature verification
+(setq package-check-signature nil)
 
 ;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)
