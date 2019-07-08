@@ -228,6 +228,9 @@
   ;; Prevent the crypt tag from using inheritance so that there is no
   ;; encrypted data inside encrypted data
   (setq org-tags-exclude-from-inheritance (quote ("crypt")))
+  ;; Any text below a headline that has a ‘:crypt:’ tag will be
+  ;; automatically be encrypted when the file is saved
+  (org-crypt-use-before-save-magic)
   ;; GPG key to use for encryption
   ;; Either the Key ID or set to nil to use symmetric encryption.
   ;; The `gpg-key' variable is defined in personal.el
