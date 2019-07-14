@@ -134,11 +134,12 @@
   (require 'org-tempo)
   ;; `org-crypt' allows to encrypt subtrees using GPG
   (require 'org-crypt)
-  :hook (org-agenda-mode . (lambda ()
-                             (setq org-agenda-files
-                                   (when (file-directory-p org-directory)
-                                     (append
-                                      (find-lisp-find-files org-directory "\.org$"))))))
+  :hook
+  (org-agenda-mode . (lambda ()
+                       (setq org-agenda-files
+                             (when (file-directory-p org-directory)
+                               (append
+                                (find-lisp-find-files org-directory "\.org$"))))))
   (org-mode . (lambda ()
                 (setq show-trailing-whitespace t)
                 (flyspell-prog-mode)
@@ -989,11 +990,11 @@
   ;; Allow treemacs window to be resized and disable line numbers
   (add-hook 'treemacs-mode-hook
             (lambda () (progn
-                    (treemacs-toggle-fixed-width)
-                    (if (version< emacs-version "26.1")
-                        (linum-mode)
-                      (display-line-numbers-mode))
-                    (setq display-line-numbers nil))))
+                         (treemacs-toggle-fixed-width)
+                         (if (version< emacs-version "26.1")
+                             (linum-mode)
+                           (display-line-numbers-mode))
+                         (setq display-line-numbers nil))))
   :config
   (progn
     (setq treemacs-collapse-dirs              (if (executable-find "python") 3 0)
