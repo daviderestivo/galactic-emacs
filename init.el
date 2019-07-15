@@ -156,7 +156,7 @@
       '(("melpa" . "http://melpa.org/packages/")
         ("melpa-stable" . "https://stable.melpa.org/packages/")
         ("org" . "https://orgmode.org/elpa/")
-        ("gnu" . "https://elpa.gnu.org/packages/")))
+        ("gnu" . "http://elpa.gnu.org/packages/")))
 
 ;; Change the below priorities if you prefer melpa-stable packages.
 ;; Higher is better.
