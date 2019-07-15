@@ -134,6 +134,7 @@
   (require 'org-tempo)
   ;; `org-crypt' allows to encrypt subtrees using GPG
   (require 'org-crypt)
+  (setq drestivo-org-electric-pair-inhibit-list '(?\<))
   :hook
   (org-agenda-mode . (lambda ()
                        (setq org-agenda-files
@@ -141,6 +142,11 @@
                                (append
                                 (find-lisp-find-files org-directory "\.org$"))))))
   (org-mode . (lambda ()
+                (setq-local electric-pair-inhibit-predicate
+                            (lambda (c)
+                              (if (member c drestivo-org-electric-pair-inhibit-list)
+                                  t
+                                (electric-pair-default-inhibit c))))
                 (setq show-trailing-whitespace t)
                 (flyspell-prog-mode)
                 (org-indent-mode)
