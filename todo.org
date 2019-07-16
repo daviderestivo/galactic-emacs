@@ -2,7 +2,8 @@
 ob-ipython support is currently disabled because of
 https://github.com/gregsexton/ob-ipython/issues/135
 * TODO Re-enable package signature check
-
+* TODO Re-enable https for elpa.gnu.org
+[2019-07-16 Tue 07:28] Temporary disabled because of issues.
 * DONE Re-factor (drestivo-setup-frame-appearance)
 * DONE Fix all-the-icons fonts installation in travis-ci
 * DONE Install plantuml-mode
