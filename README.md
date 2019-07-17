@@ -44,7 +44,7 @@ Please run the below commands to backup your current Emacs config and clone this
 ``` bash
 cd ~
 mv .emacs.d .emacs.d.bak
-git clone https://github.com/daviderestivo/emacs-config.git .emacs.d
+git clone --depth 1 https://github.com/daviderestivo/emacs-config.git .emacs.d
 cd .emacs.d
 git submodule init
 git submodule update
