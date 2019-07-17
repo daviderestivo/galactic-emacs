@@ -201,5 +201,9 @@
 ;; - restoring the original spacing
 (global-set-key [remap just-one-space] 'cycle-spacing)
 
+;; Avoid performance issues in files with very long lines.
+(unless (version<= emacs-version "27")
+  (global-so-long-mode 1))
+
 
 ;;; various.el ends here
