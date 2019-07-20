@@ -93,7 +93,7 @@ you can find the complete list.
 > The Empire is spread across the Milky Way galaxy and consists of
 > almost 25 million planets settled exclusively by humans.
 >
-> - Galactic Empire (Isaac Asimov)
+> Galactic Empire (Isaac Asimov)
 
 The logo represents the Spaceship and the Sun, emblem of the Galactic
 Empire. The three stars on the right part represent Alpha Centauri.
