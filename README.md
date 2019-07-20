@@ -1,9 +1,10 @@
 # Galactic Emacs
 
-![Galactic Emacs Logo](https://raw.githubusercontent.com/daviderestivo/galactic-emacs/master/galactic-emacs-logo.png)
-
-[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Build Status](https://travis-ci.com/daviderestivo/galactic-emacs.svg?branch=master)](https://travis-ci.com/daviderestivo/galactic-emacs)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/daviderestivo/galactic-emacs/master/galactic-emacs-logo.png" alt="Galactic Emacs Logo">
+  <a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg" alt="License: GPL v3"></a>
+  <a href="(https://travis-ci.com/daviderestivo/galactic-emacs"><img src="https://travis-ci.com/daviderestivo/galactic-emacs.svg?branch=master" alt="Travis Build Status"></a>
+</p>
 
 This repository contains the Galactic Emacs configuration. You can
 clone it as it comes or simply use whatever part you might need/like.
