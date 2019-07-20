@@ -1,5 +1,7 @@
 # Galactic Emacs
 
+![Galactic Emacs Logo](https://raw.githubusercontent.com/daviderestivo/galactic-emacs/master/galactic-emacs-logo.png)
+
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Build Status](https://travis-ci.com/daviderestivo/galactic-emacs.svg?branch=master)](https://travis-ci.com/daviderestivo/galactic-emacs)
 
@@ -8,11 +10,11 @@ clone it as it comes or simply use whatever part you might need/like.
 The look and feel of the Emacs frame is based on the
 atom-one-dark-theme with some minor changes.
 
-## Emacs Scratch Buffer
-![Emacs scracth buffer](https://raw.githubusercontent.com/daviderestivo/galactic-emacs/master/screenshots/emacs_scratch_buffer.png)
-
 ## Emacs Dashboard
 ![Emacs dashboard](https://raw.githubusercontent.com/daviderestivo/galactic-emacs/master/screenshots/emacs_dashboard.png)
+
+## Emacs Scratch Buffer
+![Emacs scracth buffer](https://raw.githubusercontent.com/daviderestivo/galactic-emacs/master/screenshots/emacs_scratch_buffer.png)
 
 
 ## Emacs sidebars
