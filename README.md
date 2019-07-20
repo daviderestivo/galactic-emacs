@@ -7,7 +7,7 @@
   <a href="https://travis-ci.com/daviderestivo/galactic-emacs"><img src="https://travis-ci.com/daviderestivo/galactic-emacs.svg?branch=master" alt="Travis Build Status"></a>
 </p>
 
-This repository contains the Galactic Emacs configuration. You can
+This repository contains the Galactic Emacs distribution. You can
 clone it as it comes or simply use whatever part you might need/like.
 The look and feel of the Emacs frame is based on the
 atom-one-dark-theme with some minor changes.
