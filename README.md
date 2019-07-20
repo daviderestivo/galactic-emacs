@@ -82,25 +82,25 @@ adding your personal informations and rename it to
 `~/.emacs.d/personal.el`.
 
 # Key bindings
-Please have a look to the list of the available [key bindings](https://raw.githubusercontent.com/daviderestivo/galactic-emacs/master/doc/keybindings.md).
+Please have a look to the list of the available [key bindings](https://github.com/daviderestivo/galactic-emacs/blob/master/doc/keybindings.md).
 
 # Included packages
 Galactic Emacs distribution comes with many packages already included.
-[Here](https://raw.githubusercontent.com/daviderestivo/galactic-emacs/master/doc/included-packages.md)
+[Here](https://github.com/daviderestivo/galactic-emacs/blob/master/doc/included_packages.md)
 you can find the complete list.
 
 # About the logo
 > The Empire is spread across the Milky Way galaxy and consists of
 > almost 25 million planets settled exclusively by humans.
 >
-> > Galactic Empire (Isaac Asimov)
+> - Galactic Empire (Isaac Asimov)
 
 The logo represents the Spaceship and the Sun, emblem of the Galactic
-Empire. The three stars on the right part of the logo represent Alpha
-Centauri. Alpha Centauri is a triple star system, consisting of three
-stars: Rigil Kentaurus, Toliman and Proxima Centauri. In Asimov's
-Foundation Series, Alpha Centauri is cited by Lord Dorwin as one of
-the solar systems where humankind potentially originated.
+Empire. The three stars on the right part represent Alpha Centauri.
+Alpha Centauri is a triple star system, consisting of three stars:
+Rigil Kentaurus, Toliman and Proxima Centauri. In Asimov's Foundation
+Series, Alpha Centauri is cited by Lord Dorwin as one of the solar
+systems where humankind potentially originated.
 
 # License
 The license is GPLv3 for all parts:
