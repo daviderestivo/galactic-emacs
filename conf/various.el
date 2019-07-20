@@ -1,11 +1,11 @@
-;;; various.el --- Various settings
+;;; various.el --- Galactic Emacs Various settings
 
 ;;
 ;; Copyright (C) 2016-2019 Davide Restivo
 ;;
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
-;; URL: https://github.com/daviderestivo/emacs-config/blob/master/conf/various.el
+;; URL: https://github.com/daviderestivo/galactic-emacs/blob/master/conf/various.el
 ;; Version: 0.1
 ;; Keywords: emacs config
 

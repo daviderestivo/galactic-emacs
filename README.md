@@ -1,22 +1,22 @@
-# emacs-config
+# Galactic Emacs
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Build Status](https://travis-ci.com/daviderestivo/emacs-config.svg?branch=master)](https://travis-ci.com/daviderestivo/emacs-config)
+[![Build Status](https://travis-ci.com/daviderestivo/galactic-emacs.svg?branch=master)](https://travis-ci.com/daviderestivo/galactic-emacs)
 
-This repository contains my Emacs configuration. You can clone it as
-it comes or simply use whatever part you might need/like. The look and
-feel of the Emacs frame is based on the atom-one-dark-theme with some
-minor changes.
+This repository contains the Galactic Emacs configuration. You can
+clone it as it comes or simply use whatever part you might need/like.
+The look and feel of the Emacs frame is based on the
+atom-one-dark-theme with some minor changes.
 
 ## Emacs Scratch Buffer
-![Emacs scracth buffer](https://raw.githubusercontent.com/daviderestivo/emacs-config/master/screenshots/emacs_scratch_buffer.png)
+![Emacs scracth buffer](https://raw.githubusercontent.com/daviderestivo/galactic-emacs/master/screenshots/emacs_scratch_buffer.png)
 
 ## Emacs Dashboard
-![Emacs dashboard](https://raw.githubusercontent.com/daviderestivo/emacs-config/master/screenshots/emacs_dashboard.png)
+![Emacs dashboard](https://raw.githubusercontent.com/daviderestivo/galactic-emacs/master/screenshots/emacs_dashboard.png)
 
 
 ## Emacs sidebars
-![Emacs sidebars](https://raw.githubusercontent.com/daviderestivo/emacs-config/master/screenshots/emacs_sidebars.png)
+![Emacs sidebars](https://raw.githubusercontent.com/daviderestivo/galactic-emacs/master/screenshots/emacs_sidebars.png)
 
 ## Installation
 ### Emacs Installation
@@ -44,7 +44,7 @@ Please run the below commands to backup your current Emacs config and clone this
 ``` bash
 cd ~
 mv .emacs.d .emacs.d.bak
-git clone --depth 1 https://github.com/daviderestivo/emacs-config.git .emacs.d
+git clone --depth 1 https://github.com/daviderestivo/galactic-emacs.git .emacs.d
 cd .emacs.d
 git submodule init
 git submodule update

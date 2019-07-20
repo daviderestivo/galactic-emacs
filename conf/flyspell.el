@@ -1,11 +1,11 @@
-;;; flyspell.el --- Flyspell settings
+;;; flyspell.el --- Galactic Emacs Flyspell settings
 
 ;;
 ;; Copyright (C) 2016-2019 Davide Restivo
 ;;
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
-;; URL: https://github.com/daviderestivo/emacs-config/blob/master/conf/flyspell.el
+;; URL: https://github.com/daviderestivo/galactic-emacs/blob/master/conf/flyspell.el
 ;; Version: 0.1
 ;; Keywords: emacs config
 

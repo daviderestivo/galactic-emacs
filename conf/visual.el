@@ -1,11 +1,11 @@
-;;; visual.el --- Visual settings
+;;; visual.el --- Galactic Emacs Visual settings
 
 ;;
 ;; Copyright (C) 2016-2019 Davide Restivo
 ;;
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
-;; URL: https://github.com/daviderestivo/emacs-config/blob/master/conf/visual.el
+;; URL: https://github.com/daviderestivo/galactic-emacs/blob/master/conf/visual.el
 ;; Version: 0.1
 ;; Keywords: emacs config
 

@@ -1,11 +1,11 @@
-;;; packages.el --- Packages settings
+;;; packages.el --- Galactic Emacs Packages settings
 
 ;;
 ;; Copyright (C) 2016-2019 Davide Restivo
 ;;
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
-;; URL: https://github.com/daviderestivo/emacs-config/blob/master/conf/packages.el
+;; URL: https://github.com/daviderestivo/galactic-emacs/blob/master/conf/packages.el
 ;; Version: 0.1
 ;; Keywords: emacs config
 
@@ -876,11 +876,11 @@
   ;; created with `emacsclient -c'
   (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
   ;; Set banner logo text face family
-  (set-face-attribute 'dashboard-banner-logo-title-face nil :height 1.2 :family "Helvetica Light")
+  (set-face-attribute 'dashboard-banner-logo-title-face nil :height 1.1 :family "Helvetica Light")
   ;; Set the banner text
-  (setq dashboard-banner-logo-title "“Patience you must have, my young padawan” (Yoda)")
+  (setq dashboard-banner-logo-title "“To succeed, planning alone is insufficient. One must improvise as well.”  (I. Asimov, Foundation)")
   ;; Set an alternate Emacs logo
-  (setq dashboard-startup-banner (expand-file-name "emacs-logo.png"
+  (setq dashboard-startup-banner (expand-file-name "galactic-emacs-logo.png"
                                                    user-emacs-directory))
   ;; Customize banner font
   (setq dashboard-items '((recents  . 5)

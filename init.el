@@ -1,11 +1,11 @@
-;;; init.el --- An Emacs init file
+;;; init.el --- Galactic Emacs Init file
 
 ;;
 ;; Copyright (C) 2016-2019 Davide Restivo
 ;;
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
-;; URL: https://github.com/daviderestivo/emacs-config
+;; URL: https://github.com/daviderestivo/galactic-emacs
 ;; Version: 6.0.0
 ;; Keywords: emacs config dotemacs
 
@@ -30,8 +30,8 @@
 
 ;;; Commentary:
 
-;; This is my Emacs config file. Below you can find the list of the
-;; packages used:
+;; This is the Galactic Emacs config file. Below you can find the list
+;; of the packages used:
 ;;
 ;;  `Narrowing'
 ;; - helm                                [https://github.com/emacs-helm/helm]

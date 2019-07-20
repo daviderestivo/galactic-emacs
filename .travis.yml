@@ -30,7 +30,7 @@ matrix:
   fast_finish: true
 
 before_script:
-  - mv ../emacs-config ~/.emacs.d
+  - mv ../galactic-emacs ~/.emacs.d
   - mv ~/.emacs.d/personal.el.example ~/.emacs.d/personal.el
   - brew tap daviderestivo/emacs-head
   - travis_wait 60 brew install emacs-head $BUILD_OPTIONS

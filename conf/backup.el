@@ -1,11 +1,11 @@
-;;; backup.el --- Auto-backup settings
+;;; backup.el --- Galactic Emacs Auto-backup settings
 
 ;;
 ;; Copyright (C) 2016-2019 Davide Restivo
 ;;
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
-;; URL: https://github.com/daviderestivo/emacs-config/blob/master/conf/backup.el
+;; URL: https://github.com/daviderestivo/galactic-emacs/blob/master/conf/backup.el
 ;; Version: 0.1
 ;; Keywords: emacs config
 
