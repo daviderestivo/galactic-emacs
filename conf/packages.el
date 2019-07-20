@@ -610,6 +610,7 @@
 (use-package markdown-mode
   :ensure t
   :defer t
+  :ensure-system-package (markdown . "brew install markdown || sudo apt-get install markdown")
   :hook
   (markdown-mode . (lambda ()
                      (setq show-trailing-whitespace t)
@@ -618,6 +619,11 @@
   :config
   (set-face-attribute 'markdown-code-face nil :background "#282C34")
   (set-face-attribute 'markdown-code-face nil :foreground "#ABB2BF"))
+
+;; markdown-toc
+(use-package markdown-toc
+  :ensure t
+  :defer t)
 
 ;; yasnippet
 (use-package yasnippet
