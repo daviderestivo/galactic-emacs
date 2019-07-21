@@ -1,4 +1,5 @@
 - - -
+<h1 align="center">Galactic Emacs</h1>
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/daviderestivo/galactic-emacs/master/galactic-emacs-logo.png" alt="Galactic Emacs Logo">
