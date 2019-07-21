@@ -394,5 +394,17 @@ the outdated package and the CDR is the list of all the installed versions."
           (galactic-emacs--outdated-packages-write-results-buffer log-message))
       (galactic-emacs--outdated-packages-write-results-buffer "No outdated packages to be deleted found.\n"))))
 
+(defun galactic-emacs-update-config ()
+  "Update Galactic Emacs configuration to the latest version."
+  (interactive)
+  (let ((dir (expand-file-name user-emacs-directory)))
+    (progn
+      (message "Updating Galactic Emacs configuration...")
+      (cd dir)
+      (shell-command "git pull")
+      (message "Load new Galactic Emacs configuration...")
+      (galactic-emacs-reload-init-file)
+      (message "Update finished."))))
+
 
 ;;; helper-functions.el ends here
