@@ -1,14 +1,10 @@
-- - -
 <h1 align="center">Galactic Emacs</h1>
-
 <p align="center">
   <img src="https://raw.githubusercontent.com/daviderestivo/galactic-emacs/master/galactic-emacs-logo.png" alt="Galactic Emacs Logo">
   <br><br>
   <a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg" alt="License: GPL v3"></a>
   <a href="https://travis-ci.com/daviderestivo/galactic-emacs"><img src="https://travis-ci.com/daviderestivo/galactic-emacs.svg?branch=master" alt="Travis Build Status"></a>
 </p>
-
-- - -
 
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
 **Table of Contents**
