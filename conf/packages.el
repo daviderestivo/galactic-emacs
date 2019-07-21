@@ -904,15 +904,18 @@
   ;; Customize the buttons of the navigator bar
   (setq dashboard-set-navigator t)
   (setq dashboard-navigator-buttons
-        `(((,(all-the-icons-octicon "mark-github" :height 1.1 :v-adjust 0.0)
+        `(((,(when (display-graphic-p)
+               (all-the-icons-octicon "mark-github" :height 1.1 :v-adjust 0.0))
             "Homepage"
             "Visit project Homepage"
             (lambda (&rest _) (browse-url "https://github.com/daviderestivo/galactic-emacs")))
-           (,(all-the-icons-octicon "repo-pull" :height 1.1 :v-adjust 0.0)
+           (,(when (display-graphic-p)
+               (all-the-icons-octicon "repo-pull" :height 1.1 :v-adjust 0.0))
             "Update Galactic Emacs"
             "Update Galactic Emacs"
             (lambda (&rest _) (galactic-emacs-update-config)))
-           (,(all-the-icons-faicon "archive" :height 1.1 :v-adjust 0.0)
+           (,(when (display-graphic-p)
+               (all-the-icons-faicon "archive" :height 1.1 :v-adjust 0.0))
             "Update Installed Packages"
             "Update Installed Packages"
             (lambda (&rest _) (auto-package-update-now)))))))
