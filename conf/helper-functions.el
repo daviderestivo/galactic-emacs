@@ -43,7 +43,7 @@
     (message "error: org-directory not set.")))
 
 ;; Reload Emacs init file
-(defun galactic-emacs-reload-dotemacs-file ()
+(defun galactic-emacs-reload-init-file ()
   "Reload your init.el file without restarting Emacs"
   (interactive)
   (load-file "~/.emacs.d/init.el"))
