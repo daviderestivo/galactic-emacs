@@ -30,7 +30,8 @@ matrix:
   fast_finish: true
 
 before_script:
-  - echo "Current working directory: $PWD"
+  - echo "Current working directory..."
+  - echo $PWD
   - mv ../galactic-emacs ~/.emacs.d
   - mv ~/.emacs.d/personal.el.example ~/.emacs.d/personal.el
   - brew tap daviderestivo/emacs-head
