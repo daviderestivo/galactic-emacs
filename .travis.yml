@@ -39,8 +39,9 @@ before_script:
 
 script:
   - echo "Attempting startup..."
-  - echo "Changing working directory to \"~/.emacs.d\""
+  - echo "Changing working directory to \"~/.emacs.d\"..."
   - cd ~/.emacs.d
+  - echo $PWD
   - git submodule init && git submodule update && git submodule foreach --recursive git checkout master
   - emacs -nw --batch --eval='(let ((debug-on-error (>=  emacs-major-version 26))
                                     (url-show-status nil)
