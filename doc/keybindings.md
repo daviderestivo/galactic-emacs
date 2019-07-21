@@ -15,30 +15,30 @@
 
 ## General
 
-| Key           | Function                                 |
-| :---          | :---                                     |
-| \<f2\>        | magit-status                             |
-| \<f5\>        | magit-list-repositories                  |
-| \<f6\>        | org-directory-search-ag                  |
-| \<f7\>        | create new empty buffer (org-mode)       |
-| \<f8\>        | ispell-word                              |
-| M-\<f8\>      | flyspell-goto-next-error                 |
-| \<f9\>        | toggle sroll bar                         |
-| \<f12\>       | imenu-list-smart-toggle                  |
-| M-\<f12\>     | treemacs                                 |
-| C-\<f12\>     | ibuffer-sidebar-toggle-sidebar           |
-| s-/           | avy-goto-char                            |
-| C-=           | copy-line                                |
-| C-c \<left\>  | Winner mode - Undo windows changes       |
-| C-c \<right\> | Winner mode - Redo windows changes       |
-| C-m           | YAML mode - New line and indent          |
-| C-c p         | projectile keymap                        |
-| M-+           | drestivo-insert-date                     |
-| C-x t         | shell-pop-universal-key                  |
-| C-c j         | drestivo-org-show-current-heading-tidily |
-| M-o           | other-window                             |
-| M-up          | move-text-up                             |
-| M-down        | move-text-down                           |
+| Key           | Function                                       |
+| :---          | :---                                           |
+| \<f2\>        | magit-status                                   |
+| \<f5\>        | magit-list-repositories                        |
+| \<f6\>        | org-directory-search-ag                        |
+| \<f7\>        | create new empty buffer (org-mode)             |
+| \<f8\>        | ispell-word                                    |
+| M-\<f8\>      | flyspell-goto-next-error                       |
+| \<f9\>        | toggle sroll bar                               |
+| \<f12\>       | imenu-list-smart-toggle                        |
+| M-\<f12\>     | treemacs                                       |
+| C-\<f12\>     | ibuffer-sidebar-toggle-sidebar                 |
+| s-/           | avy-goto-char                                  |
+| C-=           | copy-line                                      |
+| C-c \<left\>  | Winner mode - Undo windows changes             |
+| C-c \<right\> | Winner mode - Redo windows changes             |
+| C-m           | YAML mode - New line and indent                |
+| C-c p         | projectile keymap                              |
+| M-+           | galactic-emacs-insert-date                     |
+| C-x t         | shell-pop-universal-key                        |
+| C-c j         | galactic-emacs-org-show-current-heading-tidily |
+| M-o           | other-window                                   |
+| M-up          | move-text-up                                   |
+| M-down        | move-text-down                                 |
 
 ## Helm
 
@@ -70,17 +70,17 @@
 
 ## Org-mode
 
-| Key    | Function                                 |
-| :---   | :---                                     |
-| C-c e  | org-encrypt-entry                        |
-| C-c d  | org-decrypt-entry                        |
-| C-c l  | org-store-link                           |
-| C-c a  | org-agenda                               |
-| C-c c  | org-capture                              |
-| C-c b  | org-iswitch                              |
-| C-c j  | drestivo-org-show-current-heading-tidily |
-| <F6>   | drestivo-org-directory-search-ag         |
-| M-<F6> | helm-do-ag                               |
+| Key    | Function                                       |
+| :---   | :---                                           |
+| C-c e  | org-encrypt-entry                              |
+| C-c d  | org-decrypt-entry                              |
+| C-c l  | org-store-link                                 |
+| C-c a  | org-agenda                                     |
+| C-c c  | org-capture                                    |
+| C-c b  | org-iswitch                                    |
+| C-c j  | galactic-emacs-org-show-current-heading-tidily |
+| <F6>   | galactic-emacs-org-directory-search-ag         |
+| M-<F6> | helm-do-ag                                     |
 
 ## Smartparens
 

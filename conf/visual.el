@@ -62,9 +62,9 @@
 (diminish 'visual-line-mode)
 
 ;; Set Emacs frame size and transparency
-(setq drestivo-frame-height 60)
-(setq drestivo-frame-width 130)
-(setq drestivo-frame-alpha '(96 96))
+(setq galactic-emacs-frame-height 60)
+(setq galactic-emacs-frame-width 130)
+(setq galactic-emacs-frame-alpha '(96 96))
 
 ;; Set default font
 (set-face-attribute 'default nil

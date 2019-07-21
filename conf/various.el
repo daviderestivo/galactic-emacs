@@ -148,9 +148,9 @@
 (setq scroll-step 1)
 
 ;; copy-line key binding
-(global-set-key (kbd "C-=") 'drestivo-copy-line)
+(global-set-key (kbd "C-=") 'galactic-emacs-copy-line)
 ;; No newline is added when pasting
-(setq drestivo-copy-line-append-newline nil)
+(setq galactic-emacs-copy-line-append-newline nil)
 
 ;; Make isearch treat space dash underscore newline as same
 (setq search-whitespace-regexp "[-_ \n]")

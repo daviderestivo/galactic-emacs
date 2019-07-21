@@ -5,7 +5,7 @@ https://github.com/gregsexton/ob-ipython/issues/135
 * DONE Re-enable https for elpa.gnu.org
 CLOSED: [2019-07-17 Wed 22:54]
 [2019-07-16 Tue 07:28] Temporary disabled because of issues.
-* DONE Re-factor (drestivo-setup-frame-appearance)
+* DONE Re-factor (galactic-emacs-setup-frame-appearance)
 * DONE Fix all-the-icons fonts installation in travis-ci
 * DONE Install plantuml-mode
   - https://github.com/skuro/plantuml-mode

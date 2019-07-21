@@ -61,14 +61,14 @@
 ;; downloaded.
 (when (window-system)
   (progn
-    (setq drestivo-all-the-icons-first-run t)
+    (setq galactic-emacs-all-the-icons-first-run t)
     ;; Check if this is the first run
     (when (car (file-expand-wildcards
                 (concat user-emacs-directory "elpa/all-the-icons-*")))
-      (setq drestivo-all-the-icons-first-run nil))
+      (setq galactic-emacs-all-the-icons-first-run nil))
     ;; If this is the first run we download all-the-icons package and
     ;; the related fonts
-    (when drestivo-all-the-icons-first-run
+    (when galactic-emacs-all-the-icons-first-run
       (use-package all-the-icons
         :ensure t
         :init
@@ -81,8 +81,8 @@
 (use-package atom-one-dark-theme
   :ensure t
   :init
-  (add-hook 'after-make-frame-functions 'drestivo-setup-frame-appearance 'append)
-  (drestivo-setup-frame-appearance)
+  (add-hook 'after-make-frame-functions 'galactic-emacs-setup-frame-appearance 'append)
+  (galactic-emacs-setup-frame-appearance)
   :config
   ;; The below theme is used both for the case of Emacs running in
   ;; console or GUI mode
@@ -134,7 +134,7 @@
   (require 'org-tempo)
   ;; `org-crypt' allows to encrypt subtrees using GPG
   (require 'org-crypt)
-  (setq drestivo-org-electric-pair-inhibit-list '(?\<))
+  (setq galactic-emacs-org-electric-pair-inhibit-list '(?\<))
   :hook
   (org-agenda-mode . (lambda ()
                        (setq org-agenda-files
@@ -144,7 +144,7 @@
   (org-mode . (lambda ()
                 (setq-local electric-pair-inhibit-predicate
                             (lambda (c)
-                              (if (member c drestivo-org-electric-pair-inhibit-list)
+                              (if (member c galactic-emacs-org-electric-pair-inhibit-list)
                                   t
                                 (electric-pair-default-inhibit c))))
                 (setq show-trailing-whitespace t)
@@ -258,8 +258,8 @@
   ("\C-ca"  . org-agenda)
   ("\C-cc"  . org-capture)
   ("\C-cb"  . org-iswitchb)
-  ("\C-cj"  . drestivo-org-show-current-heading-tidily)
-  ("<f6>"   . drestivo-org-directory-search-ag))
+  ("\C-cj"  . galactic-emacs-org-show-current-heading-tidily)
+  ("<f6>"   . galactic-emacs-org-directory-search-ag))
 
 ;; ORG Babel: Main section
 (use-package ob
@@ -315,7 +315,7 @@
   ;; Change screen capture command only for macOS
   (when (string= system-type "darwin")
     (setq org-download-screenshot-method "screencapture -s -x %s"))
-  (setq org-download-method  'drestivo-org-download-method)
+  (setq org-download-method  'galactic-emacs-org-download-method)
   (setq org-download-heading-lvl 0)
   ;; org-download default directory
   ;; (setq-default org-download-image-dir "./images")
@@ -386,7 +386,7 @@
   (setq sml/no-confirm-load-theme t)
   ;; The below elisp code configures the sml `respectful' theme when
   ;; Emacs is running in console. Please look at
-  ;; `drestivo-setup-frame-appearance' for the case when Emacs runs in
+  ;; `galactic-emacs-setup-frame-appearance' for the case when Emacs runs in
   ;; GUI mode.
   (if (not (display-graphic-p))
       (progn
@@ -397,10 +397,10 @@
     ;; Temporary workaround for display-battery-mode for emacs-version<= 25.2.1 on macOS
     (when (string= system-type "darwin")
       (if (version<= emacs-version "25.2.1")
-          (setq battery-status-function 'drestivo-battery-pmset)))
+          (setq battery-status-function 'galactic-emacs-battery-pmset)))
     ;; The below elisp code setup the battery modeline format when
     ;; Emacs is running in console. Please look at
-    ;; `drestivo-setup-frame-appearance' for the case when Emacs runs
+    ;; `galactic-emacs-setup-frame-appearance' for the case when Emacs runs
     ;; in GUI mode.
     (if (not (display-graphic-p))
         (setq battery-mode-line-format " [%b%p%%]"))
@@ -447,7 +447,7 @@
 (use-package helm
   :ensure t
   :hook
-  (helm-minibuffer-set-up . drestivo-helm-hide-minibuffer-maybe)
+  (helm-minibuffer-set-up . galactic-emacs-helm-hide-minibuffer-maybe)
   :diminish helm-mode
   :commands helm-mode
   :config
@@ -464,13 +464,13 @@
   ;;--------------------------------------------------------------------------;;
   (if (string= system-type "darwin")
       (progn
-        (setq drestivo-helm-locate-spotlight-command "mdfind -name -onlyin ~ %s %s")
-        (setq drestivo-helm-locate-exclude-dirs "~/Library")
-        (setq drestivo-helm-locate-exclude-command " | egrep -v ")
+        (setq galactic-emacs-helm-locate-spotlight-command "mdfind -name -onlyin ~ %s %s")
+        (setq galactic-emacs-helm-locate-exclude-dirs "~/Library")
+        (setq galactic-emacs-helm-locate-exclude-command " | egrep -v ")
         (setq helm-locate-command
-              (concat drestivo-helm-locate-spotlight-command
-                      drestivo-helm-locate-exclude-command
-                      drestivo-helm-locate-exclude-dirs))
+              (concat galactic-emacs-helm-locate-spotlight-command
+                      galactic-emacs-helm-locate-exclude-command
+                      galactic-emacs-helm-locate-exclude-dirs))
         (setq helm-locate-fuzzy-match nil))
     (setq helm-locate-fuzzy-match t))
   ;;--------------------------------------------------------------------------;;
@@ -689,9 +689,9 @@
   (set-face-attribute 'whitespace-line nil :background "gray20" :foreground "dark gray")
   ;; whitespace-mode is not compatible with magit. Disabling it on
   ;; magit-mode.
-  (defun drestivo-prevent-whitespace-mode-for-magit ()
+  (defun galactic-emacs-prevent-whitespace-mode-for-magit ()
     (not (derived-mode-p 'magit-mode)))
-  (add-function :before-while whitespace-enable-predicate 'drestivo-prevent-whitespace-mode-for-magit)
+  (add-function :before-while whitespace-enable-predicate 'galactic-emacs-prevent-whitespace-mode-for-magit)
   (setq whitespace-line-column 80) ;; limit line length
   (setq whitespace-style '(face lines-tail))
   (setq whitespace-global-modes '(not org-mode lisp-interaction-mode))
@@ -758,7 +758,7 @@
   :config
   ;; Eshell prompt customization
   (setq eshell-highlight-prompt nil)
-  (setq eshell-prompt-function 'drestivo-eshell-prompt))
+  (setq eshell-prompt-function 'galactic-emacs-eshell-prompt))
 
 ;; YANG mode
 (use-package yang-mode
@@ -832,7 +832,7 @@
       :ensure t
       :defer t
       :hook
-      (ibuffer-mode . drestivo-disable-number-and-visual-line)
+      (ibuffer-mode . galactic-emacs-disable-number-and-visual-line)
       :config
       (setq ibuffer-sidebar-use-custom-font nil)
       :bind
@@ -843,7 +843,7 @@
   :ensure t
   :defer t
   :hook
-  (imenu-list-major-mode . drestivo-disable-number-and-visual-line)
+  (imenu-list-major-mode . galactic-emacs-disable-number-and-visual-line)
   :config
   (setq imenu-list-position 'right
         imenu-list-auto-resize t)

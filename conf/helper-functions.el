@@ -35,7 +35,7 @@
 ;; Requires "The Silver Searcher" (ag) to be installed:
 ;; On macOS use: 'brew install the_silver_searcher'
 ;; On a Debian based GNU/Linux distro use: 'apt-get install silversearcher-ag'
-(defun drestivo-org-directory-search-ag ()
+(defun galactic-emacs-org-directory-search-ag ()
   "Search for a keyword in the ORG folder using ag"
   (interactive)
   (if (not (eq org-directory nil))
@@ -43,13 +43,13 @@
     (message "error: org-directory not set.")))
 
 ;; Reload Emacs init file
-(defun drestivo-reload-dotemacs-file ()
+(defun galactic-emacs-reload-dotemacs-file ()
   "Reload your init.el file without restarting Emacs"
   (interactive)
   (load-file "~/.emacs.d/init.el"))
 
 ;; Redefine battery-pmset because of https://lists.gnu.org/archive/html/bug-gnu-emacs/2016-09/msg00952.html
-(defun drestivo-battery-pmset ()
+(defun galactic-emacs-battery-pmset ()
   "Get battery status information using `pmset'.
 
 The following %-sequences are provided:
@@ -99,7 +99,7 @@ The following %-sequences are provided:
 	  (cons ?t (or remaining-time "N/A")))))
 
 ;; Create a new buffer without prompting for the name. Bound to F7
-(defun drestivo-new-empty-buffer ()
+(defun galactic-emacs-new-empty-buffer ()
   "Create a new empty buffer. New buffer will be named “untitled” or
 “untitled<2>”, “untitled<3>”, ..."
   (interactive)
@@ -107,10 +107,10 @@ The following %-sequences are provided:
     (switch-to-buffer new-buf)
     (funcall initial-major-mode)
     (setq buffer-offer-save t)))
-(global-set-key (kbd "<f7>") 'drestivo-new-empty-buffer)
+(global-set-key (kbd "<f7>") 'galactic-emacs-new-empty-buffer)
 
 ;; copy-line - Source https://www.emacswiki.org/emacs/CopyingWholeLines
-(defun drestivo-copy-line (arg)
+(defun galactic-emacs-copy-line (arg)
   "Copy lines (as many as prefix argument) in the kill ring.
     Ease of use features:
      - Move to start of next line.
@@ -124,15 +124,15 @@ The following %-sequences are provided:
       (if (> (point) (mark))
           (setq beg (save-excursion (goto-char (mark)) (line-beginning-position)))
         (setq end (save-excursion (goto-char (mark)) (line-end-position)))))
-    (if (eq last-command 'drestivo-copy-line)
+    (if (eq last-command 'galactic-emacs-copy-line)
         (kill-append (buffer-substring beg end) (< end beg))
       (kill-ring-save beg end)))
-  (if drestivo-copy-line-append-newline
+  (if galactic-emacs-copy-line-append-newline
       (kill-append "\n" nil))
   (beginning-of-line (or (and arg (1+ arg)) 2))
   (if (and arg (not (= 1 arg))) (message "%d lines copied" arg)))
 
-(defun drestivo-helm-hide-minibuffer-maybe ()
+(defun galactic-emacs-helm-hide-minibuffer-maybe ()
   "Hide minibuffer in Helm session if we use the header line as input field."
   (when (with-helm-buffer helm-echo-input-in-header-line)
     (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
@@ -142,7 +142,7 @@ The following %-sequences are provided:
                      `(:background ,bg-color :foreground ,bg-color)))
       (setq-local cursor-type nil))))
 
-(defun drestivo-org-download-method (link)
+(defun galactic-emacs-org-download-method (link)
   "This is an helper function for org-download.
 
 It creates an \"./image\" folder within the same directory of the ORG file.
@@ -173,24 +173,24 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
       (message (format "Image: %s saved!" (expand-file-name filename-with-timestamp dir)))
       (expand-file-name filename-with-timestamp dir))))
 
-(defun drestivo-insert-date ()
+(defun galactic-emacs-insert-date ()
   (interactive)
   "Insert current datetime into buffer without a newline."
   (insert (concat "Date: " (shell-command-to-string "printf %s \"$(date)\""))))
-(global-set-key (kbd "M-+") 'drestivo-insert-date)
+(global-set-key (kbd "M-+") 'galactic-emacs-insert-date)
 
-(defmacro drestivo-with-face (str &rest properties)
+(defmacro galactic-emacs-with-face (str &rest properties)
   `(propertize ,str 'face (list ,@properties)))
 
-(defun drestivo-eshell-prompt ()
+(defun galactic-emacs-eshell-prompt ()
   "Customize eshell prompt.
 
 This function requires `all-the-icons' package to be installed
 (https://github.com/domtronn/all-the-icons.el)."
   (if (display-graphic-p)
-      (setq drestivo-header-bg "#282C34")
+      (setq galactic-emacs-header-bg "#282C34")
     ;; The background used when Emacs runs in a terminal
-    (setq drestivo-header-bg "black"))
+    (setq galactic-emacs-header-bg "black"))
   ;; In order to set the eshell prompt correctly we need to
   ;; distinguish between the case where we are in a local folder or
   ;; the case where we are connected to a remote server via TRAMP
@@ -200,31 +200,31 @@ This function requires `all-the-icons' package to be installed
     (progn
       (if (file-remote-p default-directory)
           (progn
-            (setq drestivo-user-login-name (replace-regexp-in-string "\n$" ""
+            (setq galactic-emacs-user-login-name (replace-regexp-in-string "\n$" ""
                                                                      (shell-command-to-string "whoami"))
-                  drestivo-system-name (replace-regexp-in-string "\n$" ""
+                  galactic-emacs-system-name (replace-regexp-in-string "\n$" ""
                                                                  (shell-command-to-string "hostname"))
-                  drestivo-user-uid (string-to-number (replace-regexp-in-string "\n$" ""
+                  galactic-emacs-user-uid (string-to-number (replace-regexp-in-string "\n$" ""
                                                                                 (shell-command-to-string "id -u")))))
         (progn
-          (setq drestivo-user-login-name (user-login-name)
+          (setq galactic-emacs-user-login-name (user-login-name)
                 ;; Remove the domain name from the local eshell prompt
-                drestivo-system-name (if (string-match-p (regexp-quote ".") system-name)
+                galactic-emacs-system-name (if (string-match-p (regexp-quote ".") system-name)
                                          (car (split-string (system-name) "\\."))
                                        (system-name))
-                drestivo-user-uid (user-uid))))
+                galactic-emacs-user-uid (user-uid))))
       (concat
        "┌─ "
        (if (display-graphic-p)
            (all-the-icons-faicon "folder-open-o")
          "")
        " "
-       (drestivo-with-face (concat (eshell/pwd) " ") :background drestivo-header-bg)
+       (galactic-emacs-with-face (concat (eshell/pwd) " ") :background galactic-emacs-header-bg)
        (if (string= (ignore-errors (vc-responsible-backend default-directory)) "Git")
            (when (ignore-errors (vc-git--run-command-string default-directory "status" "-s"))
              (progn
                (setq git-status (split-string (vc-git--run-command-string default-directory "status" "-s")))
-               (drestivo-with-face
+               (galactic-emacs-with-face
                 (format "[%s %s %s] "
                         (if (display-graphic-p)
                             (all-the-icons-faicon "git-square")
@@ -238,20 +238,20 @@ This function requires `all-the-icons' package to be installed
                          (if (member "M" git-status)  "M" "-")   ;; Modified files
                          (if (member "D" git-status)  "D" "-")   ;; Deleted files
                          (if (member "??" git-status) "U" "-"))) ;; Untracked files
-                :background drestivo-header-bg :foreground "LightGreen"))))
-       (drestivo-with-face
+                :background galactic-emacs-header-bg :foreground "LightGreen"))))
+       (galactic-emacs-with-face
         (concat
          "["
          (if (display-graphic-p)
              (concat (all-the-icons-material "schedule") " "))
          (format-time-string "%Y-%m-%d %H:%M:%S" (current-time))
-         "]") :background drestivo-header-bg :foreground "gainsboro")
-       (drestivo-with-face "\n└─> " :background drestivo-header-bg)
-       (drestivo-with-face drestivo-user-login-name :foreground "LightBlue")
+         "]") :background galactic-emacs-header-bg :foreground "gainsboro")
+       (galactic-emacs-with-face "\n└─> " :background galactic-emacs-header-bg)
+       (galactic-emacs-with-face galactic-emacs-user-login-name :foreground "LightBlue")
        "@"
-       (drestivo-with-face drestivo-system-name :foreground "LightGreen")
-       (if (= drestivo-user-uid 0)
-           (drestivo-with-face " #" :foreground "LightRed")
+       (galactic-emacs-with-face galactic-emacs-system-name :foreground "LightGreen")
+       (if (= galactic-emacs-user-uid 0)
+           (galactic-emacs-with-face " #" :foreground "LightRed")
          " $")
        " "))))
 
@@ -259,7 +259,7 @@ This function requires `all-the-icons' package to be installed
 ;; ORG helper functions
 ;; Link: https://stackoverflow.com/questions/25161792/emacs-org-mode-how-can-i-fold-everything-but-the-current-headline
 ;;
-(defun drestivo-org-show-current-heading-tidily ()
+(defun galactic-emacs-org-show-current-heading-tidily ()
   (interactive)
   "In an org file shows current entry, keeping other entries collapsed."
   (if (save-excursion (end-of-line) (outline-invisible-p))
@@ -277,7 +277,7 @@ This function requires `all-the-icons' package to be installed
 ;;
 ;; Emacs frame appearance
 ;;
-(defun drestivo-setup-frame-appearance (&optional frame)
+(defun galactic-emacs-setup-frame-appearance (&optional frame)
   "This function is used to setup the Emacs frame appearance in
 Graphical User Interface (GUI) mode.
 
@@ -285,13 +285,13 @@ This function has to be invoked:
  - as a hook of `after-make-frame-functions' in order to
    run on every newly created frame. In this case the FRAME
    actual parameter is used
- - as a function `drestivo-setup-frame-appearance' called
+ - as a function `galactic-emacs-setup-frame-appearance' called
    inside your init.el file:
 
-   (drestivo-setup-frame-appearance)
+   (galactic-emacs-setup-frame-appearance)
 
    In this case the FRAME actual parameter is not needed.
-   Call `drestivo-setup-frame-appearance' inside init.el is
+   Call `galactic-emacs-setup-frame-appearance' inside init.el is
    required because the first created frame, when emacs is not
    running in daemon mode, does not have the FRAME actual
    parameter set."
@@ -310,33 +310,33 @@ This function has to be invoked:
               (select-frame-set-input-focus frame)
               ;; Transparent frame
               (set-frame-parameter frame
-                                   `(alpha . ,drestivo-frame-alpha))
+                                   `(alpha . ,galactic-emacs-frame-alpha))
               ;; Natural title bar
               (set-frame-parameter frame 'ns-transparent-titlebar 't)
               (set-frame-parameter frame 'ns-appearance 'dark)
-              (set-frame-parameter frame 'height drestivo-frame-height)
-              (set-frame-parameter frame 'width  drestivo-frame-width))
+              (set-frame-parameter frame 'height galactic-emacs-frame-height)
+              (set-frame-parameter frame 'width  galactic-emacs-frame-width))
               ;; Used for the first created frame when emacs is not
               ;; running in daemon mode. See description above.
           (progn
             ;; Transparent frame
             (add-to-list 'default-frame-alist
-                         `(alpha . ,drestivo-frame-alpha))
+                         `(alpha . ,galactic-emacs-frame-alpha))
             ;; Natural title bar
             (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
             (add-to-list 'default-frame-alist '(ns-appearance . dark))
             (add-to-list 'default-frame-alist
-                         `(height . ,drestivo-frame-height))
+                         `(height . ,galactic-emacs-frame-height))
             (add-to-list 'default-frame-alist
-                         `(width . ,drestivo-frame-width)))))))
+                         `(width . ,galactic-emacs-frame-width)))))))
 
-(defun drestivo-disable-number-and-visual-line ()
+(defun galactic-emacs-disable-number-and-visual-line ()
   (visual-line-mode 0)
   (if (version< emacs-version "26.1")
       (linum-mode 0)
     (display-line-numbers-mode 0)))
 
-(defun drestivo--outdated-packages-get ()
+(defun galactic-emacs--outdated-packages-get ()
   "Return the list of outdated packages.
 
 The returned list has the following structure:
@@ -349,7 +349,7 @@ the outdated package and the CDR is the list of all the installed versions."
        (-group-by (lambda (ele) (replace-regexp-in-string "-[0-9.]+" "" ele)) it)
        (-filter (lambda (ele) (> (length ele) 2)) it)))
 
-(defun drestivo--outdated-packages-write-results-buffer (contents)
+(defun galactic-emacs--outdated-packages-write-results-buffer (contents)
   "Write results in a buffer"
   (set-buffer
    (get-buffer-create "*Outdated Packages*"))
@@ -362,21 +362,21 @@ the outdated package and the CDR is the list of all the installed versions."
                              (kill-this-buffer)
                              (delete-window))))
 
-(defun drestivo-outdated-packages-print ()
+(defun galactic-emacs-outdated-packages-print ()
   "Print outdated packages."
   (interactive)
-  (let ((outdated-package-list (drestivo--outdated-packages-get)))
-    (drestivo--outdated-packages-write-results-buffer
+  (let ((outdated-package-list (galactic-emacs--outdated-packages-get)))
+    (galactic-emacs--outdated-packages-write-results-buffer
      (format "%s\n"
              (if outdated-package-list
                  outdated-package-list
                "No outdated packages found.")))))
 
-(defun drestivo-outdated-packages-purge ()
+(defun galactic-emacs-outdated-packages-purge ()
   "Remove all except the latest version of the installed packages."
   (interactive)
   (let ((log-message "")
-        (packages-purge-list (--> (drestivo--outdated-packages-get)
+        (packages-purge-list (--> (galactic-emacs--outdated-packages-get)
                                   (mapcar (lambda (ele) (-sort #'string> (cdr ele))) it))))
     ;; `packages-purge-list' is a list of lists, so we nest two dolist
     (if packages-purge-list
@@ -391,8 +391,8 @@ the outdated package and the CDR is the list of all the installed versions."
                 (delete-directory (concat (expand-file-name package-user-dir) "/" ele) t))))
           (setq log-message (concat log-message
                                     "... all outdated packages have been deleted.\n"))
-          (drestivo--outdated-packages-write-results-buffer log-message))
-      (drestivo--outdated-packages-write-results-buffer "No outdated packages to be deleted found.\n"))))
+          (galactic-emacs--outdated-packages-write-results-buffer log-message))
+      (galactic-emacs--outdated-packages-write-results-buffer "No outdated packages to be deleted found.\n"))))
 
 
 ;;; helper-functions.el ends here
