@@ -881,10 +881,11 @@
   ;; Configure initial-buffer-choice to show the dashboard in frames
   ;; created with `emacsclient -c'
   (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
-  ;; Set banner logo text face family
-  (set-face-attribute 'dashboard-banner-logo-title-face nil :height 1.1 :family "Helvetica Light")
-  ;; Set the banner text
-  (setq dashboard-banner-logo-title "“To succeed, planning alone is insufficient. One must improvise as well.”  (I. Asimov, Foundation)")
+  ;; Set the banner logo text
+  (setq dashboard-banner-logo-title "Welcome to Galactic Emacs")
+  ;; Set banner footer text
+  (setq dashboard-set-footer t)
+  (setq dashboard-footer  "\"To succeed, planning alone is insufficient. One must improvise as well.\" - I. Asimov, Foundation")
   ;; Set an alternate Emacs logo
   (setq dashboard-startup-banner (expand-file-name "galactic-emacs-logo.png"
                                                    user-emacs-directory))
@@ -899,7 +900,22 @@
   (setq dashboard-set-heading-icons t)
   (setq dashboard-set-file-icons t)
   ;; Content is not centered by default. To center, set
-  (setq dashboard-center-content t))
+  (setq dashboard-center-content t)
+  ;; Customize the buttons of the navigator bar
+  (setq dashboard-set-navigator t)
+  (setq dashboard-navigator-buttons
+        `(((,(all-the-icons-octicon "mark-github" :height 1.1 :v-adjust 0.0)
+            "Homepage"
+            "Visit project Homepage"
+            (lambda (&rest _) (browse-url "https://github.com/daviderestivo/galactic-emacs")))
+           (,(all-the-icons-octicon "repo-pull" :height 1.1 :v-adjust 0.0)
+            "Update Galactic Emacs"
+            "Update Galactic Emacs"
+            (lambda (&rest _) (galactic-emacs-update-config)))
+           (,(all-the-icons-faicon "archive" :height 1.1 :v-adjust 0.0)
+            "Update Installed Packages"
+            "Update Installed Packages"
+            (lambda (&rest _) (auto-package-update-now)))))))
 
 ;; Provides capabilities to fetch your starred repositories from
 ;; github and select one for browsing
