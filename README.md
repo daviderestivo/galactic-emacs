@@ -75,7 +75,7 @@ git submodule foreach --recursive git checkout master
 ```
 
 Before you start emacs please edit `~/.emacs.d/personal.el.example`
-adding your personal informations and rename it to
+adding your personal information and rename it to
 `~/.emacs.d/personal.el`.
 
 # Key bindings
