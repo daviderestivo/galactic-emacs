@@ -31,6 +31,7 @@
 ;;; Commentary:
 
 ;; cisco-router-mode
+;; https://www.emacswiki.org/emacs/cisco-router-mode.el
 (load-library "cisco-router-mode")
 
 ;; transpose-frame
