@@ -1,7 +1,8 @@
 * TODO Fix ob-ipython
 ob-ipython support is currently disabled because of
 https://github.com/gregsexton/ob-ipython/issues/135
-* TODO Re-enable package signature check
+* DONE Re-enable package signature check
+CLOSED: [2019-07-25 Thu 18:52]
 * DONE Re-enable https for elpa.gnu.org
 CLOSED: [2019-07-17 Wed 22:54]
 [2019-07-16 Tue 07:28] Temporary disabled because of issues.
