@@ -26,6 +26,7 @@ not listed.
 
 ## Networking
 * [cisco-router-mode](https://www.emacswiki.org/emacs/download/cisco-router-mode.el)
+* [comware-router-mode](https://github.com/daviderestivo/comware-router-mode)
 
 ## Programming
 * [cider](https://github.com/clojure-emacs/cider)
