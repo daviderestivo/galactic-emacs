@@ -109,4 +109,4 @@ distribution please refer to the respective file headers.
 
 # Contribution
 Feel free to open an issue in case of questions or problems.
-Contribution are always welcome.
+Contributions are always welcome.
