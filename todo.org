@@ -1,3 +1,5 @@
+* TODO Install centaur-tabs
+https://github.com/ema2159/centaur-tabs/
 * TODO Fix ob-ipython
 ob-ipython support is currently disabled because of
 https://github.com/gregsexton/ob-ipython/issues/135
