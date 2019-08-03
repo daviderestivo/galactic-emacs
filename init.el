@@ -68,6 +68,7 @@
 ;; - open-junk-file                      [https://github.com/rubikitch/open-junk-file]
 ;; - projectile                          [https://github.com/bbatsov/projectile]
 ;; - py-autopep8                         [https://github.com/paetzke/py-autopep8.el]
+;; - sly                                 [https://github.com/joaotavora/sly]
 ;; - smartparens                         [https://github.com/Fuco1/smartparens]
 ;; - treemacs-projectile                 [https://github.com/Alexander-Miller/treemacs]
 ;; - yaml-mode                           [https://github.com/yoshiki/yaml-mode]

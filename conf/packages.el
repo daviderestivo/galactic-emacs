@@ -1195,5 +1195,11 @@
   (global-auto-highlight-symbol-mode t)
   (setq ahs-idle-interval 0.5))
 
+;; Sylvester the Cat's Common Lisp IDE
+(use-package sly
+  :ensure t
+  :config
+  (setq inferior-lisp-program "sbcl"))
+
 
 ;;; packages.el ends here

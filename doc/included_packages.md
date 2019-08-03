@@ -78,6 +78,7 @@ not listed.
 * [ibuffer-sidebar](https://github.com/jojojames/ibuffer-sidebar)
 * [imenu-list](https://github.com/bmag/imenu-list)
 * [rainbow-delimiters](https://www.emacswiki.org/emacs/RainbowDelimiters)
+* [sly](https://github.com/joaotavora/sly)
 * [smart-mode-line](https://github.com/Malabarba/smart-mode-line)
 * [smart-mode-line-atom-one-dark-theme](https://github.com/daviderestivo/smart-mode-line-atom-one-dark-theme)
 * [transpose-frame](https://www.emacswiki.org/emacs/TransposeFrame)
