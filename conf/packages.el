@@ -991,9 +991,10 @@
   :init
   (require 'smartparens-config)
   :hook
-  (emacs-lisp-mode . smartparens-mode)
-  (clojure-mode    . smartparens-mode)
-  (cider-repl-mode . smartparens-mode)
+  (emacs-lisp-mode       . smartparens-mode)
+  (lisp-interaction-mode . smartparens-mode)
+  (clojure-mode          . smartparens-mode)
+  (cider-repl-mode       . smartparens-mode)
   :bind (
          :map smartparens-mode-map
          ("C-M-f"            . sp-forward-sexp)
