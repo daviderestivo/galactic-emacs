@@ -98,10 +98,10 @@
 | C-M-k           | sp-kill-sexp           |
 | C-M-w           | sp-copy-sexp           |
 | M-\<backspace\> | sp-unwrap-sexp         |
-| C-s-\<right\>   | sp-forward-slurp-sexp  |
-| C-s-\<left\>    | sp-forward-barf-sexp   |
-| C-M-\<left\>    | sp-backward-slurp-sexp |
-| C-M-\<right\>   | sp-backward-barf-sexp  |
+| C-M-\<right\>   | sp-forward-slurp-sexp  |
+| C-M-\<left\>    | sp-forward-barf-sexp   |
+| C-S-M-\<left\>  | sp-backward-slurp-sexp |
+| C-S-M-\<right\> | sp-backward-barf-sexp  |
 | M-(             | sp-wrap-round          |
 | M-[             | sp-wrap-square         |
 | M-{             | sp-wrap-curly          |
