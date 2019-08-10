@@ -645,6 +645,19 @@
 (use-package undo-tree
   :ensure t
   :diminish undo-tree-mode
+  :init
+  ;; Increase global undo limits to avoid undo-tree history being
+  ;; truncated.
+  ;;
+  ;; See: https://github.com/syl20bnr/spacemacs/issues/12110
+  ;; https://www.reddit.com/r/emacs/comments/bx82j3/somehow_my_undo_history_is_truncated_what_did_i/
+  ;;
+  ;; Default in GNU/Emacs is 80000
+  (setq undo-limit 800000)
+  ;; Default in GNU/Emacs is 120000
+  (setq undo-strong-limit 12000000)
+  ;; Default in GNU/Emacs is 12000000
+  (setq undo-outer-limit 120000000)
   :config
   (global-undo-tree-mode 1)
   (setq undo-tree-visualizer-diff 1)
