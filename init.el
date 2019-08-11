@@ -176,10 +176,11 @@
         ("org" . 2)
         ("gnu" . 1)))
 
-;; Enable GC messages
+;; Enable garbage collect messages
 (setq garbage-collection-messages t)
-;; Run garbage collection only when emacs is idling
-(run-with-idle-timer 60 t (lambda () (garbage-collect)))
+;; Run garbage collection only when Emacs is idle for more than 60
+;; seconds
+(run-with-idle-timer 60 t (lambda () (galactic-emacs-garbage-collect)))
 
 ;; Enable packages signature verification only if GPG is installed
 ;; (setq package-check-signature (when (executable-find "gpg") 'allow-unsigned))

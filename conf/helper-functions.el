@@ -31,6 +31,10 @@
 
 ;;; Commentary:
 
+;; Galactic Emacs helper functions
+
+(require 'cl-macs)
+
 ;; Search for a keyword on the ORG directory using ag
 ;; Requires "The Silver Searcher" (ag) to be installed:
 ;; On macOS use: 'brew install the_silver_searcher'
@@ -201,17 +205,17 @@ This function requires `all-the-icons' package to be installed
       (if (file-remote-p default-directory)
           (progn
             (setq galactic-emacs-user-login-name (replace-regexp-in-string "\n$" ""
-                                                                     (shell-command-to-string "whoami"))
+                                                                           (shell-command-to-string "whoami"))
                   galactic-emacs-system-name (replace-regexp-in-string "\n$" ""
-                                                                 (shell-command-to-string "hostname"))
+                                                                       (shell-command-to-string "hostname"))
                   galactic-emacs-user-uid (string-to-number (replace-regexp-in-string "\n$" ""
-                                                                                (shell-command-to-string "id -u")))))
+                                                                                      (shell-command-to-string "id -u")))))
         (progn
           (setq galactic-emacs-user-login-name (user-login-name)
                 ;; Remove the domain name from the local eshell prompt
                 galactic-emacs-system-name (if (string-match-p (regexp-quote ".") system-name)
-                                         (car (split-string (system-name) "\\."))
-                                       (system-name))
+                                               (car (split-string (system-name) "\\."))
+                                             (system-name))
                 galactic-emacs-user-uid (user-uid))))
       (concat
        "┌─ "
@@ -316,8 +320,8 @@ This function has to be invoked:
               (set-frame-parameter frame 'ns-appearance 'dark)
               (set-frame-parameter frame 'height galactic-emacs-frame-height)
               (set-frame-parameter frame 'width  galactic-emacs-frame-width))
-              ;; Used for the first created frame when emacs is not
-              ;; running in daemon mode. See description above.
+          ;; Used for the first created frame when emacs is not
+          ;; running in daemon mode. See description above.
           (progn
             ;; Transparent frame
             (add-to-list 'default-frame-alist
@@ -405,6 +409,27 @@ the outdated package and the CDR is the list of all the installed versions."
       (message "Load new Galactic Emacs configuration...")
       (galactic-emacs-reload-init-file)
       (message "Update finished."))))
+
+(defun galactic-emacs-garbage-collect ()
+  "Run `garbage-collect' and print stats about memory usage."
+  (interactive)
+  ;; Display garbage collect start time in minibuffer and *Messages*
+  (message (concat
+            (format-time-string "[%Y-%m-%d - %T] ") "Start garbage collect...\n"))
+  ;; Don't show garbage collect details in minibuffer
+  (let ((inhibit-message t))
+    (message "Type    Used    Free    Total")
+    (message "-----------------------------")
+    (message (cl-loop for (type size used free) in (garbage-collect)
+                      for used  = (* used size)
+                      for free  = (* (or free 0) size)
+                      for total = (file-size-human-readable (+ used free))
+                      for used  = (file-size-human-readable used)
+                      for free  = (file-size-human-readable free)
+                      concat (format "%s: %s + %s = %s\n" type used free total))))
+  ;; Display garbage collect end time in minibuffer and *Messages*
+  (message (concat
+            (format-time-string "[%Y-%m-%d - %T] ") "...finished garbage collect.")))
 
 
 ;;; helper-functions.el ends here
