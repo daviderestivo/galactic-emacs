@@ -178,6 +178,8 @@
 
 ;; Enable GC messages
 (setq garbage-collection-messages t)
+;; Run garbage collection only when emacs is idling
+(run-with-idle-timer 60 t (lambda () (garbage-collect)))
 
 ;; Enable packages signature verification only if GPG is installed
 ;; (setq package-check-signature (when (executable-find "gpg") 'allow-unsigned))
