@@ -46,6 +46,7 @@
 | :---    | :---                    |
 | C-x r b | helm-filtered-bookmarks |
 | C-x C-r | helm-recentf            |
+| M-<F6>  | helm-do-ag              |
 | M-s     | helm-do-ag-this-file    |
 | C-u M-s | helm-do-ag-buffers      |
 | C-c C-; | helm-eshell-prompts     |
@@ -80,7 +81,6 @@
 | C-c b  | org-iswitch                                    |
 | C-c j  | galactic-emacs-org-show-current-heading-tidily |
 | <F6>   | galactic-emacs-org-directory-search-ag         |
-| M-<F6> | helm-do-ag                                     |
 
 ## Smartparens
 
