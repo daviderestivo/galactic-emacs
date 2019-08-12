@@ -427,6 +427,9 @@ the outdated package and the CDR is the list of all the installed versions."
                       for used  = (file-size-human-readable used)
                       for free  = (file-size-human-readable free)
                       concat (format "%s: %s + %s = %s\n" type used free total))))
+  ;; Display total time spent in garbage collection for this Emacs session
+  (message (concat "Total number of seconds of elapsed time during gc: "
+                   (format "%.2f" gc-elapsed) "\n"))
   ;; Display garbage collect end time in minibuffer and *Messages*
   (message (concat
             (format-time-string "[%Y-%m-%d - %T] ") "...finished garbage collect.")))
