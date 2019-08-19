@@ -50,7 +50,7 @@ manager on macOS, please install Emacs with the below command:
 
 ``` bash
 brew tap daviderestivo/emacs-head
-brew install emacs-head --HEAD --with-cocoa --with-no-frame-refocus --with-imagemagick --with-jansson
+brew install emacs-head --HEAD --with-cocoa --with-no-frame-refocus --with-imagemagick --with-jansson -with-pdumper
 ```
 
 or if you prefer Emacs 26.x:
