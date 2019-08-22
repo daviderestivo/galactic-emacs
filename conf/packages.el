@@ -1215,5 +1215,10 @@
   :config
   (setq inferior-lisp-program "sbcl"))
 
+;; Haskell mode
+  (use-package haskell-mode
+    :ensure t
+    :defer t)
+
 
 ;;; packages.el ends here
