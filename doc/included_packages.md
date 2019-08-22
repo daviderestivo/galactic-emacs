@@ -39,6 +39,7 @@ not listed.
 * [elisp-bug-hunter](https://github.com/Malabarba/elisp-bug-hunter)
 * [elpy](https://elpy.readthedocs.io)
 * [geiser](https://gitlab.com/jaor/geiser)
+* [haskell-mode](https://github.com/haskell/haskell-mode)
 * [lsp-mode](https://github.com/emacs-lsp/lsp-mode)
 * [lsp-java](https://github.com/emacs-lsp/lsp-java)
 * [lsp-java-treemacs](https://github.com/emacs-lsp/lsp-java)
