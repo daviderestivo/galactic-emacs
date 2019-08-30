@@ -263,6 +263,7 @@
   ("\C-ca"  . org-agenda)
   ("\C-cc"  . org-capture)
   ("\C-cb"  . org-iswitchb)
+  ("\C-ci"  . org-insert-heading)
   ("\C-cj"  . galactic-emacs-org-show-current-heading-tidily)
   ("<f6>"   . galactic-emacs-org-directory-search-ag))
 
