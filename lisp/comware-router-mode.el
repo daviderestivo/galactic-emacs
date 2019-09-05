@@ -34,8 +34,9 @@
 ;; 0.1 - 2019/07/25 - First version
 ;; 0.2 - 2019/08/04 - Add VRFs, interfaces, route-policies listing functions
 
-;;; Code:
 (require 'dash)
+
+;;; Code:
 
 ;; Hook
 (defvar comware-router-mode-hook nil
