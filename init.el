@@ -197,7 +197,7 @@
   (require 'use-package))
 (use-package use-package-ensure-system-package
   :ensure t)
-(setq package-enable-at-startup nil)
+(setq package-enable-at-startup t)
 
 ;; Bootstrap `diminish'
 (unless (package-installed-p 'diminish)
