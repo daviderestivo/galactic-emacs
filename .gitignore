@@ -16,6 +16,7 @@ elpa/
 eshell/
 history
 hgs-cache
+network-security.data
 personal.el
 custom.el
 places
