@@ -1134,14 +1134,15 @@
   :ensure t
   :defer t)
 
-;; Provides integration between lsp-java and treemacs
-(use-package lsp-java-treemacs
+;; Provides integration between lsp-mode and treemacs
+(use-package lsp-treemacs
+  :ensure t
   :after (treemacs))
 
 ;; Emacs Java IDE using Eclipse JDT Language Server
 (use-package lsp-java
   :ensure t
-  :after lsp-mode lsp-java-treemacs
+  :after lsp-mode lsp-treemacs
   :config (add-hook 'java-mode-hook 'lsp))
 
 ;; Debug Adapter Protocol for Emacs
