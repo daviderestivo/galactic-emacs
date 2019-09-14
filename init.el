@@ -6,7 +6,7 @@
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
 ;; URL: https://github.com/daviderestivo/galactic-emacs
-;; Version: 6.0.0
+;; Version: 10.1.0
 ;; Keywords: emacs config dotemacs
 
 
@@ -208,9 +208,6 @@
 
 (require 'bind-key)
 
-;; Tell Emacs where is your personal elisp lib directory
-(add-to-list 'load-path "~/.emacs.d/lisp/")
-
 ;; Tell Emacs where is your personal theme directory
 (add-to-list 'custom-theme-load-path (expand-file-name "themes"
                                                        user-emacs-directory))
@@ -246,6 +243,10 @@
 
 ;; Load packages
 (load-file (expand-file-name "conf/packages.el"
+                             user-emacs-directory))
+
+;; Load elisp library
+(load-file (expand-file-name "conf/elisp-library.el"
                              user-emacs-directory))
 
 ;; Load flyspell settings

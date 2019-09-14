@@ -6,7 +6,7 @@
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
 ;; URL: https://github.com/daviderestivo/galactic-emacs/blob/master/conf/backup.el
-;; Version: 0.1
+;; Version: 10.1.0
 ;; Keywords: emacs config
 
 
