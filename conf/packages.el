@@ -6,7 +6,7 @@
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
 ;; URL: https://github.com/daviderestivo/galactic-emacs/blob/master/conf/packages.el
-;; Version: 0.1
+;; Version: 10.1.0
 ;; Keywords: emacs config
 
 
@@ -29,18 +29,6 @@
 
 
 ;;; Commentary:
-
-;; cisco-router-mode
-;; https://www.emacswiki.org/emacs/cisco-router-mode.el
-(load-library "cisco-router-mode")
-
-;; comware-router-mode
-;; https://github.com/daviderestivo/comware-router-mode
-(load-library "comware-router-mode")
-
-;; transpose-frame
-;; https://www.emacswiki.org/emacs/TransposeFrame
-(load-library "transpose-frame")
 
 ;; system-packages
 (use-package system-packages
@@ -1134,14 +1122,15 @@
   :ensure t
   :defer t)
 
-;; Provides integration between lsp-java and treemacs
-(use-package lsp-java-treemacs
+;; Provides integration between lsp-mode and treemacs
+(use-package lsp-treemacs
+  :ensure t
   :after (treemacs))
 
 ;; Emacs Java IDE using Eclipse JDT Language Server
 (use-package lsp-java
   :ensure t
-  :after lsp-mode lsp-java-treemacs
+  :after lsp-mode lsp-treemacs
   :config (add-hook 'java-mode-hook 'lsp))
 
 ;; Debug Adapter Protocol for Emacs

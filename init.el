@@ -6,7 +6,7 @@
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
 ;; URL: https://github.com/daviderestivo/galactic-emacs
-;; Version: 6.0.0
+;; Version: 10.1.0
 ;; Keywords: emacs config dotemacs
 
 
@@ -57,8 +57,8 @@
 ;; - geiser                              [https://gitlab.com/jaor/geiser]
 ;; - haskell-mode                        [https://github.com/haskell/haskell-mode]
 ;; - lsp-mode                            [https://github.com/emacs-lsp/lsp-mode]
+;; - lsp-treemacs                        [https://github.com/emacs-lsp/lsp-treemacs]
 ;; - lsp-java                            [https://github.com/emacs-lsp/lsp-java]
-;; - lsp-java-treemacs                   [https://github.com/emacs-lsp/lsp-java]
 ;; - lsp-ui                              [https://github.com/emacs-lsp/lsp-ui]
 ;; - jinja2-mode                         [https://github.com/paradoxxxzero/jinja2-mode]
 ;; - json-mode                           [https://github.com/joshwnj/json-mode]
@@ -197,7 +197,7 @@
   (require 'use-package))
 (use-package use-package-ensure-system-package
   :ensure t)
-(setq package-enable-at-startup t)
+(setq package-enable-at-startup nil)
 
 ;; Bootstrap `diminish'
 (unless (package-installed-p 'diminish)
@@ -246,6 +246,10 @@
 
 ;; Load packages
 (load-file (expand-file-name "conf/packages.el"
+                             user-emacs-directory))
+
+;; Load elisp library
+(load-file (expand-file-name "conf/elisp-library.el"
                              user-emacs-directory))
 
 ;; Load flyspell settings
