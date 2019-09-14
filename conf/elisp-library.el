@@ -30,9 +30,6 @@
 
 ;;; Commentary:
 
-;; Tell Emacs where is your personal elisp lib directory
-(add-to-list 'load-path "~/.emacs.d/lisp/")
-
 ;; cisco-router-mode
 ;; https://www.emacswiki.org/emacs/cisco-router-mode.el
 (load-library "cisco-router-mode")
