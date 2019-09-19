@@ -75,8 +75,7 @@
   :ensure t
   :init
   (galactic-emacs-setup-frame-appearance)
-  :hook
-  (after-make-frame-functions . galactic-emacs-setup-frame-appearance)
+  (add-hook 'after-make-frame-functions 'galactic-emacs-setup-frame-appearance 'append)
   :config
   ;; The below theme is used both for the case of Emacs running in
   ;; console or GUI mode
