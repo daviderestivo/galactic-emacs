@@ -1209,10 +1209,10 @@
 (use-package flycheck
   :ensure t
   :defer t
-  :init
-  (with-eval-after-load 'flycheck
-    (flycheck-pos-tip-mode)
-    (add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode)))
+  :after (flycheck-color-mode-line flycheck-pos-tip)
+  :hook
+  (flycheck-mode . flycheck-pos-tip-mode)
+  (flycheck-mode . flycheck-color-mode-line-mode))
 
 ;; An Emacs minor-mode for Flycheck which colors the mode-line
 ;; according to the Flycheck state of the current buffer.
