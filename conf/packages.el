@@ -1205,10 +1205,40 @@
   :config
   (setq inferior-lisp-program "sbcl"))
 
+;; On the fly syntax checking for GNU Emacs
+(use-package flycheck
+  :ensure t
+  :defer t
+  :init
+  (with-eval-after-load 'flycheck
+    (flycheck-pos-tip-mode)
+    (add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode)))
+
+;; An Emacs minor-mode for Flycheck which colors the mode-line
+;; according to the Flycheck state of the current buffer.
+(use-package flycheck-color-mode-line
+  :ensure t
+  :defer t)
+
+;; Flycheck errors display in tooltip
+(use-package flycheck-pos-tip
+  :ensure t
+  :defer t)
+
 ;; Haskell mode
-  (use-package haskell-mode
-    :ensure t
-    :defer t)
+(use-package haskell-mode
+  :ensure t
+  :defer t)
+
+;; A convenient frontend to GHCi
+(use-package dante
+  :ensure t
+  :defer t
+  :after haskell-mode
+  :commands 'dante-mode
+  :init
+  (add-hook 'haskell-mode-hook 'flycheck-mode)
+  (add-hook 'haskell-mode-hook 'dante-mode))
 
 
 ;;; packages.el ends here
