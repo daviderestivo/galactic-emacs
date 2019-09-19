@@ -120,6 +120,7 @@
 ;; - psession                            [https://github.com/thierryvolpiatto/psession]
 ;; - shell-pop-el                        [https://github.com/kyagi/shell-pop-el]
 ;; - string-inflection                   [https://github.com/akicho8/string-inflection]
+;; - synosaurus                          [https://github.com/hpdeifel/synosaurus]
 ;; - treemacs                            [https://github.com/Alexander-Miller/treemacs]
 ;; - undo-tree                           [https://github.com/emacsmirror/undo-tree]
 ;; - use-package                         [https://github.com/jwiegley/use-package]

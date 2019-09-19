@@ -1240,5 +1240,15 @@
   (add-hook 'haskell-mode-hook 'flycheck-mode)
   (add-hook 'haskell-mode-hook 'dante-mode))
 
+;; Synosaurus is a thesaurus fontend for Emacs with pluggable backends
+(use-package synosaurus
+  :ensure t
+  :ensure-system-package (wn . "brew install wordnet || sudo apt-get install wordnet")
+  :diminish synosaurus-mode
+  :init
+  (synosaurus-mode)
+  :config
+  (setq synosaurus-backend 'synosaurus-backend-wordnet))
+
 
 ;;; packages.el ends here
