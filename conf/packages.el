@@ -74,8 +74,9 @@
 (use-package atom-one-dark-theme
   :ensure t
   :init
-  (add-hook 'after-make-frame-functions 'galactic-emacs-setup-frame-appearance 'append)
   (galactic-emacs-setup-frame-appearance)
+  :hook
+  (after-make-frame-functions . galactic-emacs-setup-frame-appearance)
   :config
   ;; The below theme is used both for the case of Emacs running in
   ;; console or GUI mode
@@ -1026,9 +1027,10 @@
   :init
   (with-eval-after-load 'winum
     (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
+  :hook
   ;; Allow treemacs window to be resized and disable line numbers
-  (add-hook 'treemacs-mode-hook
-            (lambda () (progn
+  (treemacs-mode .
+                 (lambda () (progn
                          (treemacs-toggle-fixed-width)
                          (if (version< emacs-version "26.1")
                              (linum-mode)
@@ -1131,7 +1133,8 @@
 (use-package lsp-java
   :ensure t
   :after lsp-mode lsp-treemacs
-  :config (add-hook 'java-mode-hook 'lsp))
+  :hook
+  (java-mode . lsp))
 
 ;; Debug Adapter Protocol for Emacs
 (use-package dap-mode
@@ -1162,12 +1165,13 @@
   :ensure t
   :init
   (setq highlight-indent-guides-method 'column)
+  :diminish highlight-indent-guides-mode
+  :hook
+  (prog-mode . highlight-indent-guides-mode)
   :config
-  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
   (setq highlight-indent-guides-auto-odd-face-perc 2)
   (setq highlight-indent-guides-auto-even-face-perc 1)
-  (setq highlight-indent-guides-auto-character-face-perc 4)
-  :diminish highlight-indent-guides-mode)
+  (setq highlight-indent-guides-auto-character-face-perc 4))
 
 ;; MoveText allows you to move the current line using M-up / M-down
 ;; (or any other bindings you choose) if a region is marked, it will
@@ -1236,9 +1240,9 @@
   :defer t
   :after haskell-mode
   :commands 'dante-mode
-  :init
-  (add-hook 'haskell-mode-hook 'flycheck-mode)
-  (add-hook 'haskell-mode-hook 'dante-mode))
+  :hook
+  (haskell-mode . flycheck-mode)
+  (haskell-mode . dante-mode))
 
 ;; Synosaurus is a thesaurus fontend for Emacs with pluggable backends
 (use-package synosaurus
