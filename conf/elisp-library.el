@@ -34,10 +34,6 @@
 ;; https://www.emacswiki.org/emacs/cisco-router-mode.el
 (load-library "cisco-router-mode")
 
-;; comware-router-mode
-;; https://github.com/daviderestivo/comware-router-mode
-(load-library "comware-router-mode")
-
 ;; transpose-frame
 ;; https://www.emacswiki.org/emacs/TransposeFrame
 (load-library "transpose-frame")
