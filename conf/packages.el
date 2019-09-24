@@ -1256,7 +1256,8 @@
 ;; An Emacs major mode for editing Comware routers and switches
 ;; configuration files.
 (use-package comware-router-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 ;;; packages.el ends here
