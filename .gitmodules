@@ -4,4 +4,4 @@
 	branch = master
 [submodule "epkgs"]
 	path = epkgs
-	url = git@github.com:emacsmirror/epkgs.git
+	url = https://github.com/emacsmirror/epkgs.git
