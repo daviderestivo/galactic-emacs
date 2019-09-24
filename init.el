@@ -112,6 +112,7 @@
 ;; - auto-sudoedit                       [https://github.com/ncaq/auto-sudoedit]
 ;; - avy                                 [https://github.com/abo-abo/avy]
 ;; - command-log-mode                    [https://github.com/lewang/command-log-mode]
+;; - epkg                                [https://github.com/emacscollective/epkg]
 ;; - esh-autosuggest                     [https://github.com/dieggsy/esh-autosuggest]
 ;; - exec-path-from-shell                [https://github.com/purcell/exec-path-from-shell]
 ;; - load-bash-alias                     [https://github.com/daviderestivo/load-bash-alias]

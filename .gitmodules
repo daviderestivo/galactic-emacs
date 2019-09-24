@@ -2,3 +2,6 @@
 	path = snippets
 	url = https://github.com/AndreaCrotti/yasnippet-snippets.git
 	branch = master
+[submodule "epkgs"]
+	path = epkgs
+	url = git@github.com:emacsmirror/epkgs.git

@@ -1259,5 +1259,10 @@
   :ensure t
   :defer t)
 
+;; Browse the Emacsmirror package database
+(use-package epkg
+  :ensure t
+  :defer t)
+
 
 ;;; packages.el ends here
