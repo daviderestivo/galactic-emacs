@@ -12,7 +12,6 @@ matrix:
     # Emacs 26.x on Mojave (10.14)
     - env:
         - BUILD_OPTIONS=""
-        - TEST_OPTIONS=""
       osx_image: xcode10.3
       addons:
         homebrew:
@@ -23,7 +22,6 @@ matrix:
     # Emacs 27.x on Mojave (10.14)
     - env:
         - BUILD_OPTIONS="--HEAD --with-cocoa --with-no-frame-refocus --with-imagemagick --with-jansson"
-        - TEST_OPTIONS="--HEAD"
       osx_image: xcode10.3
       addons:
         homebrew:
