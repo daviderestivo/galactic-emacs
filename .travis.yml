@@ -3,6 +3,10 @@ language: emacs-lisp
 os:
   - osx
 
+# Handle git submodules yourself
+git:
+    submodules: false
+
 matrix:
   include:
     # Emacs 26.x on Mojave (10.14)
