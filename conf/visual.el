@@ -258,6 +258,15 @@
         (global-diff-hl-mode)
         (diff-hl-margin-mode)))))
 
+;; Temporarily disabling font-lock and switching to a barebones
+;; mode-line, until you stop scrolling (at which point it re-enables).
+(use-package fast-scroll
+  :ensure t
+  :diminish fast-scroll-mode
+  :config
+  (fast-scroll-config)
+  (fast-scroll-mode 1))
+
 ;; Global minor mode for Emacs that allows you to manage your window
 ;; configurations in a simple manner, just like tiling window managers.
 (use-package eyebrowse

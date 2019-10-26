@@ -113,6 +113,7 @@ The package management tool used is: [use-package](https://github.com/jwiegley/u
 * [dashboard](https://github.com/rakanalh/emacs-dashboard)
 * [diff-hl](https://github.com/dgutov/diff-hl)
 * [eyebrowse](https://github.com/wasamasa/eyebrowse)
+* [fast-scroll](https://github.com/ahungry/fast-scroll)
 * [gnutls](https://www.gnu.org/software/emacs/manual/emacs-gnutls.html)
 * [goto-line-preview](https://github.com/jcs090218/goto-line-preview)
 * [highlight-indentation](https://github.com/antonj/Highlight-Indentation-for-Emacs)
