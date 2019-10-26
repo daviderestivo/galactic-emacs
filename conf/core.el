@@ -49,12 +49,23 @@
 (use-package dash
   :ensure t)
 
+;; Log Emacs startup time in *Messages*
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (message (format "Emacs startup time: %s" (emacs-init-time)))))
+
 ;; If Emacs is running in daemon mode, print Emacs server utpime every
 ;; half an hour
 (if (daemonp)
     (run-at-time "00:00" 1800 (lambda () (message
                                      (concat "[" (current-time-string) "]" " GNU Emacs server uptime: "
                                              (emacs-uptime))))))
+
+;; Enable garbage collect messages
+(setq garbage-collection-messages t)
+;; Run garbage collection only when Emacs is idle for more than 60
+;; seconds
+(run-with-idle-timer 60 t (lambda () (galactic-emacs-garbage-collect)))
 
 ;; Resolve the conflict where a new command wants to direct its output
 ;; to the buffer ‘*Async Shell Command*’ creating a new buffer without
@@ -76,61 +87,12 @@
   (setq ls-lisp-use-insert-directory-program nil)
   (require 'ls-lisp))
 
-;; Sort apropos results by relevancy
-(setq apropos-sort-by-scores t)
-
-;; Datetime format
-(setq display-time-day-and-date t
-      display-time-24hr-format t)
-
-;; Set tab width to 4
-(setq tab-width 4)
-
-;; By default, Emacs thinks a sentence is a full-stop followed by 2
-;; spaces. Let’s make it full-stop and 1 space.
-(setq sentence-end-double-space nil)
-
-;; Emacs has the built-in DocView mode which lets you view PDFs. The
-;; below setting allows continue scrolling
-(setq doc-view-continuous t)
-
-;; Set the initial major mode of newly created buffers to org-mode
-(setq initial-major-mode (quote org-mode))
-
-;; Set initial *scratch* buffer message and set major mode to
-;; lisp-interaction
-(setq initial-scratch-message (with-temp-buffer
-                                (insert-file-contents
-                                 (expand-file-name "scratch-ascii-art.txt"
-                                                   user-emacs-directory))
-                                (buffer-string)))
-(with-current-buffer
-    (get-buffer "*scratch*")
-  (lisp-interaction-mode))
-
-;; Enable winner mode
-;; Winner Mode is a global minor mode. When activated, it allows
-;; you to “undo” (and “redo”) changes in the window configuration
-;; with the key commands ‘C-c left’ and ‘C-c right’.
-(winner-mode t)
-
 ;; Change default directory to ~
 (cd "~")
-
-;; Insert right brackets when left one is typed
-(electric-pair-mode 1)
 
 ;; Keep a list of recently opened files
 (setq-default recent-save-file "~/.emacs.d/recentf")
 (recentf-mode 1)
-
-;; Ediff settings
-;; Split horizontally and avoid floating ediff window
-(setq ediff-split-window-function 'split-window-horizontally)
-(setq ediff-window-setup-function (quote ediff-setup-windows-plain))
-
-;; Enable octave-mode for .m files
-(add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
 
 ;; Setup bookmark
 (setq bookmark-save-flag 1) ;; every time bookmark is changed,
@@ -179,18 +141,6 @@
 
 ;; Make typing delete/overwrites selected text
 (delete-selection-mode 1)
-
-;; Customize Emacs calendar to start a week on Monday and to show the week number
-(setq calendar-week-start-day 1)
-(copy-face 'default 'calendar-iso-week-face)
-(set-face-attribute 'calendar-iso-week-face nil :foreground "light green")
-(setq calendar-intermonth-text
-      '(propertize
-        (format "%2d" (car
-                       (calendar-iso-from-absolute
-                        (calendar-absolute-from-gregorian (list month day year)))))
-        'font-lock-face 'calendar-iso-week-face))
-(setq calendar-intermonth-header (propertize "Wk"))
 
 ;; Save the cursor position for every file you opened
 (if (version< emacs-version "25.0")

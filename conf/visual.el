@@ -137,6 +137,56 @@
 ;; Link: https://github.com/d12frosted/homebrew-emacs-plus/issues/130
 (setq frame-resize-pixelwise t)
 
+;; Sort apropos results by relevancy
+(setq apropos-sort-by-scores t)
+
+;; Datetime format
+(setq display-time-day-and-date t
+      display-time-24hr-format t)
+
+;; Set tab width to 4
+(setq tab-width 4)
+
+;; By default, Emacs thinks a sentence is a full-stop followed by 2
+;; spaces. Let’s make it full-stop and 1 space.
+(setq sentence-end-double-space nil)
+
+;; Emacs has the built-in DocView mode which lets you view PDFs. The
+;; below setting allows continue scrolling
+(setq doc-view-continuous t)
+
+;; Enable winner mode
+;; Winner Mode is a global minor mode. When activated, it allows
+;; you to “undo” (and “redo”) changes in the window configuration
+;; with the key commands ‘C-c left’ and ‘C-c right’.
+(winner-mode t)
+
+;; Insert right brackets when left one is typed
+(electric-pair-mode 1)
+
+;; Set initial *scratch* buffer message and set major mode to
+;; lisp-interaction
+(setq initial-scratch-message (with-temp-buffer
+                                (insert-file-contents
+                                 (expand-file-name "scratch-ascii-art.txt"
+                                                   user-emacs-directory))
+                                (buffer-string)))
+(with-current-buffer
+    (get-buffer "*scratch*")
+  (lisp-interaction-mode))
+
+;; Customize Emacs calendar to start a week on Monday and to show the week number
+(setq calendar-week-start-day 1)
+(copy-face 'default 'calendar-iso-week-face)
+(set-face-attribute 'calendar-iso-week-face nil :foreground "light green")
+(setq calendar-intermonth-text
+      '(propertize
+        (format "%2d" (car
+                       (calendar-iso-from-absolute
+                        (calendar-absolute-from-gregorian (list month day year)))))
+        'font-lock-face 'calendar-iso-week-face))
+(setq calendar-intermonth-header (propertize "Wk"))
+
 ;; All the icons
 (when (window-system) ; Available only in GUI mode
   (progn
@@ -266,6 +316,12 @@
   :config
   (fast-scroll-config)
   (fast-scroll-mode 1))
+
+(use-package ediff
+  :config
+  ;; Split horizontally and avoid floating ediff window
+  (setq ediff-split-window-function 'split-window-horizontally)
+  (setq ediff-window-setup-function (quote ediff-setup-windows-plain)))
 
 ;; Global minor mode for Emacs that allows you to manage your window
 ;; configurations in a simple manner, just like tiling window managers.

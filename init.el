@@ -51,11 +51,6 @@
             (setq gc-cons-threshold (* 128 1024 1024)
                   gc-cons-percentage 0.1)))
 
-;; Log Emacs startup time in *Messages*
-(add-hook 'emacs-startup-hook
-          (lambda ()
-            (message (format "Emacs startup time: %s" (emacs-init-time)))))
-
 
 ;;; General configuration section
 
@@ -76,6 +71,12 @@
 (if (and (version< emacs-version "26.3") (>= libgnutls-version 30600))
     (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
 
+;; Enable packages signature verification only if GPG is installed
+;; (setq package-check-signature (when (executable-find "gpg") 'allow-unsigned))
+;;
+;; Temporary `disable' packages signature verification
+(setq package-check-signature nil)
+
 ;; Change the below priorities if you prefer melpa-stable packages.
 ;; Higher is better.
 (setq package-archive-priorities
@@ -83,18 +84,6 @@
         ("melpa-stable" . 3)
         ("org" . 2)
         ("gnu" . 1)))
-
-;; Enable garbage collect messages
-(setq garbage-collection-messages t)
-;; Run garbage collection only when Emacs is idle for more than 60
-;; seconds
-(run-with-idle-timer 60 t (lambda () (galactic-emacs-garbage-collect)))
-
-;; Enable packages signature verification only if GPG is installed
-;; (setq package-check-signature (when (executable-find "gpg") 'allow-unsigned))
-;;
-;; Temporary `disable' packages signature verification
-(setq package-check-signature nil)
 
 ;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)

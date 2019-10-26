@@ -70,6 +70,8 @@
   (load-library "find-lisp")
   ;; Org directories and files
   (setq org-directory "~/org/")
+  ;; Set the initial major mode of newly created buffers to org-mode
+  (setq initial-major-mode (quote org-mode))
   (when (file-directory-p org-directory)
     (setq org-default-notes-file (concat org-directory "refile.org")))
   ;; Additional files to be searched in addition to the default ones

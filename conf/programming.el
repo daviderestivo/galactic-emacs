@@ -227,6 +227,12 @@
   :ensure t
   :defer t)
 
+;; Octave-mode
+(use-package octave
+  :config
+  ;; Enable octave-mode for .m files
+  (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode)))
+
 ;; A linter for the metadata in Emacs Lisp files which are intended to
 ;; be packages
 (use-package package-lint
