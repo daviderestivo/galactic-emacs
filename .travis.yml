@@ -32,6 +32,8 @@ matrix:
   fast_finish: true
 
 before_script:
+  - echo "Add brew bin/sbin dirs to PATH..."
+  - export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
   - echo "Current working directory..."
   - echo $PWD
   - mv ../galactic-emacs ~/.emacs.d
