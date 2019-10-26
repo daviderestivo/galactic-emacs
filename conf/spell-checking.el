@@ -32,45 +32,46 @@
 
 ;; A Emacs spell checking configuration based on Flyspell.
 
-
-(require 'flyspell)
-;; Spell checking configuration
-(setq ispell-program-name "aspell")
-;; Enable flyspell for text files and enable superword mode
-(dolist (mode '(text-mode-hook))
-  (add-hook mode (lambda ()
-                   (flyspell-mode 1)
-                   (diminish 'flyspell-mode)
-                   ;; Enable superword mode, useful for “snake_case”.
-                   (superword-mode 1)
-                   (diminish 'superword-mode)
-                   )))
-;; Enable flyspell for code and enable superword mode
-(dolist (mode '(emacs-lisp-mode-hook
-                inferior-lisp-mode-hook
-                python-mode-hook
-                js-mode-hook))
-  (add-hook mode (lambda ()
-                   (flyspell-prog-mode)
-                   (diminish 'flyspell-mode)
-                   ;; Enable superword mode, useful for “snake_case”.
-                   (superword-mode 1)
-                   (diminish 'superword-mode)
-                   )))
-;; Add some of the ispell shortcuts:
-;; - press <f8> to check a word
-;; - press M-<f8> to check the next one
-(global-set-key (kbd "<f8>") 'ispell-word)
-(global-set-key (kbd "M-<f8>") 'flyspell-goto-next-error)
-;; In Mac OS X the right mouse button does not seem to trigger
-;; [mouse-2], so you cannot right click a word to get a suggestion.
-;; This can be fixed with the below:
-(eval-after-load "flyspell"
-  '(progn
-     (define-key flyspell-mouse-map [down-mouse-3]
-       #'flyspell-correct-word)
-     (define-key flyspell-mouse-map [mouse-3]
-       #'undefined)))
+(use-package flyspell
+  :ensure-system-package (aspell . "brew install aspell || sudo apt-get install aspell")
+  :config
+  ;; Spell checking configuration
+  (setq ispell-program-name "aspell")
+  ;; Enable flyspell for text files and enable superword mode
+  (dolist (mode '(text-mode-hook))
+    (add-hook mode (lambda ()
+                     (flyspell-mode 1)
+                     (diminish 'flyspell-mode)
+                     ;; Enable superword mode, useful for “snake_case”.
+                     (superword-mode 1)
+                     (diminish 'superword-mode)
+                     )))
+  ;; Enable flyspell for code and enable superword mode
+  (dolist (mode '(emacs-lisp-mode-hook
+                  inferior-lisp-mode-hook
+                  python-mode-hook
+                  js-mode-hook))
+    (add-hook mode (lambda ()
+                     (flyspell-prog-mode)
+                     (diminish 'flyspell-mode)
+                     ;; Enable superword mode, useful for “snake_case”.
+                     (superword-mode 1)
+                     (diminish 'superword-mode)
+                     )))
+  ;; Add some of the ispell shortcuts:
+  ;; - press <f8> to check a word
+  ;; - press M-<f8> to check the next one
+  (global-set-key (kbd "<f8>") 'ispell-word)
+  (global-set-key (kbd "M-<f8>") 'flyspell-goto-next-error)
+  ;; In Mac OS X the right mouse button does not seem to trigger
+  ;; [mouse-2], so you cannot right click a word to get a suggestion.
+  ;; This can be fixed with the below:
+  (eval-after-load "flyspell"
+    '(progn
+       (define-key flyspell-mouse-map [down-mouse-3]
+         #'flyspell-correct-word)
+       (define-key flyspell-mouse-map [mouse-3]
+         #'undefined))))
 
 
 ;;; spell-checking.el ends here
