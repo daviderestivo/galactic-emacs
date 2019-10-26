@@ -1,13 +1,13 @@
-;;; backup.el --- Galactic Emacs Auto-backup settings
+;;; auto-backup.el --- Galactic Emacs auto-backup settings
 
 ;;
 ;; Copyright (C) 2016-2019 Davide Restivo
 ;;
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
-;; URL: https://github.com/daviderestivo/galactic-emacs/blob/master/conf/backup.el
-;; Version: 10.1.0
-;; Keywords: emacs config
+;; URL: https://github.com/daviderestivo/galactic-emacs/blob/master/conf/auto-backup.el
+;; Version: 11.0.0
+;; Keywords: emacs config dotemacs
 
 
 ;;; License:
@@ -29,6 +29,9 @@
 
 
 ;;; Commentary:
+
+;; An improved Emacs auto-backup configuration.
+
 
 ;; Auto save very often
 ;; Save every 20 characters typed (this is the minimum)
@@ -152,4 +155,4 @@ backed up."
 (add-hook 'before-save-hook 'galactic-emacs-backup-every-save)
 
 
-;;; backup.el ends here
+;;; auto-backup.el ends here

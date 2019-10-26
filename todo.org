@@ -3,7 +3,8 @@ ob-ipython support is currently disabled because of
 https://github.com/gregsexton/ob-ipython/issues/135
 * TODO Re-enable package signature check
 [2019-07-25 Thu 18:52]
-* TODO Restructure packages.el to make it more modular
+* DONE Restructure packages.el to make it more modular
+CLOSED: [2019-10-26 Sat 18:18]
 [2019-09-24 Tue 18:32]
 * CANCELED Install centaur-tabs
 CLOSED: [2019-08-03 Sat 20:51]

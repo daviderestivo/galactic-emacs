@@ -1,4 +1,4 @@
-;;; init.el --- Galactic Emacs Init file
+;;; init.el --- Galactic Emacs init file
 
 ;;
 ;; Copyright (C) 2016-2019 Davide Restivo
@@ -6,7 +6,7 @@
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
 ;; URL: https://github.com/daviderestivo/galactic-emacs
-;; Version: 10.1.0
+;; Version: 11.0.0
 ;; Keywords: emacs config dotemacs
 
 
@@ -30,109 +30,10 @@
 
 ;;; Commentary:
 
-;; This is the Galactic Emacs config file. Below you can find the list
-;; of the packages used:
-;;
-;;  `Narrowing'
-;; - helm                                [https://github.com/emacs-helm/helm]
-;; - helm-ag                             [https://github.com/syohex/emacs-helm-ag]
-;; - helm-descbinds                      [https://github.com/emacs-helm/helm-descbinds]
-;; - helm-github-stars                   [https://github.com/Sliim/helm-github-stars]
-;; - helm-projectile                     [https://github.com/bbatsov/helm-projectile]
-;;
-;;  `Networking'
-;; - cisco-router-mode                   [https://www.emacswiki.org/emacs/download/cisco-router-mode.el]
-;; - comware-router-mode                 [https://github.com/daviderestivo/comware-router-mode]
-;;
-;;  `Programming'
-;; - cider                               [https://github.com/clojure-emacs/cider]
-;; - company-lsp                         [https://github.com/tigersoldier/company-lsp]
-;; - company-mode                        [https://github.com/company-mode/company-mode]
-;; - dante                               [https://github.com/jyp/dante]
-;; - dap-mode                            [https://github.com/yyoncho/dap-mode]
-;; - dap-java                            [https://github.com/yyoncho/dap-mode]
-;; - diff-hl                             [https://github.com/dgutov/diff-hl]
-;; - dockerfile-mode                     [https://github.com/spotify/dockerfile-mode]
-;; - elisp-bug-hunter                    [https://github.com/Malabarba/elisp-bug-hunter]
-;; - elpy                                [https://elpy.readthedocs.io]
-;; - flycheck                            [https://github.com/flycheck/flycheck]
-;; - fycheck-color-mode-line             [https://github.com/flycheck/flycheck-color-mode-line]
-;; - flycheck-pos-tip                    [https://github.com/flycheck/flycheck-pos-tip]
-;; - geiser                              [https://gitlab.com/jaor/geiser]
-;; - haskell-mode                        [https://github.com/haskell/haskell-mode]
-;; - lsp-mode                            [https://github.com/emacs-lsp/lsp-mode]
-;; - lsp-treemacs                        [https://github.com/emacs-lsp/lsp-treemacs]
-;; - lsp-java                            [https://github.com/emacs-lsp/lsp-java]
-;; - lsp-ui                              [https://github.com/emacs-lsp/lsp-ui]
-;; - jinja2-mode                         [https://github.com/paradoxxxzero/jinja2-mode]
-;; - json-mode                           [https://github.com/joshwnj/json-mode]
-;; - magit                               [https://magit.vc]
-;; - magit-org-todos                     [https://github.com/danielma/magit-org-todos.el]
-;; - markdown-mode                       [http://jblevins.org/projects/markdown-mode]
-;; - markdown-toc                        [https://github.com/ardumont/markdown-toc]
-;; - open-junk-file                      [https://github.com/rubikitch/open-junk-file]
-;; - projectile                          [https://github.com/bbatsov/projectile]
-;; - py-autopep8                         [https://github.com/paetzke/py-autopep8.el]
-;; - sly                                 [https://github.com/joaotavora/sly]
-;; - smartparens                         [https://github.com/Fuco1/smartparens]
-;; - treemacs-projectile                 [https://github.com/Alexander-Miller/treemacs]
-;; - yaml-mode                           [https://github.com/yoshiki/yaml-mode]
-;; - yang-mode                           [https://github.com/mbj4668/yang-mode]
-;; - yasnippet                           [https://github.com/joaotavora/yasnippet]
-;;
-;;  `Org'
-;; - ob-ipython                          [https://github.com/gregsexton/ob-ipython]
-;; - org-beautify-theme                  [https://github.com/jonnay/org-beautify-theme]
-;; - org-bullets                         [https://github.com/sabof/org-bullets]
-;; - org-download                        [https://github.com/abo-abo/org-download]
-;; - idle-org-agenda                     [https://github.com/enisozgen/idle-org-agenda]
-;; - org-mind-map                        [https://github.com/theodorewiles/org-mind-ma]
-;; - org-plus-contrib                    [http://orgmode.org]
-;;
-;;  `Visual'
-;; - all-the-icons                       [https://github.com/domtronn/all-the-icons.el]
-;; - atom-one-dark-theme                 [https://github.com/jonathanchu/atom-one-dark-theme]
-;; - auto-highlight-symbol               [https://github.com/gennad/auto-highlight-symbol]
-;; - beacon                              [https://github.com/Malabarba/beacon]
-;; - emacs-dashboard                     [https://github.com/rakanalh/emacs-dashboard]
-;; - eyebrowse                           [https://github.com/wasamasa/eyebrowse]
-;; - goto-line-preview                   [https://github.com/jcs090218/goto-line-preview]
-;; - highlight-indent-guides             [https://github.com/DarthFennec/highlight-indent-guides]
-;; - ibuffer-sidebar                     [https://github.com/jojojames/ibuffer-sidebar]
-;; - imenu-list                          [https://github.com/bmag/imenu-list]
-;; - rainbow-delimiters                  [https://www.emacswiki.org/emacs/RainbowDelimiters]
-;; - smart-mode-line                     [https://github.com/Malabarba/smart-mode-line]
-;; - smart-mode-line-atom-one-dark-theme [https://github.com/daviderestivo/smart-mode-line-atom-one-dark-theme]
-;; - transpose-frame                     [https://www.emacswiki.org/emacs/TransposeFrame]
-;; - treemacs-icons-dired                [https://github.com/Alexander-Miller/treemacs]
-;; - volatile-highlights                 [https://github.com/k-talo/volatile-highlights.el]
-;;
-;;  `Various'
-;; - auto-package-update                 [https://github.com/rranelli/auto-package-update.el]
-;; - auto-sudoedit                       [https://github.com/ncaq/auto-sudoedit]
-;; - avy                                 [https://github.com/abo-abo/avy]
-;; - command-log-mode                    [https://github.com/lewang/command-log-mode]
-;; - epkg                                [https://github.com/emacscollective/epkg]
-;; - esh-autosuggest                     [https://github.com/dieggsy/esh-autosuggest]
-;; - exec-path-from-shell                [https://github.com/purcell/exec-path-from-shell]
-;; - load-bash-alias                     [https://github.com/daviderestivo/load-bash-alias]
-;; - move-text                           [https://github.com/emacsfodder/move-text]
-;; - multiple-cursors                    [https://github.com/magnars/multiple-cursors.el]
-;; - psession                            [https://github.com/thierryvolpiatto/psession]
-;; - shell-pop-el                        [https://github.com/kyagi/shell-pop-el]
-;; - string-inflection                   [https://github.com/akicho8/string-inflection]
-;; - synosaurus                          [https://github.com/hpdeifel/synosaurus]
-;; - treemacs                            [https://github.com/Alexander-Miller/treemacs]
-;; - undo-tree                           [https://github.com/emacsmirror/undo-tree]
-;; - use-package                         [https://github.com/jwiegley/use-package]
-;; - which-key                           [https://github.com/justbur/emacs-which-key]
-;; - wttrin                              [https://github.com/bcbcarl/emacs-wttrin]
-;;
-;; Feel free to drop me an email in case of questions.
-
+;; This is the Galactic Emacs config file. Feel free to drop me an
+;; email in case of questions or if you want to collaborate.
 
 ;;; Improve Emacs startup time
-
 ;;
 ;; PLEASE DO NOT ADD ANY CODE `BEFORE' THIS SECTION
 ;;
@@ -204,6 +105,13 @@
 (use-package use-package-ensure-system-package
   :ensure t)
 (setq package-enable-at-startup nil)
+;; Enable use-package statistics
+;;
+;; Before exiting call `use-package-report'. This will display a buffer
+;; with all the packages you've declared with use-package and whether
+;; or not they've been loaded this session (along with some other
+;; useful info.
+(setq use-package-compute-statistics t)
 
 ;; Bootstrap `diminish'
 (unless (package-installed-p 'diminish)
@@ -211,6 +119,16 @@
   (package-install 'diminish))
 (eval-when-compile
   (require 'diminish))
+
+;; system-packages
+(use-package system-packages
+  :ensure t
+  :config
+  (when (string= system-type "darwin")
+    (setq system-packages-use-sudo nil)
+    (setq system-packages-package-manager 'brew))
+  (when (string= system-type "gnu/linux")
+    (setq system-packages-use-sudo t)))
 
 (require 'bind-key)
 
@@ -230,36 +148,57 @@
 (when (file-exists-p custom-file)
   (load custom-file 'noerror))
 
+
 ;; Personal Information
 (load-file (expand-file-name "personal.el"
+                             user-emacs-directory))
+
+;; Core settings
+(load-file (expand-file-name "conf/core.el"
                              user-emacs-directory))
 
 ;; Load helper functions
 (load-file (expand-file-name "conf/helper-functions.el"
                              user-emacs-directory))
 
-;; Load auto-backup settings
-(load-file (expand-file-name "conf/backup.el"
+;; Load auto-backup packages and settings
+(load-file (expand-file-name "conf/auto-backup.el"
                              user-emacs-directory))
 
-;; Load visual settings
-(load-file (expand-file-name "conf/visual.el"
+;; Load org mode packages and settings
+(load-file (expand-file-name "conf/org.el"
                              user-emacs-directory))
 
-;; Load various settings
+;; Load shell packages and settings
+(load-file (expand-file-name "conf/shell.el"
+                             user-emacs-directory))
+
+;; Load narrowing packages and settings
+(load-file (expand-file-name "conf/narrowing.el"
+                             user-emacs-directory))
+
+;; Load networking packages and settings
+(load-file (expand-file-name "conf/networking.el"
+                             user-emacs-directory))
+
+;; Load networking packages and settings
+(load-file (expand-file-name "conf/programming.el"
+                             user-emacs-directory))
+
+;; Load spell-checking packages and settings
+(load-file (expand-file-name "conf/spell-checking.el"
+                             user-emacs-directory))
+
+;; Load syntax-checking packages and settings
+(load-file (expand-file-name "conf/syntax-checking.el"
+                             user-emacs-directory))
+
+;; Load various packages and settings
 (load-file (expand-file-name "conf/various.el"
                              user-emacs-directory))
 
-;; Load packages
-(load-file (expand-file-name "conf/packages.el"
-                             user-emacs-directory))
-
-;; Load elisp library
-(load-file (expand-file-name "conf/elisp-library.el"
-                             user-emacs-directory))
-
-;; Load flyspell settings
-(load-file (expand-file-name "conf/flyspell.el"
+;; Load visual packages and settings
+(load-file (expand-file-name "conf/visual.el"
                              user-emacs-directory))
 
 

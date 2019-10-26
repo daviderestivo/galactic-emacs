@@ -1,13 +1,13 @@
-;;; flyspell.el --- Galactic Emacs Flyspell settings
+;;; spell-checking.el --- Galactic Emacs spell checking configuration
 
 ;;
 ;; Copyright (C) 2016-2019 Davide Restivo
 ;;
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
-;; URL: https://github.com/daviderestivo/galactic-emacs/blob/master/conf/flyspell.el
-;; Version: 10.1.0
-;; Keywords: emacs config
+;; URL: https://github.com/daviderestivo/galactic-emacs/blob/master/conf/spell-checking.el
+;; Version: 11.0.0
+;; Keywords: emacs config dotemacs
 
 
 ;;; License:
@@ -29,6 +29,9 @@
 
 
 ;;; Commentary:
+
+;; A Emacs spell checking configuration based on Flyspell.
+
 
 (require 'flyspell)
 ;; Spell checking configuration
@@ -70,4 +73,4 @@
        #'undefined)))
 
 
-;;; flyspell.el ends here
+;;; spell-checking.el ends here

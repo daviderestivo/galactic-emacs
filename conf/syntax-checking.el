@@ -1,12 +1,12 @@
-;;; elisp-library.el --- Galactic Emacs Elisp Library files
+;;; syntax-checking.el --- Galactic Emacs syntax checking configuration
 
 ;;
 ;; Copyright (C) 2016-2019 Davide Restivo
 ;;
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
-;; URL: https://github.com/daviderestivo/galactic-emacs
-;; Version: 10.1.0
+;; URL: https://github.com/daviderestivo/galactic-emacs/blob/master/conf/syntax-checking.el
+;; Version: 11.0.0
 ;; Keywords: emacs config dotemacs
 
 
@@ -30,13 +30,27 @@
 
 ;;; Commentary:
 
-;; cisco-router-mode
-;; https://www.emacswiki.org/emacs/cisco-router-mode.el
-(load-library "cisco-router-mode")
-
-;; transpose-frame
-;; https://www.emacswiki.org/emacs/TransposeFrame
-(load-library "transpose-frame")
+;; A Emacs syntax checking configuration based on Flycheck.
 
 
-;;; elisp-library.el ends here
+;; On the fly syntax checking for GNU Emacs
+(use-package flycheck
+  :ensure t
+  :defer t
+  :after (flycheck-color-mode-line flycheck-pos-tip)
+  :hook
+  (flycheck-mode . flycheck-pos-tip-mode)
+  (flycheck-mode . flycheck-color-mode-line-mode))
+
+;; An Emacs minor-mode for Flycheck which colors the mode-line
+;; according to the Flycheck state of the current buffer.
+(use-package flycheck-color-mode-line
+  :ensure t
+  :defer t)
+
+;; Flycheck errors display in tooltip
+(use-package flycheck-pos-tip
+  :ensure t
+  :defer t)
+
+;;; syntax-checking.el ends here

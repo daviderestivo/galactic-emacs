@@ -1,4 +1,4 @@
-;;; helper-functions.el --- Galactic Emacs Helper functions
+;;; helper-functions.el --- Galactic Emacs helper functions
 
 ;;
 ;; Copyright (C) 2016-2019 Davide Restivo
@@ -6,9 +6,9 @@
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
 ;; URL: https://github.com/daviderestivo/galactic-emacs/blob/master/conf/helper-functions.el
-;; Version: 10.1.0
+;; Version: 11.0.0
 ;; Package-Requires: ((dash "2.14.1"))
-;; Keywords: emacs config
+;; Keywords: emacs config dotemacs
 
 
 ;;; License:
@@ -31,7 +31,8 @@
 
 ;;; Commentary:
 
-;; Galactic Emacs helper functions
+;; Galactic Emacs helper functions.
+
 
 (require 'cl-macs)
 
