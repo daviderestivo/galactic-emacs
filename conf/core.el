@@ -45,6 +45,10 @@
         (package-install 'cl-generic))
       (require 'cl-generic)))
 
+;; List-manipulation utilities
+(use-package dash
+  :ensure t)
+
 ;; If Emacs is running in daemon mode, print Emacs server utpime every
 ;; half an hour
 (if (daemonp)
