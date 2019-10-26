@@ -56,6 +56,11 @@
                                      (concat "[" (current-time-string) "]" " GNU Emacs server uptime: "
                                              (emacs-uptime))))))
 
+;; Resolve the conflict where a new command wants to direct its output
+;; to the buffer ‘*Async Shell Command*’ creating a new buffer without
+;; prompting for a confirmation
+(setq async-shell-command-buffer 'new-buffer)
+
 ;; UTF-8 as default encoding
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
