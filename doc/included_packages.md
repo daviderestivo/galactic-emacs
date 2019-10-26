@@ -81,10 +81,10 @@ The package management tool used is: [use-package](https://github.com/jwiegley/u
 * [load-bash-alias](https://github.com/daviderestivo/load-bash-alias)
 * [shell-pop-el](https://github.com/kyagi/shell-pop-el)
 
-## Spell Checking
+## Spell checking
 * [flyspell](https://www.gnu.org/software/emacs/manual/html_node/emacs/Spelling.html)
 
-## Syntax-checking
+## Syntax checking
 * [flycheck](https://github.com/flycheck/flycheck)
 * [fycheck-color-mode-line](https://github.com/flycheck/flycheck-color-mode-line)
 * [flycheck-pos-tip](https://github.com/flycheck/flycheck-pos-tip)
