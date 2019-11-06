@@ -112,22 +112,6 @@
               (setq prettify-symbols-unprettify-at-point 'right-edge)
               (prettify-symbols-mode))))
 
-;; Customize ediff background colors
-(add-hook 'ediff-load-hook
-          (lambda ()
-            (set-face-background
-             ediff-even-diff-face-A "grey20")
-            (set-face-background
-             ediff-even-diff-face-B "grey20")
-            (set-face-background
-             ediff-even-diff-face-C "grey20")
-            (set-face-background
-             ediff-odd-diff-face-A  "grey20")
-            (set-face-background
-             ediff-odd-diff-face-B  "grey20")
-            (set-face-background
-             ediff-odd-diff-face-C  "grey20")))
-
 ;; Unset the frame title and remove the icon
 (setq frame-title-format nil)
 (setq ns-use-proxy-icon nil)
@@ -318,6 +302,23 @@
   (fast-scroll-mode 1))
 
 (use-package ediff
+  :init
+  ;; Customize ediff background colors
+  (add-hook 'ediff-load-hook
+            (lambda ()
+              (set-face-background
+               ediff-even-diff-face-A "grey20")
+              (set-face-background
+               ediff-even-diff-face-B "grey20")
+              (set-face-background
+               ediff-even-diff-face-C "grey20")
+              (set-face-background
+               ediff-odd-diff-face-A  "grey20")
+              (set-face-background
+               ediff-odd-diff-face-B  "grey20")
+              (set-face-background
+               ediff-odd-diff-face-C  "grey20")))
+
   :config
   ;; Split horizontally and avoid floating ediff window
   (setq ediff-split-window-function 'split-window-horizontally)
@@ -486,11 +487,11 @@
   ;; Allow treemacs window to be resized and disable line numbers
   (treemacs-mode .
                  (lambda () (progn
-                         (treemacs-toggle-fixed-width)
-                         (if (version< emacs-version "26.1")
-                             (linum-mode)
-                           (display-line-numbers-mode))
-                         (setq display-line-numbers nil))))
+                              (treemacs-toggle-fixed-width)
+                              (if (version< emacs-version "26.1")
+                                  (linum-mode)
+                                (display-line-numbers-mode))
+                              (setq display-line-numbers nil))))
   :config
   (progn
     (setq treemacs-collapse-dirs              (if (executable-find "python") 3 0)
