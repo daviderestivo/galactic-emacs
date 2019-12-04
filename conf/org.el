@@ -104,7 +104,7 @@
   (setq org-image-actual-width '(320))
   ;; Default file applications on a macOS system
   (when (string= system-type "darwin")
-    (setq org-file-apps org-file-apps-defaults-macosx))
+    (setq org-file-apps org-file-apps-macos))
   ;; Org default TODO keywords
   ;; The below can be customized per file using:
   ;;
