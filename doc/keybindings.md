@@ -31,6 +31,8 @@
 | C-=           | copy-line                                      |
 | C-c \<left\>  | Winner mode - Undo windows changes             |
 | C-c \<right\> | Winner mode - Redo windows changes             |
+| C-c r p       | parrot-rotate-prev-word-at-point               |
+| C-c r n       | parrot-rotate-next-word-at-point               |
 | C-m           | YAML mode - New line and indent                |
 | C-c p         | projectile keymap                              |
 | M-+           | galactic-emacs-insert-date                     |

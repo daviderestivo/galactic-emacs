@@ -98,6 +98,7 @@ The package management tool used is: [use-package](https://github.com/jwiegley/u
 * [move-text](https://github.com/emacsfodder/move-text)
 * [multiple-cursors](https://github.com/magnars/multiple-cursors.el)
 * [open-junk-file](https://github.com/rubikitch/open-junk-file)
+* [parrot](https://github.com/dp12/parrot)
 * [psession](https://github.com/thierryvolpiatto/psession)
 * [string-inflection](https://github.com/akicho8/string-inflection)
 * [synosaurus](https://github.com/hpdeifel/synosaurus)

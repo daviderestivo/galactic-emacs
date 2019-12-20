@@ -109,6 +109,18 @@
   :config
   (setq open-junk-file-format "~/iCloud/emacs/junk/%Y/%m/%d-%H%M%S."))
 
+;; A package to rotate text and party with parrots at the same time
+(use-package parrot
+  :diminish parrot-mode
+  :ensure t
+  :init
+  (setq parrot-minimum-window-width most-positive-fixnum)
+  :bind
+  ("C-c r p" . parrot-rotate-prev-word-at-point)
+  ("C-c r n" . parrot-rotate-next-word-at-point)
+  :config
+  (parrot-mode))
+
 ;; psession
 (use-package psession
   :ensure t
