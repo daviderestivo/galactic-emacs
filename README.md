@@ -45,7 +45,7 @@ theme with some minor changes.
 # Installation
 ## GNU/Emacs installation
 This configuration is mainly tested on the HEAD version of Emacs
-(currently 27.x) running on macOS. If your're using brew, as a package
+(currently 28.x) running on macOS. If your're using brew, as a package
 manager on macOS, please install Emacs with the below command:
 
 ``` bash

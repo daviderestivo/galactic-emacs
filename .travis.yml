@@ -19,7 +19,7 @@ matrix:
             - gnupg
           update: true
 
-    # Emacs 27.x on Mojave (10.14)
+    # Emacs 28.x on Mojave (10.14)
     - env:
         - BUILD_OPTIONS="--HEAD --with-cocoa --with-no-frame-refocus --with-imagemagick --with-jansson"
       osx_image: xcode11.3
