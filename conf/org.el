@@ -178,7 +178,6 @@
 (use-package org-beautify-theme
   :ensure t
   :defer t
-  :defer t
   ;; This theme is loaded when entering org-mode. Please see the above
   ;; org section.
   )
