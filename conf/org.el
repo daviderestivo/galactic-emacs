@@ -36,6 +36,7 @@
 ;; Org-Mode: main section
 (use-package org
   :ensure org-plus-contrib
+  :pin org
   :defer t
   :init
   ;; Org 9.2 comes with a new template expansion mechanism [C-c C-,]
