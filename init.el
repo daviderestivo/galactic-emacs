@@ -5,7 +5,7 @@
 ;;
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
-;; URL: https://github.com/daviderestivo/galactic-emacs
+;; URL: https://github.com/daviderestivo/galactic-emacs/blob/master/init.el
 ;; Version: 11.0.0
 ;; Keywords: emacs config dotemacs
 
@@ -32,6 +32,7 @@
 
 ;; This is the Galactic Emacs config file. Feel free to drop me an
 ;; email in case of questions or if you want to collaborate.
+
 
 ;;; Improve Emacs startup time
 ;;
