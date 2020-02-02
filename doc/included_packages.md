@@ -34,7 +34,6 @@ The package management tool used is: [use-package](https://github.com/jwiegley/u
 * [comware-router-mode](https://github.com/daviderestivo/comware-router-mode)
 
 ## Org
-* [idle-org-agenda](https://github.com/enisozgen/idle-org-agenda)
 * [org-plus-contrib](https://orgmode.org/)
 * [org-beautify-theme](https://github.com/jonnay/org-beautify-theme)
 * [org-bullets](https://github.com/sabof/org-bullets)
