@@ -263,7 +263,7 @@
                (all-the-icons-faicon "archive" :height 1.1 :v-adjust 0.0))
             "Update Installed Packages"
             "Update Installed Packages"
-            (lambda (&rest _) (auto-package-update-now)))))))
+            (lambda (&rest _) (galactic-emacs-update-packages)))))))
 
 ;; diff-hl
 (use-package diff-hl

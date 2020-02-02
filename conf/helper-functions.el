@@ -411,6 +411,16 @@ the outdated package and the CDR is the list of all the installed versions."
       (galactic-emacs-reload-init-file)
       (message "Update finished."))))
 
+(defun galactic-emacs-update-packages ()
+  "Update Galactic Emacs packages to the latest versions."
+  (interactive)
+  (progn
+    (auto-package-update-now)
+    ;; If Emacs is running from a dumped binary then re-generate the
+    ;; binary using the latest updated packages
+    (when (boundp 'galactic-emacs-pdumper-dumped)
+      (galactic-emacs-dump-emacs))))
+
 (defun galactic-emacs-garbage-collect ()
   "Run `garbage-collect' and print stats about memory usage."
   (interactive)

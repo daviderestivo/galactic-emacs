@@ -55,6 +55,15 @@
 
 ;;; General configuration section
 
+;; Dumped Emacs
+(when (boundp 'galactic-emacs-pdumper-dumped)
+  ;; Restore `load-path'
+  (setq load-path galactic-emacs-pdumper-load-path)
+  ;; When Emacs starts from dump file, some default modes are not
+  ;; enabled
+  (global-font-lock-mode)
+  (transient-mark-mode))
+
 ;; Configure Emacs package manager. Not required anymore on Emacs > 27
 (if (version< emacs-version "27")
     (package-initialize))
@@ -145,6 +154,10 @@
 
 ;; Core settings
 (load-file (expand-file-name "conf/core.el"
+                             user-emacs-directory))
+
+;; Pdumper configuration file
+(load-file (expand-file-name "conf/pdumper-config.el"
                              user-emacs-directory))
 
 ;; Load helper functions
