@@ -17,6 +17,7 @@
 - [Installation](#installation)
     - [GNU/Emacs installation](#gnuemacs-installation)
     - [Galactic Emacs installation](#galactic-emacs-installation)
+    - [Enable pdumper](#enable-pdumper)
 - [Key bindings](#key-bindings)
 - [Included packages](#included-packages)
 - [About the logo](#about-the-logo)
@@ -77,6 +78,12 @@ git submodule foreach --recursive git checkout master
 Before you start emacs please edit `~/.emacs.d/personal.el.example`
 adding your personal information and rename it to
 `~/.emacs.d/personal.el`.
+
+## Enable pdumper
+If you're running Emacs >= 27 then you can enable pdumper support. In
+order to do so, once you have cloned the Galactic Emacs distribution
+as detailed in the previous section, start Emacs and issue: `M-x
+galactic-emacs-dump-emacs`.
 
 # Key bindings
 Please have a look to the list of the available [key bindings](https://github.com/daviderestivo/galactic-emacs/blob/master/doc/keybindings.md).
