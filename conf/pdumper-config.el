@@ -63,6 +63,7 @@
   (split-window-below)
   (other-window 0)
   (switch-to-buffer galactic-emacs-pdumper-buffer-name)
+  (beginning-of-buffer)
   (read-only-mode)
   (local-set-key (kbd "q") (lambda () (interactive)
                              (kill-this-buffer)
