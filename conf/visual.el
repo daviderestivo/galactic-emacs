@@ -198,9 +198,10 @@
   (galactic-emacs-setup-frame-appearance)
   (add-hook 'after-make-frame-functions 'galactic-emacs-setup-frame-appearance 'append)
   :config
-  ;; The below theme is used both for the case of Emacs running in
-  ;; console or GUI mode
-  (load-theme 'atom-one-dark))
+  ;; The below theme is used both for the case of Emacs running GUI
+  ;; mode
+  (when (display-graphic-p)
+    (load-theme 'atom-one-dark)))
 
 ;; Automatic highlighting current symbol minor mode
 (use-package auto-highlight-symbol
