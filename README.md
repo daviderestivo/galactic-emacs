@@ -83,7 +83,11 @@ adding your personal information and rename it to
 If you're running Emacs >= 27 then you can enable pdumper support. In
 order to do so, once you have cloned the Galactic Emacs distribution
 as detailed in the previous section, start Emacs and issue: `M-x
-galactic-emacs-dump-emacs`.
+galactic-emacs-dump-emacs`. Please run it with the command:
+
+```
+emacs --dump-file="$(echo ~/.emacs.d/.cache/dumps/emacs.pdmp)"
+```
 
 # Key bindings
 Please have a look to the list of the available [key bindings](https://github.com/daviderestivo/galactic-emacs/blob/master/doc/keybindings.md).
