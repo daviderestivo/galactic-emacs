@@ -1,4 +1,4 @@
-language: emacs-lisp
+language: generic
 
 os:
   - osx
@@ -7,7 +7,7 @@ os:
 git:
     submodules: false
 
-matrix:
+jobs:
   include:
     # Emacs 26.x on Mojave (10.14)
     - env:
