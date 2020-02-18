@@ -125,11 +125,16 @@
 (use-package psession
   :ensure t
   :config
-  (psession-mode 1)
-  ;; Save minibuffer history
-  (psession-savehist-mode 1)
-  ;; Save periodically (autosave) the Emacs session
-  (psession-autosave-mode 1))
+  ;; Load psession-modes only 5 seconds after startup if emacs is idle
+  (run-with-idle-timer 5 nil
+                       (lambda ()
+                         (progn
+                           (message "Enabling psession-mode...")
+                           (psession-mode 1)
+                           ;; Save minibuffer history
+                           (psession-savehist-mode 1)
+                           ;; Save periodically (autosave) the Emacs session
+                           (psession-autosave-mode 1)))))
 
 ;; underscore -> UPCASE -> CamelCase -> lowerCamelCase conversion of
 ;; names

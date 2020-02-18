@@ -45,6 +45,11 @@
               indicate-empty-lines t
               indent-tabs-mode nil)
 
+;; Emacs resizes the (GUI) frame when your newly set font is larger
+;; (or smaller) than the system default. This seems to add 0.4-1s to
+;; startup.
+(setq frame-inhibit-implied-resize t)
+
 ;; Line and column numbers
 (if (version< emacs-version "26.1")
     (global-linum-mode)
@@ -70,9 +75,12 @@
 (setq galactic-emacs-frame-alpha '(96 96))
 
 ;; Set default font
-(set-face-attribute 'default nil
-                    :family "DejaVu Sans Mono"
-                    :height 140)
+(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-14"))
+
+;; The latter does more work than the former, under the hood.
+;; (set-face-attribute 'default nil
+;;                     :family "DejaVu Sans Mono"
+;;                     :height 140)
 
 ;; Show trailing white-spaces
 ;; Type M-x delete-trailing-whitespace to delete all trailing
@@ -157,7 +165,7 @@
                                 (buffer-string)))
 (with-current-buffer
     (get-buffer "*scratch*")
-  (lisp-interaction-mode))
+  (fundamental-mode))
 
 ;; Customize Emacs calendar to start a week on Monday and to show the week number
 (setq calendar-week-start-day 1)
