@@ -192,6 +192,10 @@
               '("~/.emacs.d/elpa" . 1 )
               '("~/.dotfiles" . 1 )
               '("~/org" . 1 )))
+  (if (boundp 'galactic-emacs-magit-custom-repository-directories)
+      (setq magit-repository-directories
+            (append magit-repository-directories
+                    galactic-emacs-magit-custom-repository-directories)))
   :config
   ;; Expand "unpushed to upstream or recent" magit section
   (push (cons [unpushed status] 'show) magit-section-initial-visibility-alist)
