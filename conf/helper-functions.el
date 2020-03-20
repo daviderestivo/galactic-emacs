@@ -168,9 +168,9 @@ https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc0303
                       (file-name-base (buffer-file-name))
                       (org-download--dir-2)))))
     (progn
-      (setq filename-with-timestamp (format "%s%s.%s"
+      (setq filename-with-timestamp (format "%s--%s.%s"
                                             (file-name-sans-extension filename)
-                                            (format-time-string org-download-timestamp)
+                                            (format-time-string "%Y-%m-%d_%H-%M-%S")
                                             (file-name-extension filename)))
       ;; Check if directory exists otherwise creates it
       (unless (file-exists-p dir)
