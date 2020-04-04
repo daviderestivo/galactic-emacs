@@ -210,6 +210,7 @@
   :hook
   ;; Display images inline in the same buffer
   (org-babel-after-execute . org-display-inline-images)
+  :after (ein ob-clojure ob-plantuml)
   :config
   ;; Make org-mode allow eval elisp, python and ruby
   (org-babel-do-load-languages
