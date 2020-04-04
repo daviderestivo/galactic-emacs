@@ -36,7 +36,6 @@ before_script:
   - echo $PWD
   - mv ../galactic-emacs ~/.emacs.d
   - mv ~/.emacs.d/personal.el.example ~/.emacs.d/personal.el
-  - brew unlink python@2
   - brew tap daviderestivo/emacs-head
   - travis_wait 60 brew install emacs-head $BUILD_OPTIONS
 
