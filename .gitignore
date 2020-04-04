@@ -13,6 +13,7 @@ bookmarks
 eclipse.jdt.ls/
 elisp-objects/
 elpa/
+elpy/
 eshell/
 history
 hgs-cache
@@ -22,6 +23,7 @@ custom.el
 places
 projectile-bookmarks.eld
 recentf
+request/
 tramp
 transient/
 url/

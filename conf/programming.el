@@ -120,6 +120,12 @@
         python-shell-prompt-detect-failure-warning nil)
   (add-to-list 'python-shell-completion-native-disabled-interpreters "jupyter"))
 
+;; EIN - Emacs IPython Notebook
+(use-package ein
+  :ensure t
+  :config
+  (setq ein:output-area-inlined-images t))
+
 ;; Geiser is a generic Emacs/Scheme interaction mode, featuring an
 ;; enhanced REPL
 (use-package geiser

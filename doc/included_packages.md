@@ -50,6 +50,7 @@ The package management tool used is: [use-package](https://github.com/jwiegley/u
 * [dap-java](https://github.com/yyoncho/dap-mode)
 * [dockerfile-mode](https://github.com/spotify/dockerfile-mode)
 * [elpy](https://elpy.readthedocs.io)
+* [ein](http://millejoh.github.io/emacs-ipython-notebook/)
 * [geiser](https://gitlab.com/jaor/geiser)
 * [haskell-mode](https://github.com/haskell/haskell-mode)
 * [lsp-mode](https://github.com/emacs-lsp/lsp-mode)

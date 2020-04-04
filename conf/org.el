@@ -216,6 +216,7 @@
    'org-babel-load-languages
    '((emacs-lisp . t)
      (clojure . t)
+     (ein . t)
      (python . t)
      (ruby . t)
      (plantuml . t)))
