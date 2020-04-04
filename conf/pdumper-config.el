@@ -50,7 +50,7 @@
 
 ;; Pdumper excluded packages
 (setq galactic-emacs-pdumper-excluded-packages
-      '(ob-ipython org-beautify-theme org-bullets org-download org-mind-map org-plus-contrib))
+      '(org-beautify-theme org-bullets org-download org-mind-map org-plus-contrib))
 
 ;; Pdumper included packages
 (setq galactic-emacs-pdumper-included-packages

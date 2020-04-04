@@ -217,9 +217,6 @@
    '((emacs-lisp . t)
      (clojure . t)
      (python . t)
-     ;; Disable ob-ipython because of:
-     ;; https://github.com/gregsexton/ob-ipython/issues/135
-     ;;(ipython . t)
      (ruby . t)
      (plantuml . t)))
   ;; Stop Emacs asking for confirmation when evaluating a code block
@@ -236,13 +233,6 @@
   ;; To compile and run Clojure code, you will need to connect to a
   ;; REPL: M-x cider-jack-in RET
   (setq org-babel-clojure-backend 'cider))
-
-;; Org Babel: ipython section
-(use-package ob-ipython
-  :ensure t
-  :defer t
-  :config
-  (setq ob-ipython-command "ipython3"))
 
 ;; Org Babel: plantuml section
 (use-package ob-plantuml

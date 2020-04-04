@@ -38,7 +38,6 @@ The package management tool used is: [use-package](https://github.com/jwiegley/u
 * [org-beautify-theme](https://github.com/jonnay/org-beautify-theme)
 * [org-bullets](https://github.com/sabof/org-bullets)
 * [org-download](https://github.com/abo-abo/org-download)
-* [ob-ipython](https://github.com/gregsexton/ob-ipython)
 * [org-mind-map](https://github.com/theodorewiles/org-mind-map)
 
 ## Programming
