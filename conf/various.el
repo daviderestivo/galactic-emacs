@@ -127,7 +127,6 @@
   :config
   (setq savehist-additional-variables
         '(buffer-name-history
-          compile-command
           extended-command-history
           file-name-history
           kill-ring
