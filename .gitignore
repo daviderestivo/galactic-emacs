@@ -11,11 +11,9 @@
 auto-save-list/
 bookmarks
 eclipse.jdt.ls/
-elisp-objects/
 elpa/
 elpy/
 eshell/
-history
 hgs-cache
 network-security.data
 personal.el
@@ -24,6 +22,7 @@ places
 projectile-bookmarks.eld
 recentf
 request/
+savehist/
 tramp
 transient/
 url/

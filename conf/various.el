@@ -121,20 +121,22 @@
   :config
   (parrot-mode))
 
-;; psession
-(use-package psession
-  :ensure t
+;; A very simple alternative to more involved session management
+;; solutions
+(use-package savehist
   :config
-  ;; Load psession-modes only 5 seconds after startup if emacs is idle
-  (run-with-idle-timer 5 nil
-                       (lambda ()
-                         (progn
-                           (message "Enabling psession-mode...")
-                           (psession-mode 1)
-                           ;; Save minibuffer history
-                           (psession-savehist-mode 1)
-                           ;; Save periodically (autosave) the Emacs session
-                           (psession-autosave-mode 1)))))
+  (setq savehist-additional-variables
+        '(buffer-name-history
+          compile-command
+          extended-command-history
+          file-name-history
+          kill-ring
+          regexp-search-ring
+          search-ring))
+  (setq
+   savehist-autosave-interval 60
+   savehist-file (expand-file-name "savehist/history" user-emacs-directory))
+  (savehist-mode t))
 
 ;; underscore -> UPCASE -> CamelCase -> lowerCamelCase conversion of
 ;; names

@@ -56,6 +56,7 @@
   (setq helm-buffers-fuzzy-matching t)
   (setq helm-recentf-fuzzy-match t)
   (setq helm-M-x-fuzzy-match t)
+  (setq helm-M-x-always-save-history t)
   ;;--------------------------------------------------------------------------;;
   ;;       Work with Spotlight on macOS instead of the regular locate         ;;
   ;;--------------------------------------------------------------------------;;
