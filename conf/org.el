@@ -164,6 +164,11 @@
   (setq auto-save-default nil)
   ;; Set crypt as default tag available in org files.
   (setq org-tag-alist '(("crypt" . ?c)))
+  ;; Set dvisvgm as default LaTeX rendering program. Require MacTeX to
+  ;; be installed: `brew cask install mactex'
+  (setq org-preview-latex-default-process 'dvisvgm)
+  ;; Control size of LateX previews
+  (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
   :bind
   ("\C-ce"  . org-encrypt-entry)
   ("\C-cd"  . org-decrypt-entry)
