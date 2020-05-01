@@ -36,7 +36,7 @@
 | C-m           | YAML mode - New line and indent                |
 | C-c p         | projectile keymap                              |
 | M-+           | galactic-emacs-insert-date                     |
-| C-x t         | shell-pop-universal-key                        |
+| C-c s         | shell-pop-eshell                               |
 | C-c j         | galactic-emacs-org-show-current-heading-tidily |
 | M-o           | other-window                                   |
 | M-up          | move-text-up                                   |

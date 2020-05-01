@@ -80,13 +80,23 @@
 ;; Pop-up a shell
 (use-package shell-pop
   :ensure t
+  :bind
+  ("C-c s" . shell-pop-eshell)
   :init
-  (setq shell-pop-shell-type '("eshell" "*eshell*" (lambda () (eshell)))
-        shell-pop-term-shell "eshell"
-        shell-pop-universal-key (kbd "C-x t")
-        shell-pop-window-size 50
-        shell-pop-full-span nil
-        shell-pop-window-position "bottom"))
+  (defun shell-pop-eshell ()
+    (interactive)
+    (let
+        ((shell-pop-shell-type '("eshell" "*eshell*" (lambda () (eshell))))
+         (shell-pop-term-shell "eshell")
+         (shell-pop-universal-key (kbd "C-c s"))
+         (shell-pop-window-size 50)
+         (shell-pop-full-span nil)
+         (shell-pop-window-position "bottom")
+         (shell-pop-autocd-to-working-dir t)
+         (shell-pop-restore-window-configuration t)
+         (shell-pop-cleanup-buffer-at-process-exit t))
+      (shell-pop--set-shell-type 'shell-pop-shell-type shell-pop-shell-type)
+      (call-interactively 'shell-pop))))
 
 
 ;;; shell.el ends here
