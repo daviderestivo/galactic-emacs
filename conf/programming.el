@@ -303,5 +303,10 @@
           "~/.emacs.d/snippets-addons"))  ;; Personal snippets
   (yas-reload-all))
 
+;; A regexp/replace command for Emacs with interactive visual feedback
+(use-package visual-regexp
+  :ensure t
+  :defer t)
+
 
 ;;; programming.el ends here
