@@ -274,6 +274,11 @@
   :config
   (setq inferior-lisp-program "sbcl"))
 
+;; A regexp/replace command for Emacs with interactive visual feedback
+(use-package visual-regexp
+  :ensure t
+  :defer t)
+
 ;; yaml-mode
 (use-package yaml-mode
   :ensure t
@@ -302,11 +307,6 @@
         '("~/.emacs.d/snippets"           ;; AndreaCrotti/yasnippet-snippets
           "~/.emacs.d/snippets-addons"))  ;; Personal snippets
   (yas-reload-all))
-
-;; A regexp/replace command for Emacs with interactive visual feedback
-(use-package visual-regexp
-  :ensure t
-  :defer t)
 
 
 ;;; programming.el ends here

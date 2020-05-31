@@ -69,10 +69,10 @@ The package management tool used is: [use-package](https://github.com/jwiegley/u
 * [projectile](https://github.com/bbatsov/projectile)
 * [py-autopep8](https://github.com/paetzke/py-autopep8.el)
 * [sly](https://github.com/joaotavora/sly)
+* [visual-regexp](https://github.com/benma/visual-regexp.el)
 * [yaml-mode](https://github.com/yoshiki/yaml-mode)
 * [yang-mode](https://github.com/mbj4668/yang-mode)
 * [yasnippet](https://github.com/joaotavora/yasnippet)
-* [visual-regexp](https://github.com/benma/visual-regexp.el)
 
 ## Shell
 * [eshell](https://www.gnu.org/software/emacs/manual/html_mono/eshell.html)
