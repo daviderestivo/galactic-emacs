@@ -268,6 +268,13 @@
   ;; Configure elpy autopep8 support
   (elpy-mode . py-autopep8-enable-on-save))
 
+;; re-builder
+(use-package re-builder
+  :defer t
+  :config
+  ;; Set re-builder default syntax to 'string
+  (setq reb-re-syntax 'string))
+
 ;; Sylvester the Cat's Common Lisp IDE
 (use-package sly
   :ensure t
