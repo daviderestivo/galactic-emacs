@@ -44,15 +44,15 @@
 
 ## Helm
 
-| Key     | Function                |
-| :---    | :---                    |
-| C-x r b | helm-filtered-bookmarks |
-| C-x C-r | helm-recentf            |
-| M-<F6>  | helm-do-ag              |
-| M-s     | helm-do-ag-this-file    |
-| C-u M-s | helm-do-ag-buffers      |
-| C-c C-; | helm-eshell-prompts     |
-| C-c C-l | helm-eshell-history     |
+| Key      | Function                |
+| :---     | :---                    |
+| C-x r b  | helm-filtered-bookmarks |
+| C-x C-r  | helm-recentf            |
+| M-\<f6\> | helm-do-ag              |
+| M-s      | helm-do-ag-this-file    |
+| C-u M-s  | helm-do-ag-buffers      |
+| C-c C-;  | helm-eshell-prompts     |
+| C-c C-l  | helm-eshell-history     |
 
 ## Multiple Cursors
 
@@ -73,17 +73,17 @@
 
 ## Org-mode
 
-| Key   | Function                                       |
-| :---  | :---                                           |
-| C-c e | org-encrypt-entry                              |
-| C-c d | org-decrypt-entry                              |
-| C-c l | org-store-link                                 |
-| C-c a | org-agenda                                     |
-| C-c c | org-capture                                    |
-| C-c b | org-iswitch                                    |
-| C-c i | org-insert-heading                             |
-| C-c j | galactic-emacs-org-show-current-heading-tidily |
-| <F6>  | galactic-emacs-org-directory-search-ag         |
+| Key    | Function                                       |
+| :---   | :---                                           |
+| C-c e  | org-encrypt-entry                              |
+| C-c d  | org-decrypt-entry                              |
+| C-c l  | org-store-link                                 |
+| C-c a  | org-agenda                                     |
+| C-c c  | org-capture                                    |
+| C-c b  | org-iswitch                                    |
+| C-c i  | org-insert-heading                             |
+| C-c j  | galactic-emacs-org-show-current-heading-tidily |
+| \<f6\> | galactic-emacs-org-directory-search-ag         |
 
 ## Smartparens
 
