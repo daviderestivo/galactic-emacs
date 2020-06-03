@@ -19,7 +19,6 @@
 | :---          | :---                                           |
 | \<f2\>        | magit-status                                   |
 | \<f5\>        | magit-list-repositories                        |
-| \<f6\>        | org-directory-search-ag                        |
 | \<f7\>        | create new empty buffer (org-mode)             |
 | \<f8\>        | ispell-word                                    |
 | M-\<f8\>      | flyspell-goto-next-error                       |
