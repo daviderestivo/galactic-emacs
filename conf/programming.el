@@ -275,6 +275,14 @@
   ;; Set re-builder default syntax to 'string
   (setq reb-re-syntax 'string))
 
+;; ruby-mode
+(use-package ruby-mode
+  :defer t
+  :config
+  (add-hook 'ruby-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook 'delete-trailing-whitespace nil 'make-it-local))))
+
 ;; Sylvester the Cat's Common Lisp IDE
 (use-package sly
   :ensure t
