@@ -101,6 +101,7 @@ The package management tool used is: [use-package](https://github.com/jwiegley/u
 * [parrot](https://github.com/dp12/parrot)
 * [string-inflection](https://github.com/akicho8/string-inflection)
 * [synosaurus](https://github.com/hpdeifel/synosaurus)
+* [swiss-holidays](https://github.com/egli/swiss-holidays)
 * [undo-tree](https://github.com/emacsmirror/undo-tree)
 * [which-key](https://github.com/justbur/emacs-which-key)
 * [wttrin](https://github.com/bcbcarl/emacs-wttrin)
