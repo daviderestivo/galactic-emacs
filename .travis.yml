@@ -9,20 +9,30 @@ git:
 
 jobs:
   include:
-    # Emacs 26.x on Mojave (10.14)
+    # Emacs 26.x on Catalina (10.15)
     - env:
-        - BUILD_OPTIONS=""
-      osx_image: xcode11.3
+        - BUILD_OPTIONS="emacs-head"
+      osx_image: xcode11.5
       addons:
         homebrew:
           packages:
             - gnupg
           update: true
 
-    # Emacs 28.x on Mojave (10.14)
+    # Emacs 27.x on Catalina (10.15)
     - env:
-        - BUILD_OPTIONS="--HEAD --with-cocoa --with-no-frame-refocus --with-imagemagick --with-jansson"
-      osx_image: xcode11.3
+        - BUILD_OPTIONS="emacs-head@27"
+      osx_image: xcode11.5
+      addons:
+        homebrew:
+          packages:
+            - gnupg
+          update: true
+
+    # Emacs 28.x on Catalina (10.15)
+    - env:
+        - BUILD_OPTIONS="emacs-head@28 --with-cocoa --with-no-frame-refocus --with-imagemagick --with-jansson --with-pdumper --with-xwidgets"
+      osx_image: xcode11.5
       addons:
         homebrew:
           packages:
@@ -37,7 +47,7 @@ before_script:
   - mv ../galactic-emacs ~/.emacs.d
   - mv ~/.emacs.d/personal.el.example ~/.emacs.d/personal.el
   - brew tap daviderestivo/emacs-head
-  - travis_wait 60 brew install emacs-head $BUILD_OPTIONS
+  - travis_wait 60 brew install $BUILD_OPTIONS
 
 script:
   - echo "Attempting startup..."
