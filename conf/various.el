@@ -146,7 +146,6 @@
 ;; This mode adds Swiss holidays for the GNU/Emacs calendar
 (use-package swiss-holidays
   :ensure t
-  :defer t
   :config
   (setq holiday-other-holidays
 	(append swiss-holidays swiss-holidays-labour-day)))
