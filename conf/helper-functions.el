@@ -1,4 +1,4 @@
-;;; helper-functions.el --- Galactic Emacs helper functions
+;;; helper-functions.el --- Galactic Emacs helper functions -*- lexical-binding: t; -*-
 
 ;;
 ;; Copyright (C) 2016-2020 Davide Restivo

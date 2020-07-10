@@ -1,4 +1,4 @@
-;;; visual.el --- Galactic Emacs visual packages and settings
+;;; visual.el --- Galactic Emacs visual packages and settings -*- lexical-binding: t; -*-
 
 ;;
 ;; Copyright (C) 2016-2020 Davide Restivo

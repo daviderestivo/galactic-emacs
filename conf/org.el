@@ -1,4 +1,4 @@
-;;; org.el --- Galactic Emacs org-mode configuration
+;;; org.el --- Galactic Emacs org-mode configuration -*- lexical-binding: t; -*-
 
 ;;
 ;; Copyright (C) 2016-2020 Davide Restivo

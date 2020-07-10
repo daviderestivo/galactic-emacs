@@ -1,4 +1,4 @@
-;;; narrowing.el --- Galactic Emacs narrowing configuration
+;;; narrowing.el --- Galactic Emacs narrowing configuration -*- lexical-binding: t; -*-
 
 ;;
 ;; Copyright (C) 2016-2020 Davide Restivo

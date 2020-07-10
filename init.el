@@ -1,4 +1,4 @@
-;;; init.el --- Galactic Emacs init file
+;;; init.el --- Galactic Emacs init file -*- lexical-binding: t; -*-
 
 ;;
 ;; Copyright (C) 2016-2020 Davide Restivo

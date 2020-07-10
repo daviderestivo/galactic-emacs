@@ -1,4 +1,4 @@
-;;; various.el --- Galactic Emacs various packages
+;;; various.el --- Galactic Emacs various packages -*- lexical-binding: t; -*-
 
 ;;
 ;; Copyright (C) 2016-2020 Davide Restivo

@@ -1,4 +1,4 @@
-;;; spell-checking.el --- Galactic Emacs spell checking configuration
+;;; spell-checking.el --- Galactic Emacs spell checking configuration -*- lexical-binding: t; -*-
 
 ;;
 ;; Copyright (C) 2016-2020 Davide Restivo

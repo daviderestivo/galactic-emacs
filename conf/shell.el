@@ -1,4 +1,4 @@
-;;; shell.el --- Galactic Emacs shell configuration
+;;; shell.el --- Galactic Emacs shell configuration -*- lexical-binding: t; -*-
 
 ;;
 ;; Copyright (C) 2016-2020 Davide Restivo

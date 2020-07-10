@@ -1,4 +1,4 @@
-;;; pdumper-config.el --- Galactic Emacs pdumper configuration file
+;;; pdumper-config.el --- Galactic Emacs pdumper configuration file -*- lexical-binding: t; -*-
 
 ;;
 ;; Copyright (C) 2016-2020 Davide Restivo

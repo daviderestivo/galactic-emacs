@@ -1,4 +1,4 @@
-;;; personal.el - Personal information file
+;;; personal.el - Personal information file -*- lexical-binding: t; -*-
 
 ;; Personal details
 (setq user-mail-address      "MyEmail@MyDomain.com"

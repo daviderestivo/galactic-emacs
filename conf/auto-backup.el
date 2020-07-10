@@ -1,4 +1,4 @@
-;;; auto-backup.el --- Galactic Emacs auto-backup settings
+;;; auto-backup.el --- Galactic Emacs auto-backup settings -*- lexical-binding: t; -*-
 
 ;;
 ;; Copyright (C) 2016-2020 Davide Restivo

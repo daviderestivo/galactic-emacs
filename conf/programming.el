@@ -1,4 +1,4 @@
-;;; programming.el --- Galactic Emacs programming packages
+;;; programming.el --- Galactic Emacs programming packages -*- lexical-binding: t; -*-
 
 ;;
 ;; Copyright (C) 2016-2020 Davide Restivo
