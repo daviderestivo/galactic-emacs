@@ -54,12 +54,21 @@
           (lambda ()
             (message (format "Emacs startup time: %s" (emacs-init-time)))))
 
-;; If Emacs is running in daemon mode, print Emacs server utpime every
-;; half an hour
-(if (daemonp)
-    (run-at-time "00:00" 1800 (lambda () (message
-                                     (concat "[" (current-time-string) "]" " GNU Emacs server uptime: "
-                                             (emacs-uptime))))))
+;; Start Emacs server in background when Emacs is idle for more than
+;; 15 seconds
+(run-with-idle-timer 15 nil
+                     (lambda ()
+                       (message "Start GNU Emacs server...")
+                       (server-start)
+                       (message "Start GNU Emacs server...done")))
+
+;; If Emacs server is running print server utpime every half an hour
+(run-at-time "00:00" 1800
+             (lambda ()
+               (if (server-running-p)
+                   (message (concat "[" (current-time-string) "]"
+                                    " GNU Emacs server uptime: "
+                                    (emacs-uptime))))))
 
 ;; Enable garbage collect messages
 (setq garbage-collection-messages t)
