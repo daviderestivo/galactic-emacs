@@ -56,6 +56,7 @@
 
 ;; Start Emacs server in background when Emacs is idle for more than
 ;; 15 seconds
+(require 'server)
 (run-with-idle-timer 15 nil
                      (lambda ()
                        (message "Start GNU Emacs server...")
