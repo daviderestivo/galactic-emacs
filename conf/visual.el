@@ -555,7 +555,6 @@
 ;; Allows you to use treemacs icons in dired buffers with
 ;; treemacs-icons-dired-mode
 (use-package treemacs-icons-dired
-  :after treemacs dired
   :ensure t
   :config (treemacs-icons-dired-mode))
 

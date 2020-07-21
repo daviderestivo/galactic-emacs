@@ -143,6 +143,12 @@
   (setq helm-github-stars-username "daviderestivo")
   (setq helm-github-stars-refetch-time 0.5))
 
+;; Integration between helm and treemacs icons
+(use-package helm-icons
+  :ensure t
+  :config
+  (helm-icons-enable))
+
 ;; helm-projectile
 (use-package helm-projectile
   :ensure t

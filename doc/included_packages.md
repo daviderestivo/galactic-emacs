@@ -27,6 +27,7 @@ The package management tool used is: [use-package](https://github.com/jwiegley/u
 * [helm-ag](https://github.com/syohex/emacs-helm-ag)
 * [helm-descbinds](https://github.com/emacs-helm/helm-descbinds)
 * [helm-github-stars](https://github.com/Sliim/helm-github-stars)
+* [helm-icons](https://github.com/yyoncho/helm-icons)
 * [helm-projectile](https://github.com/bbatsov/helm-projectile)
 
 ## Networking
