@@ -165,7 +165,7 @@
                                 (buffer-string)))
 (with-current-buffer
     (get-buffer "*scratch*")
-  (fundamental-mode))
+  (lisp-interaction-mode))
 
 ;; Customize Emacs calendar to start a week on Monday and to show the week number
 (setq calendar-week-start-day 1)
