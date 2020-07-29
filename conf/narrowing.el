@@ -33,12 +33,6 @@
 ;; A narrowing configuration based on Helm.
 
 
-;; helm-config
-(use-package helm-config
-  :config
-  (global-set-key (kbd "C-c h") 'helm-command-prefix)
-  (global-unset-key (kbd "C-x c")))
-
 ;; helm - Helm is an incremental completion and selection narrowing
 ;; framework for Emacs.
 (use-package helm
@@ -48,6 +42,8 @@
   :diminish helm-mode
   :commands helm-mode
   :config
+  (global-set-key (kbd "C-c h") 'helm-command-prefix)
+  (global-unset-key (kbd "C-x c"))
   (helm-mode 1)
   ;; Increase max length of buffer names (default 20) to the longest
   ;; buffer-name length found.
