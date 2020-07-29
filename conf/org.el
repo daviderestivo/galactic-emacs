@@ -109,10 +109,10 @@
   ;; Org default TODO keywords
   ;; The below can be customized per file using:
   ;;
-  ;; #+TODO: "TODO(t)" "DOING(d)" "WAIT OTHERS(w)" "DELEGATED(g)" "REVIEW(r)" "|" "DONE(D)" "CANCELED(C)" "REVIEWED(R)")
+  ;; #+TODO: "TODO(t)" "PLANNED (p)" "DOING(d)" "WAIT OTHERS(w)" "DELEGATED(g)" "REVIEW(r)" "|" "DONE(D)" "CANCELED(C)" "REVIEWED(R)")
   ;;
   (setq org-todo-keywords
-        '((sequence "TODO(t)" "DOING(d)" "WAIT OTHERS(w)" "DELEGATED(g)" "REVIEW(r)" "|" "DONE(D)" "CANCELED(C)" "REVIEWED(R)")))
+        '((sequence "TODO(t)" "PLANNED(p)" "DOING(d)" "WAIT OTHERS(w)" "DELEGATED(g)" "REVIEW(r)" "|" "DONE(D)" "CANCELED(C)" "REVIEWED(R)")))
   ;; Org-Mode has its own markup syntax but seeing the emphasis
   ;; markers is distracting. The below setting hides it.
   (setq org-hide-emphasis-markers t)
