@@ -79,6 +79,9 @@ Before you start emacs please edit `~/.emacs.d/personal.el.example`
 adding your personal information and rename it to
 `~/.emacs.d/personal.el`.
 
+Please specify in `personal.el` the additional packages you might want
+to install. An example is included.
+
 ## Enable pdumper
 If you're running Emacs >= 27 then you can enable pdumper support. In
 order to do so, once you have cloned the Galactic Emacs distribution

@@ -136,7 +136,7 @@
   :ensure t
   :defer t
   :config
-  (setq helm-github-stars-username "daviderestivo")
+  (setq helm-github-stars-username galactic-emacs-github-username)
   (setq helm-github-stars-refetch-time 0.5))
 
 ;; Integration between helm and treemacs icons

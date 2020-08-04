@@ -11,5 +11,26 @@
 
 ;; Additional git repositories
 (setq galactic-emacs-magit-custom-repository-directories
-      (list '("~/.securecrt/Config" . 1)
-            '("~/.securecrt/Config.personal" . 1)))
+      (list '("~/MyRepo1" . 1)
+            '("~/MyRepo2" . 1)))
+
+;; Your github username
+(setq galactic-emacs-github-username
+      "MyNameMySurname")
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Galactic Emacs additional packages ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; Please specify here the additional packages you might want to
+;; install. One package per `use-package' declaration. See below
+;; examples:
+
+;;(use-package aggressive-indent
+;; :ensure t
+;; :config
+;; (global-aggressive-indent-mode 1)
+;; (add-to-list 'aggressive-indent-excluded-modes 'html-mode))
+
+
+;;; personal.el ends here
