@@ -145,12 +145,12 @@
   (load custom-file 'noerror))
 
 
-;; Personal Information
-(load-file (expand-file-name "personal.el"
-                             user-emacs-directory))
-
 ;; Core settings
 (load-file (expand-file-name "conf/core.el"
+                             user-emacs-directory))
+
+;; Personal Information
+(load-file (expand-file-name "personal.el"
                              user-emacs-directory))
 
 ;; Pdumper configuration file
