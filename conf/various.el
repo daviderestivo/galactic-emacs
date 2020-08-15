@@ -182,11 +182,16 @@
   (setq undo-tree-visualizer-diff 1)
   (setq undo-tree-visualizer-timestamps 1))
 
+;; xwidget
+(use-package xwidget
+  :config
+  (when (featurep 'xwidget)
+    (setq xwidget-webkit-enable-plugins t)))
+
 ;; which-key
 (use-package which-key
   :ensure t
   :diminish which-key-mode
-  :init
   :config
   (which-key-mode)
   (which-key-setup-side-window-bottom))
