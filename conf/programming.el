@@ -188,6 +188,13 @@
   :defer t
   :requires (json-reformat json-snatcher))
 
+;; macrostep: interactive macro-expander
+(use-package macrostep
+  :defer t
+  :ensure t
+  :bind
+  ("\C-ce" . macrostep-expand))
+
 ;; magit
 (use-package magit
   :ensure t

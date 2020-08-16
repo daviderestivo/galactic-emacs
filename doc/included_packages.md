@@ -62,6 +62,7 @@ The package management tool used is: [use-package](https://github.com/jwiegley/u
 * [json-mode](https://github.com/joshwnj/json-mode)
 * [json-reformat](https://github.com/gongo/json-reformat)
 * [json-snatcher](https://github.com/Sterlingg/json-snatcher)
+* [macrostep](https://github.com/joddie/macrostep)
 * [magit](https://magit.vc)
 * [magit-org-todos](https://github.com/danielma/magit-org-todos.el)
 * [markdown-mode](http://jblevins.org/projects/markdown-mode)
