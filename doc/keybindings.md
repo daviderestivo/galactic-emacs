@@ -76,10 +76,8 @@
 | :---   | :---                                           |
 | C-c e  | org-encrypt-entry                              |
 | C-c d  | org-decrypt-entry                              |
-| C-c l  | org-store-link                                 |
 | C-c a  | org-agenda                                     |
 | C-c c  | org-capture                                    |
-| C-c b  | org-iswitch                                    |
 | C-c i  | org-insert-heading                             |
 | C-c j  | galactic-emacs-org-show-current-heading-tidily |
 | \<f6\> | galactic-emacs-org-directory-search-ag         |

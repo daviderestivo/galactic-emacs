@@ -170,15 +170,16 @@
   ;; Control size of LateX previews
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
   :bind
-  ("\C-ce"  . org-encrypt-entry)
-  ("\C-cd"  . org-decrypt-entry)
-  ("\C-cl"  . org-store-link)
-  ("\C-ca"  . org-agenda)
-  ("\C-cc"  . org-capture)
-  ("\C-cb"  . org-iswitchb)
-  ("\C-ci"  . org-insert-heading)
-  ("\C-cj"  . galactic-emacs-org-show-current-heading-tidily)
-  ("<f6>"   . galactic-emacs-org-directory-search-ag))
+  ;; Global keybindings
+  (("<f6>"   . galactic-emacs-org-directory-search-ag)
+   ("\C-ca"  . org-agenda)
+   ("\C-cc"  . org-capture)
+   ;; Local to org-mode keybindings
+   (:map org-mode-map
+    ("\C-ce"  . org-encrypt-entry)
+    ("\C-cd"  . org-decrypt-entry)
+    ("\C-ci"  . org-insert-heading)
+    ("\C-cj"  . galactic-emacs-org-show-current-heading-tidily))))
 
 ;; Beautify org buffers
 (use-package org-beautify-theme
