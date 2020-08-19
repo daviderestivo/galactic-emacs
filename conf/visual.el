@@ -483,7 +483,7 @@
 
 ;; transpose-frame
 ;; https://www.emacswiki.org/emacs/TransposeFrame
-(load-library "transpose-frame")
+(use-package transpose-frame)
 
 ;; A tree layout file explorer for Emacs
 (use-package treemacs

@@ -35,7 +35,7 @@
 
 ;; cisco-router-mode
 ;; https://www.emacswiki.org/emacs/cisco-router-mode.el
-(load-library "cisco-router-mode")
+(use-package cisco-router-mode)
 
 ;; An Emacs major mode for editing Comware routers and switches
 ;; configuration files.
