@@ -48,6 +48,9 @@
   ;; Increase max length of buffer names (default 20) to the longest
   ;; buffer-name length found.
   (setq helm-buffer-max-length nil)
+  ;; Delete duplicated entries in commands history
+  ;; Link: https://github.com/emacs-helm/helm/issues/2291
+  (setq history-delete-duplicates t)
   ;; Enable fuzzy matching
   (setq helm-buffers-fuzzy-matching t)
   (setq helm-recentf-fuzzy-match t)
