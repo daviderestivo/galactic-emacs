@@ -47,7 +47,14 @@ before_script:
   - mv ../galactic-emacs ~/.emacs.d
   - mv ~/.emacs.d/personal.el.example ~/.emacs.d/personal.el
   - brew tap daviderestivo/emacs-head
-  - travis_wait 60 brew install $BUILD_OPTIONS
+  - |
+    # Prints a banner message every 9 mins to avoid travis build to
+    # fail in case a commands take longer than 10 mins. This is an
+    # alternative to travis_wait that does not log in case of failure.
+    while sleep 540; do
+      echo "===> [ $SECONDS seconds still running ] <==="
+    done &
+  - brew install $BUILD_OPTIONS
 
 script:
   - echo "Attempting startup..."
