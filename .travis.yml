@@ -31,7 +31,7 @@ jobs:
 
     # Emacs 28.x on Catalina (10.15)
     - env:
-        - BUILD_OPTIONS="emacs-head@28 --with-cocoa --with-no-frame-refocus --with-imagemagick --with-jansson --with-pdumper --with-xwidgets"
+        - BUILD_OPTIONS="emacs-head@28 --with-cocoa --with-no-frame-refocus --with-imagemagick --with-pdumper --with-xwidgets"
       osx_image: xcode11.5
       addons:
         homebrew:
