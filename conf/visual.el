@@ -311,23 +311,6 @@
   (fast-scroll-mode 1))
 
 (use-package ediff
-  :init
-  ;; Customize ediff background colors
-  (add-hook 'ediff-load-hook
-            (lambda ()
-              (set-face-background
-               ediff-even-diff-face-A "grey20")
-              (set-face-background
-               ediff-even-diff-face-B "grey20")
-              (set-face-background
-               ediff-even-diff-face-C "grey20")
-              (set-face-background
-               ediff-odd-diff-face-A  "grey20")
-              (set-face-background
-               ediff-odd-diff-face-B  "grey20")
-              (set-face-background
-               ediff-odd-diff-face-C  "grey20")))
-
   :config
   ;; Split horizontally and avoid floating ediff window
   (setq ediff-split-window-function 'split-window-horizontally)
