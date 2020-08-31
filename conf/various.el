@@ -66,6 +66,13 @@
   :ensure t
   :defer t)
 
+;; Dired
+(unless (version<= emacs-version "27")
+  (use-package dired
+    :bind
+    (:map dired-mode-map
+          ("F"  . dired-create-empty-file))))
+
 ;; Browse the Emacsmirror package database
 (use-package epkg
   :ensure t

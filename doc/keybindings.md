@@ -15,31 +15,32 @@
 
 ## General
 
-| Key           | Function                                       |
-| :---          | :---                                           |
-| \<f2\>        | magit-status                                   |
-| \<f5\>        | magit-list-repositories                        |
-| \<f7\>        | create new empty buffer (org-mode)             |
-| \<f8\>        | ispell-word                                    |
-| M-\<f8\>      | flyspell-goto-next-error                       |
-| \<f9\>        | toggle sroll bar                               |
-| \<f12\>       | imenu-list-smart-toggle                        |
-| M-\<f12\>     | treemacs                                       |
-| C-\<f12\>     | ibuffer-sidebar-toggle-sidebar                 |
-| s-/           | avy-goto-char                                  |
-| C-=           | copy-line                                      |
-| C-c \<left\>  | Winner mode - Undo windows changes             |
-| C-c \<right\> | Winner mode - Redo windows changes             |
-| C-c r p       | parrot-rotate-prev-word-at-point               |
-| C-c r n       | parrot-rotate-next-word-at-point               |
-| C-m           | YAML mode - New line and indent                |
-| C-c p         | projectile keymap                              |
-| M-+           | galactic-emacs-insert-date                     |
-| C-c s         | shell-pop-eshell                               |
-| C-c j         | galactic-emacs-org-show-current-heading-tidily |
-| M-o           | other-window                                   |
-| M-up          | move-text-up                                   |
-| M-down        | move-text-down                                 |
+| Key            | Function                                       |
+| :---           | :---                                           |
+| \<f2\>         | magit-status                                   |
+| \<f5\>         | magit-list-repositories                        |
+| \<f7\>         | create new empty buffer (org-mode)             |
+| \<f8\>         | ispell-word                                    |
+| M-\<f8\>       | flyspell-goto-next-error                       |
+| \<f9\>         | toggle sroll bar                               |
+| \<f12\>        | imenu-list-smart-toggle                        |
+| M-\<f12\>      | treemacs                                       |
+| C-\<f12\>      | ibuffer-sidebar-toggle-sidebar                 |
+| s-/            | avy-goto-char                                  |
+| C-=            | copy-line                                      |
+| C-c \<left\>   | Winner mode - Undo windows changes             |
+| C-c \<right\>  | Winner mode - Redo windows changes             |
+| C-c r p        | parrot-rotate-prev-word-at-point               |
+| C-c r n        | parrot-rotate-next-word-at-point               |
+| C-m            | YAML mode - New line and indent                |
+| C-c p          | projectile keymap                              |
+| M-+            | galactic-emacs-insert-date                     |
+| C-c s          | shell-pop-eshell                               |
+| C-c j          | galactic-emacs-org-show-current-heading-tidily |
+| M-o            | other-window                                   |
+| M-up           | move-text-up                                   |
+| M-down         | move-text-down                                 |
+| F (dired-mode) | dired-create-empty-file (Require GNU/Emacs 27) |
 
 ## Helm
 
