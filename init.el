@@ -129,7 +129,8 @@
 (require 'bind-key)
 
 ;; Tell Emacs where is your personal elisp lib directory
-(add-to-list 'load-path "~/.emacs.d/lisp/")
+(add-to-list 'load-path (expand-file-name "lisp"
+                                          user-emacs-directory))
 
 ;; Tell Emacs where is your personal theme directory
 (add-to-list 'custom-theme-load-path (expand-file-name "themes"
