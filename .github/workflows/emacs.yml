@@ -46,7 +46,7 @@ jobs:
     - id: Tap Homebrew Emacs Head
       run: brew tap daviderestivo/emacs-head
 
-    - id: Install ${{ matrix.build_opts }}
+    - id: Install emacs-head
       run: brew install ${{ matrix.build_opts }}
 
     - id: Rename Galactic Emacs directory
