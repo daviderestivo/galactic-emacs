@@ -49,14 +49,8 @@ jobs:
     - name: Install ${{ matrix.build_opts }}
       run: brew install ${{ matrix.build_opts }}
 
-    - name: Rename Galactic Emacs directory
-      run: mv galactic-emacs .emacs.d
-
     - name: Rename personal config file
-      run: mv .emacs.d/personal.el.example .emacs.d/personal.el
-
-    - name: Change working directory
-      run: cd .emacs.d
+      run: mv personal.el.example personal.el
 
     - name: Init git submodules
       run: git submodule init && git submodule update && git submodule foreach --recursive git checkout master
@@ -68,5 +62,5 @@ jobs:
                                            (user-emacs-directory default-directory)
                                            (user-init-file (expand-file-name "init.el")))
                                        (package-initialize)
-                                       (load-file "~/.emacs.d/init.el")
+                                       (load-file user-init-file)
                                        (message "... startup successful!"))'
