@@ -43,25 +43,25 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - id: Tap Homebrew Emacs Head
+    - name: Tap Homebrew Emacs Head
       run: brew tap daviderestivo/emacs-head
 
-    - id: Install emacs-head
+    - name: Install ${{ matrix.build_opts }}
       run: brew install ${{ matrix.build_opts }}
 
-    - id: Rename Galactic Emacs directory
+    - name: Rename Galactic Emacs directory
       run: mv ../galactic-emacs ~/.emacs.d
 
-    - id: Rename personal config file
+    - name: Rename personal config file
       run: mv ~/.emacs.d/personal.el.example ~/.emacs.d/personal.el
 
-    - id: Change working directory
+    - name: Change working directory
       run: cd ~/.emacs.d
 
-    - id: Init git submodules
+    - name: Init git submodules
       run: git submodule init && git submodule update && git submodule foreach --recursive git checkout master
 
-    - id: Attempting startup...
+    - name: Attempting startup...
       run: emacs -nw --batch --eval='(let ((debug-on-error (>=  emacs-major-version 26))
                                            (url-show-status nil)
                                            (initial-buffer-choice "*scratch*")
