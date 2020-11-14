@@ -43,16 +43,26 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: Build Galactic Emacs ${{ matrix.build_opts }}
-    - run: brew tap daviderestivo/emacs-head
-    - run: brew install ${{ matrix.build_opts }}
-    - run: mv ../galactic-emacs ~/.emacs.d
-    - run: mv ~/.emacs.d/personal.el.example ~/.emacs.d/personal.el
-    - run: cd ~/.emacs.d
-    - run: echo $PWD
-    - run: git submodule init && git submodule update && git submodule foreach --recursive git checkout master
-    - run: echo "Attempting startup..."
-    - run: emacs -nw --batch --eval='(let ((debug-on-error (>=  emacs-major-version 26))
+    - id: Tap Homebrew Emacs Head
+      run: brew tap daviderestivo/emacs-head
+
+    - id: Install ${{ matrix.build_opts }}
+      run: brew install ${{ matrix.build_opts }}
+
+    - id: Rename Galactic Emacs directory
+      run: mv ../galactic-emacs ~/.emacs.d
+
+    - id: Rename personal config file
+      run: mv ~/.emacs.d/personal.el.example ~/.emacs.d/personal.el
+
+    - id: Change working directory
+      run: cd ~/.emacs.d
+
+    - id: Init git submodules
+      run: git submodule init && git submodule update && git submodule foreach --recursive git checkout master
+
+    - id: Attempting startup...
+      run: emacs -nw --batch --eval='(let ((debug-on-error (>=  emacs-major-version 26))
                                            (url-show-status nil)
                                            (initial-buffer-choice "*scratch*")
                                            (user-emacs-directory default-directory)
