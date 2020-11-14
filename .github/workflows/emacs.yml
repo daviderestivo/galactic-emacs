@@ -50,13 +50,13 @@ jobs:
       run: brew install ${{ matrix.build_opts }}
 
     - name: Rename Galactic Emacs directory
-      run: mv ../galactic-emacs ~/.emacs.d
+      run: mv galactic-emacs .emacs.d
 
     - name: Rename personal config file
-      run: mv ~/.emacs.d/personal.el.example ~/.emacs.d/personal.el
+      run: mv .emacs.d/personal.el.example .emacs.d/personal.el
 
     - name: Change working directory
-      run: cd ~/.emacs.d
+      run: cd .emacs.d
 
     - name: Init git submodules
       run: git submodule init && git submodule update && git submodule foreach --recursive git checkout master
