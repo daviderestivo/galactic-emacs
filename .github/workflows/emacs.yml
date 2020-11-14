@@ -44,15 +44,15 @@ jobs:
     - uses: actions/checkout@v1
 
     - name: Build Galactic Emacs ${{ matrix.build_opts }}
-      run: brew tap daviderestivo/emacs-head
-      run: brew install ${{ matrix.build_opts }}
-      run: mv ../galactic-emacs ~/.emacs.d
-      run: mv ~/.emacs.d/personal.el.example ~/.emacs.d/personal.el
-      run: cd ~/.emacs.d
-      run: echo $PWD
-      run: git submodule init && git submodule update && git submodule foreach --recursive git checkout master
-      run: echo "Attempting startup..."
-      run: emacs -nw --batch --eval='(let ((debug-on-error (>=  emacs-major-version 26))
+    - run: brew tap daviderestivo/emacs-head
+    - run: brew install ${{ matrix.build_opts }}
+    - run: mv ../galactic-emacs ~/.emacs.d
+    - run: mv ~/.emacs.d/personal.el.example ~/.emacs.d/personal.el
+    - run: cd ~/.emacs.d
+    - run: echo $PWD
+    - run: git submodule init && git submodule update && git submodule foreach --recursive git checkout master
+    - run: echo "Attempting startup..."
+    - run: emacs -nw --batch --eval='(let ((debug-on-error (>=  emacs-major-version 26))
                                            (url-show-status nil)
                                            (initial-buffer-choice "*scratch*")
                                            (user-emacs-directory default-directory)
