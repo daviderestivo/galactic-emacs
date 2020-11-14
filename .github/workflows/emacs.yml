@@ -1,0 +1,62 @@
+name: Galactic Emacs
+
+on:
+  push:
+    branches:
+      - master
+      - dev
+    paths:
+      - '.github/workflows/emacs.yml'
+      - 'conf/**'
+      - 'lib/**'
+      - 'lisp/**'
+      - 'init.el'
+  pull_request:
+    paths:
+      - '.github/workflows/emacs.yml'
+      - 'conf/**'
+      - 'lib/**'
+      - 'lisp/**'
+      - 'init.el'
+  schedule:
+    - cron:  '0 */12 * * *'
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        build_opts:
+          # Emacs 26.x
+          - 'emacs-head@26'
+          # Emacs 27.x
+          - 'emacs-head@27'
+          # Emacs 28.x
+          - 'emacs-head@28'
+
+    env:
+      HOMEBREW_GITHUB_REF: ${{ github.head_ref || github.ref }}
+      HOMEBREW_GITHUB_REPOSITORY: ${{ github.repository }}
+      HOMEBREW_GITHUB_ACTOR: ${{ github.actor }}
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Build Galactic Emacs ${{ matrix.build_opts }}
+      run: brew tap daviderestivo/emacs-head
+      run: brew install ${{ matrix.build_opts }}
+      run: mv ../galactic-emacs ~/.emacs.d
+      run: mv ~/.emacs.d/personal.el.example ~/.emacs.d/personal.el
+      run: cd ~/.emacs.d
+      run: echo $PWD
+      run: git submodule init && git submodule update && git submodule foreach --recursive git checkout master
+      run: echo "Attempting startup..."
+      run: emacs -nw --batch --eval='(let ((debug-on-error (>=  emacs-major-version 26))
+                                           (url-show-status nil)
+                                           (initial-buffer-choice "*scratch*")
+                                           (user-emacs-directory default-directory)
+                                           (user-init-file (expand-file-name "init.el")))
+                                       (package-initialize)
+                                       (load-file "~/.emacs.d/init.el")
+                                       (message "... startup successful!"))'

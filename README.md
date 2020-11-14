@@ -2,8 +2,12 @@
 <p align="center">
   <img src="https://raw.githubusercontent.com/daviderestivo/galactic-emacs/master/logos/galactic-emacs-logo.png" alt="Galactic Emacs Logo">
   <br><br>
-  <a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg" alt="License: GPL v3"></a>
-  <a href="https://travis-ci.com/daviderestivo/galactic-emacs"><img src="https://travis-ci.com/daviderestivo/galactic-emacs.svg?branch=master" alt="Travis Build Status"></a>
+  <a href="https://www.gnu.org/licenses/gpl-3.0">
+    <img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg" alt="License: GPL v3">
+    </a>
+  <a href="https://github.com/daviderestivo/galactic-emacs/actions?query=workflow%3A%22Emacs%22">
+    <img src="https://github.com/daviderestivo/galactic-emacs/workflows/Emacs/badge.svg" alt="Galactic Emacs CI Status Badge">
+  </a>
 </p>
 
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
