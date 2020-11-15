@@ -421,7 +421,7 @@
     ;; `galactic-emacs-setup-frame-appearance' for the case when Emacs runs
     ;; in GUI mode.
     (if (not (display-graphic-p))
-        (setq battery-mode-line-format " [%b%p%%]"))
+        (setq battery-mode-line-format " [%b%p%%] "))
     (setq battery-echo-area-format "Power %L, battery %B (%p%% charged, remaining time %t")
     (display-battery-mode)))
 
