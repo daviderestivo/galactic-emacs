@@ -78,6 +78,12 @@
   :ensure t
   :defer t)
 
+;; Literate Calc Mode
+(use-package literate-calc-mode
+  :diminish literate-calc-minor-mode
+  :ensure t
+  :defer t)
+
 ;; MoveText allows you to move the current line using M-up / M-down
 ;; (or any other bindings you choose) if a region is marked, it will
 ;; move the region instead.
