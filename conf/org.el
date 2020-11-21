@@ -63,7 +63,6 @@
                 (org-indent-mode)
                 (diminish 'org-indent-mode)
                 (superword-mode 1)
-                (literate-calc-minor-mode)
                 (if (display-graphic-p)
                     (progn
                       (load-theme 'org-beautify t)
