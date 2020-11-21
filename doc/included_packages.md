@@ -100,6 +100,7 @@ The package management tool used is: [use-package](https://github.com/jwiegley/u
 * [move-text](https://github.com/emacsfodder/move-text)
 * [multiple-cursors](https://github.com/magnars/multiple-cursors.el)
 * [open-junk-file](https://github.com/rubikitch/open-junk-file)
+* [literate-calc-mode](https://github.com/sulami/literate-calc-mode.el)
 * [parrot](https://github.com/dp12/parrot)
 * [string-inflection](https://github.com/akicho8/string-inflection)
 * [synosaurus](https://github.com/hpdeifel/synosaurus)
