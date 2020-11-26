@@ -104,6 +104,7 @@
   ("C-x C-f"   . helm-find-files)
   ("C-x C-r"   . helm-recentf)
   ("C-c h x"   . helm-register)
+  ("C-c C-SPC" . helm-mark-ring)
   ("C-c h SPC" . helm-all-mark-rings))
 
 ;; helm-ag

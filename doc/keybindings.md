@@ -44,15 +44,22 @@
 
 ## Helm
 
-| Key      | Function                |
-| :---     | :---                    |
-| C-x r b  | helm-filtered-bookmarks |
-| C-x C-r  | helm-recentf            |
-| M-\<f6\> | helm-do-ag              |
-| M-s      | helm-do-ag-this-file    |
-| C-u M-s  | helm-do-ag-buffers      |
-| C-c C-;  | helm-eshell-prompts     |
-| C-c C-l  | helm-eshell-history     |
+| Key       | Function                |
+| :---      | :---                    |
+| M-x       | helm-M-x                |
+| M-y       | helm-show-kill-ring     |
+| C-x b     | helm-mini               |
+| C-x r b   | helm-filtered-bookmarks |
+| C-x C-f   | helm-find-files         |
+| C-x C-r   | helm-recentf            |
+| C-c h x   | helm-register           |
+| C-c C-SPC | helm-mark-ring          |
+| C-c h SPC | helm-all-mark-rings     |
+| M-\<f6\>  | helm-do-ag              |
+| M-s       | helm-do-ag-this-file    |
+| C-u M-s   | helm-do-ag-buffers      |
+| C-c C-;   | helm-eshell-prompts     |
+| C-c C-l   | helm-eshell-history     |
 
 ## Multiple Cursors
 
