@@ -18,6 +18,10 @@
 (setq galactic-emacs-github-username
       "MyNameMySurname")
 
+;; Your freenode password
+(setq freenode-login-password
+      "MyFreeNodePassword")
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Galactic Emacs additional packages ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
