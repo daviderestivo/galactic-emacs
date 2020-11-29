@@ -73,6 +73,77 @@
     (:map dired-mode-map
           ("F"  . dired-create-empty-file))))
 
+;; Emacs IRC configuration
+(use-package erc
+  :config
+  ;; Auto identify
+  (require 'erc-services)
+  (erc-services-mode 1)
+  (setq erc-autojoin-timing 'ident)
+  (setq erc-user-full-name  user-full-name)
+  (setq erc-prompt-for-nickserv-password nil)
+  (setq erc-nickserv-passwords
+        `((freenode ((,user-login-name . ,freenode-login-password)))))
+
+  ;; Join some interesting channels when connecting to Freenode
+  (setq erc-autojoin-channels-alist '(("freenode.net"
+                                       "#emacs" "#clojure" "#lisp")))
+
+  ;; Enable spell checking
+  (erc-spelling-mode 1)
+
+  ;; Enable UTF-8 support
+  (setq erc-server-coding-system '(utf-8 . utf-8))
+
+  ;; Enable mIRC-style color commands
+  (setq erc-interpret-mirc-color t)
+
+  ;; Open query buffers in the current window
+  (setq erc-query-display 'buffer)
+
+  ;; Disable keybindings track
+  (setq erc-track-enable-keybindings nil)
+
+  ;; Logging
+  (require 'erc-log)
+  (erc-log-mode 1)
+  (setq erc-log-channels-directory
+        (concat user-emacs-directory ".erc/logs/"))
+  (if (not (file-exists-p erc-log-channels-directory))
+      (mkdir erc-log-channels-directory t))
+  (setq erc-save-buffer-on-part nil
+        erc-save-queries-on-quit nil
+        erc-log-write-after-send t
+        erc-log-write-after-insert t)
+
+  ;; Autoaway setup
+  (setq erc-auto-discard-away t)
+  (setq erc-autoaway-idle-seconds 600)
+  (setq erc-autoaway-use-emacs-idle t)
+
+  ;; Helper function used when stopping ERC
+  (defun galactic-emacs-filter-erc-server-buffers ()
+    (delq nil
+          (mapcar
+           (lambda (x) (and (erc-server-buffer-p x) x))
+           (buffer-list))))
+
+  ;; Start ERC
+  (defun galactic-emacs-start-erc ()
+    "Connect to IRC servers"
+    (interactive)
+    (when (y-or-n-p "Do you want to start ERC? ")
+      (erc :server "irc.freenode.net" :port 6667 :nick user-login-name)))
+
+  ;; Stop ERC
+  (defun galactic-emacs-stop-erc ()
+    "Disconnects from IRC servers"
+    (interactive)
+    (dolist (buffer (galactic-emacs-filter-erc-server-buffers))
+      (message "Server buffer: %s" (buffer-name buffer))
+      (with-current-buffer buffer
+        (erc-quit-server "Bye...")))))
+
 ;; Browse the Emacsmirror package database
 (use-package epkg
   :ensure t
