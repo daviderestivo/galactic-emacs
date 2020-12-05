@@ -5,8 +5,14 @@
   <a href="https://www.gnu.org/licenses/gpl-3.0">
     <img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg" alt="License: GPL v3">
     </a>
-  <a href="https://github.com/daviderestivo/galactic-emacs/actions?query=workflow%3A%22Galactic+Emacs%22">
-    <img src="https://github.com/daviderestivo/galactic-emacs/workflows/Galactic%20Emacs/badge.svg" alt="Galactic Emacs CI Status Badge">
+  <a href="https://github.com/daviderestivo/galactic-emacs/actions?query=workflow%3A%22Emacs+26%22">
+    <img src="https://github.com/daviderestivo/galactic-emacs/workflows/Emacs%2026/badge.svg" alt="Galactic Emacs 26 CI Status Badge">
+  </a>
+  <a href="https://github.com/daviderestivo/galactic-emacs/actions?query=workflow%3A%22Emacs+27%22">
+    <img src="https://github.com/daviderestivo/galactic-emacs/workflows/Emacs%2027/badge.svg" alt="Galactic Emacs 27 CI Status Badge">
+  </a>
+  <a href="https://github.com/daviderestivo/galactic-emacs/actions?query=workflow%3A%22Emacs+28%22">
+    <img src="https://github.com/daviderestivo/galactic-emacs/workflows/Emacs%2028/badge.svg" alt="Galactic Emacs 28 CI Status Badge">
   </a>
 </p>
 

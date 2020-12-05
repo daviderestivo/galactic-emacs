@@ -3,6 +3,7 @@
 *.elc
 .cache/
 .dap-breakpoints
+.erc
 .erc/
 .last-package-update-day
 .lsp-session-v1
