@@ -1,4 +1,4 @@
-name: Galactic Emacs
+name: Emacs 28
 
 on:
   push:
@@ -6,14 +6,14 @@ on:
       - master
       - dev
     paths:
-      - '.github/workflows/emacs.yml'
+      - '.github/workflows/emacs-28.yml'
       - 'conf/**'
       - 'lib/**'
       - 'lisp/**'
       - 'init.el'
   pull_request:
     paths:
-      - '.github/workflows/emacs.yml'
+      - '.github/workflows/emacs-28.yml'
       - 'conf/**'
       - 'lib/**'
       - 'lisp/**'
@@ -28,10 +28,6 @@ jobs:
     strategy:
       matrix:
         build_opts:
-          # Emacs 26.x
-          - 'emacs-head@26'
-          # Emacs 27.x
-          - 'emacs-head@27'
           # Emacs 28.x
           - 'emacs-head@28'
 
@@ -49,7 +45,7 @@ jobs:
     - name: Install ${{ matrix.build_opts }}
       run: brew install ${{ matrix.build_opts }}
 
-    - name: Rename personal config file
+    - name: Create personal config file from template
       run: mv personal.el.example personal.el
 
     - name: Init git submodules
