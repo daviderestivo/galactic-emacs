@@ -133,12 +133,14 @@
     "Connect to IRC servers"
     (interactive)
     (when (y-or-n-p "Do you want to start ERC? ")
-      (erc :server "irc.freenode.net" :port 6667 :nick user-login-name)))
+      (erc :server "irc.freenode.net" :port 6667 :nick user-login-name)
+      (erc-status-sidebar-open)))
 
   ;; Stop ERC
   (defun galactic-emacs-stop-erc ()
     "Disconnects from IRC servers"
     (interactive)
+    (erc-status-sidebar-kill)
     (dolist (buffer (galactic-emacs-filter-erc-server-buffers))
       (message "Server buffer: %s" (buffer-name buffer))
       (with-current-buffer buffer
