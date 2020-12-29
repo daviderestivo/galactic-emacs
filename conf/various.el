@@ -84,22 +84,16 @@
   (setq erc-prompt-for-nickserv-password nil)
   (setq erc-nickserv-passwords
         `((freenode ((,user-login-name . ,freenode-login-password)))))
-
   ;; Enable spell checking
   (erc-spelling-mode 1)
-
   ;; Enable UTF-8 support
   (setq erc-server-coding-system '(utf-8 . utf-8))
-
   ;; Enable mIRC-style color commands
   (setq erc-interpret-mirc-color t)
-
   ;; Open query buffers in the current window
   (setq erc-query-display 'buffer)
-
   ;; Disable keybindings track
   (setq erc-track-enable-keybindings nil)
-
   ;; Logging
   (require 'erc-log)
   (erc-log-mode 1)
@@ -111,36 +105,16 @@
         erc-save-queries-on-quit nil
         erc-log-write-after-send t
         erc-log-write-after-insert t)
-
+  ;; Desktop notifications
+  (require 'erc-desktop-notifications)
+  (erc-notifications-enable)
+  ;; Use Notification Center on macOS
+  (when (string= system-type "darwin")
+    (advice-add 'erc-notifications-notify :after #'galactic-emacs-erc-ns-notify))
   ;; Autoaway setup
   (setq erc-auto-discard-away t)
   (setq erc-autoaway-idle-seconds 600)
-  (setq erc-autoaway-use-emacs-idle t)
-
-  ;; Helper function used when stopping ERC
-  (defun galactic-emacs-filter-erc-server-buffers ()
-    (delq nil
-          (mapcar
-           (lambda (x) (and (erc-server-buffer-p x) x))
-           (buffer-list))))
-
-  ;; Start ERC
-  (defun galactic-emacs-start-erc ()
-    "Connect to IRC servers"
-    (interactive)
-    (when (y-or-n-p "Do you want to start ERC? ")
-      (erc :server "irc.freenode.net" :port 6667 :nick user-login-name)
-      (erc-status-sidebar-open)))
-
-  ;; Stop ERC
-  (defun galactic-emacs-stop-erc ()
-    "Disconnects from IRC servers"
-    (interactive)
-    (erc-status-sidebar-kill)
-    (dolist (buffer (galactic-emacs-filter-erc-server-buffers))
-      (message "Server buffer: %s" (buffer-name buffer))
-      (with-current-buffer buffer
-        (erc-quit-server "Bye...")))))
+  (setq erc-autoaway-use-emacs-idle t))
 
 ;; Browse the Emacsmirror package database
 (use-package epkg

@@ -36,154 +36,9 @@
 
 (require 'cl-macs)
 
-;; Search for a keyword on the ORG directory using ag
-;; Requires "The Silver Searcher" (ag) to be installed:
-;; On macOS use: 'brew install the_silver_searcher'
-;; On a Debian based GNU/Linux distro use: 'apt-get install silversearcher-ag'
-(defun galactic-emacs-org-directory-search-ag ()
-  "Search for a keyword in the ORG folder using ag"
-  (interactive)
-  (if (not (eq org-directory nil))
-      (helm-do-ag org-directory)
-    (message "error: org-directory not set.")))
-
-;; Reload Emacs init file
-(defun galactic-emacs-reload-init-file ()
-  "Reload your init.el file without restarting Emacs"
-  (interactive)
-  (load-file "~/.emacs.d/init.el"))
-
-;; Redefine battery-pmset because of https://lists.gnu.org/archive/html/bug-gnu-emacs/2016-09/msg00952.html
-(defun galactic-emacs-battery-pmset ()
-  "Get battery status information using `pmset'.
-
-The following %-sequences are provided:
-%L Power source (verbose)
-%B Battery status (verbose)
-%b Battery status, empty means high, `-' means low,
-   `!' means critical, and `+' means charging
-%p Battery load percentage
-%h Remaining time in hours
-%m Remaining time in minutes
-%t Remaining time in the form `h:min'"
-  (let (power-source load-percentage battery-status battery-status-symbol
-	             remaining-time hours minutes)
-    (with-temp-buffer
-      (ignore-errors (call-process "pmset" nil t nil "-g" "ps"))
-      (goto-char (point-min))
-      (when (re-search-forward "\\(?:Currentl?y\\|Now\\) drawing from '\\(AC\\|Battery\\) Power'" nil t)
-	(setq power-source (match-string 1))
-	(when (re-search-forward "^ -InternalBattery-0\\([ \t]+\(id\=[0-9]+\)\\)*[ \t]+" nil t)
-	  (when (looking-at "\\([0-9]\\{1,3\\}\\)%")
-	    (setq load-percentage (match-string 1))
-	    (goto-char (match-end 0))
-	    (cond ((looking-at "; charging")
-		   (setq battery-status "charging"
-			 battery-status-symbol "+"))
-		  ((< (string-to-number load-percentage) battery-load-critical)
-		   (setq battery-status "critical"
-			 battery-status-symbol "!"))
-		  ((< (string-to-number load-percentage) battery-load-low)
-		   (setq battery-status "low"
-			 battery-status-symbol "-"))
-		  (t
-		   (setq battery-status "high"
-			 battery-status-symbol "")))
-	    (when (re-search-forward "\\(\\([0-9]+\\):\\([0-9]+\\)\\) remaining"  nil t)
-	      (setq remaining-time (match-string 1))
-	      (let ((h (string-to-number (match-string 2)))
-		    (m (string-to-number (match-string 3))))
-		(setq hours (number-to-string (+ h (if (< m 30) 0 1)))
-		      minutes (number-to-string (+ (* h 60) m)))))))))
-    (list (cons ?L (or power-source "N/A"))
-	  (cons ?p (or load-percentage "N/A"))
-	  (cons ?B (or battery-status "N/A"))
-	  (cons ?b (or battery-status-symbol ""))
-	  (cons ?h (or hours "N/A"))
-	  (cons ?m (or minutes "N/A"))
-	  (cons ?t (or remaining-time "N/A")))))
-
-;; Create a new buffer without prompting for the name. Bound to F7
-(defun galactic-emacs-new-empty-buffer ()
-  "Create a new empty buffer. New buffer will be named “untitled” or
-“untitled<2>”, “untitled<3>”, ..."
-  (interactive)
-  (let ((new-buf (generate-new-buffer "untitled")))
-    (switch-to-buffer new-buf)
-    (funcall initial-major-mode)
-    (setq buffer-offer-save t)))
-(global-set-key (kbd "<f7>") 'galactic-emacs-new-empty-buffer)
-
-;; copy-line - Source https://www.emacswiki.org/emacs/CopyingWholeLines
-(defun galactic-emacs-copy-line (arg)
-  "Copy lines (as many as prefix argument) in the kill ring.
-    Ease of use features:
-     - Move to start of next line.
-     - Appends the copy on sequential calls.
-     - Use newline as last char even on the last line of the buffer.
-     - If region is active, copy its lines."
-  (interactive "p")
-  (let ((beg (line-beginning-position))
-        (end (line-end-position arg)))
-    (when mark-active
-      (if (> (point) (mark))
-          (setq beg (save-excursion (goto-char (mark)) (line-beginning-position)))
-        (setq end (save-excursion (goto-char (mark)) (line-end-position)))))
-    (if (eq last-command 'galactic-emacs-copy-line)
-        (kill-append (buffer-substring beg end) (< end beg))
-      (kill-ring-save beg end)))
-  (if galactic-emacs-copy-line-append-newline
-      (kill-append "\n" nil))
-  (beginning-of-line (or (and arg (1+ arg)) 2))
-  (if (and arg (not (= 1 arg))) (message "%d lines copied" arg)))
-
-(defun galactic-emacs-helm-hide-minibuffer-maybe ()
-  "Hide minibuffer in Helm session if we use the header line as input field."
-  (when (with-helm-buffer helm-echo-input-in-header-line)
-    (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
-      (overlay-put ov 'window (selected-window))
-      (overlay-put ov 'face
-                   (let ((bg-color (face-background 'default nil)))
-                     `(:background ,bg-color :foreground ,bg-color)))
-      (setq-local cursor-type nil))))
-
-(defun galactic-emacs-org-download-method (link)
-  "This is an helper function for org-download.
-
-It creates an \"./image\" folder within the same directory of the ORG file.
-Images are separated inside that image folder by additional folders one per
-ORG file.
-
-More info can be found here: https://github.com/abo-abo/org-download/issues/40.
-See the commit message for an example:
-https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc03039bf397b"
-  (let ((filename
-         (file-name-nondirectory
-          (car (url-path-and-query
-                (url-generic-parse-url link)))))
-        (dir (concat
-              (file-name-directory (buffer-file-name))
-              (format "%s/%s/%s"
-                      "images"
-                      (file-name-base (buffer-file-name))
-                      (org-download--dir-2)))))
-    (progn
-      (setq filename-with-timestamp (format "%s--%s.%s"
-                                            (file-name-sans-extension filename)
-                                            (format-time-string "%Y-%m-%d_%H-%M-%S")
-                                            (file-name-extension filename)))
-      ;; Check if directory exists otherwise creates it
-      (unless (file-exists-p dir)
-        (make-directory dir t))
-      (message (format "Image: %s saved!" (expand-file-name filename-with-timestamp dir)))
-      (expand-file-name filename-with-timestamp dir))))
-
-(defun galactic-emacs-insert-date ()
-  (interactive)
-  "Insert current datetime into buffer without a newline."
-  (insert (concat "Date: " (shell-command-to-string "printf %s \"$(date)\""))))
-(global-set-key (kbd "M-+") 'galactic-emacs-insert-date)
-
+;;
+;; Eshell helper functions
+;;
 (defmacro galactic-emacs-with-face (str &rest properties)
   `(propertize ,str 'face (list ,@properties)))
 
@@ -261,9 +116,33 @@ This function requires `all-the-icons' package to be installed
        " "))))
 
 ;;
-;; ORG helper functions
-;; Link: https://stackoverflow.com/questions/25161792/emacs-org-mode-how-can-i-fold-everything-but-the-current-headline
+;; Helm helper functions
 ;;
+(defun galactic-emacs-helm-hide-minibuffer-maybe ()
+  "Hide minibuffer in Helm session if we use the header line as input field."
+  (when (with-helm-buffer helm-echo-input-in-header-line)
+    (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
+      (overlay-put ov 'window (selected-window))
+      (overlay-put ov 'face
+                   (let ((bg-color (face-background 'default nil)))
+                     `(:background ,bg-color :foreground ,bg-color)))
+      (setq-local cursor-type nil))))
+
+;;
+;; ORG helper functions
+;;
+;; Search for a keyword on the ORG directory using ag
+;; Requires "The Silver Searcher" (ag) to be installed:
+;; On macOS use: 'brew install the_silver_searcher'
+;; On a Debian based GNU/Linux distro use: 'apt-get install silversearcher-ag'
+(defun galactic-emacs-org-directory-search-ag ()
+  "Search for a keyword in the ORG folder using ag"
+  (interactive)
+  (if (not (eq org-directory nil))
+      (helm-do-ag org-directory)
+    (message "error: org-directory not set.")))
+
+;; Link: https://stackoverflow.com/questions/25161792/emacs-org-mode-how-can-i-fold-everything-but-the-current-headline
 (defun galactic-emacs-org-show-current-heading-tidily ()
   (interactive)
   "In an org file shows current entry, keeping other entries collapsed."
@@ -279,8 +158,163 @@ This function requires `all-the-icons' package to be installed
     (org-show-entry)
     (show-children)))
 
+(defun galactic-emacs-org-download-method (link)
+  "This is an helper function for org-download.
+
+It creates an \"./image\" folder within the same directory of the ORG file.
+Images are separated inside that image folder by additional folders one per
+ORG file.
+
+More info can be found here: https://github.com/abo-abo/org-download/issues/40.
+See the commit message for an example:
+https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc03039bf397b"
+  (let ((filename
+         (file-name-nondirectory
+          (car (url-path-and-query
+                (url-generic-parse-url link)))))
+        (dir (concat
+              (file-name-directory (buffer-file-name))
+              (format "%s/%s/%s"
+                      "images"
+                      (file-name-base (buffer-file-name))
+                      (org-download--dir-2)))))
+    (progn
+      (setq filename-with-timestamp (format "%s--%s.%s"
+                                            (file-name-sans-extension filename)
+                                            (format-time-string "%Y-%m-%d_%H-%M-%S")
+                                            (file-name-extension filename)))
+      ;; Check if directory exists otherwise creates it
+      (unless (file-exists-p dir)
+        (make-directory dir t))
+      (message (format "Image: %s saved!" (expand-file-name filename-with-timestamp dir)))
+      (expand-file-name filename-with-timestamp dir))))
+
 ;;
-;; Emacs frame appearance
+;; Packages and config management helper functions
+;;
+(defun galactic-emacs--outdated-packages-get ()
+  "Return the list of outdated packages.
+
+The returned list has the following structure:
+((\"yang-mode\" \"yang-mode-20180306.1206\" \"yang-mode-20180306.1207\")
+ (\"yasnippet\" \"yasnippet-20181015.1211\" \"yasnippet-20181015.1212\"))
+
+Each element of the list is itself a list where the CAR is the name of
+the outdated package and the CDR is the list of all the installed versions."
+  (--> (directory-files (expand-file-name package-user-dir))
+       (-group-by (lambda (ele) (replace-regexp-in-string "-[0-9.]+" "" ele)) it)
+       (-filter (lambda (ele) (> (length ele) 2)) it)))
+
+(defun galactic-emacs--outdated-packages-write-results-buffer (contents)
+  "Write results in a buffer"
+  (set-buffer
+   (get-buffer-create "*Outdated Packages*"))
+  (insert contents)
+  (set-buffer-modified-p nil)
+  (split-window-below)
+  (other-window 0)
+  (switch-to-buffer "*Outdated Packages*")
+  (local-set-key (kbd "q") (lambda () (interactive)
+                             (kill-this-buffer)
+                             (delete-window))))
+
+(defun galactic-emacs-outdated-packages-print ()
+  "Print outdated packages."
+  (interactive)
+  (let ((outdated-package-list (galactic-emacs--outdated-packages-get)))
+    (galactic-emacs--outdated-packages-write-results-buffer
+     (format "%s\n"
+             (if outdated-package-list
+                 outdated-package-list
+               "No outdated packages found.")))))
+
+(defun galactic-emacs-outdated-packages-purge ()
+  "Remove all except the latest version of the installed packages."
+  (interactive)
+  (let ((log-message "")
+        (packages-purge-list (--> (galactic-emacs--outdated-packages-get)
+                                  (mapcar (lambda (ele) (-sort #'string> (cdr ele))) it))))
+    ;; `packages-purge-list' is a list of lists, so we nest two dolist
+    (if packages-purge-list
+        (progn
+          (dolist (nested-list packages-purge-list)
+            ;; The packages are ordered from newer to oldest. We need
+            ;; to remove everything except the newer
+            (dolist (ele (cdr nested-list))
+              (progn
+                (setq log-message (concat log-message
+                                          (format "Deleting: %s ...\n" ele)))
+                (delete-directory (concat (expand-file-name package-user-dir) "/" ele) t))))
+          (setq log-message (concat log-message
+                                    "... all outdated packages have been deleted.\n"))
+          (galactic-emacs--outdated-packages-write-results-buffer log-message))
+      (galactic-emacs--outdated-packages-write-results-buffer "No outdated packages to be deleted found.\n"))))
+
+(defun galactic-emacs-update-packages ()
+  "Update Galactic Emacs packages to the latest versions."
+  (interactive)
+  (progn
+    (auto-package-update-now)
+    ;; If Emacs is running from a dumped binary then re-generate the
+    ;; binary using the latest updated packages
+    (when (boundp 'galactic-emacs-pdumper-dumped)
+      (galactic-emacs-dump-emacs))))
+
+(defun galactic-emacs-update-config ()
+  "Update Galactic Emacs configuration to the latest version."
+  (interactive)
+  (let ((dir (expand-file-name user-emacs-directory)))
+    (progn
+      (message "Updating Galactic Emacs configuration...")
+      (cd dir)
+      (shell-command "git pull")
+      (message "Load new Galactic Emacs configuration...")
+      (galactic-emacs-reload-init-file)
+      (message "Update finished."))))
+
+;; Reload Emacs init file
+(defun galactic-emacs-reload-init-file ()
+  "Reload your init.el file without restarting Emacs"
+  (interactive)
+  (load-file "~/.emacs.d/init.el"))
+
+;;
+;; ERC helper functions
+;;
+;; Helper function used when stopping ERC
+(defun galactic-emacs-erc-filter-server-buffers ()
+  (delq nil
+        (mapcar
+         (lambda (x) (and (erc-server-buffer-p x) x))
+         (buffer-list))))
+
+;; Start ERC
+(defun galactic-emacs-erc-start ()
+  "Connect to IRC servers"
+  (interactive)
+  (when (y-or-n-p "Do you want to start ERC? ")
+    (erc :server "irc.freenode.net" :port 6667 :nick user-login-name)
+    (erc-status-sidebar-open)))
+
+;; Stop ERC
+(defun galactic-emacs-erc-stop ()
+  "Disconnects from IRC servers"
+  (interactive)
+  (erc-status-sidebar-kill)
+  (dolist (buffer (galactic-emacs-erc-filter-server-buffers))
+    (message "Server buffer: %s" (buffer-name buffer))
+    (with-current-buffer buffer
+      (erc-quit-server "Bye..."))))
+
+;; Send notification using Apple Script on macOS
+(defun galactic-emacs-erc-ns-notify (nick msg &optional PRIVP)
+  "Notify that NICK send a MSG using Apple Notification Center"
+  (ns-do-applescript (concat "display notification \"" nick
+                             " wrote: " msg "\"" "with title"
+                             "\"ERC Notification\"")))
+
+;;
+;; Visual helper functions
 ;;
 (defun galactic-emacs-setup-frame-appearance (&optional frame)
   "This function is used to setup the Emacs frame appearance in
@@ -341,85 +375,98 @@ This function has to be invoked:
       (linum-mode 0)
     (display-line-numbers-mode 0)))
 
-(defun galactic-emacs--outdated-packages-get ()
-  "Return the list of outdated packages.
+;; Redefine battery-pmset because of https://lists.gnu.org/archive/html/bug-gnu-emacs/2016-09/msg00952.html
+(defun galactic-emacs-battery-pmset ()
+  "Get battery status information using `pmset'.
 
-The returned list has the following structure:
-((\"yang-mode\" \"yang-mode-20180306.1206\" \"yang-mode-20180306.1207\")
- (\"yasnippet\" \"yasnippet-20181015.1211\" \"yasnippet-20181015.1212\"))
+The following %-sequences are provided:
+%L Power source (verbose)
+%B Battery status (verbose)
+%b Battery status, empty means high, `-' means low,
+   `!' means critical, and `+' means charging
+%p Battery load percentage
+%h Remaining time in hours
+%m Remaining time in minutes
+%t Remaining time in the form `h:min'"
+  (let (power-source load-percentage battery-status battery-status-symbol
+	             remaining-time hours minutes)
+    (with-temp-buffer
+      (ignore-errors (call-process "pmset" nil t nil "-g" "ps"))
+      (goto-char (point-min))
+      (when (re-search-forward "\\(?:Currentl?y\\|Now\\) drawing from '\\(AC\\|Battery\\) Power'" nil t)
+	(setq power-source (match-string 1))
+	(when (re-search-forward "^ -InternalBattery-0\\([ \t]+\(id\=[0-9]+\)\\)*[ \t]+" nil t)
+	  (when (looking-at "\\([0-9]\\{1,3\\}\\)%")
+	    (setq load-percentage (match-string 1))
+	    (goto-char (match-end 0))
+	    (cond ((looking-at "; charging")
+		   (setq battery-status "charging"
+			 battery-status-symbol "+"))
+		  ((< (string-to-number load-percentage) battery-load-critical)
+		   (setq battery-status "critical"
+			 battery-status-symbol "!"))
+		  ((< (string-to-number load-percentage) battery-load-low)
+		   (setq battery-status "low"
+			 battery-status-symbol "-"))
+		  (t
+		   (setq battery-status "high"
+			 battery-status-symbol "")))
+	    (when (re-search-forward "\\(\\([0-9]+\\):\\([0-9]+\\)\\) remaining"  nil t)
+	      (setq remaining-time (match-string 1))
+	      (let ((h (string-to-number (match-string 2)))
+		    (m (string-to-number (match-string 3))))
+		(setq hours (number-to-string (+ h (if (< m 30) 0 1)))
+		      minutes (number-to-string (+ (* h 60) m)))))))))
+    (list (cons ?L (or power-source "N/A"))
+	  (cons ?p (or load-percentage "N/A"))
+	  (cons ?B (or battery-status "N/A"))
+	  (cons ?b (or battery-status-symbol ""))
+	  (cons ?h (or hours "N/A"))
+	  (cons ?m (or minutes "N/A"))
+	  (cons ?t (or remaining-time "N/A")))))
 
-Each element of the list is itself a list where the CAR is the name of
-the outdated package and the CDR is the list of all the installed versions."
-  (--> (directory-files (expand-file-name package-user-dir))
-       (-group-by (lambda (ele) (replace-regexp-in-string "-[0-9.]+" "" ele)) it)
-       (-filter (lambda (ele) (> (length ele) 2)) it)))
-
-(defun galactic-emacs--outdated-packages-write-results-buffer (contents)
-  "Write results in a buffer"
-  (set-buffer
-   (get-buffer-create "*Outdated Packages*"))
-  (insert contents)
-  (set-buffer-modified-p nil)
-  (split-window-below)
-  (other-window 0)
-  (switch-to-buffer "*Outdated Packages*")
-  (local-set-key (kbd "q") (lambda () (interactive)
-                             (kill-this-buffer)
-                             (delete-window))))
-
-(defun galactic-emacs-outdated-packages-print ()
-  "Print outdated packages."
+;;
+;; Various helper functions
+;;
+;; Create a new buffer without prompting for the name. Bound to F7
+(defun galactic-emacs-new-empty-buffer ()
+  "Create a new empty buffer. New buffer will be named “untitled” or
+“untitled<2>”, “untitled<3>”, ..."
   (interactive)
-  (let ((outdated-package-list (galactic-emacs--outdated-packages-get)))
-    (galactic-emacs--outdated-packages-write-results-buffer
-     (format "%s\n"
-             (if outdated-package-list
-                 outdated-package-list
-               "No outdated packages found.")))))
+  (let ((new-buf (generate-new-buffer "untitled")))
+    (switch-to-buffer new-buf)
+    (funcall initial-major-mode)
+    (setq buffer-offer-save t)))
+(global-set-key (kbd "<f7>") 'galactic-emacs-new-empty-buffer)
 
-(defun galactic-emacs-outdated-packages-purge ()
-  "Remove all except the latest version of the installed packages."
-  (interactive)
-  (let ((log-message "")
-        (packages-purge-list (--> (galactic-emacs--outdated-packages-get)
-                                  (mapcar (lambda (ele) (-sort #'string> (cdr ele))) it))))
-    ;; `packages-purge-list' is a list of lists, so we nest two dolist
-    (if packages-purge-list
-        (progn
-          (dolist (nested-list packages-purge-list)
-            ;; The packages are ordered from newer to oldest. We need
-            ;; to remove everything except the newer
-            (dolist (ele (cdr nested-list))
-              (progn
-                (setq log-message (concat log-message
-                                          (format "Deleting: %s ...\n" ele)))
-                (delete-directory (concat (expand-file-name package-user-dir) "/" ele) t))))
-          (setq log-message (concat log-message
-                                    "... all outdated packages have been deleted.\n"))
-          (galactic-emacs--outdated-packages-write-results-buffer log-message))
-      (galactic-emacs--outdated-packages-write-results-buffer "No outdated packages to be deleted found.\n"))))
+;; copy-line - Source https://www.emacswiki.org/emacs/CopyingWholeLines
+(defun galactic-emacs-copy-line (arg)
+  "Copy lines (as many as prefix argument) in the kill ring.
+    Ease of use features:
+     - Move to start of next line.
+     - Appends the copy on sequential calls.
+     - Use newline as last char even on the last line of the buffer.
+     - If region is active, copy its lines."
+  (interactive "p")
+  (let ((beg (line-beginning-position))
+        (end (line-end-position arg)))
+    (when mark-active
+      (if (> (point) (mark))
+          (setq beg (save-excursion (goto-char (mark)) (line-beginning-position)))
+        (setq end (save-excursion (goto-char (mark)) (line-end-position)))))
+    (if (eq last-command 'galactic-emacs-copy-line)
+        (kill-append (buffer-substring beg end) (< end beg))
+      (kill-ring-save beg end)))
+  (if galactic-emacs-copy-line-append-newline
+      (kill-append "\n" nil))
+  (beginning-of-line (or (and arg (1+ arg)) 2))
+  (if (and arg (not (= 1 arg))) (message "%d lines copied" arg)))
 
-(defun galactic-emacs-update-config ()
-  "Update Galactic Emacs configuration to the latest version."
+(defun galactic-emacs-insert-date ()
   (interactive)
-  (let ((dir (expand-file-name user-emacs-directory)))
-    (progn
-      (message "Updating Galactic Emacs configuration...")
-      (cd dir)
-      (shell-command "git pull")
-      (message "Load new Galactic Emacs configuration...")
-      (galactic-emacs-reload-init-file)
-      (message "Update finished."))))
-
-(defun galactic-emacs-update-packages ()
-  "Update Galactic Emacs packages to the latest versions."
-  (interactive)
-  (progn
-    (auto-package-update-now)
-    ;; If Emacs is running from a dumped binary then re-generate the
-    ;; binary using the latest updated packages
-    (when (boundp 'galactic-emacs-pdumper-dumped)
-      (galactic-emacs-dump-emacs))))
+  "Insert current datetime into buffer without a newline."
+  (insert (concat "Date: " (shell-command-to-string "printf %s \"$(date)\""))))
+(global-set-key (kbd "M-+") 'galactic-emacs-insert-date)
 
 (defun galactic-emacs-garbage-collect ()
   "Run `garbage-collect' and print stats about memory usage."
