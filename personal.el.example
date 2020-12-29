@@ -22,6 +22,10 @@
 (setq freenode-login-password
       "MyFreeNodePassword")
 
+;; Join some interesting channels when connecting to Freenode
+(setq erc-autojoin-channels-alist '(("freenode.net"
+                                     "#emacs" "#emacs-berlin" "#clojure" "#lisp")))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Galactic Emacs additional packages ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

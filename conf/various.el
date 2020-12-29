@@ -85,10 +85,6 @@
   (setq erc-nickserv-passwords
         `((freenode ((,user-login-name . ,freenode-login-password)))))
 
-  ;; Join some interesting channels when connecting to Freenode
-  (setq erc-autojoin-channels-alist '(("freenode.net"
-                                       "#emacs" "#clojure" "#lisp")))
-
   ;; Enable spell checking
   (erc-spelling-mode 1)
 
@@ -133,12 +129,14 @@
     "Connect to IRC servers"
     (interactive)
     (when (y-or-n-p "Do you want to start ERC? ")
-      (erc :server "irc.freenode.net" :port 6667 :nick user-login-name)))
+      (erc :server "irc.freenode.net" :port 6667 :nick user-login-name)
+      (erc-status-sidebar-open)))
 
   ;; Stop ERC
   (defun galactic-emacs-stop-erc ()
     "Disconnects from IRC servers"
     (interactive)
+    (erc-status-sidebar-kill)
     (dolist (buffer (galactic-emacs-filter-erc-server-buffers))
       (message "Server buffer: %s" (buffer-name buffer))
       (with-current-buffer buffer
