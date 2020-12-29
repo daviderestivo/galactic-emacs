@@ -85,10 +85,6 @@
   (setq erc-nickserv-passwords
         `((freenode ((,user-login-name . ,freenode-login-password)))))
 
-  ;; Join some interesting channels when connecting to Freenode
-  (setq erc-autojoin-channels-alist '(("freenode.net"
-                                       "#emacs" "#clojure" "#lisp")))
-
   ;; Enable spell checking
   (erc-spelling-mode 1)
 
