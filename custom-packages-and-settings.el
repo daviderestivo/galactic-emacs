@@ -1,0 +1,67 @@
+;;; custom-packages-and-settings.el - Custom packages and settings file -*- lexical-binding: t; -*-
+
+;;
+;; Copyright (C) 2016-2021 Davide Restivo
+;;
+;; Author: Davide Restivo <davide.restivo@yahoo.it>
+;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
+;; URL: https://github.com/daviderestivo/galactic-emacs/blob/master/custom-packages-and-settings.el
+;; Version: 12.0.0
+;; Keywords: emacs config dotemacs
+
+
+;;; License:
+
+;; This program is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU General Public License
+;; as published by the Free Software Foundation; either version 3
+;; of the License, or (at your option) any later version.
+;;
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;;
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to the
+;; Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
+
+
+;;; Commentary:
+
+;; This is the Galactic Emacs custom-packages-and-settings.el
+;; configuration file.
+;;
+;; This file is part of the Galactic Emacs configuration. Feel free to
+;; drop me an email in case of questions or if you want to
+;; collaborate.
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Galactic Emacs custom settings ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; Please specify here your custom settings to override the Galactic
+;; Emacs default ones:
+
+;; Example: disable transient mark mode
+;; (setq transient-mark-mode nil)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Galactic Emacs custom packages ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; Please specify here additional packages you want to install in
+;; addition to the default Galactic Emacs ones. One package per
+;; `use-package' declaration. See below examples:
+
+;;(use-package aggressive-indent
+;; :ensure t
+;; :config
+;; (global-aggressive-indent-mode 1)
+;; (add-to-list 'aggressive-indent-excluded-modes 'html-mode))
+
+
+;;; custom-packages-and-settings.el ends here

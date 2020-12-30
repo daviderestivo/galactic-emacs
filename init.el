@@ -205,5 +205,9 @@
 (load-file (expand-file-name "conf/visual.el"
                              user-emacs-directory))
 
+;; Load custom packages and settings
+(load-file (expand-file-name "custom-packages-and-settings.el"
+                             user-emacs-directory))
+
 
 ;;; init.el ends here

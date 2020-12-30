@@ -110,6 +110,10 @@ Galactic Emacs distribution comes with many packages already included.
 [Here](https://github.com/daviderestivo/galactic-emacs/blob/master/doc/included_packages.md)
 you can find the complete list.
 
+# Customization
+Please add your custom configuration (additional packages and
+settings) into the file custom-packages-and-settings.el file.
+
 # About the logo
 > The Empire is spread across the Milky Way galaxy and consists of
 > almost 25 million planets settled exclusively by humans.
