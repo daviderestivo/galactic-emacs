@@ -39,6 +39,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
+    - name: Create gnupg Emacs directory
+      run: mkdir -p ~/.emacs.d/elpa/gnupg
+
     - name: Fetch the new elpa key manuall (required for GNU Emacs 26.x
       run: gpg --homedir ~/.emacs.d/elpa/gnupg --receive-keys 066DAFCB81E42C40
 
