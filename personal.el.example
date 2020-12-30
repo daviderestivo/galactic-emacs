@@ -6,7 +6,7 @@
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
 ;; URL: https://github.com/daviderestivo/galactic-emacs/blob/master/personal.el.example
-;; Version: 11.0.0
+;; Version: 12.0.0
 ;; Keywords: emacs config dotemacs
 
 
@@ -30,8 +30,11 @@
 
 ;;; Commentary:
 
-;; This is the Galactic Emacs config file. Feel free to drop me an
-;; email in case of questions or if you want to collaborate.
+;; Galactic Emacs personal.el configuration file.
+;;
+;; This file is part of the Galactic Emacs configuration. Feel free to
+;; drop me an email in case of questions or if you want to
+;; collaborate.
 
 
 ;; Personal details
@@ -59,20 +62,6 @@
 ;; Join some interesting channels when connecting to Freenode
 (setq erc-autojoin-channels-alist '(("freenode.net"
                                      "#emacs" "#emacs-berlin" "#clojure" "#lisp")))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Galactic Emacs additional packages ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; Please specify here the additional packages you might want to
-;; install. One package per `use-package' declaration. See below
-;; examples:
-
-;;(use-package aggressive-indent
-;; :ensure t
-;; :config
-;; (global-aggressive-indent-mode 1)
-;; (add-to-list 'aggressive-indent-excluded-modes 'html-mode))
 
 
 ;;; personal.el ends here

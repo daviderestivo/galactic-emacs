@@ -6,7 +6,7 @@
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
 ;; URL: https://github.com/daviderestivo/galactic-emacs/blob/master/init.el
-;; Version: 11.0.0
+;; Version: 12.0.0
 ;; Keywords: emacs config dotemacs
 
 
@@ -30,8 +30,11 @@
 
 ;;; Commentary:
 
-;; This is the Galactic Emacs config file. Feel free to drop me an
-;; email in case of questions or if you want to collaborate.
+;; Galactic Emacs init.el file.
+;;
+;; This file is part of the Galactic Emacs configuration. Feel free to
+;; drop me an email in case of questions or if you want to
+;; collaborate.
 
 
 ;;; Improve Emacs startup time
@@ -200,6 +203,10 @@
 
 ;; Load visual packages and settings
 (load-file (expand-file-name "conf/visual.el"
+                             user-emacs-directory))
+
+;; Load custom packages and settings
+(load-file (expand-file-name "custom-packages-and-settings.el"
                              user-emacs-directory))
 
 

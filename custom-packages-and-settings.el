@@ -1,11 +1,11 @@
-;;; pdumper-init.el --- Galactic Emacs pdumper init file -*- lexical-binding: t; -*-
+;;; custom-packages-and-settings.el - Custom packages and settings file -*- lexical-binding: t; -*-
 
 ;;
 ;; Copyright (C) 2016-2021 Davide Restivo
 ;;
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
-;; URL: https://github.com/daviderestivo/galactic-emacs/blob/master/conf/pdumper-init.el
+;; URL: https://github.com/daviderestivo/galactic-emacs/blob/master/custom-packages-and-settings.el
 ;; Version: 12.0.0
 ;; Keywords: emacs config dotemacs
 
@@ -30,45 +30,38 @@
 
 ;;; Commentary:
 
-;; Galactic Emacs pdumper init file.
+;; This is the Galactic Emacs custom-packages-and-settings.el
+;; configuration file.
 ;;
 ;; This file is part of the Galactic Emacs configuration. Feel free to
 ;; drop me an email in case of questions or if you want to
 ;; collaborate.
 
 
-(require 'package)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Galactic Emacs custom settings ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; Load autoload files and populate load-path’s
-(package-initialize)
+;; Please specify here your custom settings to override the Galactic
+;; Emacs default ones:
 
-;; Emacs dumped image
-(setq galactic-emacs-pdumper-dumped t)
-
-;; Backup load-path since it is not stored in the dump image
-(setq galactic-emacs-pdumper-load-path load-path)
-
-;; Load custom.el
-(load-file (expand-file-name "custom.el"
-                             user-emacs-directory))
-
-;; Load pdumper-config.el
-(load-file (expand-file-name "conf/pdumper-config.el"
-                             user-emacs-directory))
-
-;; Create dump directory if it does not exists
-(make-directory (expand-file-name ".cache/dumps"
-                                  user-emacs-directory) t)
-
-;; Require use-package
-(require 'use-package)
-;; Require all other packages
-(dolist
-    (package galactic-emacs-pdumper-included-packages)
-  (require package))
-
-;; Dump image
-(dump-emacs-portable galactic-emacs-pdumper-dump-file)
+;; Example: disable transient mark mode
+;; (setq transient-mark-mode nil)
 
 
-;;; pdumper-init.el ends here
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Galactic Emacs custom packages ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; Please specify here additional packages you want to install in
+;; addition to the default Galactic Emacs ones. One package per
+;; `use-package' declaration. See below examples:
+
+;;(use-package aggressive-indent
+;; :ensure t
+;; :config
+;; (global-aggressive-indent-mode 1)
+;; (add-to-list 'aggressive-indent-excluded-modes 'html-mode))
+
+
+;;; custom-packages-and-settings.el ends here

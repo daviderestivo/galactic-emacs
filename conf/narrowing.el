@@ -6,7 +6,7 @@
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
 ;; URL: https://github.com/daviderestivo/galactic-emacs/blob/master/conf/narrowing.el
-;; Version: 11.0.0
+;; Version: 12.0.0
 ;; Keywords: emacs config dotemacs
 
 
@@ -30,7 +30,11 @@
 
 ;;; Commentary:
 
-;; A narrowing configuration based on Helm.
+;; Galactic Emacs narrowing configuration based on Helm.
+;;
+;; This file is part of the Galactic Emacs configuration. Feel free to
+;; drop me an email in case of questions or if you want to
+;; collaborate.
 
 
 ;; helm - Helm is an incremental completion and selection narrowing

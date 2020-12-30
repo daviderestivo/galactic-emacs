@@ -6,7 +6,7 @@
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
 ;; URL: https://github.com/daviderestivo/galactic-emacs/blob/master/conf/helper-functions.el
-;; Version: 11.0.0
+;; Version: 12.0.0
 ;; Package-Requires: ((dash "2.14.1"))
 ;; Keywords: emacs config dotemacs
 
@@ -32,6 +32,10 @@
 ;;; Commentary:
 
 ;; Galactic Emacs helper functions.
+;;
+;; This file is part of the Galactic Emacs configuration. Feel free to
+;; drop me an email in case of questions or if you want to
+;; collaborate.
 
 
 (require 'cl-macs)

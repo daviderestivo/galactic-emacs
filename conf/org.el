@@ -6,7 +6,7 @@
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
 ;; URL: https://github.com/daviderestivo/galactic-emacs/blob/master/conf/org.el
-;; Version: 11.0.0
+;; Version: 12.0.0
 ;; Keywords: emacs config dotemacs
 
 
@@ -30,7 +30,11 @@
 
 ;;; Commentary:
 
-;; An org-mode configuration on steroids.
+;; Galactic Emacs org-mode configuration.
+;;
+;; This file is part of the Galactic Emacs configuration. Feel free to
+;; drop me an email in case of questions or if you want to
+;; collaborate.
 
 
 ;; Org-Mode: main section
@@ -221,12 +225,13 @@
   ;; Make org-mode allow eval elisp, python and ruby
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '((emacs-lisp . t)
-     (clojure . t)
-     (ein . t)
-     (python . t)
-     (ruby . t)
-     (plantuml . t)))
+   '((clojure    . t)
+     (ein        . t)
+     (emacs-lisp . t)
+     (plantuml   . t)
+     (python     . t)
+     (ruby       . t)))
+
   ;; Stop Emacs asking for confirmation when evaluating a code block
   (setq org-confirm-babel-evaluate nil)
   ;; Turn on syntax highlight
@@ -236,7 +241,6 @@
 
 ;; Org Babel: clojure section
 (use-package ob-clojure
-  :defer t
   :config
   ;; To compile and run Clojure code, you will need to connect to a
   ;; REPL: M-x cider-jack-in RET
@@ -244,7 +248,6 @@
 
 ;; Org Babel: plantuml section
 (use-package ob-plantuml
-  :defer t
   :config
   (setq org-plantuml-jar-path
         (concat user-emacs-directory "lib/" "plantuml.jar")))
@@ -266,6 +269,10 @@
   ;; (setq org-mind-map-engine "twopi")  ; Radial layouts
   ;; (setq org-mind-map-engine "circo")  ; Circular Layout
   )
+
+;; Write HTTP requests in Org mode and replay them at will using cURL
+(use-package walkman
+  :ensure t)
 
 
 ;;; org.el ends here

@@ -6,7 +6,7 @@
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
 ;; URL: https://github.com/daviderestivo/galactic-emacs/blob/master/conf/programming.el
-;; Version: 11.0.0
+;; Version: 12.0.0
 ;; Keywords: emacs config dotemacs
 
 
@@ -30,7 +30,11 @@
 
 ;;; Commentary:
 
-;; A selection of packages for programmers.
+;; Galactic Emacs selection of packages for programming.
+;;
+;; This file is part of the Galactic Emacs configuration. Feel free to
+;; drop me an email in case of questions or if you want to
+;; collaborate.
 
 
 ;; Automatically debug and bisect your init file
