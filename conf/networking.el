@@ -30,7 +30,11 @@
 
 ;;; Commentary:
 
-;; A selection of packages to work with network devices.
+;; Galactic Emacs package's selection to work with network devices.
+;;
+;; This file is part of the Galactic Emacs configuration. Feel free to
+;; drop me an email in case of questions or if you want to
+;; collaborate.
 
 
 ;; cisco-router-mode

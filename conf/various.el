@@ -30,7 +30,11 @@
 
 ;;; Commentary:
 
-;; Various packages that do not fall into any other category.
+;; Galactic Emacs: various packages that do not fall into any other category.
+;;
+;; This file is part of the Galactic Emacs configuration. Feel free to
+;; drop me an email in case of questions or if you want to
+;; collaborate.
 
 
 ;; auto-package-update

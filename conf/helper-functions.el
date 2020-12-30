@@ -32,6 +32,10 @@
 ;;; Commentary:
 
 ;; Galactic Emacs helper functions.
+;;
+;; This file is part of the Galactic Emacs configuration. Feel free to
+;; drop me an email in case of questions or if you want to
+;; collaborate.
 
 
 (require 'cl-macs)

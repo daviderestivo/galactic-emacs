@@ -30,7 +30,11 @@
 
 ;;; Commentary:
 
-;; Visual packages and settings.
+;; Galactic Emacs visual packages and settings.
+;;
+;; This file is part of the Galactic Emacs configuration. Feel free to
+;; drop me an email in case of questions or if you want to
+;; collaborate.
 
 
 ;; Inhibit startup screen, splash screen and startup message

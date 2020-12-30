@@ -30,7 +30,11 @@
 
 ;;; Commentary:
 
-;; A narrowing configuration based on Helm.
+;; Galactic Emacs narrowing configuration based on Helm.
+;;
+;; This file is part of the Galactic Emacs configuration. Feel free to
+;; drop me an email in case of questions or if you want to
+;; collaborate.
 
 
 ;; helm - Helm is an incremental completion and selection narrowing

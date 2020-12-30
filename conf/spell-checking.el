@@ -30,7 +30,12 @@
 
 ;;; Commentary:
 
-;; A Emacs spell checking configuration based on Flyspell.
+;; Galactic Emacs spell checking configuration based on Flyspell.
+;;
+;; This file is part of the Galactic Emacs configuration. Feel free to
+;; drop me an email in case of questions or if you want to
+;; collaborate.
+
 
 (use-package flyspell
   :ensure-system-package (aspell . "brew install aspell || sudo apt-get install aspell")

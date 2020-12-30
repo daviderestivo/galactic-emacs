@@ -30,8 +30,11 @@
 
 ;;; Commentary:
 
-;; This is the Galactic Emacs config file. Feel free to drop me an
-;; email in case of questions or if you want to collaborate.
+;; Galactic Emacs init.el file.
+;;
+;; This file is part of the Galactic Emacs configuration. Feel free to
+;; drop me an email in case of questions or if you want to
+;; collaborate.
 
 
 ;;; Improve Emacs startup time
