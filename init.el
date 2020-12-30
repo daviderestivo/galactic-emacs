@@ -129,6 +129,14 @@
   (when (string= system-type "gnu/linux")
     (setq system-packages-use-sudo t)))
 
+;; gnu-elpa-keyring-update
+;;
+;; This package updates the GPG keys used by the ELPA package manager
+;; (a.k.a `package.el') to verify authenticity of packages downloaded
+;; from the GNU ELPA archive.
+(use-package gnu-elpa-keyring-update
+  :ensure t)
+
 (require 'bind-key)
 
 ;; Tell Emacs where is your personal elisp lib directory
