@@ -57,18 +57,20 @@ theme with some minor changes.
 ## GNU/Emacs installation
 This configuration is mainly tested on the HEAD version of Emacs
 (currently 28.x) running on macOS. If your're using brew, as a package
-manager on macOS, please install Emacs with the below command:
+manager on macOS, please install Emacs with the below command.
+
+For Emacs 28.x:
 
 ``` bash
 brew tap daviderestivo/emacs-head
-brew install emacs-head --HEAD --with-cocoa --with-no-frame-refocus --with-imagemagick --with-jansson --with-pdumper
+brew install emacs-head@28 --with-cocoa --with-no-frame-refocus --with-imagemagick --with-pdumper --with-xwidgets
 ```
 
-or if you prefer Emacs 26.x:
+or if you prefer Emacs 27.x:
 
 ``` bash
 brew tap daviderestivo/emacs-head
-brew install emacs-head --with-cocoa --with-no-frame-refocus --with-imagemagick --with-multicolor-fonts
+brew install emacs-head
 ```
 
 ## Galactic Emacs installation
@@ -88,9 +90,6 @@ git submodule foreach --recursive git checkout master
 Before you start emacs please edit `~/.emacs.d/personal.el.example`
 adding your personal information and rename it to
 `~/.emacs.d/personal.el`.
-
-Please specify in `personal.el` the additional packages you might want
-to install. An example is included.
 
 ## Enable pdumper
 If you're running Emacs >= 27 then you can enable pdumper support. In
