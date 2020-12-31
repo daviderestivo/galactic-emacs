@@ -135,7 +135,9 @@
 ;; (a.k.a `package.el') to verify authenticity of packages downloaded
 ;; from the GNU ELPA archive.
 (use-package gnu-elpa-keyring-update
-  :ensure t)
+  :ensure t
+  :config
+  (gnu-elpa-keyring-update))
 
 (require 'bind-key)
 
