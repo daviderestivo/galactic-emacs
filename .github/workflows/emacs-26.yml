@@ -39,6 +39,14 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
+    - name: Create gnupg Emacs directory
+      run: mkdir -p ~/.emacs.d/elpa/gnupg
+
+      # The signature key that comes with Emacs versions before 26.3 has expired
+      # https://stackoverflow.com/questions/58202993/emacs-failed-to-verify-signature-archive-contents-sig
+    - name: Fetch the new elpa key manually (required for GNU Emacs 26.x)
+      run: gpg --homedir ~/.emacs.d/elpa/gnupg --receive-keys 066DAFCB81E42C40
+
     - name: Tap Homebrew Emacs Head
       run: brew tap daviderestivo/emacs-head
 
