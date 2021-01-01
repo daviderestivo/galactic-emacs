@@ -136,6 +136,9 @@
 ;; from the GNU ELPA archive.
 (use-package gnu-elpa-keyring-update
   :ensure t
+  :init
+  ;; The below assumes gpg is installed in `/usr/local/bin'
+  (custom-set-variables '(epg-gpg-program  "/usr/local/bin/gpg"))
   :config
   (gnu-elpa-keyring-update))
 
