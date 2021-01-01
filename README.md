@@ -30,6 +30,7 @@
     - [Enable pdumper](#enable-pdumper)
 - [Key bindings](#key-bindings)
 - [Included packages](#included-packages)
+- [Customization](#customization)
 - [About the logo](#about-the-logo)
 - [License](#license)
 - [Contribution](#contribution)
