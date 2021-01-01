@@ -30,6 +30,7 @@
     - [Enable pdumper](#enable-pdumper)
 - [Key bindings](#key-bindings)
 - [Included packages](#included-packages)
+- [Customization](#customization)
 - [About the logo](#about-the-logo)
 - [License](#license)
 - [Contribution](#contribution)
@@ -95,11 +96,14 @@ adding your personal information and rename it to
 If you're running Emacs >= 27 then you can enable pdumper support. In
 order to do so, once you have cloned the Galactic Emacs distribution
 as detailed in the previous section, start Emacs and issue: `M-x
-galactic-emacs-dump-emacs`. Please run it with the command:
+galactic-emacs-dump-emacs`. Once the pdumper process has completed
+you can run the Emacs "pdumped" version using the command:
 
 ```
 emacs --dump-file="$(echo ~/.emacs.d/.cache/dumps/emacs.pdmp)"
 ```
+
+You could add a shell alias for your convenience.
 
 # Key bindings
 Please have a look to the list of the available [key bindings](https://github.com/daviderestivo/galactic-emacs/blob/master/doc/keybindings.md).
@@ -111,7 +115,7 @@ you can find the complete list.
 
 # Customization
 Please add your custom configuration (additional packages and
-settings) into the file custom-packages-and-settings.el file.
+settings) into the file `custom-packages-and-settings.el` file.
 
 # About the logo
 > The Empire is spread across the Milky Way galaxy and consists of
