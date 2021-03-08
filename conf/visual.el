@@ -233,9 +233,9 @@
 ;; An extensible Emacs startup screen showing you what’s most important
 (use-package dashboard
   :ensure t
+  :diminish page-break-lines-mode
   :config
   (dashboard-setup-startup-hook)
-  (diminish 'page-break-lines-mode)
   ;; Configure initial-buffer-choice to show the dashboard in frames
   ;; created with `emacsclient -c'
   (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))

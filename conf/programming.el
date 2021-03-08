@@ -62,11 +62,6 @@
   (define-key company-active-map (kbd "C-n") 'company-select-next)
   (define-key company-active-map (kbd "C-p") 'company-select-previous))
 
-;; Company completion backend for lsp-mode
-(use-package company-lsp
-  :ensure t
-  :defer t)
-
 ;; A convenient frontend to GHCi
 (use-package dante
   :ensure t
