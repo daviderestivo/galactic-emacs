@@ -79,8 +79,8 @@ brew install emacs-head
 For Emacs 26.x:
 
 ``` bash
-brew tap daviderestivo/emacs-head@26
-brew install emacs-head
+brew tap daviderestivo/emacs-head
+brew install emacs-head@26
 ```
 
 ## Galactic Emacs installation
