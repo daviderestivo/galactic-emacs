@@ -150,7 +150,7 @@
 ;; Integration between helm and treemacs icons
 (use-package helm-icons
   :ensure t
-  :after helm
+  :after (helm all-the-icons)
   :init
   (setq helm-icons-provider 'all-the-icons)
   :config
