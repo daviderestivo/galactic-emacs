@@ -123,11 +123,11 @@
   ;; Enable  approximate string matching (fuzzy matching)
   (setq helm-ag-fuzzy-match t)
   ;; :bind together with lambdas is unsupported in use-package
-  (global-set-key (kbd "M-s") '(lambda (P)
-                                 (interactive "P")
-                                 (if (eq P nil)
-                                     (helm-do-ag-this-file)
-                                   (helm-do-ag-buffers))))
+  (global-set-key (kbd "M-s") #'(lambda (P)
+                                  (interactive "P")
+                                  (if (eq P nil)
+                                      (helm-do-ag-this-file)
+                                    (helm-do-ag-buffers))))
   :bind
   ("M-<f6>" . helm-do-ag))
 
