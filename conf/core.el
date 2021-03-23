@@ -181,9 +181,10 @@
 (unless (version<= emacs-version "27")
   (global-so-long-mode 1))
 
-;; Disable native-comp warnings
-(if (native-comp-available-p)
-    (add-to-list 'warning-suppress-types '(comp)))
+;; Disable native-comp warnings on Em
+(unless (version< emacs-version "28")
+  (if (native-comp-available-p)
+      (add-to-list 'warning-suppress-types '(comp))))
 
 
 ;;; core.el ends here
