@@ -71,14 +71,22 @@
   (local-set-key (kbd "q") (lambda () (interactive)
                              (kill-this-buffer)
                              (delete-window)))
-  (make-process
-   :name "galactic-emacs-dumper"
-   :buffer galactic-emacs-pdumper-buffer-name
-   :command
-   (list "emacs"
-         "--batch"
-         "-q"
-         "-l" galactic-emacs-pdumper-init-file)))
+  (cond
+   ((version< emacs-version "27")
+    (with-output-to-temp-buffer galactic-emacs-pdumper-buffer-name
+      (insert "Pdumper is only supported on GNU/Emacs 27 or above.\n")))
+   ((and (not (version< emacs-version "28")) (native-comp-available-p))
+    (with-output-to-temp-buffer galactic-emacs-pdumper-buffer-name
+      (insert "GNU/Emacs has been compiled with native-comp support so pdumper feature is not available.\n")))
+   (t
+    (make-process
+     :name "galactic-emacs-dumper"
+     :buffer galactic-emacs-pdumper-buffer-name
+     :command
+     (list "emacs"
+           "--batch"
+           "-q"
+           "-l" galactic-emacs-pdumper-init-file)))))
 
 
 ;;; pdumper-config.el ends here
