@@ -180,10 +180,10 @@
    ("\C-cc"  . org-capture)
    ;; Local to org-mode keybindings
    (:map org-mode-map
-    ("\C-ce"  . org-encrypt-entry)
-    ("\C-cd"  . org-decrypt-entry)
-    ("\C-ci"  . org-insert-heading)
-    ("\C-cj"  . galactic-emacs-org-show-current-heading-tidily))))
+         ("\C-ce"  . org-encrypt-entry)
+         ("\C-cd"  . org-decrypt-entry)
+         ("\C-ci"  . org-insert-heading)
+         ("\C-cj"  . galactic-emacs-org-show-current-heading-tidily))))
 
 ;; Beautify org buffers
 (use-package org-beautify-theme
@@ -231,6 +231,13 @@
      (plantuml   . t)
      (python     . t)
      (ruby       . t)))
+
+  ;; Fontify cisco and comware src blocks
+  (setq org-src-lang-modes
+        (append
+         org-src-lang-modes
+         '(("comware" . comware-router)
+           ("cisco"   . cisco-router))))
 
   ;; Stop Emacs asking for confirmation when evaluating a code block
   (setq org-confirm-babel-evaluate nil)
