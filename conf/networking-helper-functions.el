@@ -67,7 +67,7 @@ IPV6-SUBNET"
   "Convert the last 32 bits of an IPV6-ADDRESS into dotted
 decimal IPv4 address"
   (let*
-      ((normalized-ipv6-address (normalize-ipv6-address ipv6-address))
+      ((normalized-ipv6-address (ipv6-address-normalize ipv6-address))
        (normalized-ipv6-address-list (split-string normalized-ipv6-address "[:]"))
        (ipv4-fields (seq-drop normalized-ipv6-address-list 6))
        (ipv4-address-list (seq-concatenate 'list
