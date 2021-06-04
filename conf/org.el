@@ -117,6 +117,8 @@
   ;;
   (setq org-todo-keywords
         '((sequence "TODO(t)" "PLANNED(p)" "DOING(d)" "WAIT OTHERS(w)" "DELEGATED(g)" "REVIEW(r)" "|" "DONE(D)" "CANCELED(C)" "REVIEWED(R)")))
+  ;; Entering Org mode will fold all blocks
+  (setq org-hide-block-startup t)
   ;; Org-Mode has its own markup syntax but seeing the emphasis
   ;; markers is distracting. The below setting hides it.
   (setq org-hide-emphasis-markers t)
