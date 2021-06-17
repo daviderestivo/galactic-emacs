@@ -283,5 +283,14 @@
 (use-package walkman
   :ensure t)
 
+;; Insert Emacs org blocks with completion (via company mode).
+(use-package company-org-block
+  :ensure t
+  :custom
+  (company-org-block-edit-style 'auto) ;; 'auto, 'prompt, or 'inline
+  :hook ((org-mode . (lambda ()
+                       (setq-local company-backends '(company-org-block))
+                       (company-mode +1)))))
+
 
 ;;; org.el ends here
