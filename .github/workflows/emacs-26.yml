@@ -48,6 +48,9 @@ jobs:
     - name: Create gnupg Emacs directory
       run: mkdir -p ${{ github.workspace }}/elpa/gnupg
 
+    - name: Add keyserver to gpg.conf
+      run: echo "keyserver hkp://keys.gnupg.net" > ${{ github.workspace }}/elpa/gnupg/gpg.conf
+
       # The signature key that comes bundled with Emacs might be expired
     - name: Fetch Elpa GPG key
       run: gpg --homedir ${{ github.workspace }}/elpa/gnupg --receive-keys 066DAFCB81E42C40
