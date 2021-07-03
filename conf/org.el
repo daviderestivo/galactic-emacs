@@ -207,6 +207,8 @@
 (use-package org-download
   :ensure t
   :config
+  ;; Add support to dired
+  (add-hook 'dired-mode-hook 'org-download-enable)
   ;; Change screen capture command only for macOS
   (when (string= system-type "darwin")
     (setq org-download-screenshot-method "screencapture -s -x %s"))
