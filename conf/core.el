@@ -181,7 +181,7 @@
 (unless (version<= emacs-version "27")
   (global-so-long-mode 1))
 
-;; Disable native-comp warnings on Em
+;; Disable native-comp warnings on Emacs 28 and above
 (unless (version< emacs-version "28")
   (if (and (fboundp 'native-comp-available-p) (native-comp-available-p))
       (add-to-list 'warning-suppress-types '(comp))))

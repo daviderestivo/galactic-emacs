@@ -178,6 +178,10 @@
 (load-file (expand-file-name "conf/helper-functions.el"
                              user-emacs-directory))
 
+;; Load networking helper functions
+(load-file (expand-file-name "conf/networking-helper-functions.el"
+                             user-emacs-directory))
+
 ;; Load auto-backup packages and settings
 (load-file (expand-file-name "conf/auto-backup.el"
                              user-emacs-directory))

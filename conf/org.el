@@ -117,6 +117,8 @@
   ;;
   (setq org-todo-keywords
         '((sequence "TODO(t)" "PLANNED(p)" "DOING(d)" "WAIT OTHERS(w)" "DELEGATED(g)" "REVIEW(r)" "|" "DONE(D)" "CANCELED(C)" "REVIEWED(R)")))
+  ;; Entering Org mode will fold all blocks
+  (setq org-hide-block-startup t)
   ;; Org-Mode has its own markup syntax but seeing the emphasis
   ;; markers is distracting. The below setting hides it.
   (setq org-hide-emphasis-markers t)
@@ -180,10 +182,10 @@
    ("\C-cc"  . org-capture)
    ;; Local to org-mode keybindings
    (:map org-mode-map
-    ("\C-ce"  . org-encrypt-entry)
-    ("\C-cd"  . org-decrypt-entry)
-    ("\C-ci"  . org-insert-heading)
-    ("\C-cj"  . galactic-emacs-org-show-current-heading-tidily))))
+         ("\C-ce"  . org-encrypt-entry)
+         ("\C-cd"  . org-decrypt-entry)
+         ("\C-ci"  . org-insert-heading)
+         ("\C-cj"  . galactic-emacs-org-show-current-heading-tidily))))
 
 ;; Beautify org buffers
 (use-package org-beautify-theme
@@ -205,6 +207,8 @@
 (use-package org-download
   :ensure t
   :config
+  ;; Add support to dired
+  (add-hook 'dired-mode-hook 'org-download-enable)
   ;; Change screen capture command only for macOS
   (when (string= system-type "darwin")
     (setq org-download-screenshot-method "screencapture -s -x %s"))
@@ -231,6 +235,13 @@
      (plantuml   . t)
      (python     . t)
      (ruby       . t)))
+
+  ;; Fontify cisco and comware src blocks
+  (setq org-src-lang-modes
+        (append
+         org-src-lang-modes
+         '(("comware" . comware-router)
+           ("cisco"   . cisco-router))))
 
   ;; Stop Emacs asking for confirmation when evaluating a code block
   (setq org-confirm-babel-evaluate nil)
@@ -273,6 +284,15 @@
 ;; Write HTTP requests in Org mode and replay them at will using cURL
 (use-package walkman
   :ensure t)
+
+;; Insert Emacs org blocks with completion (via company mode).
+(use-package company-org-block
+  :ensure t
+  :custom
+  (company-org-block-edit-style 'auto) ;; 'auto, 'prompt, or 'inline
+  :hook ((org-mode . (lambda ()
+                       (setq-local company-backends '(company-org-block))
+                       (company-mode +1)))))
 
 
 ;;; org.el ends here
