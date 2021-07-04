@@ -50,7 +50,7 @@ jobs:
 
       # The signature key that comes bundled with Emacs might be expired
     - name: Fetch Elpa GPG key
-      run: gpg --homedir ${{ github.workspace }}/elpa/gnupg --keyserver hkp://keys.gnupg.net --receive-keys 066DAFCB81E42C40
+      run: gpg --homedir ${{ github.workspace }}/elpa/gnupg --keyserver keyserver.ubuntu.com --receive-keys 066DAFCB81E42C40
 
     - name: Create personal config file from template
       run: mv personal.el.example personal.el
