@@ -281,6 +281,18 @@
   ;; (setq org-mind-map-engine "circo")  ; Circular Layout
   )
 
+;; A query language for Org files
+(use-package org-ql
+  :init
+  :ensure t
+  :defer t)
+
+;; Helm support for orq-ql
+(use-package helm-org-ql
+  :init
+  :ensure t
+  :defer t)
+
 ;; Write HTTP requests in Org mode and replay them at will using cURL
 (use-package walkman
   :ensure t)

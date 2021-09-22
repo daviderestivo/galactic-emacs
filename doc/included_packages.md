@@ -41,6 +41,8 @@ The package management tool used is: [use-package](https://github.com/jwiegley/u
 * [org-download](https://github.com/abo-abo/org-download)
 * [org-mind-map](https://github.com/theodorewiles/org-mind-map)
 * [company-org-block](https://github.com/xenodium/company-org-block)
+* [org-ql](https://github.com/alphapapa/org-ql)
+* [helm-org-ql](https://github.com/alphapapa/org-ql)
 * [walkman](https://github.com/abrochard/walkman)
 
 ## Programming
