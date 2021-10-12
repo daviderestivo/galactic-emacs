@@ -39,8 +39,7 @@
 
 ;; Org-Mode: main section
 (use-package org
-  :ensure org-plus-contrib
-  :pin org
+  :pin gnu
   :defer t
   :init
   ;; Org 9.2 comes with a new template expansion mechanism [C-c C-,]
@@ -186,6 +185,14 @@
          ("\C-cd"  . org-decrypt-entry)
          ("\C-ci"  . org-insert-heading)
          ("\C-cj"  . galactic-emacs-org-show-current-heading-tidily))))
+
+
+;; Unmaintained add-ons for Org-mode
+(use-package org-contrib
+  :pin non-gnu
+  :ensure t
+  :defer t
+  )
 
 ;; Beautify org buffers
 (use-package org-beautify-theme

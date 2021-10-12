@@ -74,7 +74,7 @@
 (setq package-archives
       '(("melpa" . "https://melpa.org/packages/")
         ("melpa-stable" . "https://stable.melpa.org/packages/")
-        ("org" . "https://orgmode.org/elpa/")
+        ("non-gnu" . "https://elpa.nongnu.org/nongnu/")
         ("gnu" . "https://elpa.gnu.org/packages/")))
 
 ;; Some combination of GNU TLS and Emacs fail to retrieve archive
@@ -92,7 +92,7 @@
 (setq package-archive-priorities
       '(("melpa" .  4)
         ("melpa-stable" . 3)
-        ("org" . 2)
+        ("non-gnu" . 2)
         ("gnu" . 1)))
 
 ;; Bootstrap `use-package'
