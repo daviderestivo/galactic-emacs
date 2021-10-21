@@ -513,7 +513,7 @@
           treemacs-show-hidden-files          t
           treemacs-silent-filewatch           nil
           treemacs-silent-refresh             nil
-          treemacs-sorting                    'alphabetic-desc
+          treemacs-sorting                    'alphabetic-asc
           treemacs-space-between-root-nodes   t
           treemacs-tag-follow-cleanup         t
           treemacs-tag-follow-delay           1.5
