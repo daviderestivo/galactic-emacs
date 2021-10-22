@@ -344,7 +344,7 @@ This function has to be invoked:
         ;; Setup sml theme and modeline battery format
         (setq sml/theme 'atom-one-dark)
         (sml/setup)
-        (setq battery-mode-line-format (concat " [" (all-the-icons-material "battery_std") "%b%p%%" "]"))
+        (setq battery-mode-line-format (concat " [" (all-the-icons-material "battery_std") "%b%p%%" "]  "))
         ;; Setup other fame attributes, width, height, alpha, ...
         (if frame
             (progn
