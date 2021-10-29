@@ -77,17 +77,16 @@
   ;; Set the initial major mode of newly created buffers to org-mode
   (setq initial-major-mode (quote org-mode))
   (when (file-directory-p org-directory)
-    (setq org-default-notes-file (concat org-directory "refile.org")))
+    (setq org-default-notes-file (concat org-directory "home-refile.org")))
   ;; Additional files to be searched in addition to the default ones
   ;; contained in the agenda folder
   (setq org-agenda-text-search-extra-files
         (when (file-directory-p org-directory)
           (append
+           (list (concat org-directory "work-refile.org"))
            (find-lisp-find-files (concat org-directory "home-projects") "\.org$")
            (find-lisp-find-files (concat org-directory "work-projects") "\.org$")
-           (find-lisp-find-files (concat org-directory "notebooks") "\.org$")
-           (list (concat org-directory "refile-beorg.org"))
-           (list (concat org-directory "refile.org")))))
+           (find-lisp-find-files (concat org-directory "notebooks") "\.org$"))))
   ;; Configure refiling
   (setq org-outline-path-complete-in-steps nil)
   (setq org-refile-targets '((org-agenda-files :maxlevel . 1)))
