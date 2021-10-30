@@ -77,13 +77,13 @@
   ;; Set the initial major mode of newly created buffers to org-mode
   (setq initial-major-mode (quote org-mode))
   (when (file-directory-p org-directory)
-    (setq org-default-notes-file (concat org-directory "home-refile.org")))
+    (setq org-default-notes-file (concat org-directory "home-projects/" "home-refile.org")))
   ;; Additional files to be searched in addition to the default ones
   ;; contained in the agenda folder
   (setq org-agenda-text-search-extra-files
         (when (file-directory-p org-directory)
           (append
-           (list (concat org-directory "work-refile.org"))
+           (list (concat org-directory "work-projects/" "work-refile.org"))
            (find-lisp-find-files (concat org-directory "home-projects") "\.org$")
            (find-lisp-find-files (concat org-directory "work-projects") "\.org$")
            (find-lisp-find-files (concat org-directory "notebooks") "\.org$"))))
