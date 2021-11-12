@@ -41,14 +41,6 @@
 (use-package org
   :pin gnu
   :defer t
-  :init
-  ;; Org 9.2 comes with a new template expansion mechanism [C-c C-,]
-  ;; The previous behavior, e.g. <s, is still available and activated
-  ;; by requiring org-tempo library.
-  (require 'org-tempo)
-  ;; `org-crypt' allows to encrypt subtrees using GPG
-  (require 'org-crypt)
-  (setq galactic-emacs-org-electric-pair-inhibit-list '(?\<))
   :hook
   (org-agenda-mode . (lambda ()
                        (setq org-agenda-files
@@ -71,6 +63,14 @@
                       (load-theme 'org-beautify t)
                       (set-face-attribute 'org-agenda-structure nil :height 1.0 :family "Lucida Grande")))))
   :config
+  ;; Org 9.2 comes with a new template expansion mechanism [C-c C-,]
+  ;; The previous behavior, e.g. <s, is still available and activated
+  ;; by requiring org-tempo library.
+  (require 'org-tempo)
+  ;; `org-crypt' allows to encrypt subtrees using GPG
+  (require 'org-crypt)
+  (setq galactic-emacs-org-electric-pair-inhibit-list '(?\<))
+  ;; Load required libs
   (load-library "find-lisp")
   ;; Org directories and files
   (setq org-directory "~/org/")
