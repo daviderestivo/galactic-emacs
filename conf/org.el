@@ -41,14 +41,6 @@
 (use-package org
   :pin gnu
   :defer t
-  :init
-  ;; Org 9.2 comes with a new template expansion mechanism [C-c C-,]
-  ;; The previous behavior, e.g. <s, is still available and activated
-  ;; by requiring org-tempo library.
-  (require 'org-tempo)
-  ;; `org-crypt' allows to encrypt subtrees using GPG
-  (require 'org-crypt)
-  (setq galactic-emacs-org-electric-pair-inhibit-list '(?\<))
   :hook
   (org-agenda-mode . (lambda ()
                        (setq org-agenda-files
@@ -71,23 +63,30 @@
                       (load-theme 'org-beautify t)
                       (set-face-attribute 'org-agenda-structure nil :height 1.0 :family "Lucida Grande")))))
   :config
+  ;; Org 9.2 comes with a new template expansion mechanism [C-c C-,]
+  ;; The previous behavior, e.g. <s, is still available and activated
+  ;; by requiring org-tempo library.
+  (require 'org-tempo)
+  ;; `org-crypt' allows to encrypt subtrees using GPG
+  (require 'org-crypt)
+  (setq galactic-emacs-org-electric-pair-inhibit-list '(?\<))
+  ;; Load required libs
   (load-library "find-lisp")
   ;; Org directories and files
   (setq org-directory "~/org/")
   ;; Set the initial major mode of newly created buffers to org-mode
   (setq initial-major-mode (quote org-mode))
   (when (file-directory-p org-directory)
-    (setq org-default-notes-file (concat org-directory "refile.org")))
+    (setq org-default-notes-file (concat org-directory "home-projects/" "home-refile.org")))
   ;; Additional files to be searched in addition to the default ones
   ;; contained in the agenda folder
   (setq org-agenda-text-search-extra-files
         (when (file-directory-p org-directory)
           (append
+           (list (concat org-directory "work-projects/" "work-refile.org"))
            (find-lisp-find-files (concat org-directory "home-projects") "\.org$")
            (find-lisp-find-files (concat org-directory "work-projects") "\.org$")
-           (find-lisp-find-files (concat org-directory "notebooks") "\.org$")
-           (list (concat org-directory "refile-beorg.org"))
-           (list (concat org-directory "refile.org")))))
+           (find-lisp-find-files (concat org-directory "notebooks") "\.org$"))))
   ;; Configure refiling
   (setq org-outline-path-complete-in-steps nil)
   (setq org-refile-targets '((org-agenda-files :maxlevel . 1)))

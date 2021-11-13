@@ -142,9 +142,9 @@ This function requires `all-the-icons' package to be installed
 (defun galactic-emacs-org-directory-search-ag ()
   "Search for a keyword in the ORG folder using ag"
   (interactive)
-  (if (not (eq org-directory nil))
-      (helm-do-ag org-directory)
-    (message "error: org-directory not set.")))
+    (if (not (eq org-directory nil))
+        (helm-do-ag org-directory)
+      (message "error: org-directory not set.")))
 
 ;; Link: https://stackoverflow.com/questions/25161792/emacs-org-mode-how-can-i-fold-everything-but-the-current-headline
 (defun galactic-emacs-org-show-current-heading-tidily ()
