@@ -327,7 +327,8 @@
   :config
   (eyebrowse-mode)
   ;; Display the *scratch* buffer for every newly created workspace
-  (setq eyebrowse-new-workspace t))
+  (setq eyebrowse-new-workspace t)
+  (setq eyebrowse-mode-line-right-delimiter "] "))
 
 ;; gnutls customization
 ;;
