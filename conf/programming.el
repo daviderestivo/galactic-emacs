@@ -295,6 +295,41 @@
   :config
   (setq inferior-lisp-program "sbcl"))
 
+;; Minor mode for Emacs that deals with parens pairs and tries to be
+;; smart about it.
+(use-package smartparens
+  :ensure t
+  :defer t
+  :diminish smartparens-mode
+  :init
+  (require 'smartparens-config)
+  :hook
+  (emacs-lisp-mode       . smartparens-mode)
+  (lisp-interaction-mode . smartparens-mode)
+  (clojure-mode          . smartparens-mode)
+  (cider-repl-mode       . smartparens-mode)
+  :bind (
+         :map smartparens-mode-map
+         ("C-M-f"         . sp-forward-sexp)
+         ("C-M-b"         . sp-backward-sexp)
+         ("C-M-u"         . sp-up-sexp)
+         ("C-M-d"         . sp-down-sexp)
+         ("C-M-a"         . sp-beginning-of-sexp)
+         ("C-M-e"         . sp-end-of-sexp)
+         ("C-M-n"         . sp-next-sexp)
+         ("C-M-p"         . sp-previous-sexp)
+         ("C-M-t"         . sp-transpose-sexp)
+         ("C-M-k"         . sp-kill-sexp)
+         ("C-M-w"         . sp-copy-sexp)
+         ("M-<backspace>" . sp-unwrap-sexp)
+         ("C-M-<right>"   . sp-forward-slurp-sexp)
+         ("C-M-<left>"    . sp-forward-barf-sexp)
+         ("C-S-M-<left>"  . sp-backward-slurp-sexp)
+         ("C-S-M-<right>" . sp-backward-barf-sexp)
+         ("M-("           . sp-wrap-round)
+         ("M-["           . sp-wrap-square)
+         ("M-{"           . sp-wrap-curly)))
+
 ;; A regexp/replace command for Emacs with interactive visual feedback
 (use-package visual-regexp
   :ensure t
