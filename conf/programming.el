@@ -308,6 +308,7 @@
   (lisp-interaction-mode . smartparens-mode)
   (clojure-mode          . smartparens-mode)
   (cider-repl-mode       . smartparens-mode)
+  (sly-mrepl-mode        . smartparens-mode)
   :bind (
          :map smartparens-mode-map
          ("C-M-f"         . sp-forward-sexp)
