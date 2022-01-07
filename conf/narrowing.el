@@ -155,6 +155,7 @@
   :after (helm all-the-icons)
   :init
   (setq helm-icons-provider 'all-the-icons)
+  (setq helm-icons-mode->icon nil)
   :config
   (helm-icons-enable))
 
