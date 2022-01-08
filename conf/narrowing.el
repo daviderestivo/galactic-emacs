@@ -1,7 +1,7 @@
 ;;; narrowing.el --- Galactic Emacs narrowing configuration -*- lexical-binding: t; -*-
 
 ;;
-;; Copyright (C) 2016-2021 Davide Restivo
+;; Copyright (C) 2016-2022 Davide Restivo
 ;;
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
@@ -155,6 +155,7 @@
   :after (helm all-the-icons)
   :init
   (setq helm-icons-provider 'all-the-icons)
+  (setq helm-icons-mode->icon nil)
   :config
   (helm-icons-enable))
 
