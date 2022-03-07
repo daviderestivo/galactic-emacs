@@ -122,8 +122,9 @@
   (setq helm-ag-use-agignore t)
   ;; Enable  approximate string matching (fuzzy matching)
   (setq helm-ag-fuzzy-match t)
-  ;; Allow to recursively check repos inside repos
-  (setq helm-ag-command-option "-a")
+  ;; Allow to recursively search git repositories inside other
+  ;; repository (text files only, binary files are ignored)
+  (setq helm-ag-command-option "--all-text")
   ;; :bind together with lambdas is unsupported in use-package
   (global-set-key (kbd "M-s") #'(lambda (P)
                                   (interactive "P")
