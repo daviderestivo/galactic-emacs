@@ -185,13 +185,25 @@
          ("\C-ci"  . org-insert-heading)
          ("\C-cj"  . galactic-emacs-org-show-current-heading-tidily))))
 
+;; Make invisible parts of Org elements appear visible
+(use-package org-appear
+  :ensure t
+  :defer t
+  :config
+  (setq
+   org-appear-autolinks t
+   org-appear-autosubmarkers t
+   org-appear-autokeywords t
+   org-appear-delay 1
+   org-appear-trigger 'always)
+  :hook
+  (org-mode . org-appear-mode))
 
 ;; Unmaintained add-ons for Org-mode
 (use-package org-contrib
   :pin non-gnu
   :ensure t
-  :defer t
-  )
+  :defer t)
 
 ;; Beautify org buffers
 (use-package org-beautify-theme

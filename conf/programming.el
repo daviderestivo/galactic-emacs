@@ -346,8 +346,7 @@
                  (setq show-trailing-whitespace t)
                  (flyspell-prog-mode)
                  (superword-mode 1)))
-  :mode
-  (("\\.\\(yml\\|knd)\\)\\'" . yaml-mode)))
+  :mode "\\.\\(yml\\|knd\\'\\)")
 
 ;; YANG mode
 (use-package yang-mode
