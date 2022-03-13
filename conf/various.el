@@ -216,9 +216,9 @@
   :ensure-system-package (wn . "brew install wordnet || sudo apt-get install wordnet")
   :diminish synosaurus-mode
   :init
-  (synosaurus-mode)
+  (setq synosaurus-backend 'synosaurus-backend-wordnet)
   :config
-  (setq synosaurus-backend 'synosaurus-backend-wordnet))
+  (synosaurus-mode))
 
 ;; undo-tree
 (use-package undo-tree
