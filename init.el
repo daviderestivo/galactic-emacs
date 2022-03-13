@@ -119,16 +119,6 @@
 (eval-when-compile
   (require 'diminish))
 
-;; system-packages
-(use-package system-packages
-  :ensure t
-  :config
-  (when (string= system-type "darwin")
-    (setq system-packages-use-sudo nil)
-    (setq system-packages-package-manager 'brew))
-  (when (string= system-type "gnu/linux")
-    (setq system-packages-use-sudo t)))
-
 ;; gnu-elpa-keyring-update
 ;;
 ;; This package updates the GPG keys used by the ELPA package manager
@@ -139,8 +129,17 @@
   :init
   ;; The below assumes gpg is installed in `/usr/local/bin'
   (custom-set-variables '(epg-gpg-program  "/usr/local/bin/gpg"))
-  :config
   (gnu-elpa-keyring-update))
+
+;; system-packages
+(use-package system-packages
+  :ensure t
+  :config
+  (when (string= system-type "darwin")
+    (setq system-packages-use-sudo nil)
+    (setq system-packages-package-manager 'brew))
+  (when (string= system-type "gnu/linux")
+    (setq system-packages-use-sudo t)))
 
 (require 'bind-key)
 
