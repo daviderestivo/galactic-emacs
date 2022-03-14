@@ -35,6 +35,7 @@ jobs:
       HOMEBREW_GITHUB_REF: ${{ github.head_ref || github.ref }}
       HOMEBREW_GITHUB_REPOSITORY: ${{ github.repository }}
       HOMEBREW_GITHUB_ACTOR: ${{ github.actor }}
+      GNUPGHOME: ${{ github.workspace }}/elpa/gnupg
 
     steps:
     - uses: actions/checkout@v1
@@ -44,6 +45,12 @@ jobs:
 
     - name: Install ${{ matrix.build_opts }}
       run: brew install ${{ matrix.build_opts }}
+
+    - name: Create gnupg Emacs directory
+      run: mkdir -p ${{ github.workspace }}/elpa/gnupg
+
+    - name: Fetch _NEW_ Elpa GPG key
+      run: gpg --keyserver keyserver.ubuntu.com --receive-keys 066DAFCB81E42C40
 
     - name: Create personal config file from template
       run: mv personal.el.example personal.el
