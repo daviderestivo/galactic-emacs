@@ -67,8 +67,8 @@ jobs:
                                        (initial-buffer-choice "*scratch*")
                                        (user-emacs-directory default-directory)
                                        (user-init-file (expand-file-name "init.el"))
-                                       (setq package-check-signature nil)
-                                       (setq url-show-status nil))
+                                       (package-check-signature nil)
+                                       (url-show-status nil))
                                       (package-initialize)
                                       (load-file user-init-file)
                                       (message "... startup successful!"))'
