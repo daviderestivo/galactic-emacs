@@ -64,7 +64,6 @@ jobs:
                                (initial-buffer-choice "*scratch*")
                                (user-emacs-directory default-directory)
                                (user-init-file (expand-file-name "init.el")))
-                               ;; Disable packages signature verification for Emacs 26 and 27
                                (setq package-check-signature nil)
                                (setq url-show-status nil)
                                (package-initialize)
