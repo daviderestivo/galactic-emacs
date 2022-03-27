@@ -278,6 +278,21 @@
             "Update Installed Packages"
             (lambda (&rest _) (galactic-emacs-update-packages)))))))
 
+;; doom-modeline
+(use-package doom-modeline
+  :ensure t
+  :init
+  (doom-modeline-mode 1)
+  :config
+  ;; Customize active/inactive mode-line colors
+  (set-face-attribute 'mode-line nil
+                      :background "#2C323C"
+                      :box '(:line-width 3 :color "#2C323C"))
+  (set-face-attribute 'mode-line-inactive nil
+                      :background "#282C34"
+                      :box '(:line-width 3 :color "#282C34"))
+  (display-battery-mode))
+
 ;; diff-hl
 (use-package diff-hl
   :ensure t
@@ -400,39 +415,6 @@
   :hook
   (prog-mode       . rainbow-delimiters-mode)
   (cider-repl-mode . rainbow-delimiters-mode))
-
-;; smart-mode-line
-(use-package smart-mode-line
-  :ensure t
-  :requires all-the-icons
-  :config
-  (setq sml/no-confirm-load-theme t)
-  ;; The below elisp code configures the sml `respectful' theme when
-  ;; Emacs is running in console. Please look at
-  ;; `galactic-emacs-setup-frame-appearance' for the case when Emacs runs in
-  ;; GUI mode.
-  (if (not (display-graphic-p))
-      (progn
-        (setq sml/theme 'respectful)
-        (sml/setup)))
-  (display-time-mode)
-  (progn
-    ;; Temporary workaround for display-battery-mode for emacs-version<= 25.2.1 on macOS
-    (when (string= system-type "darwin")
-      (if (version<= emacs-version "25.2.1")
-          (setq battery-status-function 'galactic-emacs-battery-pmset)))
-    ;; The below elisp code setup the battery modeline format when
-    ;; Emacs is running in console. Please look at
-    ;; `galactic-emacs-setup-frame-appearance' for the case when Emacs runs
-    ;; in GUI mode.
-    (if (not (display-graphic-p))
-        (setq battery-mode-line-format " [%b%p%%] "))
-    (setq battery-echo-area-format "Power %L, battery %B (%p%% charged, remaining time %t")
-    (display-battery-mode)))
-
-;; An atom-one-dark theme for smart-mode-line
-(use-package smart-mode-line-atom-one-dark-theme
-  :ensure t)
 
 ;; transpose-frame
 ;; https://www.emacswiki.org/emacs/TransposeFrame
