@@ -55,6 +55,9 @@ jobs:
     - name: Create personal config file from template
       run: mv personal.el.example personal.el
 
+    - name: Create savehist directory
+      run: mkdir -p ${{ github.workspace }}/savehist
+
     - name: Init git submodules
       run: git submodule init && git submodule update && git submodule foreach --recursive git checkout master
 
