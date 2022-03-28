@@ -40,17 +40,14 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
+    - name: Install gunpg
+      run: brew install gnupg
+
     - name: Tap Homebrew Emacs Head
       run: brew tap daviderestivo/emacs-head
 
     - name: Install ${{ matrix.build_opts }}
       run: brew install ${{ matrix.build_opts }}
-
-    - name: Create gnupg Emacs directory
-      run: mkdir -p ${{ github.workspace }}/elpa/gnupg
-
-    - name: Fetch _NEW_ Elpa GPG key
-      run: gpg --keyserver keyserver.ubuntu.com --receive-keys 066DAFCB81E42C40
 
     - name: Create personal config file from template
       run: mv personal.el.example personal.el
@@ -68,7 +65,6 @@ jobs:
                                        (user-emacs-directory default-directory)
                                        (user-init-file (expand-file-name "init.el")))
                                       (setq url-show-status nil)
-                                      (setq package-check-signature nil)
                                       (package-initialize)
                                       (load-file user-init-file)
                                       (message "... startup successful!"))'
