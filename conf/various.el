@@ -251,10 +251,11 @@
 ;; which-key
 (use-package which-key
   :ensure t
+  :defer 10
   :diminish which-key-mode
   :config
-  (which-key-mode)
-  (which-key-setup-side-window-bottom))
+  (which-key-setup-side-window-bottom)
+  (which-key-mode 1))
 
 ;; wttrin - Weather application
 (use-package wttrin
