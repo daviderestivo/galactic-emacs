@@ -40,9 +40,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: Install gunpg
-      run: brew install gnupg
-
     - name: Tap Homebrew Emacs Head
       run: brew tap daviderestivo/emacs-head
 
