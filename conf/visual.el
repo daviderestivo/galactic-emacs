@@ -281,8 +281,6 @@
 ;; doom-modeline
 (use-package doom-modeline
   :ensure t
-  :init
-  (doom-modeline-mode 1)
   :config
   ;; Customize active/inactive mode-line colors
   (set-face-attribute 'mode-line nil
@@ -291,7 +289,8 @@
   (set-face-attribute 'mode-line-inactive nil
                       :background "#282C34"
                       :box '(:line-width 3 :color "#282C34"))
-  (display-battery-mode))
+  (display-battery-mode)
+  (doom-modeline-mode 1))
 
 ;; diff-hl
 (use-package diff-hl

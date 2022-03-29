@@ -35,7 +35,6 @@ jobs:
       HOMEBREW_GITHUB_REF: ${{ github.head_ref || github.ref }}
       HOMEBREW_GITHUB_REPOSITORY: ${{ github.repository }}
       HOMEBREW_GITHUB_ACTOR: ${{ github.actor }}
-      GNUPGHOME: ${{ github.workspace }}/elpa/gnupg
 
     steps:
     - uses: actions/checkout@v1
