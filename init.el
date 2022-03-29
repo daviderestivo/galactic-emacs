@@ -84,9 +84,6 @@
 (if (and (version< emacs-version "26.3") (>= libgnutls-version 30600))
     (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
 
-;; Enable packages signature verification only if GPG is installed
-(setq package-check-signature (when (executable-find "gpg") 'allow-unsigned))
-
 ;; Change the below priorities if you prefer melpa-stable packages.
 ;; Higher is better.
 (setq package-archive-priorities
@@ -129,6 +126,9 @@
   :init
   ;; The below assumes gpg is installed in `/usr/local/bin'
   (custom-set-variables '(epg-gpg-program  "/usr/local/bin/gpg"))
+  ;; Enable packages signature verification only if GPG is installed
+  (setq package-check-signature (when (executable-find "gpg") 'allow-unsigned))
+  :config
   (gnu-elpa-keyring-update))
 
 ;; system-packages
