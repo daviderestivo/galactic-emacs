@@ -47,7 +47,7 @@
   :ensure t
   :defer t
   :ensure-system-package (lein . leiningen)
-  :init
+  :config
   (setq cider-allow-jack-in-without-project t))
 
 ;; company
