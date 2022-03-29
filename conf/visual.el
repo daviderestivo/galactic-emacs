@@ -300,7 +300,7 @@
   (dired-mode . diff-hl-dired-mode)
   (magit-post-refresh . diff-hl-magit-post-refresh)
   :diminish diff-hl-mode
-  :init
+  :config
   (if (daemonp)
       (add-hook 'after-make-frame-functions
                 (lambda (frame)
