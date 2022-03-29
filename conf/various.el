@@ -252,7 +252,7 @@
 (use-package which-key
   :ensure t
   :diminish which-key-mode
-  :init
+  :config
   (which-key-mode)
   (which-key-setup-side-window-bottom))
 
