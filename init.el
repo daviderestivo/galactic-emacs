@@ -126,10 +126,11 @@
   :init
   ;; The below assumes gpg is installed in `/usr/local/bin'
   (custom-set-variables '(epg-gpg-program  "/usr/local/bin/gpg"))
-  ;; Enable packages signature verification only if GPG is installed
-  ;; and when the current Emacs instance is not a CI (Continuous
-  ;; Integration) one.
-  (unless (boundp 'galactic-emacs-ci)
+  ;; Enable packages signature verification only if the current Emacs
+  ;; instance is not a CI one (Continuous Integration) and GPG
+  ;; is available
+  (if (boundp 'galactic-emacs-ci)
+      (setq package-check-signature nil)
     (setq package-check-signature (when (executable-find "gpg") 'allow-unsigned)))
   :config
   (gnu-elpa-keyring-update))
