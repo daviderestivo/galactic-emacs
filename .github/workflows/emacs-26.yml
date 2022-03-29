@@ -56,12 +56,12 @@ jobs:
       run: git submodule init && git submodule update && git submodule foreach --recursive git checkout master
 
     - name: Attempting startup...
-      run: emacs -nw --batch --eval='(let
-                                      ((debug-on-error (>=  emacs-major-version 26))
-                                       (initial-buffer-choice "*scratch*")
-                                       (user-emacs-directory default-directory)
-                                       (user-init-file (expand-file-name "init.el")))
-                                      (setq url-show-status nil)
-                                      (package-initialize)
-                                      (load-file user-init-file)
-                                      (message "... startup successful!"))'
+      run: emacs -nw --batch --debug-init--eval='(let
+                                                  ((debug-on-error (>=  emacs-major-version 26))
+                                                   (initial-buffer-choice "*scratch*")
+                                                   (user-emacs-directory default-directory)
+                                                   (user-init-file (expand-file-name "init.el")))
+                                                  (setq url-show-status nil)
+                                                  (package-initialize)
+                                                  (load-file user-init-file)
+                                                  (message "... startup successful!"))'
