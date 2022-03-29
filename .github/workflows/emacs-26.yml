@@ -35,6 +35,7 @@ jobs:
       HOMEBREW_GITHUB_REF: ${{ github.head_ref || github.ref }}
       HOMEBREW_GITHUB_REPOSITORY: ${{ github.repository }}
       HOMEBREW_GITHUB_ACTOR: ${{ github.actor }}
+      GPG: '/usr/local/bin/gpg'
 
     steps:
     - uses: actions/checkout@v1
@@ -50,6 +51,12 @@ jobs:
 
     - name: Create savehist directory
       run: mkdir -p ${{ github.workspace }}/savehist
+
+    - name: Create gnupg Emacs directory
+       run: mkdir -p ${{ github.workspace }}/elpa/gnupg
+
+    - name: Fetch latest Elpa GPG key
+       run: $GPG --homedir ${{ github.workspace }}/elpa/gnupg --keyserver keyserver.ubuntu.com --receive-keys 066DAFCB81E42C40
 
     - name: Init git submodules
       run: git submodule init && git submodule update && git submodule foreach --recursive git checkout master
