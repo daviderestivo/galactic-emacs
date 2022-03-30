@@ -14,6 +14,9 @@
   <a href="https://github.com/daviderestivo/galactic-emacs/actions?query=workflow%3A%22Emacs+28%22">
     <img src="https://github.com/daviderestivo/galactic-emacs/workflows/Emacs%2028/badge.svg" alt="Galactic Emacs 28 CI Status Badge">
   </a>
+  <a href="https://github.com/daviderestivo/galactic-emacs/actions?query=workflow%3A%22Emacs+29%22">
+    <img src="https://github.com/daviderestivo/galactic-emacs/workflows/Emacs%2029/badge.svg" alt="Galactic Emacs 29 CI Status Badge">
+  </a>
 </p>
 
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->

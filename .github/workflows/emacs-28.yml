@@ -35,6 +35,7 @@ jobs:
       HOMEBREW_GITHUB_REF: ${{ github.head_ref || github.ref }}
       HOMEBREW_GITHUB_REPOSITORY: ${{ github.repository }}
       HOMEBREW_GITHUB_ACTOR: ${{ github.actor }}
+      GPG: '/usr/local/bin/gpg'
 
     steps:
     - uses: actions/checkout@v1
@@ -48,16 +49,23 @@ jobs:
     - name: Create personal config file from template
       run: mv personal.el.example personal.el
 
+    - name: Create savehist directory
+      run: mkdir -p ${{ github.workspace }}/savehist
+
+    - name: Create gnupg Emacs directory
+      run: mkdir -p ${{ github.workspace }}/elpa/gnupg
+
     - name: Init git submodules
       run: git submodule init && git submodule update && git submodule foreach --recursive git checkout master
 
     - name: Attempting startup...
-      run: emacs -nw --batch --eval='(let
-                              ((debug-on-error (>=  emacs-major-version 26))
-                               (initial-buffer-choice "*scratch*")
-                               (user-emacs-directory default-directory)
-                               (user-init-file (expand-file-name "init.el")))
-                            (setq url-show-status nil)
-                            (package-initialize)
-                            (load-file user-init-file)
-                            (message "... startup successful!"))'
+      run: emacs -nw --batch --debug-init --eval='(let
+                                                   ((galactic-emacs-ci t)
+                                                    (debug-on-error (>=  emacs-major-version 26))
+                                                    (initial-buffer-choice "*scratch*")
+                                                    (user-emacs-directory default-directory)
+                                                    (user-init-file (expand-file-name "init.el")))
+                                                   (setq url-show-status nil)
+                                                   (package-initialize)
+                                                   (load-file user-init-file)
+                                                   (message "... startup successful!"))'

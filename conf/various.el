@@ -216,9 +216,9 @@
   :ensure-system-package (wn . "brew install wordnet || sudo apt-get install wordnet")
   :diminish synosaurus-mode
   :init
-  (synosaurus-mode)
+  (setq synosaurus-backend 'synosaurus-backend-wordnet)
   :config
-  (setq synosaurus-backend 'synosaurus-backend-wordnet))
+  (synosaurus-mode))
 
 ;; undo-tree
 (use-package undo-tree
@@ -251,10 +251,11 @@
 ;; which-key
 (use-package which-key
   :ensure t
+  :defer 10
   :diminish which-key-mode
   :config
-  (which-key-mode)
-  (which-key-setup-side-window-bottom))
+  (which-key-setup-side-window-bottom)
+  (which-key-mode 1))
 
 ;; wttrin - Weather application
 (use-package wttrin

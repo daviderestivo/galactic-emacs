@@ -84,9 +84,6 @@
 (if (and (version< emacs-version "26.3") (>= libgnutls-version 30600))
     (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
 
-;; Enable packages signature verification only if GPG is installed
-(setq package-check-signature (when (executable-find "gpg") 'allow-unsigned))
-
 ;; Change the below priorities if you prefer melpa-stable packages.
 ;; Higher is better.
 (setq package-archive-priorities
@@ -119,16 +116,6 @@
 (eval-when-compile
   (require 'diminish))
 
-;; system-packages
-(use-package system-packages
-  :ensure t
-  :config
-  (when (string= system-type "darwin")
-    (setq system-packages-use-sudo nil)
-    (setq system-packages-package-manager 'brew))
-  (when (string= system-type "gnu/linux")
-    (setq system-packages-use-sudo t)))
-
 ;; gnu-elpa-keyring-update
 ;;
 ;; This package updates the GPG keys used by the ELPA package manager
@@ -139,8 +126,24 @@
   :init
   ;; The below assumes gpg is installed in `/usr/local/bin'
   (custom-set-variables '(epg-gpg-program  "/usr/local/bin/gpg"))
+  ;; Enable packages signature verification only if the current Emacs
+  ;; instance is not a CI one (Continuous Integration) and GPG
+  ;; is available
+  (if (boundp 'galactic-emacs-ci)
+      (setq package-check-signature nil)
+    (setq package-check-signature (when (executable-find "gpg") 'allow-unsigned)))
   :config
   (gnu-elpa-keyring-update))
+
+;; system-packages
+(use-package system-packages
+  :ensure t
+  :config
+  (when (string= system-type "darwin")
+    (setq system-packages-use-sudo nil)
+    (setq system-packages-package-manager 'brew))
+  (when (string= system-type "gnu/linux")
+    (setq system-packages-use-sudo t)))
 
 (require 'bind-key)
 
