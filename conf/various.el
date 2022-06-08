@@ -86,8 +86,6 @@
   (setq erc-autojoin-timing 'ident)
   (setq erc-user-full-name  user-full-name)
   (setq erc-prompt-for-nickserv-password nil)
-  (setq erc-nickserv-passwords
-        `((freenode ((,user-login-name . ,freenode-login-password)))))
   ;; Enable spell checking
   (erc-spelling-mode 1)
   ;; Enable UTF-8 support

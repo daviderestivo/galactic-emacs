@@ -55,12 +55,13 @@
 (setq galactic-emacs-github-username
       "MyNameMySurname")
 
-;; Your freenode password
-(setq freenode-login-password
-      "MyFreeNodePassword")
+;; Your libera username and password
+(setq libera-login-username "MyLiberaUsername"
+      libera-login-password "MyLiberaPassword")
+
 
 ;; Join some interesting channels when connecting to Freenode
-(setq erc-autojoin-channels-alist '(("freenode.net"
+(setq erc-autojoin-channels-alist '(("libera"
                                      "#emacs" "#emacs-berlin" "#clojure" "#lisp")))
 
 
