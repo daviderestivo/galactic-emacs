@@ -297,7 +297,9 @@ the outdated package and the CDR is the list of all the installed versions."
   "Connect to IRC servers"
   (interactive)
   (when (y-or-n-p "Do you want to start ERC? ")
-    (erc :server "irc.freenode.net" :port 6667 :nick user-login-name)
+    (erc :server "irc.libera.chat" :port 6667
+         :nick libera-login-username
+         :password libera-login-password)
     (erc-status-sidebar-open)))
 
 ;; Stop ERC

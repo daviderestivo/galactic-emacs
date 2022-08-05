@@ -54,6 +54,10 @@
 ;; startup.
 (setq frame-inhibit-implied-resize t)
 
+;; Enable pixel-scroll-precision-mode on Emacs 29 and above
+(unless (version< emacs-version "29")
+  (pixel-scroll-precision-mode))
+
 ;; Line and column numbers
 (if (version< emacs-version "26.1")
     (global-linum-mode)
@@ -226,6 +230,8 @@
 ;; Never lose your cursor again
 (use-package beacon
   :ensure t
+  ;; beacon is no more working on Emacs < 27
+  :if (not (version< emacs-version "27"))
   :diminish beacon-mode
   :config
   (beacon-mode 1))
