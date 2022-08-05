@@ -230,6 +230,8 @@
 ;; Never lose your cursor again
 (use-package beacon
   :ensure t
+  ;; beacon is no more working on Emacs 26
+  :if (not (version< emacs-version "26"))
   :diminish beacon-mode
   :config
   (beacon-mode 1))
