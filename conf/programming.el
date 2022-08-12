@@ -131,6 +131,14 @@
   :ensure t
   :defer t)
 
+;; Step through historic versions of git controlled file using
+;; everyone's favourite editor.
+(use-package git-timemachine
+  :ensure t
+  :defer t
+  :bind
+  ("C-x v t" . git-timemachine-toggle))
+
 ;; Haskell mode
 (use-package haskell-mode
   :ensure t
@@ -286,8 +294,8 @@
   :defer t
   :config
   (add-hook 'ruby-mode-hook
-          (lambda ()
-            (add-hook 'before-save-hook 'delete-trailing-whitespace nil 'make-it-local))))
+            (lambda ()
+              (add-hook 'before-save-hook 'delete-trailing-whitespace nil 'make-it-local))))
 
 ;; Sylvester the Cat's Common Lisp IDE
 (use-package sly
