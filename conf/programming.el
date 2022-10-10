@@ -63,14 +63,16 @@
   (define-key company-active-map (kbd "C-p") 'company-select-previous))
 
 ;; A convenient frontend to GHCi
-(use-package dante
-  :ensure t
-  :defer t
-  :after haskell-mode
-  :commands 'dante-mode
-  :hook
-  (haskell-mode . flycheck-mode)
-  (haskell-mode . dante-mode))
+
+(unless (version< emacs-version "28.1") ; Dante now requires at least Emacs 28.1
+  (use-package dante
+    :ensure t
+    :defer t
+    :after haskell-mode
+    :commands 'dante-mode
+    :hook
+    (haskell-mode . flycheck-mode)
+    (haskell-mode . dante-mode)))
 
 ;; Debug Adapter Protocol for Emacs
 (use-package dap-mode
