@@ -238,7 +238,9 @@
   :config
   (global-undo-tree-mode 1)
   (setq undo-tree-visualizer-diff 1)
-  (setq undo-tree-visualizer-timestamps 1))
+  (setq undo-tree-visualizer-timestamps 1)
+  ;; Disable undo-tree undo history auto-save on file
+  (setq undo-tree-auto-save-history nil))
 
 ;; xwidget
 (use-package xwidget
