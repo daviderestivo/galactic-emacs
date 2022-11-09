@@ -169,6 +169,11 @@
   :ensure t
   :defer t)
 
+;; Lua mode
+(use-package lua-mode
+  :ensure t
+  :defer t)
+
 ;; jinja2-mode
 (use-package jinja2-mode
   :ensure t
