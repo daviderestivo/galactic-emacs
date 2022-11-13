@@ -67,6 +67,10 @@
   (global-font-lock-mode)
   (transient-mark-mode))
 
+;; Configure Emacs package manager. Not required anymore on Emacs > 27
+(if (version< emacs-version "27")
+    (package-initialize))
+
 (require 'package)
 (setq package-archives
       '(("melpa" . "https://melpa.org/packages/")
