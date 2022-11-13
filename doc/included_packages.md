@@ -64,6 +64,7 @@ The package management tool used is: [use-package](https://github.com/jwiegley/u
 * [lsp-treemacs](https://github.com/emacs-lsp/lsp-treemacs)
 * [lsp-java](https://github.com/emacs-lsp/lsp-java)
 * [lsp-ui](https://github.com/emacs-lsp/lsp-ui)
+* [lua-mode](https://github.com/immerrr/lua-mode)
 * [jinja2-mode](https://github.com/paradoxxxzero/jinja2-mode)
 * [json-mode](https://github.com/joshwnj/json-mode)
 * [json-reformat](https://github.com/gongo/json-reformat)

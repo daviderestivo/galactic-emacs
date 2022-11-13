@@ -70,6 +70,7 @@
 ;; Configure Emacs package manager. Not required anymore on Emacs > 27
 (if (version< emacs-version "27")
     (package-initialize))
+
 (require 'package)
 (setq package-archives
       '(("melpa" . "https://melpa.org/packages/")
@@ -95,7 +96,8 @@
 ;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
-  (package-install 'use-package))
+  (package-install 'use-package)
+  (package-initialize))
 (eval-when-compile
   (require 'use-package))
 (use-package use-package-ensure-system-package
