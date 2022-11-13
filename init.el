@@ -91,9 +91,9 @@
 
 ;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)
-  (package-initialize)
   (package-refresh-contents)
-  (package-install 'use-package))
+  (package-install 'use-package)
+  (package-initialize))
 (eval-when-compile
   (require 'use-package))
 (use-package use-package-ensure-system-package
