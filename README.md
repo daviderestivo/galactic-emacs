@@ -17,6 +17,9 @@
   <a href="https://github.com/daviderestivo/galactic-emacs/actions?query=workflow%3A%22Emacs+29%22">
     <img src="https://github.com/daviderestivo/galactic-emacs/workflows/Emacs%2029/badge.svg" alt="Galactic Emacs 29 CI Status Badge">
   </a>
+    <a href="https://github.com/daviderestivo/galactic-emacs/actions?query=workflow%3A%22Emacs+30%22">
+    <img src="https://github.com/daviderestivo/galactic-emacs/workflows/Emacs%2030/badge.svg" alt="Galactic Emacs 30 CI Status Badge">
+  </a>
 </p>
 
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
@@ -60,14 +63,20 @@ theme with some minor changes.
 # Installation
 ## GNU/Emacs installation
 This configuration is mainly tested on the HEAD version of Emacs
-(currently 28.x) running on macOS. If your're using brew, as a package
+(currently 29.x) running on macOS. If your're using brew, as a package
 manager on macOS, please install Emacs with the below command.
 
+For Emacs 29.x:
+
+``` bash
+brew tap daviderestivo/emacs-head
+brew install emacs-head@29 --with-cocoa --with-no-frame-refocus --with-imagemagick --with-pdumper --with-xwidgets
+```
 For Emacs 28.x:
 
 ``` bash
 brew tap daviderestivo/emacs-head
-brew install emacs-head@28 --with-cocoa --with-no-frame-refocus --with-imagemagick --with-pdumper --with-xwidgets
+brew install emacs-head --with-cocoa --with-no-frame-refocus --with-imagemagick --with-pdumper --with-xwidgets
 ```
 
 **Important**: in Emacs 28 the signature of the function `define-obsolete-function-alias` changed recently and the installation of some of the packages is currently triggering an error. Please refer to [this issue](https://github.com/daviderestivo/galactic-emacs/issues/26) for more informations.
@@ -76,15 +85,14 @@ For Emacs 27.x:
 
 ``` bash
 brew tap daviderestivo/emacs-head
-brew install emacs-head
+brew install emacs-head@27 --with-cocoa --with-no-frame-refocus --with-imagemagick --with-pdumper --with-xwidgets
 ```
 
 For Emacs 26.x:
 
 ``` bash
 brew tap daviderestivo/emacs-head
-brew install emacs-head@26
-```
+brew install emacs-head@26 --with-cocoa --with-no-frame-refocus --with-imagemagick
 
 ## Galactic Emacs installation
 Please run the below commands to backup your current Emacs
