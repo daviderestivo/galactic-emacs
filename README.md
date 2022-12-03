@@ -93,6 +93,7 @@ For Emacs 26.x:
 ``` bash
 brew tap daviderestivo/emacs-head
 brew install emacs-head@26 --with-cocoa --with-no-frame-refocus --with-imagemagick
+```
 
 ## Galactic Emacs installation
 Please run the below commands to backup your current Emacs
