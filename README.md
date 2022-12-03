@@ -72,12 +72,20 @@ For Emacs 29.x:
 brew tap daviderestivo/emacs-head
 brew install emacs-head@29 --with-cocoa --with-no-frame-refocus --with-imagemagick --with-pdumper --with-xwidgets
 ```
-
 or if you prefer Emacs 28.x:
 
 ``` bash
 brew tap daviderestivo/emacs-head
 brew install emacs-head
+```
+
+**Important**: in Emacs 28 the signature of the function `define-obsolete-function-alias` changed recently and the installation of some of the packages is currently triggering an error. Please refer to [this issue](https://github.com/daviderestivo/galactic-emacs/issues/26) for more informations.
+
+For Emacs 26.x:
+
+``` bash
+brew tap daviderestivo/emacs-head
+brew install emacs-head@26
 ```
 
 ## Galactic Emacs installation
