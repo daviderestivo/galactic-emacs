@@ -180,6 +180,7 @@
 ;; Make invisible parts of Org elements appear visible
 (use-package org-appear
   :ensure t
+  :after org
   :defer t
   :config
   (setq
@@ -195,6 +196,7 @@
 (use-package org-contrib
   :pin non-gnu
   :ensure t
+  :after org
   :defer t)
 
 ;; Beautify org buffers
@@ -208,6 +210,7 @@
 ;; org-bullets
 (use-package org-bullets
   :ensure t
+  :after org
   :defer t
   :hook
   (org-mode . (lambda ()
@@ -216,6 +219,10 @@
 ;; org-download
 (use-package org-download
   :ensure t
+  :after org
+  :init
+  (require 'org-macs)
+  (org-assert-version)
   :config
   ;; Add support to dired
   (add-hook 'dired-mode-hook 'org-download-enable)
@@ -230,6 +237,7 @@
 
 ;; Org Babel: main section
 (use-package ob
+  :after org
   :defer t
   :hook
   ;; Display images inline in the same buffer
@@ -262,6 +270,7 @@
 
 ;; Org Babel: clojure section
 (use-package ob-clojure
+  :after org
   :config
   ;; To compile and run Clojure code, you will need to connect to a
   ;; REPL: M-x cider-jack-in RET
@@ -269,6 +278,7 @@
 
 ;; Org Babel: plantuml section
 (use-package ob-plantuml
+  :after org
   :config
   (setq org-plantuml-jar-path
         (concat user-emacs-directory "lib/" "plantuml.jar")))
@@ -279,6 +289,7 @@
   :init
   (require 'ox-org)
   :ensure t
+  :after org
   :defer t
   :ensure-system-package (gvgen . graphviz)
   :config
@@ -293,23 +304,26 @@
 
 ;; A query language for Org files
 (use-package org-ql
-  :init
   :ensure t
+  :after org
   :defer t)
 
 ;; Helm support for orq-ql
 (use-package helm-org-ql
-  :init
   :ensure t
+  :after org
   :defer t)
 
 ;; Write HTTP requests in Org mode and replay them at will using cURL
 (use-package walkman
-  :ensure t)
+  :ensure t
+  :after org
+  :defer t)
 
 ;; Insert Emacs org blocks with completion (via company mode).
 (use-package company-org-block
   :ensure t
+  :after org
   :custom
   (company-org-block-edit-style 'auto) ;; 'auto, 'prompt, or 'inline
   :hook ((org-mode . (lambda ()
