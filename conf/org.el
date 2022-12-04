@@ -220,8 +220,6 @@
 (use-package org-download
   :ensure t
   :after org
-  :init
-  (require 'org-macs)
   :config
   ;; Add support to dired
   (add-hook 'dired-mode-hook 'org-download-enable)
