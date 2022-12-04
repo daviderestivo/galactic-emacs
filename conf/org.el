@@ -222,7 +222,6 @@
   :after org
   :init
   (require 'org-macs)
-  (org-assert-version)
   :config
   ;; Add support to dired
   (add-hook 'dired-mode-hook 'org-download-enable)
