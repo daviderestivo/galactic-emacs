@@ -42,17 +42,21 @@
   :hook
   (eshell-exit . delete-window)
   (eshell-mode . (lambda ()
-                   ;; (setq eshell-destroy-buffer-when-process-dies t)
-                   ;; Programs that need special displays
+                   (require 'helm-eshell)
                    (setq helm-eshell-fuzzy-match t)
                    (eshell-cmpl-initialize)
-                   ;; Date: Sat Sep  8 08:33:37 CEST 2018 - Comment it out because it's buggy in Emacs 27
-                   ;;(define-key eshell-mode-map [remap eshell-pcomplete] 'helm-esh-pcomplete)
+                   (define-key eshell-mode-map [remap eshell-pcomplete] 'helm-esh-pcomplete)
                    (add-to-list 'eshell-visual-subcommands '("git" "diff" "help" "log" "show"))
-                   (define-key eshell-mode-map (kbd "C-c C-l")  'helm-eshell-history)
-                   (define-key eshell-mode-map (kbd "C-c C-;")  'helm-eshell-prompts)))
+                   (define-key eshell-mode-map (kbd "C-c C-l") 'helm-eshell-history)
+                   (define-key eshell-mode-map (kbd "C-c C-;") 'helm-eshell-prompts)
+                   (define-key eshell-mode-map (kbd "C-l")     '(lambda ()
+                                                                  (interactive)
+                                                                  (eshell/clear-scrollback)
+                                                                  (eshell-send-input)))))
 
   :config
+  ;; Disable eshell banner
+  (setq eshell-banner-message "")
   ;; Eshell prompt customization
   (setq eshell-highlight-prompt nil)
   (setq eshell-prompt-function 'galactic-emacs-eshell-prompt))

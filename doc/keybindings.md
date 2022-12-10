@@ -42,6 +42,14 @@
 | M-down         | move-text-down                                 |
 | F (dired-mode) | dired-create-empty-file (Require GNU/Emacs 27) |
 
+## Eshell
+
+| Key       | Function                |
+| :---      | :---                    |
+| C-c C-l   | helm-eshell-history     |
+| C-c C-;   | helm-eshell-prompts     |
+| C-l       | eshell/clear            |
+
 ## Helm
 
 | Key       | Function                |
