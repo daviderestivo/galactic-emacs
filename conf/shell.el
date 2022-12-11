@@ -49,11 +49,17 @@
                    (add-to-list 'eshell-visual-subcommands '("git" "diff" "help" "log" "show"))
                    (define-key eshell-mode-map (kbd "C-c C-l") 'helm-eshell-history)
                    (define-key eshell-mode-map (kbd "C-c C-;") 'helm-eshell-prompts)
-                   (define-key eshell-mode-map (kbd "C-l")     '(lambda ()
-                                                                  (interactive)
-                                                                  (eshell/clear-scrollback)
-                                                                  (eshell-send-input)))))
-
+                   (define-key eshell-mode-map (kbd "C-l")     #'(lambda ()
+                                                                   (interactive)
+                                                                   (eshell/clear-scrollback)
+                                                                   (eshell-send-input)))))
+  :bind
+  ;; Create an interactive Eshell buffer
+  (("C-c s n" . (lambda ()
+                  (interactive)
+                  (split-window-vertically)
+                  (other-window 1)
+                  (eshell 'N))))
   :config
   ;; Disable eshell banner
   (setq eshell-banner-message "")
@@ -88,19 +94,19 @@
 ;; Pop-up a shell
 (use-package shell-pop
   :ensure t
-  :bind
-  ("C-c s" . shell-pop)
-  :config
-  (custom-set-variables
-   '(shell-pop-shell-type '("eshell" "*eshell*" (lambda () (eshell))))
-   '(shell-pop-term-shell "eshell")
-   '(shell-pop-universal-key (kbd "C-c s"))
-   '(shell-pop-window-size 50)
-   '(shell-pop-full-span nil)
-   '(shell-pop-window-position "bottom")
-   '(shell-pop-autocd-to-working-dir t)
-   '(shell-pop-restore-window-configuration t)
-   '(shell-pop-cleanup-buffer-at-process-exit t)))
+  :init
+  (setq
+   shell-pop-shell-type '("eshell" "*eshell*" (lambda ()
+                                                (interactive)
+                                                (eshell)))
+   shell-pop-term-shell "eshell"
+   shell-pop-universal-key (kbd "C-c s p")
+   shell-pop-window-size 50
+   shell-pop-full-span nil
+   shell-pop-window-position "bottom"
+   shell-pop-autocd-to-working-dir t
+   shell-pop-restore-window-configuration t
+   shell-pop-cleanup-buffer-at-process-exit t))
 
 
 ;;; shell.el ends here
