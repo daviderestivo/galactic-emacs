@@ -301,10 +301,6 @@
 ;; diff-hl
 (use-package diff-hl
   :ensure t
-  :hook
-  ;; Highlight changed files in the fringe of dired
-  (dired-mode . diff-hl-dired-mode)
-  (magit-post-refresh . diff-hl-magit-post-refresh)
   :diminish diff-hl-mode
   :config
   (if (daemonp)
