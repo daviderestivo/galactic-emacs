@@ -301,6 +301,9 @@
 ;; diff-hl
 (use-package diff-hl
   :ensure t
+  :demand t
+  :after magit
+  :hook (magit-post-refresh . diff-hl-magit-post-refresh)
   :diminish diff-hl-mode
   :config
   (if (daemonp)
