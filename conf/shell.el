@@ -86,7 +86,6 @@
 ;; Convert bash aliases into eshell ones
 (use-package load-bash-alias
   :ensure t
-  :defer t
   :config
   (setq load-bash-alias-bashrc-file "~/.bashrc")
   (setq load-bash-alias-exclude-aliases-regexp "^alias magit\\|^alias oc"))
