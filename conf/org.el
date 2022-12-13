@@ -323,9 +323,9 @@
   :after org
   :custom
   (company-org-block-edit-style 'auto) ;; 'auto, 'prompt, or 'inline
-  :hook ((org-mode . (lambda ()
-                       (setq-local company-backends '(company-org-block))
-                       (company-mode +1)))))
+  :hook (org-mode . (lambda ()
+                      (setq-local company-backends '(company-org-block))
+                      (company-mode +1))))
 
 
 ;;; org.el ends here
