@@ -4,48 +4,32 @@
 **Table of Contents**
 
 - [Key bindings](#key-bindings)
-    - [General](#general)
-    - [Helm](#helm)
-    - [Multiple Cursors](#multiple-cursors)
-    - [Org-mode](#org-mode)
-    - [Smartparens](#smartparens)
+    - [Eshell Mode](#eshell-mode)
+    - [Helm Mode](#helm-mode)
+    - [Magit Mode](#magit-mode)
+    - [Multiple Cursors Mode](#multiple-cursors-mode)
+    - [Org Mode](#org-mode)
+    - [Smartparens Mode](#smartparens-mode)
+    - [Winner Mode](#winner-mode)
+    - [Variuos](#variuos)
 
 <!-- markdown-toc end -->
 
 
-## General
+## Eshell Mode
 
-| Key            | Function                                       |
-| :---           | :---                                           |
-| \<f2\>         | magit-status                                   |
-| \<f5\>         | magit-list-repositories                        |
-| \<f7\>         | create new empty buffer (org-mode)             |
-| \<f8\>         | ispell-word                                    |
-| M-\<f8\>       | flyspell-goto-next-error                       |
-| \<f9\>         | toggle sroll bar                               |
-| \<f12\>        | imenu-list-smart-toggle                        |
-| M-\<f12\>      | treemacs                                       |
-| C-\<f12\>      | ibuffer-sidebar-toggle-sidebar                 |
-| s-/            | avy-goto-char                                  |
-| C-=            | copy-line                                      |
-| C-c \<left\>   | Winner mode - Undo windows changes             |
-| C-c \<right\>  | Winner mode - Redo windows changes             |
-| C-c r p        | parrot-rotate-prev-word-at-point               |
-| C-c r n        | parrot-rotate-next-word-at-point               |
-| C-m            | YAML mode - New line and indent                |
-| C-c p          | projectile keymap                              |
-| M-+            | galactic-emacs-insert-date                     |
-| C-c s          | shell-pop-eshell                               |
-| C-c j          | galactic-emacs-org-show-current-heading-tidily |
-| M-o            | other-window                                   |
-| M-up           | move-text-up                                   |
-| M-down         | move-text-down                                 |
-| F (dired-mode) | dired-create-empty-file (Require GNU/Emacs 27) |
+| Key     | Function                             |
+|:--------|:-------------------------------------|
+| C-c s p | shell-pop-eshell                     |
+| C-c s n | create new eshell interactive buffer |
+| C-l     | eshell/clear                         |
+| C-c C-l | helm-eshell-history                  |
+| C-c C-; | helm-eshell-prompts                  |
 
-## Helm
+## Helm Mode
 
 | Key       | Function                |
-| :---      | :---                    |
+|:----------|:------------------------|
 | M-x       | helm-M-x                |
 | M-y       | helm-show-kill-ring     |
 | C-x b     | helm-mini               |
@@ -61,10 +45,17 @@
 | C-c C-;   | helm-eshell-prompts     |
 | C-c C-l   | helm-eshell-history     |
 
-## Multiple Cursors
+## Magit Mode
+
+| Key    | Function                |
+|:-------|:------------------------|
+| \<f2\> | magit-status            |
+| \<f5\> | magit-list-repositories |
+
+## Multiple Cursors Mode
 
 | Key             | Function                          |
-| :---            | :---                              |
+|:----------------|:----------------------------------|
 | C-S-c C-S-c     | mc/edit-lines                     |
 | C->             | mc/mark-next-like-this            |
 | C-<             | mc/mark-previous-like-this        |
@@ -78,10 +69,10 @@
 | C-S-\<mouse-1\> | mc/add-cursor-on-click            |
 | C-'             | mc-hide-unmatched-lines-mode      |
 
-## Org-mode
+## Org Mode
 
 | Key    | Function                                       |
-| :---   | :---                                           |
+|:-------|:-----------------------------------------------|
 | C-c e  | org-encrypt-entry                              |
 | C-c d  | org-decrypt-entry                              |
 | C-c a  | org-agenda                                     |
@@ -89,11 +80,12 @@
 | C-c i  | org-insert-heading                             |
 | C-c j  | galactic-emacs-org-show-current-heading-tidily |
 | \<f6\> | galactic-emacs-org-directory-search-ag         |
+| \<f7\> | create new empty buffer (org-mode)             |
 
-## Smartparens
+## Smartparens Mode
 
 | Key             | Function               |
-| :---            | :---                   |
+|:----------------|:-----------------------|
 | C-M-f           | sp-forward-sexp        |
 | C-M-b           | sp-backward-sexp       |
 | C-M-u           | sp-up-sexp             |
@@ -114,3 +106,31 @@
 | M-[             | sp-wrap-square         |
 | M-{             | sp-wrap-curly          |
 
+## Winner Mode
+
+| Key           | Function                           |
+|:--------------|:-----------------------------------|
+| C-c \<left\>  | winner mode - Undo windows changes |
+| C-c \<right\> | winner mode - Redo windows changes |
+
+## Variuos
+
+| Key            | Function                                       |
+|:---------------|:-----------------------------------------------|
+| \<f8\>         | ispell-word                                    |
+| M-\<f8\>       | flyspell-goto-next-error                       |
+| \<f9\>         | toggle sroll bar                               |
+| \<f12\>        | imenu-list-smart-toggle                        |
+| M-\<f12\>      | treemacs                                       |
+| C-\<f12\>      | ibuffer-sidebar-toggle-sidebar                 |
+| s-/            | avy-goto-char                                  |
+| C-=            | copy-line                                      |
+| C-c r p        | parrot-rotate-prev-word-at-point               |
+| C-c r n        | parrot-rotate-next-word-at-point               |
+| C-m            | YAML mode - New line and indent                |
+| C-c p          | projectile keymap                              |
+| M-+            | galactic-emacs-insert-date                     |
+| M-o            | other-window                                   |
+| M-up           | move-text-up                                   |
+| M-down         | move-text-down                                 |
+| F (dired-mode) | dired-create-empty-file (Require GNU/Emacs 27) |

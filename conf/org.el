@@ -69,6 +69,9 @@
   (require 'org-tempo)
   ;; `org-crypt' allows to encrypt subtrees using GPG
   (require 'org-crypt)
+  ;; 'org-inlinetask' permit to embed a TODO within text without
+  ;; treating it as an outline heading
+  (require 'org-inlinetask)
   (setq galactic-emacs-org-electric-pair-inhibit-list '(?\<))
   ;; Load required libs
   (load-library "find-lisp")
@@ -323,9 +326,9 @@
   :after org
   :custom
   (company-org-block-edit-style 'auto) ;; 'auto, 'prompt, or 'inline
-  :hook ((org-mode . (lambda ()
-                       (setq-local company-backends '(company-org-block))
-                       (company-mode +1)))))
+  :hook (org-mode . (lambda ()
+                      (setq-local company-backends '(company-org-block))
+                      (company-mode +1))))
 
 
 ;;; org.el ends here
