@@ -51,8 +51,10 @@
                    (define-key eshell-mode-map (kbd "C-c C-;") 'helm-eshell-prompts)
                    (define-key eshell-mode-map (kbd "C-l")     #'(lambda ()
                                                                    (interactive)
-                                                                   (eshell/clear-scrollback)
-                                                                   (eshell-send-input)))))
+                                                                   (let ((old-input (eshell-get-old-input)))
+                                                                     (eshell/clear-scrollback)
+                                                                     (eshell-emit-prompt)
+                                                                     (insert old-input))))))
   :bind
   ;; Create an interactive Eshell buffer
   (("C-c s n" . (lambda ()
