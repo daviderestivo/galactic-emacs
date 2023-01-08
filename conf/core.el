@@ -1,7 +1,7 @@
 ;;; core.el --- Galactic Emacs core configuration -*- lexical-binding: t; -*-
 
 ;;
-;; Copyright (C) 2016-2022 Davide Restivo
+;; Copyright (C) 2016-2023 Davide Restivo
 ;;
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
@@ -185,6 +185,13 @@
 (unless (version< emacs-version "28")
   (if (and (fboundp 'native-comp-available-p) (native-comp-available-p))
       (add-to-list 'warning-suppress-types '(comp))))
+
+;; Disable elisp byte-compile warnings
+(setq byte-compile-warnings '(not free-vars
+                                  unresolved
+                                  noruntime
+                                  lexical
+                                  make-local))
 
 
 ;;; core.el ends here
