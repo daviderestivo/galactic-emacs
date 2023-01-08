@@ -1,7 +1,7 @@
 ;;; custom-packages-and-settings.el - Custom packages and settings file -*- lexical-binding: t; -*-
 
 ;;
-;; Copyright (C) 2016-2022 Davide Restivo
+;; Copyright (C) 2016-2023 Davide Restivo
 ;;
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>
