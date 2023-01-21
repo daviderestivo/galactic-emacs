@@ -304,6 +304,25 @@
             (lambda ()
               (add-hook 'before-save-hook 'delete-trailing-whitespace nil 'make-it-local))))
 
+;; Emacs sbt mode
+(use-package sbt-mode
+  :ensure t
+  :defer t
+  :commands sbt-start sbt-command
+  :config
+  ;; WORKAROUND: allows using SPACE when in the minibuffer
+  (substitute-key-definition
+   'minibuffer-complete-word
+   'self-insert-command
+   minibuffer-local-completion-map))
+
+;; Emacs Scala mode
+(use-package scala-mode
+  :defer t
+  :ensure t
+  :interpreter
+  ("scala" . scala-mode))
+
 ;; Sylvester the Cat's Common Lisp IDE
 (use-package sly
   :ensure t
