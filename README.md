@@ -5,12 +5,6 @@
   <a href="https://www.gnu.org/licenses/gpl-3.0">
     <img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg" alt="License: GPL v3">
     </a>
-  <a href="https://github.com/daviderestivo/galactic-emacs/actions?query=workflow%3A%22Emacs+26%22">
-    <img src="https://github.com/daviderestivo/galactic-emacs/workflows/Emacs%2026/badge.svg" alt="Galactic Emacs 26 CI Status Badge">
-  </a>
-  <a href="https://github.com/daviderestivo/galactic-emacs/actions?query=workflow%3A%22Emacs+27%22">
-    <img src="https://github.com/daviderestivo/galactic-emacs/workflows/Emacs%2027/badge.svg" alt="Galactic Emacs 27 CI Status Badge">
-  </a>
   <a href="https://github.com/daviderestivo/galactic-emacs/actions?query=workflow%3A%22Emacs+28%22">
     <img src="https://github.com/daviderestivo/galactic-emacs/workflows/Emacs%2028/badge.svg" alt="Galactic Emacs 28 CI Status Badge">
   </a>
@@ -40,7 +34,6 @@
 - [About the logo](#about-the-logo)
 - [License](#license)
 - [Contribution](#contribution)
-
 <!-- markdown-toc end -->
 
 # Introduction
@@ -63,8 +56,13 @@ theme with some minor changes.
 # Installation
 ## GNU/Emacs installation
 This configuration is mainly tested on the HEAD version of Emacs
-(currently 29.x) running on macOS. If your're using brew, as a package
-manager on macOS, please install Emacs with the below command.
+(currently 30.x) running on macOS. If your're using brew, as a package
+manager on macOS, please install Emacs with the below command:
+
+``` bash
+brew tap daviderestivo/emacs-head
+brew install emacs-head@30 --with-cocoa --with-no-frame-refocus --with-imagemagick --with-pdumper --with-xwidgets
+```
 
 For Emacs 29.x:
 
@@ -72,28 +70,15 @@ For Emacs 29.x:
 brew tap daviderestivo/emacs-head
 brew install emacs-head@29 --with-cocoa --with-no-frame-refocus --with-imagemagick --with-pdumper --with-xwidgets
 ```
+
 For Emacs 28.x:
 
 ``` bash
 brew tap daviderestivo/emacs-head
-brew install emacs-head --with-cocoa --with-no-frame-refocus --with-imagemagick --with-pdumper --with-xwidgets
+brew install emacs-head@28 --with-cocoa --with-no-frame-refocus --with-imagemagick --with-pdumper --with-xwidgets
 ```
 
 **Important**: in Emacs 28 the signature of the function `define-obsolete-function-alias` changed recently and the installation of some of the packages is currently triggering an error. Please refer to [this issue](https://github.com/daviderestivo/galactic-emacs/issues/26) for more informations.
-
-For Emacs 27.x:
-
-``` bash
-brew tap daviderestivo/emacs-head
-brew install emacs-head@27 --with-cocoa --with-no-frame-refocus --with-imagemagick --with-pdumper --with-xwidgets
-```
-
-For Emacs 26.x:
-
-``` bash
-brew tap daviderestivo/emacs-head
-brew install emacs-head@26 --with-cocoa --with-no-frame-refocus --with-imagemagick
-```
 
 ## Galactic Emacs installation
 Please run the below commands to backup your current Emacs
