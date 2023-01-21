@@ -77,6 +77,8 @@ The package management tool used is: [use-package](https://github.com/jwiegley/u
 * [package-lint](https://github.com/purcell/package-lint)
 * [projectile](https://github.com/bbatsov/projectile)
 * [py-autopep8](https://github.com/paetzke/py-autopep8.el)
+* [emacs-sbt-mode](https://github.com/hvesalai/emacs-sbt-mode)
+* [emacs-scala-mode](https://github.com/hvesalai/emacs-scala-mode)
 * [sly](https://github.com/joaotavora/sly)
 * [visual-regexp](https://github.com/benma/visual-regexp.el)
 * [yaml-mode](https://github.com/yoshiki/yaml-mode)
