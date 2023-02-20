@@ -73,8 +73,10 @@
 (use-package esh-autosuggest
   :ensure t
   :defer t
-  :hook
-  (eshell-mode . esh-autosuggest-mode))
+  ;; :hook (eshell-mode . esh-autosuggest-mode)
+  ;; If you have use-package-hook-name-suffix set to nil, uncomment and use the
+  ;; line below instead:
+  :hook (eshell-mode-hook . esh-autosuggest-mode))
 
 ;; exec-path-from-shell
 (use-package exec-path-from-shell
