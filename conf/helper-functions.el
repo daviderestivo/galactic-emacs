@@ -107,7 +107,7 @@ This function requires `all-the-icons' package to be installed
         (concat
          "["
          (if (display-graphic-p)
-             (concat (all-the-icons-material "schedule") " "))
+             (concat (all-the-icons-faicon "clock-o") " "))
          (format-time-string "%Y-%m-%d %H:%M:%S" (current-time))
          "]") :background galactic-emacs-header-bg :foreground "gainsboro")
        (galactic-emacs-with-face "\n└─> " :background galactic-emacs-header-bg)
