@@ -249,7 +249,8 @@
   (setq dashboard-banner-logo-title "Welcome to Galactic Emacs")
   ;; Set banner footer text
   (setq dashboard-set-footer t)
-  (setq dashboard-footer  "\"To succeed, planning alone is insufficient. One must improvise as well.\" - I. Asimov, Foundation")
+  (setq dashboard-footer-messages
+        '("\"To succeed, planning alone is insufficient. One must improvise as well.\" \n    - I. Asimov, Foundation"))
   ;; Set an alternate Emacs logo
   (setq dashboard-startup-banner (expand-file-name "logos/galactic-emacs-logo.png"
                                                    user-emacs-directory))
