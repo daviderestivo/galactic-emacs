@@ -21,6 +21,7 @@ hgs-cache
 network-security.data
 personal.el
 custom.el
+custom-packages-and-settings.el
 places
 projectile-bookmarks.eld
 projects
