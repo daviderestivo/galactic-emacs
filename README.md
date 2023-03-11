@@ -92,11 +92,12 @@ cd .emacs.d
 git submodule init
 git submodule update
 git submodule foreach --recursive git checkout master
+cp personal.el.example personal.el
+cp custom-packages-and-settings.el.example custom-packages-and-settings.el
 ```
 
-Before you start emacs please edit `~/.emacs.d/personal.el.example`
-adding your personal information and rename it to
-`~/.emacs.d/personal.el`.
+Before you start Emacs please edit `~/.emacs.d/personal.el.example`
+adding your personal information in it.
 
 ## Enable pdumper
 If you're running Emacs >= 27 then you can enable pdumper support. In

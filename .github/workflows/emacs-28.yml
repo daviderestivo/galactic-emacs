@@ -49,6 +49,9 @@ jobs:
     - name: Create personal config file from template
       run: mv personal.el.example personal.el
 
+    - name: Create custom config file from template
+      run: mv custom-packages-and-settings.el.example custom-packages-and-settings.el
+
     - name: Create savehist directory
       run: mkdir -p ${{ github.workspace }}/savehist
 
