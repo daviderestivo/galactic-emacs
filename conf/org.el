@@ -276,6 +276,14 @@
   ;; REPL: M-x cider-jack-in RET
   (setq org-babel-clojure-backend 'cider))
 
+;; Org-drill uses a spaced repetition algorithm to conduct interactive
+;; "drill sessions", using org files as sources of facts to be
+;; memorized.
+(use-package org-drill
+  :pin non-gnu
+  :ensure t
+  :after org)
+
 ;; Org Babel: plantuml section
 (use-package ob-plantuml
   :after org

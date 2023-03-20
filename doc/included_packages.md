@@ -39,6 +39,7 @@ The package management tool used is: [use-package](https://github.com/jwiegley/u
 * [org-plus-contrib](https://orgmode.org/)
 * [org-beautify-theme](https://github.com/jonnay/org-beautify-theme)
 * [org-bullets](https://github.com/sabof/org-bullets)
+* [org-drill](https://gitlab.com/phillord/org-drill)
 * [org-download](https://github.com/abo-abo/org-download)
 * [org-mind-map](https://github.com/theodorewiles/org-mind-map)
 * [company-org-block](https://github.com/xenodium/company-org-block)
