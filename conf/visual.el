@@ -325,15 +325,6 @@
         (global-diff-hl-mode)
         (diff-hl-margin-mode)))))
 
-;; Temporarily disabling font-lock and switching to a barebones
-;; mode-line, until you stop scrolling (at which point it re-enables).
-(use-package fast-scroll
-  :ensure t
-  :diminish fast-scroll-mode
-  :config
-  (fast-scroll-config)
-  (fast-scroll-mode 1))
-
 (use-package ediff
   :config
   ;; Split horizontally and avoid floating ediff window
@@ -349,6 +340,15 @@
   ;; Display the *scratch* buffer for every newly created workspace
   (setq eyebrowse-new-workspace t)
   (setq eyebrowse-mode-line-right-delimiter "] "))
+
+;; Temporarily disabling font-lock and switching to a barebones
+;; mode-line, until you stop scrolling (at which point it re-enables).
+(use-package fast-scroll
+  :ensure t
+  :diminish fast-scroll-mode
+  :config
+  (fast-scroll-config)
+  (fast-scroll-mode 1))
 
 ;; gnutls customization
 ;;
