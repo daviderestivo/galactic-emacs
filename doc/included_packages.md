@@ -135,6 +135,7 @@ The package management tool used is: [use-package](https://github.com/jwiegley/u
 * [highlight-indent-guides](https://github.com/DarthFennec/highlight-indent-guides)
 * [ibuffer-sidebar](https://github.com/jojojames/ibuffer-sidebar)
 * [imenu-list](https://github.com/bmag/imenu-list)
+* [nerd-icons](https://github.com/rainstormstudio/nerd-icons.el)
 * [rainbow-delimiters](https://www.emacswiki.org/emacs/RainbowDelimiters)
 * [smartparens](https://github.com/Fuco1/smartparens)
 * [transpose-frame](https://www.emacswiki.org/emacs/TransposeFrame)

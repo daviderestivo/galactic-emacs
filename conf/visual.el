@@ -187,25 +187,15 @@
         'font-lock-face 'calendar-iso-week-face))
 (setq calendar-intermonth-header (propertize "Wk"))
 
-;; All the icons
-(when (window-system) ; Available only in GUI mode
-  (progn
-    ;; The fonts installation runs only the first time all-the-icons is
-    ;; downloaded.
-    (setq galactic-emacs-all-the-icons-first-run t)
-    ;; Check if this is the first run
-    (when (car (file-expand-wildcards
+(use-package all-the-icons
+  :ensure t
+  :config
+  ;; Check if all-the-icons package has already been installed.
+  ;; If this is the first run we download all-the-icons package and
+  ;; run the font installation command
+  (unless (car (file-expand-wildcards
                 (concat user-emacs-directory "elpa/all-the-icons-*")))
-      (setq galactic-emacs-all-the-icons-first-run nil))
-    ;; If this is the first run we download all-the-icons package and
-    ;; the related fonts
-    (when galactic-emacs-all-the-icons-first-run
-      (use-package all-the-icons
-        :ensure t
-        :init
-        (all-the-icons-install-fonts t))))
-  (use-package all-the-icons
-    :ensure t))
+    (all-the-icons-install-fonts t)))
 
 ;; atom-one-dark-theme
 (use-package atom-one-dark-theme
@@ -288,6 +278,7 @@
 ;; doom-modeline
 (use-package doom-modeline
   :ensure t
+  :after nerd-icons
   :config
   ;; Customize active/inactive mode-line colors
   (set-face-attribute 'mode-line nil
@@ -325,15 +316,6 @@
         (global-diff-hl-mode)
         (diff-hl-margin-mode)))))
 
-;; Temporarily disabling font-lock and switching to a barebones
-;; mode-line, until you stop scrolling (at which point it re-enables).
-(use-package fast-scroll
-  :ensure t
-  :diminish fast-scroll-mode
-  :config
-  (fast-scroll-config)
-  (fast-scroll-mode 1))
-
 (use-package ediff
   :config
   ;; Split horizontally and avoid floating ediff window
@@ -349,6 +331,15 @@
   ;; Display the *scratch* buffer for every newly created workspace
   (setq eyebrowse-new-workspace t)
   (setq eyebrowse-mode-line-right-delimiter "] "))
+
+;; Temporarily disabling font-lock and switching to a barebones
+;; mode-line, until you stop scrolling (at which point it re-enables).
+(use-package fast-scroll
+  :ensure t
+  :diminish fast-scroll-mode
+  :config
+  (fast-scroll-config)
+  (fast-scroll-mode 1))
 
 ;; gnutls customization
 ;;
@@ -414,6 +405,16 @@
   :bind
   ("<f12>" . imenu-list-smart-toggle))
 
+(use-package nerd-icons
+  :ensure t
+  :config
+  ;; Check if nerd-icons package has already been installed.
+  ;; If this is the first run we download nerd-icons package and
+  ;; run the font installation command
+  (unless (car (file-expand-wildcards
+                (concat user-emacs-directory "elpa/nerd-icons-*")))
+    (nerd-icons-install-fonts t)))
+
 ;; rainbow-delimiters
 (use-package rainbow-delimiters
   :ensure t
@@ -436,11 +437,11 @@
   ;; Allow treemacs window to be resized and disable line numbers
   (treemacs-mode .
                  (lambda () (progn
-                              (treemacs-toggle-fixed-width)
-                              (if (version< emacs-version "26.1")
-                                  (linum-mode)
-                                (display-line-numbers-mode))
-                              (setq display-line-numbers nil))))
+                         (treemacs-toggle-fixed-width)
+                         (if (version< emacs-version "26.1")
+                             (linum-mode)
+                           (display-line-numbers-mode))
+                         (setq display-line-numbers nil))))
   :config
   (progn
     (setq treemacs-collapse-dirs              (if (executable-find "python") 3 0)
