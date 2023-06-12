@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: org_drill_entry
+# key: drl_
+# --
+
+** $1                                                                :drill:
+:PROPERTIES:
+:END:
+
+*** The Answer
+$0
