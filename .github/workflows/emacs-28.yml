@@ -32,9 +32,9 @@ jobs:
           - 'emacs-head@28'
 
     env:
-      HOMEBREW_GITHUB_REF: ${{ github.head_ref || github.ref }}
-      HOMEBREW_GITHUB_REPOSITORY: ${{ github.repository }}
-      HOMEBREW_GITHUB_ACTOR: ${{ github.actor }}
+      GALACTIC_EMACS_GITHUB_REF: ${{ github.head_ref || github.ref }}
+      GALACTIC_EMACS_REPOSITORY: ${{ github.repository }}
+      GALACTIC_EMACS_GITHUB_ACTOR: ${{ github.actor }}
       GPG: '/usr/local/bin/gpg'
 
     steps:
