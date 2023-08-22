@@ -33,7 +33,6 @@ jobs:
 
     env:
       HOMEBREW_GALACTIC_EMACS_GITHUB_REPOSITORY: ${{ github.repository }}
-      HOMEBREW_GALACTIC_EMACS_GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
       HOMEBREW_GALACTIC_EMACS_GITHUB_REPOSITORY_REF: ${{ github.head_ref || github.ref }}
       GPG: '/usr/local/bin/gpg'
 
