@@ -32,9 +32,9 @@ jobs:
           - 'emacs-head@28'
 
     env:
-      GALACTIC_EMACS_GITHUB_REF: ${{ github.head_ref || github.ref }}
-      GALACTIC_EMACS_REPOSITORY: ${{ github.repository }}
-      GALACTIC_EMACS_GITHUB_ACTOR: ${{ github.actor }}
+      GALACTIC_EMACS_GITHUB_REPOSITORY: ${{ github.repository }}
+      GALACTIC_EMACS_GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
+      GALACTIC_EMACS_GITHUB_REPOSITORY_REF: ${{ github.head_ref || github.ref }}
       GPG: '/usr/local/bin/gpg'
 
     steps:
