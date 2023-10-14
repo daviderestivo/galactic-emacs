@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: org_links_table
+# key: link_
+# --
+| Title | URL | Description |
+|-------+-----+-------------|
+| $0      |     |             |
+
+
