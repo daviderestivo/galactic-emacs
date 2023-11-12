@@ -82,6 +82,7 @@ The package management tool used is: [use-package](https://github.com/jwiegley/u
 * [emacs-scala-mode](https://github.com/hvesalai/emacs-scala-mode)
 * [sly](https://github.com/joaotavora/sly)
 * [visual-regexp](https://github.com/benma/visual-regexp.el)
+* [yafolding](https://github.com/zenozeng/yafolding.el)
 * [yaml-mode](https://github.com/yoshiki/yaml-mode)
 * [yang-mode](https://github.com/mbj4668/yang-mode)
 * [yasnippet](https://github.com/joaotavora/yasnippet)

@@ -370,6 +370,14 @@
   :ensure t
   :defer t)
 
+;; Yet another folding extension for Emacs
+(use-package yafolding
+  :ensure t
+  :defer t
+  :hook
+  (json-mode . yafolding-mode)
+  (prog-mode . yafolding-mode))
+
 ;; yaml-mode
 (use-package yaml-mode
   :ensure t
