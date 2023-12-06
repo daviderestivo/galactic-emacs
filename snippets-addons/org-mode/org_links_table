@@ -2,8 +2,7 @@
 # name: org_links_table
 # key: link_
 # --
-| Title | URL | Description |
-|-------+-----+-------------|
-| $0      |     |             |
-
-
+| Reference | Title | URL | Description |
+|-----------+-------+-----+-------------|
+|         1 | $0      |     |             |
+#+tblfm: \$1=@#-1
