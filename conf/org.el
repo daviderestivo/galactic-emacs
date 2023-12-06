@@ -42,6 +42,7 @@
   :pin gnu
   :defer t
   :hook
+  (org-insert-heading . (lambda () (galactic-emacs-insert-org-property-drawer)))
   (org-agenda-mode . (lambda ()
                        (setq org-agenda-files
                              (when (file-directory-p org-directory)

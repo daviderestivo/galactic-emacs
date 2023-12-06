@@ -450,5 +450,13 @@ This function has to be invoked:
   (message (concat
             (format-time-string "[%Y-%m-%d %T] ") "...finished garbage collect.")))
 
+;; Insert a property drawer within the current org headline
+(defun galactic-emacs-insert-org-property-drawer ()
+  (interactive)
+  "Insert a property drawer containing a timestamp within the current org headline"
+  (org-entry-put nil "DATE"
+                 (format-time-string (org-time-stamp-format 'with-hm 'inactive)
+                                     (current-time))))
+
 
 ;;; helper-functions.el ends here
