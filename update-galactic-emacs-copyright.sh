@@ -12,7 +12,7 @@
 # Requirements:
 # - gsed: "brew install gsed"
 
-# Copyright (C) 2019-2023 Davide Restivo
+# Copyright (C) 2019-2024 Davide Restivo
 
 ### License:
 
