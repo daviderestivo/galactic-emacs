@@ -118,11 +118,6 @@
   (setq erc-autoaway-idle-seconds 600)
   (setq erc-autoaway-use-emacs-idle t))
 
-;; Browse the Emacsmirror package database
-(use-package epkg
-  :ensure t
-  :defer t)
-
 ;; Literate Calc Mode
 (use-package literate-calc-mode
   :diminish literate-calc-minor-mode

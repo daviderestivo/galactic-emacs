@@ -107,7 +107,6 @@ The package management tool used is: [use-package](https://github.com/jwiegley/u
 * [auto-sudoedit](https://github.com/ncaq/auto-sudoedit)
 * [avy](https://github.com/abo-abo/avy)
 * [command-log-mode](https://github.com/lewang/command-log-mode)
-* [epkg](https://github.com/emacscollective/epkg)
 * [move-text](https://github.com/emacsfodder/move-text)
 * [multiple-cursors](https://github.com/magnars/multiple-cursors.el)
 * [open-junk-file](https://github.com/rubikitch/open-junk-file)
