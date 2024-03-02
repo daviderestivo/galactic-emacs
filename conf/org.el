@@ -286,6 +286,7 @@
   :after org)
 
 ;; Org Babel: plantuml section
+;; Ref: plantuml-mode in programming.el
 (use-package ob-plantuml
   :after org
   :config

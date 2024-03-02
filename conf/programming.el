@@ -270,6 +270,16 @@
   :ensure t
   :defer t)
 
+;; PlantUML mode for Emacs
+;; Ref: ob-plantuml in org.el
+(use-package plantuml-mode
+  :ensure t
+  :defer t
+  :config
+  (setq plantuml-jar-path
+        (concat user-emacs-directory "lib/" "plantuml.jar"))
+    (setq plantuml-default-exec-mode 'jar))
+
 ;; projectile
 (use-package projectile
   :ensure t
