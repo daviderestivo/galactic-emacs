@@ -76,7 +76,7 @@ The package management tool used is: [use-package](https://github.com/jwiegley/u
 * [markdown-mode](http://jblevins.org/projects/markdown-mode)
 * [markdown-toc](https://github.com/ardumont/markdown-toc)
 * [package-lint](https://github.com/purcell/package-lint)
-* [plantuml-mode](https://github.com/skuro/plantuml-mode/)
+* [plantuml-mode](https://github.com/skuro/plantuml-mode)
 * [projectile](https://github.com/bbatsov/projectile)
 * [py-autopep8](https://github.com/paetzke/py-autopep8.el)
 * [emacs-sbt-mode](https://github.com/hvesalai/emacs-sbt-mode)
