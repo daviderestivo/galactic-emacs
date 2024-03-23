@@ -79,6 +79,7 @@ The package management tool used is: [use-package](https://github.com/jwiegley/u
 * [plantuml-mode](https://github.com/skuro/plantuml-mode)
 * [projectile](https://github.com/bbatsov/projectile)
 * [py-autopep8](https://github.com/paetzke/py-autopep8.el)
+* [pyvenv](https://github.com/jorgenschaefer/pyvenv)
 * [emacs-sbt-mode](https://github.com/hvesalai/emacs-sbt-mode)
 * [emacs-scala-mode](https://github.com/hvesalai/emacs-scala-mode)
 * [sly](https://github.com/joaotavora/sly)

@@ -105,12 +105,6 @@
   :diminish eldoc-mode)
 
 ;; elpy
-;;
-;; Please install the following packages before running elpy:
-;;
-;; Python2: pip2 install jedi flake8 autopep8
-;; Python3: pip3 install jedi flake8 autopep8
-;;
 (use-package elpy
   :ensure t
   :defer t
@@ -278,7 +272,7 @@
   :config
   (setq plantuml-jar-path
         (concat user-emacs-directory "lib/" "plantuml.jar"))
-    (setq plantuml-default-exec-mode 'jar))
+  (setq plantuml-default-exec-mode 'jar))
 
 ;; projectile
 (use-package projectile
@@ -298,6 +292,20 @@
   :hook
   ;; Configure elpy autopep8 support
   (elpy-mode . py-autopep8-enable-on-save))
+
+;; Python virtual environment support for Emacs
+(use-package pyvenv
+  :ensure t
+  :defer t
+  :diminish pyvenv-mode
+  :init
+  (setq galactic-emacs-python-venv-path "~/pyvenv")
+  :hook
+  (python-mode . pyvenv-mode)
+  :config
+  (setq pyvenv-mode-line-indicator nil)
+  (pyvenv-activate (expand-file-name galactic-emacs-python-venv-path))
+  (pyvenv-mode t))
 
 ;; re-builder
 (use-package re-builder
