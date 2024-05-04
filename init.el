@@ -123,18 +123,19 @@
 ;; This package updates the GPG keys used by the ELPA package manager
 ;; (a.k.a `package.el') to verify authenticity of packages downloaded
 ;; from the GNU ELPA archive.
-(use-package gnu-elpa-keyring-update
-  :ensure t
-  :init
-  ;; The below assumes gpg is installed in `/usr/local/bin'
-  (custom-set-variables '(epg-gpg-program  "/usr/local/bin/gpg"))
-  (setq package-check-signature (when (executable-find "gpg") 'allow-unsigned))
-  :config
-  ;; If your keys are already too old, causing signature verification
-  ;; errors when installing packages, then in order to install this
-  ;; package you have to temporarily disable signature verification
-  ;; (see variable `package-check-signature') :-(
-  (let ((package-check-signature nil))
+;;
+;; If your keys are already too old, causing signature verification
+;; errors when installing packages, then in order to install this
+;; package you have to temporarily disable signature verification
+;; (see variable `package-check-signature') :-(
+(let ((package-check-signature nil))
+  (use-package gnu-elpa-keyring-update
+    :ensure t
+    :init
+    ;; The below assumes gpg is installed in `/usr/local/bin'
+    (custom-set-variables '(epg-gpg-program  "/usr/local/bin/gpg"))
+    (setq package-check-signature (when (executable-find "gpg") 'allow-unsigned))
+    :config
     (gnu-elpa-keyring-update)))
 
 ;; system-packages
