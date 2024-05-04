@@ -285,13 +285,14 @@
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
 ;; py-autopep8
-(use-package py-autopep8
-  :after elpy-mode
-  :ensure t
-  :defer t
-  :hook
-  ;; Configure elpy autopep8 support
-  (elpy-mode . py-autopep8-enable-on-save))
+(unless (version< emacs-version "29.1") ; py-autopep8 now requires at least Emacs 29.1
+  (use-package py-autopep8
+    :after elpy-mode
+    :ensure t
+    :defer t
+    :hook
+    ;; Configure elpy autopep8 support
+    (elpy-mode . py-autopep8-enable-on-save)))
 
 ;; Python virtual environment support for Emacs
 (use-package pyvenv
