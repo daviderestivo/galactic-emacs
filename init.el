@@ -93,6 +93,22 @@
         ("non-gnu" . 2)
         ("gnu" . 1)))
 
+;; Bootstrap `gnu-elpa-keyring-update'
+;;
+;; If your keys are already too old, causing signature verification
+;; errors when installing packages, then in order to install this
+;; package you have to temporarily disable signature verification
+;; (see variable `package-check-signature') :-(
+(unless (package-installed-p 'gnu-elpa-keyring-update)
+  (let ((package-check-signature nil))
+    (package-refresh-contents)
+    (package-install 'gnu-elpa-keyring-update)
+    ;; The below assumes gpg is installed in `/usr/local/bin'
+    (setq epg-gpg-program "/usr/local/bin/gpg")
+    (setq package-gnupghome-dir
+          (expand-file-name "elpa/gnupg" user-emacs-directory))
+    (gnu-elpa-keyring-update)))
+
 ;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -126,14 +142,8 @@
 (use-package gnu-elpa-keyring-update
   :ensure t
   :init
-  ;; The below assumes gpg is installed in `/usr/local/bin'
-  (custom-set-variables '(epg-gpg-program  "/usr/local/bin/gpg"))
-  ;; Enable packages signature verification only if the current Emacs
-  ;; instance is not a CI one (Continuous Integration) and GPG
-  ;; is available
-  (if (boundp 'galactic-emacs-ci)
-      (setq package-check-signature nil)
-    (setq package-check-signature (when (executable-find "gpg") 'allow-unsigned)))
+  (setq package-check-signature
+        (when (executable-find "gpg") 'allow-unsigned))
   :config
   (gnu-elpa-keyring-update))
 
