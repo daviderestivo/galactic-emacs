@@ -102,7 +102,8 @@
 (unless (package-installed-p 'gnu-elpa-keyring-update)
   (let ((package-check-signature nil))
     (package-refresh-contents)
-    (package-install 'gnu-elpa-keyring-update)))
+    (package-install 'gnu-elpa-keyring-update)
+    (gnu-elpa-keyring-update)))
 
 ;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)
