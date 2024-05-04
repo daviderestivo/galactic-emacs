@@ -93,6 +93,17 @@
         ("non-gnu" . 2)
         ("gnu" . 1)))
 
+;; Bootstrap `gnu-elpa-keyring-update'
+;;
+;; If your keys are already too old, causing signature verification
+;; errors when installing packages, then in order to install this
+;; package you have to temporarily disable signature verification
+;; (see variable `package-check-signature') :-(
+(unless (package-installed-p 'gnu-elpa-keyring-update)
+  (package-refresh-contents)
+  (let ((package-check-signature nil))
+    (package-install 'gnu-elpa-keyring-update)))
+
 ;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -123,20 +134,14 @@
 ;; This package updates the GPG keys used by the ELPA package manager
 ;; (a.k.a `package.el') to verify authenticity of packages downloaded
 ;; from the GNU ELPA archive.
-;;
-;; If your keys are already too old, causing signature verification
-;; errors when installing packages, then in order to install this
-;; package you have to temporarily disable signature verification
-;; (see variable `package-check-signature') :-(
-(let ((package-check-signature nil))
-  (use-package gnu-elpa-keyring-update
-    :ensure t
-    :init
-    ;; The below assumes gpg is installed in `/usr/local/bin'
-    (custom-set-variables '(epg-gpg-program  "/usr/local/bin/gpg"))
-    (setq package-check-signature (when (executable-find "gpg") 'allow-unsigned))
-    :config
-    (gnu-elpa-keyring-update)))
+(use-package gnu-elpa-keyring-update
+  :ensure t
+  :init
+  ;; The below assumes gpg is installed in `/usr/local/bin'
+  (custom-set-variables '(epg-gpg-program  "/usr/local/bin/gpg"))
+  (setq package-check-signature (when (executable-find "gpg") 'allow-unsigned))
+  :config
+  (gnu-elpa-keyring-update))
 
 ;; system-packages
 (use-package system-packages
