@@ -104,7 +104,9 @@
     (package-refresh-contents)
     (package-install 'gnu-elpa-keyring-update)
     ;; The below assumes gpg is installed in `/usr/local/bin'
-    (custom-set-variables '(epg-gpg-program  "/usr/local/bin/gpg"))
+    (setq epg-gpg-program "/usr/local/bin/gpg")
+    (setq package-gnupghome-dir
+          (expand-file-name "elpa/gnupg" user-emacs-directory))
     (gnu-elpa-keyring-update)))
 
 ;; Bootstrap `use-package'
