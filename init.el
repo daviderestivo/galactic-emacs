@@ -62,8 +62,8 @@
 (when (boundp 'galactic-emacs-pdumper-dumped)
   ;; Restore `load-path'
   (setq load-path galactic-emacs-pdumper-load-path)
-  ;; When Emacs starts from dump file, some default modes are not
-  ;; enabled
+  ;; When Emacs starts from a dump file, some default modes are not
+  ;; enabled by default
   (global-font-lock-mode)
   (transient-mark-mode))
 
