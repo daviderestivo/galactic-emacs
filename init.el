@@ -103,6 +103,8 @@
   (let ((package-check-signature nil))
     (package-refresh-contents)
     (package-install 'gnu-elpa-keyring-update)
+    ;; The below assumes gpg is installed in `/usr/local/bin'
+    (custom-set-variables '(epg-gpg-program  "/usr/local/bin/gpg"))
     (gnu-elpa-keyring-update)))
 
 ;; Bootstrap `use-package'
@@ -138,9 +140,8 @@
 (use-package gnu-elpa-keyring-update
   :ensure t
   :init
-  ;; The below assumes gpg is installed in `/usr/local/bin'
-  (custom-set-variables '(epg-gpg-program  "/usr/local/bin/gpg"))
-  (setq package-check-signature (when (executable-find "gpg") 'allow-unsigned))
+  (setq package-check-signature
+        (when (executable-find "gpg") 'allow-unsigned))
   :config
   (gnu-elpa-keyring-update))
 
