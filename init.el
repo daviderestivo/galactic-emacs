@@ -118,10 +118,7 @@
 ;;
 ;; The use-package macro allows you to isolate package configuration
 ;; in your .emacs file in a way that is both performance-oriented and,
-;; well, tidy. I created it because I have over 80 packages that I use
-;; in Emacs, and things were getting difficult to manage. Yet with
-;; this utility my total load time is around 2 seconds, with no loss
-;; of functionality!
+;; well, tidy.
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package)
