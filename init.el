@@ -100,8 +100,8 @@
 ;; package you have to temporarily disable signature verification
 ;; (see variable `package-check-signature') :-(
 (unless (package-installed-p 'gnu-elpa-keyring-update)
-  (package-refresh-contents)
   (let ((package-check-signature nil))
+    (package-refresh-contents)
     (package-install 'gnu-elpa-keyring-update)))
 
 ;; Bootstrap `use-package'
