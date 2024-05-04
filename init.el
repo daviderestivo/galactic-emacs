@@ -62,8 +62,8 @@
 (when (boundp 'galactic-emacs-pdumper-dumped)
   ;; Restore `load-path'
   (setq load-path galactic-emacs-pdumper-load-path)
-  ;; When Emacs starts from dump file, some default modes are not
-  ;; enabled
+  ;; When Emacs starts from a dump file, some default modes are not
+  ;; enabled by default
   (global-font-lock-mode)
   (transient-mark-mode))
 
@@ -95,11 +95,14 @@
 
 ;; Bootstrap `gnu-elpa-keyring-update'
 ;;
-;; If your keys are already too old, causing signature verification
-;; errors when installing packages, then in order to install this
-;; package you have to temporarily disable signature verification
-;; (see variable `package-check-signature') :-(
+;; This package updates the GPG keys used by the ELPA package manager
+;; (a.k.a `package.el') to verify authenticity of packages downloaded
+;; from the GNU ELPA archive.
 (unless (package-installed-p 'gnu-elpa-keyring-update)
+  ;; If your keys are already too old, causing signature verification
+  ;; errors when installing packages, then in order to install this
+  ;; package you have to temporarily disable signature verification
+  ;; (see variable `package-check-signature') :-(
   (let ((package-check-signature nil))
     (package-refresh-contents)
     (package-install 'gnu-elpa-keyring-update)
@@ -107,9 +110,15 @@
     (setq epg-gpg-program "/usr/local/bin/gpg")
     (setq package-gnupghome-dir
           (expand-file-name "elpa/gnupg" user-emacs-directory))
+    (setq package-check-signature
+          (when (executable-find "gpg") 'allow-unsigned))
     (gnu-elpa-keyring-update)))
 
 ;; Bootstrap `use-package'
+;;
+;; The use-package macro allows you to isolate package configuration
+;; in your .emacs file in a way that is both performance-oriented and,
+;; well, tidy.
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package)
@@ -128,24 +137,14 @@
 (setq use-package-compute-statistics t)
 
 ;; Bootstrap `diminish'
+;;
+;; This package implements hiding or abbreviation of the mode line
+;; displays (lighters) of minor-modes.
 (unless (package-installed-p 'diminish)
   (package-refresh-contents)
   (package-install 'diminish))
 (eval-when-compile
   (require 'diminish))
-
-;; gnu-elpa-keyring-update
-;;
-;; This package updates the GPG keys used by the ELPA package manager
-;; (a.k.a `package.el') to verify authenticity of packages downloaded
-;; from the GNU ELPA archive.
-(use-package gnu-elpa-keyring-update
-  :ensure t
-  :init
-  (setq package-check-signature
-        (when (executable-find "gpg") 'allow-unsigned))
-  :config
-  (gnu-elpa-keyring-update))
 
 ;; system-packages
 (use-package system-packages
