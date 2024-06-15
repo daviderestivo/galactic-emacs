@@ -203,14 +203,6 @@
   :bind
   ("\C-ce" . macrostep-expand))
 
-
-;; Install transient explicitly to avoid this random error: Debugger
-;; entered--Lisp error: (error "transient--get-face is already defined
-;; as something else than a generic function")
-(use-package transient
-  :ensure t
-  :defer t)
-
 ;; magit
 (use-package magit
   :ensure t
