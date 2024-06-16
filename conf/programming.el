@@ -204,6 +204,7 @@
   ("\C-ce" . macrostep-expand))
 
 ;; magit
+(unload-feature 'transient)
 (use-package magit
   :ensure t
   :defer t
