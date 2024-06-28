@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: org_acronyms_table
+# key: acro_
+# --
+| Reference | Abbreviation | Definition | Comment |
+|-----------+--------------+------------+---------|
+|         1 | $0             |            |         |
+#+tblfm: \$1=@#-1

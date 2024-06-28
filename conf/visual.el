@@ -371,12 +371,14 @@
 ;; This minor mode highlights indentation levels via font-lock
 (use-package highlight-indent-guides
   :ensure t
-  :init
-  (setq highlight-indent-guides-method 'column)
   :diminish highlight-indent-guides-mode
   :hook
-  (prog-mode . highlight-indent-guides-mode)
+  ((org-mode prog-mode) . (lambda ()
+                            (highlight-indent-guides-mode)
+                            (set-face-attribute 'highlight-indent-guides-character-face nil
+                                                :foreground "grey30")))
   :config
+  (setq highlight-indent-guides-method 'character)
   (setq highlight-indent-guides-auto-odd-face-perc 2)
   (setq highlight-indent-guides-auto-even-face-perc 1)
   (setq highlight-indent-guides-auto-character-face-perc 4))
