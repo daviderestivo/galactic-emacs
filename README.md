@@ -14,6 +14,9 @@
     <a href="https://github.com/daviderestivo/galactic-emacs/actions?query=workflow%3A%22Emacs+30%22">
     <img src="https://github.com/daviderestivo/galactic-emacs/actions/workflows/emacs-30.yml/badge.svg" alt="Galactic Emacs 30 CI Status Badge">
   </a>
+    <a href="https://github.com/daviderestivo/galactic-emacs/actions?query=workflow%3A%22Emacs+31%22">
+    <img src="https://github.com/daviderestivo/galactic-emacs/actions/workflows/emacs-31.yml/badge.svg" alt="Galactic Emacs 31 CI Status Badge">
+  </a>
 </p>
 
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
@@ -56,8 +59,15 @@ theme with some minor changes.
 # Installation
 ## GNU/Emacs installation
 This configuration is mainly tested on the HEAD version of Emacs
-(currently 30.x) running on macOS. If your're using brew, as a package
+(currently 31.x) running on macOS. If your're using brew, as a package
 manager on macOS, please install Emacs with the below command:
+
+``` bash
+brew tap daviderestivo/emacs-head
+brew install emacs-head@31 --with-cocoa --with-no-frame-refocus --with-imagemagick --with-pdumper --with-xwidgets
+```
+
+For Emacs 30.x:
 
 ``` bash
 brew tap daviderestivo/emacs-head
