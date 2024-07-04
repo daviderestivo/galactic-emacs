@@ -64,6 +64,9 @@
                       (load-theme 'org-beautify t)
                       (set-face-attribute 'org-agenda-structure nil :height 1.0 :family "Lucida Grande")))))
   :config
+   ;; `org-attach' allows to attach files (e.g. images) in an org
+   ;; buffer
+  (require 'org-attach)
   ;; Org 9.2 comes with a new template expansion mechanism [C-c C-,]
   ;; The previous behavior, e.g. <s, is still available and activated
   ;; by requiring org-tempo library.
@@ -219,22 +222,6 @@
   :hook
   (org-mode . (lambda ()
                 (org-bullets-mode 1))))
-
-;; org-download
-(use-package org-download
-  :ensure t
-  :after org
-  :config
-  ;; Add support to dired
-  (add-hook 'dired-mode-hook 'org-download-enable)
-  ;; Change screen capture command only for macOS
-  (when (string= system-type "darwin")
-    (setq org-download-screenshot-method "screencapture -s -x %s"))
-  (setq org-download-method  'galactic-emacs-org-download-method)
-  (setq org-download-heading-lvl 0)
-  ;; org-download default directory
-  ;; (setq-default org-download-image-dir "./images")
-  (setq org-download-image-html-width '320))
 
 ;; Org Babel: main section
 (use-package ob
