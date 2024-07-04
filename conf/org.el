@@ -64,8 +64,8 @@
                       (load-theme 'org-beautify t)
                       (set-face-attribute 'org-agenda-structure nil :height 1.0 :family "Lucida Grande")))))
   :config
-   ;; `org-attach' allows to attach files (e.g. images) in an org
-   ;; buffer
+  ;; `org-attach' allows to attach files (e.g. images) in an org
+  ;; buffer
   (require 'org-attach)
   ;; Org 9.2 comes with a new template expansion mechanism [C-c C-,]
   ;; The previous behavior, e.g. <s, is still available and activated
