@@ -162,37 +162,6 @@ This function requires `all-the-icons' package to be installed
     (org-show-entry)
     (show-children)))
 
-(defun galactic-emacs-org-download-method (link)
-  "This is an helper function for org-download.
-
-It creates an \"./image\" folder within the same directory of the ORG file.
-Images are separated inside that image folder by additional folders one per
-ORG file.
-
-More info can be found here: https://github.com/abo-abo/org-download/issues/40.
-See the commit message for an example:
-https://github.com/abo-abo/org-download/commit/137c3d2aa083283a3fc853f9ecbbc03039bf397b"
-  (let ((filename
-         (file-name-nondirectory
-          (car (url-path-and-query
-                (url-generic-parse-url link)))))
-        (dir (concat
-              (file-name-directory (buffer-file-name))
-              (format "%s/%s/%s"
-                      "images"
-                      (file-name-base (buffer-file-name))
-                      (org-download--dir-2)))))
-    (progn
-      (setq filename-with-timestamp (format "%s--%s.%s"
-                                            (file-name-sans-extension filename)
-                                            (format-time-string "%Y-%m-%d_%H-%M-%S")
-                                            (file-name-extension filename)))
-      ;; Check if directory exists otherwise creates it
-      (unless (file-exists-p dir)
-        (make-directory dir t))
-      (message (format "Image: %s saved!" (expand-file-name filename-with-timestamp dir)))
-      (expand-file-name filename-with-timestamp dir))))
-
 ;;
 ;; Packages and config management helper functions
 ;;
