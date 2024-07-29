@@ -184,20 +184,22 @@
          ("\C-ci"  . org-insert-heading)
          ("\C-cj"  . galactic-emacs-org-show-current-heading-tidily))))
 
-;; Make invisible parts of Org elements appear visible
-(use-package org-appear
-  :ensure t
-  :after org
-  :defer t
-  :config
-  (setq
-   org-appear-autolinks t
-   org-appear-autosubmarkers t
-   org-appear-autokeywords t
-   org-appear-delay 1
-   org-appear-trigger 'always)
-  :hook
-  (org-mode . org-appear-mode))
+;; Make invisible parts of Org elements appear visible. Requires
+;; emacs-29.1
+(unless (version< emacs-version "29.1")
+  (use-package org-appear
+    :ensure t
+    :after org
+    :defer t
+    :config
+    (setq
+     org-appear-autolinks t
+     org-appear-autosubmarkers t
+     org-appear-autokeywords t
+     org-appear-delay 1
+     org-appear-trigger 'always)
+    :hook
+    (org-mode . org-appear-mode)))
 
 ;; Unmaintained add-ons for Org-mode
 (use-package org-contrib
