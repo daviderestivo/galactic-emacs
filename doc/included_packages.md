@@ -90,7 +90,7 @@ The package management tool used is: [use-package](https://github.com/jwiegley/u
 
 ## Shell
 * [eshell](https://www.gnu.org/software/emacs/manual/html_mono/eshell.html)
-* [esh-autosuggest](https://github.com/dieggsy/esh-autosuggest)
+* [capf-autosuggest](https://repo.or.cz/emacs-capf-autosuggest.git)
 * [exec-path-from-shell](https://github.com/purcell/exec-path-from-shell)
 * [load-bash-alias](https://github.com/daviderestivo/load-bash-alias)
 * [shell-pop-el](https://github.com/kyagi/shell-pop-el)
