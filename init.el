@@ -125,8 +125,6 @@
   (package-initialize))
 (eval-when-compile
   (require 'use-package))
-(use-package use-package-ensure-system-package
-  :ensure t)
 (setq package-enable-at-startup nil)
 ;; Enable use-package statistics
 ;;
