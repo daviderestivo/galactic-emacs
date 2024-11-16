@@ -69,14 +69,11 @@
   (setq eshell-highlight-prompt nil)
   (setq eshell-prompt-function 'galactic-emacs-eshell-prompt))
 
-;; Fish-like autosuggestions in eshell
-(use-package esh-autosuggest
+;; History autosuggestions for comint and eshell
+(use-package capf-autosuggest
   :ensure t
   :defer t
-  ;; :hook (eshell-mode . esh-autosuggest-mode)
-  ;; If you have use-package-hook-name-suffix set to nil, uncomment and use the
-  ;; line below instead:
-  :hook (eshell-mode-hook . esh-autosuggest-mode))
+  :hook (eshell-mode-hook . capf-autosuggest-mode))
 
 ;; exec-path-from-shell
 (use-package exec-path-from-shell

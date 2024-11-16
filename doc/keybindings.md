@@ -73,10 +73,11 @@
 
 | Key    | Function                                       |
 |:-------|:-----------------------------------------------|
-| C-c e  | org-encrypt-entry                              |
-| C-c d  | org-decrypt-entry                              |
 | C-c a  | org-agenda                                     |
+| C-c b  | org-fold-hide-block-all                        |
 | C-c c  | org-capture                                    |
+| C-c d  | org-decrypt-entry                              |
+| C-c e  | org-encrypt-entry                              |
 | C-c i  | org-insert-heading                             |
 | C-c j  | galactic-emacs-org-show-current-heading-tidily |
 | \<f6\> | galactic-emacs-org-directory-search-ag         |
