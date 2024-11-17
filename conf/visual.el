@@ -373,10 +373,10 @@
   :ensure t
   :diminish highlight-indent-guides-mode
   :hook
-  ((org-mode prog-mode) . (lambda ()
-                            (highlight-indent-guides-mode)
-                            (set-face-attribute 'highlight-indent-guides-character-face nil
-                                                :foreground "grey30")))
+  ((org-mode yaml-mode prog-mode) . (lambda ()
+                                      (highlight-indent-guides-mode)
+                                      (set-face-attribute 'highlight-indent-guides-character-face nil
+                                                          :foreground "grey30")))
   :config
   (setq highlight-indent-guides-method 'character)
   (setq highlight-indent-guides-auto-odd-face-perc 2)
