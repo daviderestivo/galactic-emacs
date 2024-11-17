@@ -178,10 +178,6 @@
 (load-file (expand-file-name "conf/core.el"
                              user-emacs-directory))
 
-;; Personal Information
-(load-file (expand-file-name "personal.el"
-                             user-emacs-directory))
-
 ;; Pdumper configuration file
 (load-file (expand-file-name "conf/pdumper-config.el"
                              user-emacs-directory))
@@ -192,6 +188,14 @@
 
 ;; Load networking helper functions
 (load-file (expand-file-name "conf/networking-helper-functions.el"
+                             user-emacs-directory))
+
+;; Personal Information
+(load-file (expand-file-name "personal.el"
+                             user-emacs-directory))
+
+;; Load visual packages and settings
+(load-file (expand-file-name "conf/visual.el"
                              user-emacs-directory))
 
 ;; Load auto-backup packages and settings
@@ -228,10 +232,6 @@
 
 ;; Load various packages and settings
 (load-file (expand-file-name "conf/various.el"
-                             user-emacs-directory))
-
-;; Load visual packages and settings
-(load-file (expand-file-name "conf/visual.el"
                              user-emacs-directory))
 
 ;; Load custom packages and settings
