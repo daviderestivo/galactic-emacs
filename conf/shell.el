@@ -66,8 +66,14 @@
   ;; Disable eshell banner
   (setq eshell-banner-message "")
   ;; Eshell prompt customization
-  (setq eshell-highlight-prompt nil)
-  (setq eshell-prompt-function 'galactic-emacs-eshell-prompt))
+  (setq eshell-highlight-prompt nil))
+
+;; This package provides some themes of Emacs Shell (Eshell) prompt
+(use-package eshell-git-prompt
+  :ensure t
+  :after eshell
+  :config
+  (eshell-git-prompt-use-theme 'powerline))
 
 ;; History autosuggestions for comint and eshell
 (use-package capf-autosuggest
