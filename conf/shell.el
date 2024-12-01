@@ -51,10 +51,7 @@
                    (define-key eshell-mode-map (kbd "C-c C-;") 'helm-eshell-prompts)
                    (define-key eshell-mode-map (kbd "C-l")     #'(lambda ()
                                                                    (interactive)
-                                                                   (let ((old-input (eshell-get-old-input)))
-                                                                     (eshell/clear-scrollback)
-                                                                     (eshell-emit-prompt)
-                                                                     (insert old-input))))))
+                                                                   (eshell/clear-scrollback)))))
   :bind
   ;; Create an interactive Eshell buffer
   (("C-c s n" . (lambda ()
@@ -78,6 +75,7 @@
 ;; History autosuggestions for comint and eshell
 (use-package capf-autosuggest
   :ensure t
+  :disabled t
   :defer t
   :hook (eshell-mode-hook . capf-autosuggest-mode))
 
