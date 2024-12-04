@@ -172,6 +172,8 @@
   (setq org-preview-latex-default-process 'dvisvgm)
   ;; Control size of LateX previews
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
+  ;; Presenting a two week agenda view (C-c a a)
+  (setq org-agenda-span 14)
   :bind
   ;; Global keybindings
   (("<f6>"   . galactic-emacs-org-directory-search-ag)
