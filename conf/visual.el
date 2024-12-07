@@ -55,8 +55,8 @@
 (setq frame-inhibit-implied-resize t)
 
 ;; Enable pixel-scroll-precision-mode on Emacs 29 and above
-(unless (version< emacs-version "29")
-  (pixel-scroll-precision-mode))
+;; (unless (version< emacs-version "29")
+;;   (pixel-scroll-precision-mode))
 
 ;; Line and column numbers
 (if (version< emacs-version "26.1")
