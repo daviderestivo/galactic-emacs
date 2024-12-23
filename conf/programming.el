@@ -135,6 +135,12 @@
   :bind
   ("C-x v t" . git-timemachine-toggle))
 
+;; This is go-mode, the Emacs mode for editing Go code
+(use-package go-mode
+  :ensure t
+  :defer t
+  :mode "\\.go\\'")
+
 ;; Haskell mode
 (use-package haskell-mode
   :ensure t
