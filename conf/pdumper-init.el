@@ -1,7 +1,7 @@
 ;;; pdumper-init.el --- Galactic Emacs pdumper init file -*- lexical-binding: t; -*-
 
 ;;
-;; Copyright (C) 2016-2024 Davide Restivo
+;; Copyright (C) 2016-2025 Davide Restivo
 ;;
 ;; Author: Davide Restivo <davide.restivo@yahoo.it>
 ;; Maintainer: Davide Restivo <davide.restivo@yahoo.it>

@@ -12,7 +12,7 @@
 # Requirements:
 # - gsed: "brew install gsed"
 
-# Copyright (C) 2019-2024 Davide Restivo
+# Copyright (C) 2019-2025 Davide Restivo
 
 ### License:
 
@@ -43,7 +43,7 @@ COPYRIGHT_YEAR=$(date +%Y)
 AUTHOR="Davide Restivo"
 
 # Build the file list
-FILES_LIST=$(grep --exclude-dir elpa -lIRi  "Copyright (C).* Davide Restivo")
+FILES_LIST=$(grep --exclude-dir elpa --exclude-dir eln-cache -lIRi  "Copyright (C).* Davide Restivo")
 
 # Change the copyright year
 for F in $FILES_LIST
