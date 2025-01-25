@@ -147,7 +147,13 @@
 (use-package go-mode
   :ensure t
   :defer t
-  :mode "\\.go\\'")
+  :mode "\\.go\\'"
+  :hook
+  ;; Run go fmt before saving the file
+  (go-mode . (lambda ()
+               (add-hook 'before-save-hook
+                         #'gofmt-before-save
+                         nil t))))
 
 ;; Haskell mode
 (use-package haskell-mode
