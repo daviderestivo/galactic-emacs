@@ -93,6 +93,14 @@
   :mode
   (("Dockerfile\\'" . dockerfile-mode)))
 
+;; Go-mode autocompletion
+(use-package eglot
+  :ensure-system-package (gopls . "go install -v golang.org/x/tools/gopls@latest")
+  :ensure t
+  :defer t
+  :hook
+  (go-mode . eglot-ensure))
+
 ;; EIN - Emacs IPython Notebook
 (use-package ein
   :ensure t
