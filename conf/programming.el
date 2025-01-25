@@ -146,7 +146,6 @@
   :ensure-system-package (gopls . "go install -v golang.org/x/tools/gopls@latest")
   :ensure t
   :defer t
-  :diminish eglot-mode
   :hook
   (go-mode . eglot-ensure))
 
