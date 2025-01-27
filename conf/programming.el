@@ -93,14 +93,6 @@
   :mode
   (("Dockerfile\\'" . dockerfile-mode)))
 
-;; Go-mode autocompletion
-(use-package eglot
-  :ensure-system-package (gopls . "go install -v golang.org/x/tools/gopls@latest")
-  :ensure t
-  :defer t
-  :hook
-  (go-mode . eglot-ensure))
-
 ;; EIN - Emacs IPython Notebook
 (use-package ein
   :ensure t
@@ -145,9 +137,16 @@
 
 ;; This is go-mode, the Emacs mode for editing Go code
 (use-package go-mode
+  :ensure-system-package ((godef . "go install -v github.com/rogpeppe/godef@master")
+                          (gopls . "go install -v golang.org/x/tools/gopls@latest"))
   :ensure t
   :defer t
-  :mode "\\.go\\'")
+  :mode "\\.go\\'"
+  :hook
+  ((go-mode . lsp-mode)
+   (go-mode . (lambda ()
+                (add-hook 'before-save-hook #'lsp-format-buffer t t)
+                (add-hook 'before-save-hook #'lsp-organize-imports t t)))))
 
 ;; Haskell mode
 (use-package haskell-mode
@@ -157,7 +156,13 @@
 ;; Emacs client/library for the Language Server Protocol
 (use-package lsp-mode
   :ensure t
-  :defer t)
+  :defer t
+  :hook
+  (lsp-mode . lsp-enable-which-key-integration)
+  :config
+  (setq lsp-prefer-flymake nil
+        lsp-enable-indentation nil
+        lsp-enable-on-type-formatting nil))
 
 ;; Provides integration between lsp-mode and treemacs
 (use-package lsp-treemacs

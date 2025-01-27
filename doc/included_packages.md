@@ -55,7 +55,6 @@ The package management tool used is: [use-package](https://github.com/jwiegley/u
 * [dap-mode](https://github.com/yyoncho/dap-mode)
 * [dap-java](https://github.com/yyoncho/dap-mode)
 * [dockerfile-mode](https://github.com/spotify/dockerfile-mode)
-* [eglot](https://github.com/joaotavora/eglot)
 * [ein](http://millejoh.github.io/emacs-ipython-notebook/)
 * [elpy](https://elpy.readthedocs.io)
 * [geiser](https://gitlab.com/jaor/geiser)
