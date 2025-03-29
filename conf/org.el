@@ -37,6 +37,7 @@
 ;; collaborate.
 
 
+;;; Code:
 ;; Org-Mode: main section
 (use-package org
   :pin gnu

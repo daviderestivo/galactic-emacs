@@ -37,6 +37,7 @@
 ;; collaborate.
 
 
+;;; Code:
 ;; On the fly syntax checking for GNU Emacs
 (use-package flycheck
   :ensure t

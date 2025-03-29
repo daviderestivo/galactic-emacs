@@ -37,6 +37,7 @@
 ;; collaborate.
 
 
+;;; Code:
 (use-package flyspell
   :ensure-system-package (aspell . "brew install aspell || sudo apt-get install aspell")
   :config

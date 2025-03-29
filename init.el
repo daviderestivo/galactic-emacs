@@ -37,6 +37,7 @@
 ;; collaborate.
 
 
+;;; Code:
 ;;; Improve Emacs startup time
 ;;
 ;; PLEASE DO NOT ADD ANY CODE `BEFORE' THIS SECTION

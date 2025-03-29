@@ -37,6 +37,7 @@
 ;; collaborate.
 
 
+;;; Code:
 (defun ipv6-address-normalize (ipv6-address)
   "Convert an IPV6-ADDRESS into normal form.
 

@@ -37,6 +37,7 @@
 ;; collaborate.
 
 
+;;; Code:
 ;; Eshell
 (use-package eshell
   :hook

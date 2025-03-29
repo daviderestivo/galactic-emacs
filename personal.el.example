@@ -37,6 +37,7 @@
 ;; collaborate.
 
 
+;;; Code:
 ;; Personal details
 (setq user-mail-address      "MyEmail@MyDomain.com"
       user-full-name         "MyName MySurname"

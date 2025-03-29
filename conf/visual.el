@@ -37,6 +37,7 @@
 ;; collaborate.
 
 
+;;; Code:
 ;; Inhibit startup screen, splash screen and startup message
 (setq inhibit-startup-screen t
       inhibit-splash-screen t

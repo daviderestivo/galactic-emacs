@@ -37,6 +37,7 @@
 ;; collaborate.
 
 
+;;; Code:
 ;; helm - Helm is an incremental completion and selection narrowing
 ;; framework for Emacs.
 (use-package helm
