@@ -194,8 +194,7 @@
   ;; Check if all-the-icons package has already been installed.
   ;; If this is the first run we download all-the-icons package and
   ;; run the font installation command
-  (unless (car (file-expand-wildcards
-                (concat user-emacs-directory "elpa/all-the-icons-*")))
+  (unless (find-font (font-spec :name "all-the-icons"))
     (all-the-icons-install-fonts t)))
 
 ;; atom-one-dark-theme
@@ -414,8 +413,7 @@
   ;; Check if nerd-icons package has already been installed.
   ;; If this is the first run we download nerd-icons package and
   ;; run the font installation command
-  (unless (car (file-expand-wildcards
-                (concat user-emacs-directory "elpa/nerd-icons-*")))
+  (unless (find-font (font-spec :name "NFM"))
     (nerd-icons-install-fonts t)))
 
 ;; rainbow-delimiters
