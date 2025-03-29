@@ -37,6 +37,7 @@
 ;; collaborate.
 
 
+;;; Code:
 ;; auto-package-update
 (use-package auto-package-update
   :ensure t

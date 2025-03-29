@@ -37,6 +37,7 @@
 ;; collaborate.
 
 
+;;; Code:
 ;; Install `cl-generic' if required
 ;;
 ;; This is a forward compatibility package, which provides (a subset

@@ -37,6 +37,7 @@
 ;; collaborate.
 
 
+;;; Code:
 ;; Automatically debug and bisect your init file
 (use-package bug-hunter
   :ensure t

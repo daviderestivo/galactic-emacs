@@ -37,6 +37,7 @@
 ;; collaborate.
 
 
+;;; Code:
 ;; Auto save very often
 ;; Save every 20 characters typed (this is the minimum)
 (setq auto-save-interval 20)

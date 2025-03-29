@@ -37,6 +37,7 @@
 ;; collaborate.
 
 
+;;; Code:
 (require 'package)
 
 ;; Load autoload files and populate load-path’s
