@@ -41,6 +41,18 @@
 ;;; Code:
 (require 'cl-macs)
 
+;;; Custom Variables
+(defvar galactic-emacs-font-names '("DejaVuMathTeXGyre.ttf" "DejaVuSans-Bold.ttf" "DejaVuSans-BoldOblique.ttf"
+                                    "DejaVuSans-ExtraLight.ttf" "DejaVuSans-Oblique.ttf" "DejaVuSans.ttf"
+                                    "DejaVuSansCondensed-Bold.ttf" "DejaVuSansCondensed-BoldOblique.ttf"
+                                    "DejaVuSansCondensed-Oblique.ttf" "DejaVuSansCondensed.ttf"
+                                    "DejaVuSansMono-Bold.ttf" "DejaVuSansMono-BoldOblique.ttf"
+                                    "DejaVuSansMono-Oblique.ttf" "DejaVuSansMono.ttf" "DejaVuSerif-Bold.ttf"
+                                    "DejaVuSerif-BoldItalic.ttf" "DejaVuSerif-Italic.ttf" "DejaVuSerif.ttf"
+                                    "DejaVuSerifCondensed-Bold.ttf" "DejaVuSerifCondensed-BoldItalic.ttf"
+                                    "DejaVuSerifCondensed-Italic.ttf" "DejaVuSerifCondensed.ttf")
+  "Galactic Emacs required fonts.")
+
 ;;
 ;; Helm helper functions
 ;;
@@ -348,6 +360,38 @@ This function has to be invoked:
   (org-entry-put nil "DATE"
                  (format-time-string (org-time-stamp-format 'with-hm 'inactive)
                                      (current-time))))
+
+(defun galactic-emacs-install-fonts (&optional pfx)
+  "Helper function to download and install the latests Galactic Emacs required fonts.
+When PFX is non-nil, ignore the prompt and just install"
+  (interactive "P")
+  (when (or pfx (yes-or-no-p "This will download and install Galactic Emacs required fonts, are you sure you want to do this?"))
+    (let* ((url-format "https://github.com/daviderestivo/galactic-emacs/raw/refs/heads/master/fonts/%s")
+           (font-dest (cond
+                       ;; Default Linux install directories
+                       ((member system-type '(gnu gnu/linux gnu/kfreebsd))
+                        (concat (or (getenv "XDG_DATA_HOME")
+                                    (concat (getenv "HOME") "/.local/share"))
+                                "/fonts/"
+                                all-the-icons-fonts-subdirectory))
+                       ;; Default MacOS install directory
+                       ((eq system-type 'darwin)
+                        (concat (getenv "HOME")
+                                "/Library/Fonts/"))))
+           (known-dest? (stringp font-dest))
+           (font-dest (or font-dest (read-directory-name "Font installation directory: " "~/"))))
+
+      (unless (file-directory-p font-dest) (mkdir font-dest t))
+
+      (mapc (lambda (font)
+              (url-copy-file (format url-format font) (expand-file-name font font-dest) t))
+            galactic-emacs-font-names)
+      (when known-dest?
+        (message "Fonts downloaded, updating font cache... <fc-cache -f -v> ")
+        (shell-command-to-string (format "fc-cache -f -v")))
+      (message "Successfully %s Galactic Emacs required fonts to `%s'!"
+               (if known-dest? "installed" "downloaded")
+               font-dest))))
 
 
 ;;; helper-functions.el ends here

@@ -84,6 +84,8 @@
 (setq galactic-emacs-frame-alpha '(96 96))
 
 ;; Set default font
+(unless (find-font (font-spec :name "DejaVu Sans Mono"))
+  (galactic-emacs-install-fonts t))
 (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-14"))
 
 ;; The latter does more work than the former, under the hood.
@@ -438,11 +440,11 @@
   ;; Allow treemacs window to be resized and disable line numbers
   (treemacs-mode .
                  (lambda () (progn
-                         (treemacs-toggle-fixed-width)
-                         (if (version< emacs-version "26.1")
-                             (linum-mode)
-                           (display-line-numbers-mode))
-                         (setq display-line-numbers nil))))
+                              (treemacs-toggle-fixed-width)
+                              (if (version< emacs-version "26.1")
+                                  (linum-mode)
+                                (display-line-numbers-mode))
+                              (setq display-line-numbers nil))))
   :config
   (progn
     (setq treemacs-collapse-dirs              (if (executable-find "python") 3 0)
