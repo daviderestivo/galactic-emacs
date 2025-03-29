@@ -415,7 +415,7 @@
   ;; Check if nerd-icons package has already been installed.
   ;; If this is the first run we download nerd-icons package and
   ;; run the font installation command
-  (unless (find-font (font-spec :name "NFM"))
+  (unless (find-font (font-spec :name "Symbols Nerd Font Mono"))
     (nerd-icons-install-fonts t)))
 
 ;; rainbow-delimiters
