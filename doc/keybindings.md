@@ -126,6 +126,7 @@
 | C-\<f12\>      | ibuffer-sidebar-toggle-sidebar                 |
 | s-/            | avy-goto-char                                  |
 | C-=            | copy-line                                      |
+| C-c q          | gptel                                          |
 | C-c r p        | parrot-rotate-prev-word-at-point               |
 | C-c r n        | parrot-rotate-next-word-at-point               |
 | C-m            | YAML mode - New line and indent                |

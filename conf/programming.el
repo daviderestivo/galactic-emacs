@@ -149,6 +149,29 @@
                 (add-hook 'before-save-hook #'lsp-format-buffer t t)
                 (add-hook 'before-save-hook #'lsp-organize-imports t t)))))
 
+;; A simple LLM client for Emacs
+(use-package gptel
+  :ensure t
+  :defer t
+  :bind
+  ("C-c q" . 'gptel)
+  :config
+  ;; Move the cursor to the next prompt after the response is inserted
+  (add-hook 'gptel-post-response-functions 'gptel-end-of-response)
+  ;; Define a custom backend for LM Studio
+  (setq gptel-backend
+        (gptel-make-openai
+            "LM-Studio"
+          :protocol "http"
+          :host "localhost:1234"
+          :endpoint "/v1/chat/completions"
+          :models '(lmstudio) ;; Avoid warnings by defining a dummy model list
+          :stream t)
+        ;; Choose one of curl `http://localhost:1234/v1/models'
+        gptel-model 'lmstudio
+        gptel-system-message "You are a helpful assistant."
+        gptel-prompt-prefix-alist '((markdown-mode . "> ") (org-mode . "> ") (text-mode . "> "))))
+
 ;; Haskell mode
 (use-package haskell-mode
   :ensure t
