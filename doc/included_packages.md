@@ -60,6 +60,7 @@ The package management tool used is: [use-package](https://github.com/jwiegley/u
 * [geiser](https://gitlab.com/jaor/geiser)
 * [git-timemachine](https://codeberg.org/pidu/git-timemachine)
 * [go-mode](https://github.com/dominikh/go-mode.el)
+* [gptel](https://github.com/karthink/gptel)
 * [haskell-mode](https://github.com/haskell/haskell-mode)
 * [lsp-mode](https://github.com/emacs-lsp/lsp-mode)
 * [lsp-treemacs](https://github.com/emacs-lsp/lsp-treemacs)
