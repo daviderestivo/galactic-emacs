@@ -59,6 +59,10 @@
 
 ;;; General configuration section
 
+;; Suppress "Missing lexical-binding cookie" warnings
+(setq warning-suppress-types
+      '((files missing-lexbind-cookie)))
+
 ;; Dumped Emacs
 (when (boundp 'galactic-emacs-pdumper-dumped)
   ;; Restore `load-path'
