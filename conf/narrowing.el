@@ -118,6 +118,7 @@
 (use-package helm-ag
   :ensure t
   :ensure-system-package (ag . "brew install the_silver_searcher || sudo apt-get install silversearcher-ag")
+  :quelpa (helm-ag :fetcher github :repo "emacsattic/helm-ag")
   :config
   ;; Use .agignore file at project root
   (setq helm-ag-use-agignore t)
@@ -154,6 +155,7 @@
 ;; Integration between helm and treemacs icons
 (use-package helm-icons
   :ensure t
+  :quelpa (helm-icons :fetcher github :repo "yyoncho/helm-icons")
   :after (helm all-the-icons)
   :init
   (setq helm-icons-provider 'all-the-icons)
