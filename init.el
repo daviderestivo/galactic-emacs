@@ -159,6 +159,14 @@
   (when (string= system-type "gnu/linux")
     (setq system-packages-use-sudo t)))
 
+;; Build and install your Emacs Lisp packages on-the-fly and directly
+;; from source.
+(use-package quelpa
+  :ensure t)
+
+(use-package quelpa-use-package
+  :ensure t)
+
 (require 'bind-key)
 
 ;; Tell Emacs where is your personal elisp lib directory

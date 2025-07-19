@@ -115,6 +115,7 @@ The package management tool used is: [use-package](https://github.com/jwiegley/u
 * [open-junk-file](https://github.com/rubikitch/open-junk-file)
 * [literate-calc-mode](https://github.com/sulami/literate-calc-mode.el)
 * [parrot](https://github.com/dp12/parrot)
+* [quelpa](https://github.com/quelpa/quelpa)
 * [string-inflection](https://github.com/akicho8/string-inflection)
 * [synosaurus](https://github.com/hpdeifel/synosaurus)
 * [swiss-holidays](https://github.com/egli/swiss-holidays)
