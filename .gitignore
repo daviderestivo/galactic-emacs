@@ -20,8 +20,10 @@ eshell/
 hgs-cache
 network-security.data
 personal.el
+quelpa/
 custom.el
 custom-packages-and-settings.el
+org-persist/
 places
 projectile-bookmarks.eld
 projects

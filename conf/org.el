@@ -62,7 +62,6 @@
                 (superword-mode 1)
                 (if (display-graphic-p)
                     (progn
-                      (load-theme 'org-beautify t)
                       (set-face-attribute 'org-agenda-structure nil :height 1.0 :family "Lucida Grande")))))
   :config
   ;; `org-attach' allows to attach files (e.g. images) in an org
@@ -212,23 +211,6 @@
   :after org
   :defer t)
 
-;; Beautify org buffers
-(use-package org-beautify-theme
-  :ensure t
-  :defer t
-  ;; This theme is loaded when entering org-mode. Please see the above
-  ;; org section.
-  )
-
-;; org-bullets
-(use-package org-bullets
-  :ensure t
-  :after org
-  :defer t
-  :hook
-  (org-mode . (lambda ()
-                (org-bullets-mode 1))))
-
 ;; Org Babel: main section
 (use-package ob
   :after org
@@ -277,6 +259,14 @@
   :pin non-gnu
   :ensure t
   :after org)
+
+;; A modern style for org-mode using font locking and text properties
+(use-package org-modern
+  :ensure t
+  :hook (org-mode . org-modern-mode)
+  :custom
+  ;; This list provides a different character for each headline level.
+  (org-modern-star '("◉" "○" "●" "◆" "◇" "■" "□")))
 
 ;; Org Babel: plantuml section
 ;; Ref: plantuml-mode in programming.el
