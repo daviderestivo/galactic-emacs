@@ -266,7 +266,24 @@
   :hook (org-mode . org-modern-mode)
   :custom
   ;; This list provides a different character for each headline level.
-  (org-modern-star '("◉" "○" "●" "◆" "◇" "■" "□")))
+  (org-modern-star '("◉" "○" "●" "◆" "◇" "■" "□"))
+  :config
+  (custom-set-faces
+   ;; Make the title larger
+   '(org-document-title ((t (:inherit default :weight bold :height 2.0 :foreground nil))))
+   ;; Make the author, date, and email info slightly larger
+   '(org-document-info ((t (:inherit default :height 1.3 :foreground nil))))
+   ;; Make the keywords (#+TITLE, #+AUTHOR, etc.) a bit more subtle or hidden
+   '(org-document-info-keyword ((t (:inherit default :height 1.0 :foreground "gray50"))))
+   ;; Customize heading sizes by level
+   '(org-level-1 ((t (:inherit default :height 1.3 :foreground nil))))
+   '(org-level-2 ((t (:inherit default :height 1.2 :foreground nil))))
+   '(org-level-3 ((t (:inherit default :height 1.1 :foreground nil))))
+   '(org-level-4 ((t (:inherit default :height 1.0 :foreground nil))))
+   '(org-level-5 ((t (:inherit default :height 1.0 :foreground nil))))
+   '(org-level-6 ((t (:inherit default :height 1.0 :foreground nil))))
+   '(org-level-7 ((t (:inherit default :height 1.0 :foreground nil))))
+   '(org-level-8 ((t (:inherit default :height 1.0 :foreground nil))))))
 
 ;; Org Babel: plantuml section
 ;; Ref: plantuml-mode in programming.el
