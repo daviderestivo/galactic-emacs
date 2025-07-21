@@ -118,6 +118,7 @@
 (use-package helm-ag
   :ensure t
   :ensure-system-package (ag . "brew install the_silver_searcher || sudo apt-get install silversearcher-ag")
+  :if (not (package-installed-p 'helm-ag))
   :quelpa (helm-ag :fetcher github :repo "emacsattic/helm-ag")
   :config
   ;; Use .agignore file at project root
@@ -156,6 +157,7 @@
 (use-package helm-icons
   :ensure t
   :quelpa (helm-icons :fetcher github :repo "yyoncho/helm-icons")
+  :if (not (package-installed-p 'helm-icons))
   :after (helm all-the-icons)
   :init
   (setq helm-icons-provider 'all-the-icons)
