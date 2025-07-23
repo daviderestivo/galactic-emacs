@@ -268,6 +268,8 @@
   ;; This list provides a different character for each headline level.
   (org-modern-star '("◉" "○" "●" "◆" "◇" "■" "□"))
   :config
+  ;; Fix wrongly indented block delimiters
+  (setq org-modern-block-fringe nil)
   (custom-set-faces
    ;; Make the title larger
    '(org-document-title ((t (:inherit default :weight bold :height 2.0 :foreground nil))))
