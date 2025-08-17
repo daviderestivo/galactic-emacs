@@ -60,7 +60,6 @@
 (setq libera-login-username "MyLiberaUsername"
       libera-login-password "MyLiberaPassword")
 
-
 ;; Join some interesting channels when connecting to Freenode
 (setq erc-autojoin-channels-alist '(("libera"
                                      "#emacs" "#emacs-berlin" "#clojure" "#lisp")))
