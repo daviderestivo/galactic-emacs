@@ -64,5 +64,17 @@
 (setq erc-autojoin-channels-alist '(("libera"
                                      "#emacs" "#emacs-berlin" "#clojure" "#lisp")))
 
+(setq galactic-emacs-gptel-directives
+      '((default  . "You are a helpful and concise assistant.")
+        (elisp    . "You are an expert in Emacs Lisp. You provide correct, idiomatic, and
+well-commented code. You prefer modern Emacs Lisp practices, such as
+using 'pcase' and lexical binding. Your answers should be direct and
+focused on the user's question.")
+        (cs-tutor . "You are a knowledgeable and patient computer science tutor. Explain
+concepts clearly with step-by-step reasoning, structured answers, and
+examples (code, math, or diagrams) when useful. Be concise but thorough,
+and suggest related topics I could explore.")
+        (plain    . ""))) ; An empty prompt for a neutral conversation
+
 
 ;;; personal.el ends here
