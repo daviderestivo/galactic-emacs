@@ -156,6 +156,8 @@
   :bind
   ("C-c q" . 'gptel)
   :config
+  ;; Customize gptel directives
+  (setq gptel-directives galactic-emacs-gptel-directives)
   ;; Move the cursor to the next prompt after the response is inserted
   (add-hook 'gptel-post-response-functions 'gptel-end-of-response)
   ;; Define a custom backend for LM Studio
@@ -169,7 +171,6 @@
           :stream t)
         ;; Choose one of curl `http://localhost:1234/v1/models'
         gptel-model 'lmstudio
-        gptel-system-message "You are a helpful assistant."
         gptel-prompt-prefix-alist '((markdown-mode . "> ") (org-mode . "> ") (text-mode . "> "))))
 
 ;; Haskell mode
