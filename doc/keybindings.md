@@ -32,6 +32,7 @@
 |:----------|:------------------------|
 | M-x       | helm-M-x                |
 | M-y       | helm-show-kill-ring     |
+| C-o       | helm-next-source        |
 | C-x b     | helm-mini               |
 | C-x r b   | helm-filtered-bookmarks |
 | C-x C-f   | helm-find-files         |
