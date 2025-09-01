@@ -64,5 +64,27 @@
 ;; (global-aggressive-indent-mode 1)
 ;; (add-to-list 'aggressive-indent-excluded-modes 'html-mode))
 
+;; MCP servers configuration
+;; (use-package mcp
+;;   :custom
+;;   (mcp-hub-servers
+;;    '(("awslabs.aws-pricing-mcp-server" .
+;;       (:command "uvx"
+;;                 :args ("awslabs.aws-pricing-mcp-server@latest")
+;;                 :env (:AWS_PROFILE "your-aws-profile"
+;;                                   :FASTMCP_LOG_LEVEL "ERROR")))
+;;      ("awslabs.cdk-mcp-server" .
+;;       (:command "uvx"
+;;                 :args ("awslabs.cdk-mcp-server@latest")
+;;                 :env (:FASTMCP_LOG_LEVEL "ERROR")))
+;;      ("awslabs.aws-documentation-mcp-server" .
+;;       (:command "uvx"
+;;                 :args ("awslabs.aws-documentation-mcp-server@latest")
+;;                 :env (:FASTMCP_LOG_LEVEL "ERROR")))
+;;      ("awslabs.terraform-mcp-server" .
+;;       (:command "uvx"
+;;                 :args ("awslabs.terraform-mcp-server@latest")
+;;                 :env (:FASTMCP_LOG_LEVEL "ERROR"))))))
+
 
 ;;; custom-packages-and-settings.el ends here

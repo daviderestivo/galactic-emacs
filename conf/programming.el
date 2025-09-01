@@ -156,6 +156,8 @@
   :bind
   ("C-c q" . 'gptel)
   :config
+  ;; Utility library to simplify integration with MCP.el
+  (require 'gptel-integrations)
   ;; Customize gptel directives
   (setq gptel-directives galactic-emacs-gptel-directives)
   ;; Move the cursor to the next prompt after the response is inserted
@@ -295,6 +297,17 @@
 (use-package markdown-toc
   :ensure t
   :defer t)
+
+;; An Emacs client for interfacing with MCP servers
+(use-package mcp
+  :ensure t
+  :defer t
+  :after gptel
+  ;; Check custom-packages-and-settings.el.example for the
+  ;; `mcp-hub-servers' configuration
+  :config
+  (require 'mcp-hub)
+  (add-hook 'after-init-hook #'mcp-hub-start-all-server))
 
 ;; Octave-mode
 (use-package octave

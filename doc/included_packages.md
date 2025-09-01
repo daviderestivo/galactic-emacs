@@ -75,6 +75,7 @@ The package management tool used is: [use-package](https://github.com/jwiegley/u
 * [magit-org-todos](https://github.com/danielma/magit-org-todos.el)
 * [markdown-mode](http://jblevins.org/projects/markdown-mode)
 * [markdown-toc](https://github.com/ardumont/markdown-toc)
+* [mcp.el](https://github.com/lizqwerscott/mcp.el)
 * [package-lint](https://github.com/purcell/package-lint)
 * [plantuml-mode](https://github.com/skuro/plantuml-mode)
 * [projectile](https://github.com/bbatsov/projectile)
