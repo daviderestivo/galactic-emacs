@@ -1,21 +1,23 @@
+<p align="center">
+   <img src="https://raw.githubusercontent.com/daviderestivo/galactic-emacs/master/logos/galactic-emacs-logo.png" alt="Galactic Emacs Logo">
+</p>
 <h1 align="center">Galactic Emacs</h1>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/daviderestivo/galactic-emacs/master/logos/galactic-emacs-logo.png" alt="Galactic Emacs Logo">
-  <br><br>
   <a href="https://www.gnu.org/licenses/gpl-3.0">
     <img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg" alt="License: GPL v3">
-    </a>
-  <br><br>
+  </a>
+</p>
+<p align="center">
   <a href="https://github.com/daviderestivo/galactic-emacs/actions?query=workflow%3A%22Emacs+28%22">
     <img src="https://github.com/daviderestivo/galactic-emacs/actions/workflows/emacs-28.yml/badge.svg" alt="Galactic Emacs 28 CI Status Badge">
   </a>
   <a href="https://github.com/daviderestivo/galactic-emacs/actions?query=workflow%3A%22Emacs+29%22">
     <img src="https://github.com/daviderestivo/galactic-emacs/actions/workflows/emacs-29.yml/badge.svg" alt="Galactic Emacs 29 CI Status Badge">
   </a>
-    <a href="https://github.com/daviderestivo/galactic-emacs/actions?query=workflow%3A%22Emacs+30%22">
+  <a href="https://github.com/daviderestivo/galactic-emacs/actions?query=workflow%3A%22Emacs+30%22">
     <img src="https://github.com/daviderestivo/galactic-emacs/actions/workflows/emacs-30.yml/badge.svg" alt="Galactic Emacs 30 CI Status Badge">
   </a>
-    <a href="https://github.com/daviderestivo/galactic-emacs/actions?query=workflow%3A%22Emacs+31%22">
+  <a href="https://github.com/daviderestivo/galactic-emacs/actions?query=workflow%3A%22Emacs+31%22">
     <img src="https://github.com/daviderestivo/galactic-emacs/actions/workflows/emacs-31.yml/badge.svg" alt="Galactic Emacs 31 CI Status Badge">
   </a>
 </p>
