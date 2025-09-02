@@ -5,6 +5,7 @@
   <a href="https://www.gnu.org/licenses/gpl-3.0">
     <img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg" alt="License: GPL v3">
     </a>
+  <br><br>
   <a href="https://github.com/daviderestivo/galactic-emacs/actions?query=workflow%3A%22Emacs+28%22">
     <img src="https://github.com/daviderestivo/galactic-emacs/actions/workflows/emacs-28.yml/badge.svg" alt="Galactic Emacs 28 CI Status Badge">
   </a>
