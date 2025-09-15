@@ -42,6 +42,7 @@
 ;; framework for Emacs.
 (use-package helm
   :ensure t
+  :ensure-system-package (rg . "brew install ripgrep || sudo apt-get install ripgrep")
   :hook
   (helm-minibuffer-set-up . galactic-emacs-helm-hide-minibuffer-maybe)
   :diminish helm-mode
@@ -90,16 +91,19 @@
   (setq helm-autoresize-min-height 40)
   (helm-autoresize-mode 1)
   (define-key minibuffer-local-map (kbd "C-c C-l") 'helm-minibuffer-history)
-  ;; Replace the default helm grep command with ag.
-  ;; Requires "The Silver Searcher" (ag) to be installed.
-  ;; On macOS use: 'brew install the_silver_searcher'
-  (when (executable-find "ag")
-    ;; For helm to recognize correctly the matches we need to enable
-    ;; line numbers and columns in its output, something the
-    ;; --vimgrep option does.
-    (setq helm-grep-default-command         "ag -i --vimgrep --nogroup --nocolor -z %p %f"
-          helm-grep-default-recurse-command "ag -i --vimgrep --nogroup --nocolor -z %p %f"))
+  ;; Replace the default helm grep command with rg. Requires ripgrep
+  ;; package
+  (setq helm-grep-ag-command (concat "rg"
+                                     " --color=always"
+                                     " --colors 'match:fg:228,191,124'"
+                                     " --smart-case"
+                                     " --no-heading"
+                                     ;; Search through a repository and its submodules
+                                     " --no-ignore-vcs"
+                                     " --line-number %s -- %s %s")
+        helm-grep-file-path-style 'basename)
   :bind
+  ("M-<f6>"    . galactic-emacs-directory-search-rg)
   ;; bind keys because of this commit:
   ;; https://github.com/emacs-helm/helm/commit/1de1701c73b15a86e99ab1c5c53bd0e8659d8ede
   ("M-x"       . helm-M-x)
@@ -111,31 +115,6 @@
   ("C-c h x"   . helm-register)
   ("C-c C-SPC" . helm-mark-ring)
   ("C-c h SPC" . helm-all-mark-rings))
-
-;; helm-ag
-;; Requires "The Silver Searcher" (ag) to be installed.
-;; On macOS use: 'brew install the_silver_searcher'
-(use-package helm-ag
-  :ensure t
-  :ensure-system-package (ag . "brew install the_silver_searcher || sudo apt-get install silversearcher-ag")
-  :if (not (package-installed-p 'helm-ag))
-  :quelpa (helm-ag :fetcher github :repo "emacsattic/helm-ag")
-  :config
-  ;; Use .agignore file at project root
-  (setq helm-ag-use-agignore t)
-  ;; Enable  approximate string matching (fuzzy matching)
-  (setq helm-ag-fuzzy-match t)
-  ;; Allow to recursively search git repositories inside other
-  ;; repository (text files only, binary files are ignored)
-  (setq helm-ag-command-option "--all-text")
-  ;; :bind together with lambdas is unsupported in use-package
-  (global-set-key (kbd "M-s") #'(lambda (P)
-                                  (interactive "P")
-                                  (if (eq P nil)
-                                      (helm-do-ag-this-file)
-                                    (helm-do-ag-buffers))))
-  :bind
-  ("M-<f6>" . helm-do-ag))
 
 ;; helm-descbinds
 (use-package helm-descbinds

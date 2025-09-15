@@ -69,15 +69,38 @@
 ;;
 ;; ORG helper functions
 ;;
-;; Search for a keyword on the ORG directory using ag
-;; Requires "The Silver Searcher" (ag) to be installed:
-;; On macOS use: 'brew install the_silver_searcher'
-;; On a Debian based GNU/Linux distro use: 'apt-get install silversearcher-ag'
-(defun galactic-emacs-org-directory-search-ag ()
-  "Search for a keyword in the ORG folder using ag"
+;; Search for a keyword in a `generic' directory using rg. Requires
+;; ripgrep to be installed
+(defun galactic-emacs-directory-search-rg (directory &optional with-types)
+  "Search in DIRECTORY with rg.
+With WITH-TYPES, ask for file types to search in."
+  (interactive
+   (list
+    (helm-read-file-name "Search directory: "
+                         :name "Helm Directory"
+                         :must-match t
+                         :marked-candidates nil
+                         :initial-input default-directory
+                         :test 'file-directory-p)
+    current-prefix-arg))
+  (require 'helm-adaptive)
+  (helm-grep-ag-1 (expand-file-name directory)
+                  (helm-aif (and with-types
+                                 (helm-grep-ag-get-types))
+                      (helm-comp-read
+                       "RG type: " it
+                       :must-match t
+                       :marked-candidates t
+                       :fc-transformer 'helm-adaptive-sort
+                       :buffer "*helm rg types*"))))
+
+;; Search for a keyword in the `ORG' directory using rg. Requires
+;; ripgrep to be installed
+(defun galactic-emacs-org-directory-search-rg ()
+  "Search in the org directory with rg."
   (interactive)
   (if (not (eq org-directory nil))
-      (helm-do-ag org-directory)
+      (galactic-emacs-directory-search-rg org-directory)
     (message "error: org-directory not set.")))
 
 ;; Link: https://stackoverflow.com/questions/25161792/emacs-org-mode-how-can-i-fold-everything-but-the-current-headline
