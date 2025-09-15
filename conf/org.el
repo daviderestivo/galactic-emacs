@@ -176,7 +176,7 @@
   (setq org-agenda-span 14)
   :bind
   ;; Global keybindings
-  (("<f6>"   . galactic-emacs-org-directory-search-ag)
+  (("<f6>"   . galactic-emacs-org-directory-search-rg)
    ("\C-ca"  . org-agenda)
    ("\C-cc"  . org-capture)
    ;; Local to org-mode keybindings

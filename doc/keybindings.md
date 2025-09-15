@@ -28,23 +28,21 @@
 
 ## Helm Mode
 
-| Key       | Function                |
-|:----------|:------------------------|
-| M-x       | helm-M-x                |
-| M-y       | helm-show-kill-ring     |
-| C-o       | helm-next-source        |
-| C-x b     | helm-mini               |
-| C-x r b   | helm-filtered-bookmarks |
-| C-x C-f   | helm-find-files         |
-| C-x C-r   | helm-recentf            |
-| C-c h x   | helm-register           |
-| C-c C-SPC | helm-mark-ring          |
-| C-c h SPC | helm-all-mark-rings     |
-| M-\<f6\>  | helm-do-ag              |
-| M-s       | helm-do-ag-this-file    |
-| C-u M-s   | helm-do-ag-buffers      |
-| C-c C-;   | helm-eshell-prompts     |
-| C-c C-l   | helm-eshell-history     |
+| Key       | Function                           |
+|:----------|:-----------------------------------|
+| M-x       | helm-M-x                           |
+| M-y       | helm-show-kill-ring                |
+| C-o       | helm-next-source                   |
+| C-x b     | helm-mini                          |
+| C-x r b   | helm-filtered-bookmarks            |
+| C-x C-f   | helm-find-files                    |
+| C-x C-r   | helm-recentf                       |
+| C-c h x   | helm-register                      |
+| C-c C-SPC | helm-mark-ring                     |
+| C-c h SPC | helm-all-mark-rings                |
+| M-\<f6\>  | galactic-emacs-directory-search-rg |
+| C-c C-;   | helm-eshell-prompts                |
+| C-c C-l   | helm-eshell-history                |
 
 ## Magit Mode
 
@@ -81,7 +79,7 @@
 | C-c e  | org-encrypt-entry                              |
 | C-c i  | org-insert-heading                             |
 | C-c j  | galactic-emacs-org-show-current-heading-tidily |
-| \<f6\> | galactic-emacs-org-directory-search-ag         |
+| \<f6\> | galactic-emacs-org-directory-search-rg         |
 | \<f7\> | create new empty buffer (org-mode)             |
 
 ## Smartparens Mode
