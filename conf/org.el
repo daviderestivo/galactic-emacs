@@ -40,8 +40,8 @@
 ;;; Code:
 ;; Org-Mode: main section
 (use-package org
+  :demand t
   :pin gnu
-  :defer t
   :hook
   (org-insert-heading . (lambda () (galactic-emacs-insert-org-property-drawer)))
   (org-agenda-mode . (lambda ()
@@ -180,12 +180,12 @@
    ("\C-ca"  . org-agenda)
    ("\C-cc"  . org-capture)
    ;; Local to org-mode keybindings
-   (:map org-mode-map
-         ("\C-cb"  . org-fold-hide-block-all)
-         ("\C-cd"  . org-decrypt-entry)
-         ("\C-ce"  . org-encrypt-entry)
-         ("\C-ci"  . org-insert-heading)
-         ("\C-cj"  . galactic-emacs-org-show-current-heading-tidily))))
+   :map org-mode-map
+   ("\C-cb"  . org-fold-hide-block-all)
+   ("\C-cd"  . org-decrypt-entry)
+   ("\C-ce"  . org-encrypt-entry)
+   ("\C-ci"  . org-insert-heading)
+   ("\C-cj"  . galactic-emacs-org-show-current-heading-tidily)))
 
 ;; Make invisible parts of Org elements appear visible. Requires
 ;; emacs-29.1
