@@ -275,8 +275,14 @@
   ("<f2>" . magit-status)
   ("<f5>" . magit-list-repositories))
 
+;; static-when was removed from newer Emacs compatibility layers, and
+;; some older packages still reference it.
+(use-package compat
+  :ensure t)
+
 ;; magit-org-todos - Get todo.org into your magit status.
 (use-package magit-org-todos
+  :after (magit org compact)
   :ensure t
   :config
   (magit-org-todos-autoinsert))
