@@ -45,6 +45,7 @@ The package management tool used is: [use-package](https://github.com/jwiegley/u
 * [walkman](https://github.com/abrochard/walkman)
 
 ## Programming
+* [agent-shell](https://github.com/xenodium/agent-shell)
 * [bug-hunter](https://github.com/Malabarba/elisp-bug-hunter)
 * [cider](https://github.com/clojure-emacs/cider)
 * [company](https://github.com/company-mode/company-mode)

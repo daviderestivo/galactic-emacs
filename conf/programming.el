@@ -38,6 +38,17 @@
 
 
 ;;; Code:
+;; agent-shell configuration for Kiro CLI
+(use-package agent-shell
+  :ensure t
+  :defer t
+  :ensure-system-package (kiro-cli . "brew install kiro-cli || curl -fsSL https://cli.kiro.dev/install | bash")
+  :config
+  ;; Set Kiro as your preferred/default agent
+  (setq agent-shell-preferred-agent-config 'kiro)
+  :bind (("C-c k a" . agent-shell)
+         ("C-c k A" . agent-shell-new-shell)))
+
 ;; Automatically debug and bisect your init file
 (use-package bug-hunter
   :ensure t

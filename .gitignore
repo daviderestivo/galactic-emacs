@@ -10,6 +10,7 @@
 .mc-lists.el
 .nrepl-port
 .org-id-locations
+agent/
 auto-save-list/
 bookmarks
 eclipse.jdt.ls/
