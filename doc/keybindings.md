@@ -4,6 +4,7 @@
 **Table of Contents**
 
 - [Key bindings](#key-bindings)
+    - [Agent Shell Mode](#agent-shell-mode)
     - [Eshell Mode](#eshell-mode)
     - [Helm Mode](#helm-mode)
     - [Magit Mode](#magit-mode)
@@ -15,6 +16,13 @@
 
 <!-- markdown-toc end -->
 
+
+## Agent Shell Mode
+
+| Key     | Function              |
+|:--------|:----------------------|
+| C-c k a | agent-shell           |
+| C-c k A | agent-shell-new-shell |
 
 ## Eshell Mode
 

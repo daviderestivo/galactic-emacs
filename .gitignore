@@ -10,6 +10,7 @@
 .mc-lists.el
 .nrepl-port
 .org-id-locations
+agent/
 auto-save-list/
 bookmarks
 eclipse.jdt.ls/
@@ -26,6 +27,7 @@ custom-packages-and-settings.el
 org-persist/
 places
 projectile-bookmarks.eld
+projectile-frecency.eld
 projects
 recentf
 request/
