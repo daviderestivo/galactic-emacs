@@ -19,10 +19,11 @@
 
 ## Agent Shell Mode
 
-| Key     | Function              |
-|:--------|:----------------------|
-| C-c k a | agent-shell           |
-| C-c k A | agent-shell-new-shell |
+| Key     | Function                                |
+|:--------|:----------------------------------------|
+| C-c k a | agent-shell                             |
+| C-c k A | agent-shell-new-shell                   |
+| C-c k ! | agent-shell-insert-shell-command-output |
 
 ## Eshell Mode
 
