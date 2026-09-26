@@ -416,5 +416,14 @@ When PFX is non-nil, ignore the prompt and just install"
                (if known-dest? "installed" "downloaded")
                font-dest))))
 
+(defun galactic-emacs-kiro-ensure-auth ()
+  "Check kiro-cli is logged in before starting agent."
+  (unless (zerop (call-process "kiro-cli" nil nil nil "whoami"))
+    (if (y-or-n-p "Kiro not logged in. Run login now?")
+        (let ((buf (make-term "kiro-login" "kiro-cli" nil "login")))
+          (switch-to-buffer buf)
+          (error "Complete login, then restart agent-shell"))
+      (error "Kiro authentication required"))))
+
 
 ;;; helper-functions.el ends here
