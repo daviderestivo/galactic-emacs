@@ -1,6 +1,7 @@
 #--- Emacs ---
 *~
 *.elc
+.agent-shell/
 .cache/
 .dap-breakpoints
 .erc
