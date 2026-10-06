@@ -425,5 +425,8 @@ When PFX is non-nil, ignore the prompt and just install"
           (error "Complete login, then restart agent-shell"))
       (error "Kiro authentication required"))))
 
+(defun galactic-emacs-agent-shell-fixed-location (subdir)
+  "Store all agent-shell data in a \"~/.emacs.d/.agent-shell/\""
+  (expand-file-name subdir (expand-file-name ".agent-shell" user-emacs-directory)))
 
 ;;; helper-functions.el ends here
