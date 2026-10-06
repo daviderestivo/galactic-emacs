@@ -8,9 +8,6 @@
   </a>
 </p>
 <p align="center">
-  <a href="https://github.com/daviderestivo/galactic-emacs/actions?query=workflow%3A%22Emacs+28%22">
-    <img src="https://github.com/daviderestivo/galactic-emacs/actions/workflows/emacs-28.yml/badge.svg" alt="Galactic Emacs 28 CI Status Badge">
-  </a>
   <a href="https://github.com/daviderestivo/galactic-emacs/actions?query=workflow%3A%22Emacs+29%22">
     <img src="https://github.com/daviderestivo/galactic-emacs/actions/workflows/emacs-29.yml/badge.svg" alt="Galactic Emacs 29 CI Status Badge">
   </a>
@@ -19,6 +16,9 @@
   </a>
   <a href="https://github.com/daviderestivo/galactic-emacs/actions?query=workflow%3A%22Emacs+31%22">
     <img src="https://github.com/daviderestivo/galactic-emacs/actions/workflows/emacs-31.yml/badge.svg" alt="Galactic Emacs 31 CI Status Badge">
+  </a>
+  <a href="https://github.com/daviderestivo/galactic-emacs/actions?query=workflow%3A%22Emacs+32%22">
+    <img src="https://github.com/daviderestivo/galactic-emacs/actions/workflows/emacs-32.yml/badge.svg" alt="Galactic Emacs 32 CI Status Badge">
   </a>
 </p>
 
