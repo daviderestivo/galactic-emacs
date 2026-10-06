@@ -46,6 +46,7 @@
   :config
   ;; Set Kiro as your preferred/default agent
   (setq agent-shell-preferred-agent-config 'kiro)
+  (setopt agent-shell-dot-subdir-function #'galactic-emacs-agent-shell-fixed-location)
   ;; Check kiro-cli is logged in before starting agent
   (advice-add 'agent-shell-new-shell :before #'galactic-emacs-kiro-ensure-auth)
   :bind (("C-c k a" . agent-shell)
