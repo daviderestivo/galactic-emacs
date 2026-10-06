@@ -24,11 +24,10 @@ on:
 jobs:
   build:
 
-    runs-on: macos-15
+    runs-on: macos-latest
     strategy:
       matrix:
         build_opts:
-          # Emacs 31.x
           - 'emacs-head@31'
 
     env:
