@@ -46,6 +46,8 @@
   :config
   ;; Set Kiro as your preferred/default agent
   (setq agent-shell-preferred-agent-config 'kiro)
+  ;; Disable automatic context injection (e.g., project files, buffers)
+  (setq agent-shell-context-sources nil)
   (setopt agent-shell-dot-subdir-function #'galactic-emacs-agent-shell-fixed-location)
   ;; Check kiro-cli is logged in before starting agent
   (advice-add 'agent-shell-new-shell :before #'galactic-emacs-kiro-ensure-auth)
