@@ -1,4 +1,4 @@
-;;; cisco-router-mode.el --- Major mode for editing Cisco router configuration files
+;;; cisco-router-mode.el --- Major mode for editing Cisco router configuration files  -*- lexical-binding: t; -*-
 ;;
 ;; Copyright (C) 2004 Noufal Ibrahim <nkv at hcoop period net>
 ;;
