@@ -277,6 +277,16 @@
             "Update Installed Packages"
             (lambda (&rest _) (galactic-emacs-update-packages)))))))
 
+;; dimmer-mode
+(use-package dimmer
+  :ensure t
+  :diminish dimmer
+  :config
+  (dimmer-configure-which-key)
+  (dimmer-mode t)
+  ;; Adjust dimming amount (0.0-1.0, default 0.20)
+  (setq dimmer-fraction 0.30))
+
 ;; doom-modeline
 (use-package doom-modeline
   :ensure t
@@ -440,11 +450,11 @@
   ;; Allow treemacs window to be resized and disable line numbers
   (treemacs-mode .
                  (lambda () (progn
-                              (treemacs-toggle-fixed-width)
-                              (if (version< emacs-version "26.1")
-                                  (linum-mode)
-                                (display-line-numbers-mode))
-                              (setq display-line-numbers nil))))
+                         (treemacs-toggle-fixed-width)
+                         (if (version< emacs-version "26.1")
+                             (linum-mode)
+                           (display-line-numbers-mode))
+                         (setq display-line-numbers nil))))
   :config
   (progn
     (setq treemacs-collapse-dirs              (if (executable-find "python") 3 0)
