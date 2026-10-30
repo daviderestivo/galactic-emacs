@@ -282,8 +282,16 @@
   :ensure t
   :diminish dimmer
   :config
-  (dimmer-configure-which-key)
   (dimmer-mode t)
+  ;; A convenience function for which-key users to ensure which-key
+  ;; popups are not dimmed
+  (dimmer-configure-which-key)
+  ;; A convenience function for helm users to ensure helm buffers are
+  ;; not dimmed
+  (dimmer-configure-helm)
+  ;; A convenience function for magit users to ensure transients are
+  ;; not dimmed
+  (dimmer-configure-magit)
   ;; Adjust dimming amount (0.0-1.0, default 0.20)
   (setq dimmer-fraction 0.30))
 
