@@ -130,6 +130,7 @@ The package management tool used is: [use-package](https://github.com/jwiegley/u
 * [auto-highlight-symbol](https://github.com/gennad/auto-highlight-symbol)
 * [beacon](https://github.com/Malabarba/beacon)
 * [dashboard](https://github.com/rakanalh/emacs-dashboard)
+* [dimmer](https://github.com/gonewest818/dimmer.el)
 * [doom-modeline](https://github.com/seagle0128/doom-modeline)
 * [diff-hl](https://github.com/dgutov/diff-hl)
 * [eyebrowse](https://github.com/wasamasa/eyebrowse)
