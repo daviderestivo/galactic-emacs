@@ -1,4 +1,4 @@
-;;; transpose-frame.el --- Transpose windows arrangement in a frame
+;;; transpose-frame.el --- Transpose windows arrangement in a frame  -*- lexical-binding: t; -*-
 
 ;; Copyright (c) 2011  S. Irie
 
